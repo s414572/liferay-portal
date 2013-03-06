@@ -46,6 +46,8 @@
 			/>
 		</delete>
 
+		<delete dir="test-coverage" />
+
 		<if>
 			<equals arg1="${app.server.type}" arg2="glassfish" />
 			<then>
