@@ -346,17 +346,22 @@ public class PermissionImporter {
 					subType);
 			}
 
-			String roleName = role.getName();
+			Group group = GroupLocalServiceUtil.getGroup(groupId);
 
-			if (!layout.isPrivateLayout() ||
-				!roleName.equals(RoleConstants.GUEST)) {
+			if (!group.isLayoutPrototype() && !group.isLayoutSetPrototype() &&
+				layout.isPrivateLayout()) {
 
-				List<String> actions = getActions(roleElement);
+				String roleName = role.getName();
 
-				roleIdsToActionIds.put(
-					role.getRoleId(),
-					actions.toArray(new String[actions.size()]));
+				if (roleName.equals(RoleConstants.GUEST)) {
+					continue;
+				}
 			}
+
+			List<String> actions = getActions(roleElement);
+
+			roleIdsToActionIds.put(
+				role.getRoleId(), actions.toArray(new String[actions.size()]));
 		}
 
 		if (roleIdsToActionIds.isEmpty()) {
