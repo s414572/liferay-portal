@@ -316,10 +316,6 @@ boolean hasLayoutUpdatePermission = LayoutPermissionUtil.contains(permissionChec
 				if (!group.isControlPanel()) {
 					controlPanelCategory = PortletCategoryKeys.MY;
 				}
-
-				String myAccountURL = themeDisplay.getURLMyAccount().toString();
-
-				myAccountURL = HttpUtil.setParameter(myAccountURL, "controlPanelCategory", controlPanelCategory);
 				%>
 
 				<liferay-util:buffer var="userName">
@@ -331,7 +327,14 @@ boolean hasLayoutUpdatePermission = LayoutPermissionUtil.contains(permissionChec
 				</liferay-util:buffer>
 
 				<c:choose>
-					<c:when test="<%= PortalPermissionUtil.contains(permissionChecker, ActionKeys.VIEW_CONTROL_PANEL) %>">
+					<c:when test="<%= Validator.isNotNull(themeDisplay.getURLMyAccount()) %>">
+
+						<%
+						String myAccountURL = themeDisplay.getURLMyAccount().toString();
+
+						myAccountURL = HttpUtil.setParameter(myAccountURL, "controlPanelCategory", controlPanelCategory);
+						%>
+
 						<aui:a cssClass='<%= "user-portrait" + useDialog %>' href="<%= myAccountURL %>" title="manage-my-account">
 							<%= userName %>
 						</aui:a>
