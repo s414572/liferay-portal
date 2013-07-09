@@ -1369,9 +1369,7 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 			portletElement.elementText("portlet-data-handler-class"),
 			portletModel.getPortletDataHandlerClass());
 
-		if (Validator.isNull(portletDataHandlerClass) &&
-			Validator.isNotNull(portletModel.getConfigurationActionClass())) {
-
+		if (Validator.isNull(portletDataHandlerClass)) {
 			portletDataHandlerClass =
 				DefaultConfigurationPortletDataHandler.class.getName();
 		}
