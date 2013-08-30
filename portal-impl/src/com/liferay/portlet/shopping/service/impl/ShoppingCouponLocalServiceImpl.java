@@ -241,7 +241,7 @@ public class ShoppingCouponLocalServiceImpl
 
 	protected String getCode() throws SystemException {
 		String code = PwdGenerator.getPassword(
-			PwdGenerator.KEY1 + PwdGenerator.KEY2, 8);
+			8, PwdGenerator.KEY1, PwdGenerator.KEY2);
 
 		try {
 			shoppingCouponPersistence.findByCode(code);
