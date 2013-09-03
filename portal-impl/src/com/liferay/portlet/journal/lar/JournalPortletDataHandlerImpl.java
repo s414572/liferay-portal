@@ -405,14 +405,14 @@ public class JournalPortletDataHandlerImpl extends BasePortletDataHandler {
 
 		Map<String, String> structureIds =
 			(Map<String, String>)portletDataContext.getNewPrimaryKeysMap(
-				JournalStructure.class);
+				JournalStructure.class.getName() + ".structureId");
 
 		String parentStructureId = MapUtil.getString(
 			structureIds, article.getStructureId(), article.getStructureId());
 
 		Map<String, String> templateIds =
 			(Map<String, String>)portletDataContext.getNewPrimaryKeysMap(
-				JournalTemplate.class);
+				JournalTemplate.class.getName() + ".templateId");
 
 		String parentTemplateId = MapUtil.getString(
 			templateIds, article.getTemplateId(), article.getTemplateId());
