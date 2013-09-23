@@ -32,9 +32,9 @@ public class SOUs_ViewMyPrivatePagesNoSORoleTest extends BaseTestCase {
 		assertEquals(RuntimeVariables.replace("Go to"),
 			selenium.getText("//li[@id='_145_mySites']/a/span"));
 		selenium.mouseOver("//li[@id='_145_mySites']/a/span");
-		selenium.waitForVisible("//span[contains(.,'Dashboard')]");
-		selenium.clickAt("//span[contains(.,'Dashboard')]",
-			RuntimeVariables.replace("Dashboard"));
+		selenium.waitForVisible("//span[contains(.,'My Private Pages')]");
+		selenium.clickAt("//span[contains(.,'My Private Pages')]",
+			RuntimeVariables.replace("My Private Pages"));
 		selenium.waitForPageToLoad("30000");
 		assertTrue(selenium.isVisible(
 				"//a[@title='Go to Social01 Office01 User01']"));

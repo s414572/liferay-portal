@@ -112,6 +112,7 @@ public class SOUs_ViewRemoveRoleSOSitesTest extends BaseTestCase {
 			selenium.getText(
 				"xPath=(//span[@class='portlet-title-text'])[contains(.,'Activities')]"));
 		selenium.waitForVisible("//div[@class='no-activities']");
+		Thread.sleep(1000);
 		assertEquals(RuntimeVariables.replace("There are no activities."),
 			selenium.getText("//div[@class='no-activities']"));
 		assertEquals(RuntimeVariables.replace("Profile"),
