@@ -83,8 +83,6 @@ public class ExportImportAction extends PortletAction {
 			ActionResponse actionResponse)
 		throws Exception {
 
-		actionRequest = ActionUtil.getWrappedActionRequest(actionRequest, null);
-
 		Portlet portlet = null;
 
 		try {
@@ -96,6 +94,8 @@ public class ExportImportAction extends PortletAction {
 
 			setForward(actionRequest, "portlet.portlet_configuration.error");
 		}
+
+		actionRequest = ActionUtil.getWrappedActionRequest(actionRequest, null);
 
 		String cmd = ParamUtil.getString(actionRequest, Constants.CMD);
 
