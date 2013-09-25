@@ -33,6 +33,7 @@ public class SOUs_ViewActivitiesProfileTest extends BaseTestCase {
 		assertEquals(RuntimeVariables.replace("socialoffice01@liferay.com"),
 			selenium.getText("//div[@class='lfr-contact-extra']"));
 		selenium.waitForVisible("//div[@class='no-activities']");
+		Thread.sleep(1000);
 		assertEquals(RuntimeVariables.replace("There are no activities."),
 			selenium.getText("//div[@class='no-activities']"));
 		assertFalse(selenium.isTextPresent("Microblogs Post1"));
