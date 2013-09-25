@@ -41,6 +41,7 @@ public class ViewLinkHomeTest extends BaseTestCase {
 			selenium.getText(
 				"xPath=(//h1[@class='portlet-title'])[contains(.,'Activities')]"));
 		selenium.waitForVisible("//div[@class='no-activities']");
+		Thread.sleep(1000);
 		assertEquals(RuntimeVariables.replace("There are no activities."),
 			selenium.getText("//div[@class='no-activities']"));
 		assertEquals(RuntimeVariables.replace("Connections"),

@@ -46,6 +46,8 @@ public class SOUs1_ViewMBContentViewableByConnectionsTest extends BaseTestCase {
 			selenium.getText("link=Following"));
 		selenium.clickAt("link=Following", RuntimeVariables.replace("Following"));
 		selenium.waitForPageToLoad("30000");
+		selenium.waitForVisible("//div[@class='no-activities']");
+		Thread.sleep(1000);
 		assertEquals(RuntimeVariables.replace("There are no activities."),
 			selenium.getText("//div[@class='no-activities']"));
 		assertFalse(selenium.isTextPresent("Followers Microblogs Post"));

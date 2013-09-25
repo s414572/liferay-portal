@@ -54,18 +54,20 @@ public class SendMembersInvitationPrivRstrSiteTest extends BaseTestCase {
 		selenium.waitForVisible(
 			"//div[contains(@class,'user-search')]/div[@class='search']");
 		Thread.sleep(1000);
-		selenium.waitForText("//div[contains(@class,'user')]/span[@class='name']",
+		selenium.waitForText("//div[contains(@class,'list')]/div/span[@class='name']",
 			"Social01 Office01 User01");
 		assertEquals(RuntimeVariables.replace("Social01 Office01 User01"),
 			selenium.getText(
-				"//div[contains(@class,'user')]/span[@class='name']"));
-		selenium.clickAt("//div[contains(@class,'user')]/span[@class='name']",
+				"//div[contains(@class,'list')]/div/span[@class='name']"));
+		selenium.clickAt("//div[contains(@class,'list')]/div/span[@class='name']",
 			RuntimeVariables.replace("Social01 Office01 User01"));
 		selenium.waitForVisible("//div[@class='user-invited']/div/div");
-		assertEquals(RuntimeVariables.replace("Social01 Office01 User01"),
-			selenium.getText("//div[@class='user-invited']/div/div"));
-		assertEquals(RuntimeVariables.replace("socialoffice01@liferay.com"),
-			selenium.getText("//div[@class='user-invited']/div/div"));
+		assertTrue(selenium.isPartialText(
+				"//div[@class='user-invited']/div/div",
+				"Social01 Office01 User01"));
+		assertTrue(selenium.isPartialText(
+				"//div[@class='user-invited']/div/div",
+				"socialoffice01@liferay.com"));
 		assertEquals("Send Invitations",
 			selenium.getValue("//input[@value='Send Invitations']"));
 		selenium.clickAt("//input[@value='Send Invitations']",

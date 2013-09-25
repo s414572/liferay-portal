@@ -115,7 +115,7 @@ public class ViewSitesSiteTest extends BaseTestCase {
 		selenium.waitForPageToLoad("30000");
 		selenium.type("//input[@id='_134_name']",
 			RuntimeVariables.replace("Open Site "));
-		selenium.clickAt("//input[@value='Search']",
+		selenium.clickAt("//form[contains(@id,'_134_')]/span/span[2]/span/input[@value='Search']",
 			RuntimeVariables.replace("Search"));
 		selenium.waitForPageToLoad("30000");
 		assertEquals(RuntimeVariables.replace("Open Site Name"),
