@@ -51,12 +51,12 @@ public class SendMemberInviteSOUserSiteTest extends BaseTestCase {
 			RuntimeVariables.replace("Invite members to this site."));
 		selenium.waitForVisible(
 			"//div[contains(@class,'user-search')]/div[@class='search']");
-		selenium.waitForText("//div[contains(@class,'user')]/span[@class='name']",
+		selenium.waitForText("//div[contains(@class,'list')]/div/span[@class='name']",
 			"Social01 Office01 User01");
 		assertEquals(RuntimeVariables.replace("Social01 Office01 User01"),
 			selenium.getText(
-				"//div[contains(@class,'user')]/span[@class='name']"));
-		selenium.clickAt("//div[contains(@class,'user')]/span[@class='name']",
+				"//div[contains(@class,'list')]/div/span[@class='name']"));
+		selenium.clickAt("//div[contains(@class,'list')]/div/span[@class='name']",
 			RuntimeVariables.replace("Social01 Office01 User01"));
 		selenium.waitForVisible("//div[@class='user-invited']/div/div");
 		assertTrue(selenium.isPartialText(

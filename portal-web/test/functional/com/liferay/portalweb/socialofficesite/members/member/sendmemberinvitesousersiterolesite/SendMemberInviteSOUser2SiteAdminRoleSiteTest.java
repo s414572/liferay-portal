@@ -53,12 +53,12 @@ public class SendMemberInviteSOUser2SiteAdminRoleSiteTest extends BaseTestCase {
 		selenium.waitForVisible(
 			"//div[contains(@class,'user-search')]/div[@class='search']");
 		Thread.sleep(1000);
-		selenium.waitForText("xPath=(//div[contains(@class,'user')]/span[@class='name'])[contains(.,'Social02 Office02 User02')]",
+		selenium.waitForText("xPath=(//div[contains(@class,'list')]/div/span[@class='name'])[contains(.,'Social02 Office02 User02')]",
 			"Social02 Office02 User02");
 		assertEquals(RuntimeVariables.replace("Social02 Office02 User02"),
 			selenium.getText(
-				"xPath=(//div[contains(@class,'user')]/span[@class='name'])[contains(.,'Social02 Office02 User02')]"));
-		selenium.clickAt("xPath=(//div[contains(@class,'user')]/span[@class='name'])[contains(.,'Social02 Office02 User02')]",
+				"xPath=(//div[contains(@class,'list')]/div/span[@class='name'])[contains(.,'Social02 Office02 User02')]"));
+		selenium.clickAt("xPath=(//div[contains(@class,'list')]/div/span[@class='name'])[contains(.,'Social02 Office02 User02')]",
 			RuntimeVariables.replace("Social02 Office02 User02"));
 		selenium.waitForVisible("//div[@class='user-invited']/div/div");
 		assertTrue(selenium.isPartialText(

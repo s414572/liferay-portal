@@ -53,12 +53,12 @@ public class SendMemberInviteSOUserMultipleSiteTest extends BaseTestCase {
 		selenium.waitForVisible(
 			"//div[contains(@class,'user-search')]/div[@class='search']");
 		Thread.sleep(1000);
-		selenium.waitForText("xPath=(//div[contains(@class,'user')]/span[@class='name'])[contains(.,'Social01 Office01 User01')]",
+		selenium.waitForText("xPath=(//div[contains(@class,'list')]/div/span[@class='name'])[contains(.,'Social01 Office01 User01')]",
 			"Social01 Office01 User01");
 		assertEquals(RuntimeVariables.replace("Social01 Office01 User01"),
 			selenium.getText(
-				"xPath=(//div[contains(@class,'user')]/span[@class='name'])[contains(.,'Social01 Office01 User01')]"));
-		selenium.clickAt("xPath=(//div[contains(@class,'user')]/span[@class='name'])[contains(.,'Social01 Office01 User01')]",
+				"xPath=(//div[contains(@class,'list')]/div/span[@class='name'])[contains(.,'Social01 Office01 User01')]"));
+		selenium.clickAt("xPath=(//div[contains(@class,'list')]/div/span[@class='name'])[contains(.,'Social01 Office01 User01')]",
 			RuntimeVariables.replace("Social01 Office01 User01"));
 		selenium.waitForVisible(
 			"xPath=(//div[@class='user-invited']/div/div)[contains(.,'Social01 Office01 User01')]");
@@ -70,8 +70,8 @@ public class SendMemberInviteSOUserMultipleSiteTest extends BaseTestCase {
 				"socialoffice01@liferay.com"));
 		assertEquals(RuntimeVariables.replace("Social02 Office02 User02"),
 			selenium.getText(
-				"xPath=(//div[contains(@class,'user')]/span[@class='name'])[contains(.,'Social02 Office02 User02')]"));
-		selenium.clickAt("xPath=(//div[contains(@class,'user')]/span[@class='name'])[contains(.,'Social02 Office02 User02')]",
+				"xPath=(//div[contains(@class,'list')]/div/span[@class='name'])[contains(.,'Social02 Office02 User02')]"));
+		selenium.clickAt("xPath=(//div[contains(@class,'list')]/div/span[@class='name'])[contains(.,'Social02 Office02 User02')]",
 			RuntimeVariables.replace("Social02 Office02 User02"));
 		selenium.waitForVisible(
 			"xPath=(//div[@class='user-invited']/div/div)[contains(.,'Social02 Office02 User02')]");
@@ -83,8 +83,8 @@ public class SendMemberInviteSOUserMultipleSiteTest extends BaseTestCase {
 				"socialoffice02@liferay.com"));
 		assertEquals(RuntimeVariables.replace("Social03 Office03 User03"),
 			selenium.getText(
-				"xPath=(//div[contains(@class,'user')]/span[@class='name'])[contains(.,'Social03 Office03 User03')]"));
-		selenium.clickAt("xPath=(//div[contains(@class,'user')]/span[@class='name'])[contains(.,'Social03 Office03 User03')]",
+				"xPath=(//div[contains(@class,'list')]/div/span[@class='name'])[contains(.,'Social03 Office03 User03')]"));
+		selenium.clickAt("xPath=(//div[contains(@class,'list')]/div/span[@class='name'])[contains(.,'Social03 Office03 User03')]",
 			RuntimeVariables.replace("Social03 Office03 User03"));
 		selenium.waitForVisible(
 			"xPath=(//div[@class='user-invited']/div/div)[contains(.,'Social03 Office03 User03')]");
@@ -96,8 +96,8 @@ public class SendMemberInviteSOUserMultipleSiteTest extends BaseTestCase {
 				"socialoffice03@liferay.com"));
 		assertEquals(RuntimeVariables.replace("Social04 Office04 User04"),
 			selenium.getText(
-				"xPath=(//div[contains(@class,'user')]/span[@class='name'])[contains(.,'Social04 Office04 User04')]"));
-		selenium.clickAt("xPath=(//div[contains(@class,'user')]/span[@class='name'])[contains(.,'Social04 Office04 User04')]",
+				"xPath=(//div[contains(@class,'list')]/div/span[@class='name'])[contains(.,'Social04 Office04 User04')]"));
+		selenium.clickAt("xPath=(//div[contains(@class,'list')]/div/span[@class='name'])[contains(.,'Social04 Office04 User04')]",
 			RuntimeVariables.replace("Social04 Office04 User04"));
 		selenium.waitForVisible(
 			"xPath=(//div[@class='user-invited']/div/div)[contains(.,'Social04 Office04 User04')]");
