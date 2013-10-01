@@ -12,7 +12,7 @@
 	docroot/html/js/editor/ckeditor_diffs/ckeditor.js.
 	-->
 
-	<property name="ckeditor.file" value="ckeditor_3.6.6.1.zip" />
+	<property name="ckeditor.file" value="ckeditor_3.6.6.1_liferay.zip" />
 	<property name="fckeditor.file" value="FCKeditor_2.6.3.zip" />
 	<property name="tinymce.file" value="tinymce_3.5.6.zip" />
 	<property name="vaadin.file" value="vaadin-6.7.4-liferay.zip" />
