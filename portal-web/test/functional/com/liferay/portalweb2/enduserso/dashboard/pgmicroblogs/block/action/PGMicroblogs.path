@@ -24,6 +24,16 @@
 	<td></td>
 </tr>
 <tr>
+	<td>MICROBLOGS_CONTENT_AUTOCOMPLETE_USERNAME</td>
+	<td>//div[@class='microblogs-autocomplete']//span[@class='user-name']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MICROBLOGS_CONTENT_AUTOCOMPLETE_EMAIL</td>
+	<td>//div[@class='microblogs-autocomplete']//span[@class='small']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>MICROBLOGS_CONTENT_INPUT_FIELD</td>
 	<td>//textarea[contains(@name,'contentInput')]</td>
 	<td></td>

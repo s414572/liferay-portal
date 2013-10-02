@@ -1,0 +1,148 @@
+<html>
+<head>
+<title>SOActivities</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SOActivities</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>SOActivities</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--NAVIGATION-->
+<tr>
+	<td>NAVIGATION_ALL</td>
+	<td>//ul[@class='aui-tabview-list']//a[contains(.,'All')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_CONNECTIONS</td>
+	<td>//ul[@class='aui-tabview-list']//a[contains(.,'Connections')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_FOLLOWING</td>
+	<td>//ul[@class='aui-tabview-list']/li[3]//a[contains(.,'Following')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_MY_SITE</td>
+	<td>//ul[@class='aui-tabview-list']//a[contains(.,'My Site')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_ME</td>
+	<td>//ul[@class='aui-tabview-list']//a[contains(.,'Me')]</td>
+	<td></td>
+</tr>
+<!---->
+<!--NO_ACTIVITIES-->
+<tr>
+	<td>NO_ACTIVITIES</td>
+	<td>//div[@class='no-activities']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--ACTIVITIES-->
+<tr>
+	<td>ACTIVITIES_USER</td>
+	<td>xpath=(//div[@class='activity-user-name'])[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_SITE</td>
+	<td>xpath=(//div[@class='activity-user-name']/a)[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_TIME_STAMP</td>
+	<td>xpath=(//div[@class='activity-time'])[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_ACTION</td>
+	<td>xpath=(//div[@class='activity-action'])[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_TITLE</td>
+	<td>xpath=(//div[@class='title']/a/span[2])[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_EVENT_DATE</td>
+	<td>xpath=(//div[@class='date'])[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_EVENT_LOCATION</td>
+	<td>xpath=(//div[@class='location'])[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_EVENT_DESCRIPTION</td>
+	<td>xpath=(//div[@class='description'])[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_CONTENT</td>
+	<td>xpath=(//div[contains(@class,'activity-body')]//div[contains(@class,'content')])[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_DOCUMENT_DESCRIPTION</td>
+	<td>xpath=(//div[@class='document-content'])[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_DOCUMENT_VERSION</td>
+	<td>xpath=(//div[@class='version'])[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_VIEW_MICROBLOGS</td>
+	<td>xpath=(//a[contains(.,'View Microblogs')])[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_DOWNLOAD</td>
+	<td>xpath=(//a[contains(.,'Download')])[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_REPOST</td>
+	<td>xpath=(//a[contains(.,'Repost')])[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_VIEW_CHANGES</td>
+	<td>xpath=(//a[contains(.,'View Changes')])[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_COMMENT</td>
+	<td>xpath=(//span[@class='view-comments action']/a)[${number}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_COMMENT_FIELD</td>
+	<td>xpath=(//input[contains(@placeholder,'Leave a comment')])[${number}]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

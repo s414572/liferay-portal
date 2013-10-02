@@ -29,6 +29,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>FOLLOWING_MESSAGE</td>
+	<td>//span[@class='following']/span</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ADD_CONTACT_BUTTON</td>
 	<td>//input[@value='Add Contact']</td>
 	<td></td>
