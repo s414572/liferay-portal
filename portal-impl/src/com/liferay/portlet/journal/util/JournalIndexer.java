@@ -56,6 +56,7 @@ import com.liferay.portlet.journal.service.persistence.JournalArticleActionableD
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -608,6 +609,12 @@ public class JournalIndexer extends BaseIndexer {
 
 				Junction approvedArticlesJunction =
 					RestrictionsFactoryUtil.conjunction();
+
+				Property displayDateProperty = PropertyFactoryUtil.forName(
+					"displayDate");
+
+				approvedArticlesJunction.add(
+					displayDateProperty.lt(new Date()));
 
 				Property statusProperty = PropertyFactoryUtil.forName("status");
 
