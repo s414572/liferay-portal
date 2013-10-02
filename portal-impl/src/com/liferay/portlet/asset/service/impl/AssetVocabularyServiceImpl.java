@@ -197,7 +197,7 @@ public class AssetVocabularyServiceImpl extends AssetVocabularyServiceBaseImpl {
 			OrderByComparator obc)
 		throws SystemException {
 
-		return assetVocabularyFinder.filterFindByG_N(
+		return assetVocabularyPersistence.filterFindByG_LikeN(
 			groupId, name, start, end, obc);
 	}
 
@@ -210,7 +210,7 @@ public class AssetVocabularyServiceImpl extends AssetVocabularyServiceBaseImpl {
 	public int getGroupVocabulariesCount(long groupId, String name)
 		throws SystemException {
 
-		return assetVocabularyFinder.filterCountByG_N(groupId, name);
+		return assetVocabularyPersistence.filterCountByG_LikeN(groupId, name);
 	}
 
 	@Override
