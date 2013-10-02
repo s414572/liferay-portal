@@ -8,6 +8,13 @@
 
 <#assign controlPanelPlid = layoutLocalService.getDefaultPlid(controlPanelGroup.getGroupId(), true)>
 
+<#assign selectDocumentURL = portletURLFactory.create(request, "15", controlPanelPlid, "RENDER_PHASE") />
+
+${selectDocumentURL.setWindowState("pop_up")}
+
+${selectDocumentURL.setParameter("groupId", "${scopeGroupId}")}
+${selectDocumentURL.setParameter("struts_action", "/journal/select_document_library")}
+
 <#if !(fields?? && fields.get(fieldName)??) && (fieldRawValue == "")>
 	<#assign fieldRawValue = predefinedValue>
 </#if>
@@ -111,21 +118,10 @@
 		namespacedField.on(
 			'click',
 			function(event) {
-				var portletURL = Liferay.PortletURL.createRenderURL();
-
-				portletURL.setParameter('groupId', ${scopeGroupId?c});
-				portletURL.setParameter('struts_action', '/journal/select_document_library');
-
-				portletURL.setPlid(${controlPanelPlid?c});
-
-				portletURL.setPortletId('15');
-
-				portletURL.setWindowState('pop_up');
-
 				Liferay.Util.openWindow(
 					{
 						id: '${portletNamespace}selectDocumentLibrary',
-						uri: portletURL.toString()
+						uri:'${selectDocumentURL}'
 					}
 				);
 
