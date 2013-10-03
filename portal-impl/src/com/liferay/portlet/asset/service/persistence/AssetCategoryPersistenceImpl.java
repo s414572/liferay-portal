@@ -11543,8 +11543,8 @@ public class AssetCategoryPersistenceImpl extends BasePersistenceImpl<AssetCateg
 	private static final String _FINDER_COLUMN_G_LIKEN_V_GROUPID_5 = "(" +
 		_removeConjunction(_FINDER_COLUMN_G_LIKEN_V_GROUPID_2) + ")";
 	private static final String _FINDER_COLUMN_G_LIKEN_V_NAME_1 = "assetCategory.name LIKE NULL AND ";
-	private static final String _FINDER_COLUMN_G_LIKEN_V_NAME_2 = "assetCategory.name LIKE ? AND ";
-	private static final String _FINDER_COLUMN_G_LIKEN_V_NAME_3 = "(assetCategory.name IS NULL OR assetCategory.name LIKE ?) AND ";
+	private static final String _FINDER_COLUMN_G_LIKEN_V_NAME_2 = "lower(assetCategory.name) LIKE lower(CAST_TEXT(?)) AND ";
+	private static final String _FINDER_COLUMN_G_LIKEN_V_NAME_3 = "(assetCategory.name IS NULL OR lower(assetCategory.name) LIKE lower(CAST_TEXT(?))) AND ";
 	private static final String _FINDER_COLUMN_G_LIKEN_V_NAME_4 = "(" +
 		_removeConjunction(_FINDER_COLUMN_G_LIKEN_V_NAME_1) + ")";
 	private static final String _FINDER_COLUMN_G_LIKEN_V_NAME_5 = "(" +
