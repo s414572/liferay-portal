@@ -37,6 +37,9 @@ import java.util.List;
 public class DLSyncFinderImpl
 	extends BasePersistenceImpl<DLSync> implements DLSyncFinder {
 
+	public static final String FIND_BY_C_M_R_E =
+		DLSyncFinder.class.getName() + ".findByC_M_R_E";
+
 	public static final String FIND_BY_C_M_R_T =
 		DLSyncFinder.class.getName() + ".findByC_M_R_T";
 
@@ -50,13 +53,18 @@ public class DLSyncFinderImpl
 		try {
 			session = openSession();
 
-			String sql = CustomSQLUtil.get(FIND_BY_C_M_R_T);
+			StringBundler sb = new StringBundler(5);
+
+			String sql = CustomSQLUtil.get(FIND_BY_C_M_R_E);
+
+			sb.append(sql);
+			sb.append(" UNION ALL");
+
+			sql = CustomSQLUtil.get(FIND_BY_C_M_R_T);
 
 			sql = InlineSQLHelperUtil.replacePermissionCheck(
-				sql, DLFolder.class.getName(), "DLSync.fileId", null,
+				sql, DLFileEntry.class.getName(), "DLSync.fileId", null,
 				"DLSync.repositoryId", new long[] {repositoryId}, null);
-
-			StringBundler sb = new StringBundler(3);
 
 			sb.append(sql);
 			sb.append(" UNION ALL ");
@@ -64,7 +72,7 @@ public class DLSyncFinderImpl
 			sql = CustomSQLUtil.get(FIND_BY_C_M_R_T);
 
 			sql = InlineSQLHelperUtil.replacePermissionCheck(
-				sql, DLFileEntry.class.getName(), "DLSync.fileId", null,
+				sql, DLFolder.class.getName(), "DLSync.fileId", null,
 				"DLSync.repositoryId", new long[] {repositoryId}, null);
 
 			sb.append(sql);
@@ -80,11 +88,15 @@ public class DLSyncFinderImpl
 			qPos.add(companyId);
 			qPos.add(modifiedDate);
 			qPos.add(repositoryId);
-			qPos.add(DLSyncConstants.TYPE_FOLDER);
+			qPos.add(DLSyncConstants.EVENT_DELETE);
 			qPos.add(companyId);
 			qPos.add(modifiedDate);
 			qPos.add(repositoryId);
 			qPos.add(DLSyncConstants.TYPE_FILE);
+			qPos.add(companyId);
+			qPos.add(modifiedDate);
+			qPos.add(repositoryId);
+			qPos.add(DLSyncConstants.TYPE_FOLDER);
 
 			return q.list();
 		}
