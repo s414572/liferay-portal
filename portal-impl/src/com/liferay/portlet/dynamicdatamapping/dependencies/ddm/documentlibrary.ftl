@@ -8,7 +8,7 @@
 
 <#assign controlPanelPlid = layoutLocalService.getDefaultPlid(controlPanelGroup.getGroupId(), true)>
 
-<#assign selectDocumentURL = portletURLFactory.create(request, "15", controlPanelPlid, "RENDER_PHASE") />
+<#assign selectDocumentURL = portletURLFactory.create(request, "15", controlPanelPlid, "RENDER_PHASE")>
 
 ${selectDocumentURL.setWindowState("pop_up")}
 
