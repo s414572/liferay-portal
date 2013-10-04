@@ -133,8 +133,6 @@
 		<var name="password" value="test" />
 		<var name="userName" value="Social01 Office01 User01" />
 
-		<execute macro="SOUser#firstLoginPG" />
-
 		<execute macro="SOPrivateMessages#tearDownPG">
 			<var name="userName" value="${adminName}" />
 		</execute>
