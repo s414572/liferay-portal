@@ -1,0 +1,21 @@
+<definition>
+	<command name="viewActivitiesMicroblogs">
+		<if>
+			<isset var="number" />
+			<then>
+				<var name="number" value="${number}" />
+			</then>
+			<else>
+				<var name="number" value="01" />
+			</else>
+		</if>
+
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${adminName}" />
+		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_TIME_STAMP" />
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryContent}" />
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_REPOST" value1="Repost" />
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_COMMENT" value1="Comment" />
+		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
+	</command>
+</definition>

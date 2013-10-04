@@ -20,6 +20,51 @@
 		<execute action="PGMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
 	</command>
 
+	<command name="addMicroblogsEntryMention">
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
+
+		<execute action="SONavigation#click" locator-key1="NAVIGATION_MICROBLOGS" />
+
+		<if>
+			<condition action="PGMicroblogs#isElementNotPresent" locator-key1="MICROBLOGS_ENTRY_CONTENT" />
+			<then>
+				<execute action="PGMicroblogs#assertTextEquals" locator-key1="INFO_MESSAGE" value1="You do not have any microblog entries." />
+			</then>
+		</if>
+
+		<execute action="PGMicroblogs#click" locator-key1="MICROBLOGS_CONTENT_FIELD" />
+		<execute action="PGMicroblogs#click" locator-key1="MICROBLOGS_CONTENT_INPUT_FIELD" />
+		<execute action="PGMicroblogs#type" locator-key1="MICROBLOGS_CONTENT_INPUT_FIELD" value1="${microblogsEntryContent}" />
+		<execute action="PGMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_CONTENT_AUTOCOMPLETE_USERNAME" value1="${userName}" />
+		<execute action="PGMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_CONTENT_AUTOCOMPLETE_EMAIL" value1="${userEmailAddress}" />
+		<execute action="PGMicroblogs#click" locator-key1="MICROBLOGS_CONTENT_AUTOCOMPLETE_USERNAME" value1="${userEmailAddress}" />
+		<execute action="PGMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_CONTENT_COUNTDOWN" value1="${microblogsEntryCharacterCountdown}" />
+		<execute action="PGMicroblogs#select" locator-key1="MICROBLOGS_CONTENT_VIEW_FILTER" value1="${microblogsEntryViewableBy}" />
+		<execute action="PGMicroblogs#click" locator-key1="POST_BUTTON" />
+		<execute action="PGMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_ENTRY_CONTENT" value1="${userName}" />
+	</command>
+
+	<command name="addMicroblogsEntryHashtag">
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
+
+		<execute action="SONavigation#click" locator-key1="NAVIGATION_MICROBLOGS" />
+
+		<if>
+			<condition action="PGMicroblogs#isElementNotPresent" locator-key1="MICROBLOGS_ENTRY_CONTENT" />
+			<then>
+				<execute action="PGMicroblogs#assertTextEquals" locator-key1="INFO_MESSAGE" value1="You do not have any microblog entries." />
+			</then>
+		</if>
+
+		<execute action="PGMicroblogs#click" locator-key1="MICROBLOGS_CONTENT_FIELD" />
+		<execute action="PGMicroblogs#click" locator-key1="MICROBLOGS_CONTENT_INPUT_FIELD" />
+		<execute action="PGMicroblogs#type" locator-key1="MICROBLOGS_CONTENT_INPUT_FIELD" value1="${microblogsEntryContentWithHashtag}" />
+		<execute action="PGMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_CONTENT_COUNTDOWN" value1="${microblogsEntryCharacterCountdown}" />
+		<execute action="PGMicroblogs#select" locator-key1="MICROBLOGS_CONTENT_VIEW_FILTER" value1="${microblogsEntryViewableBy}" />
+		<execute action="PGMicroblogs#click" locator-key1="POST_BUTTON" />
+		<execute action="PGMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContentWithoutHashtag}" />
+	</command>
+
 	<command name="deleteMicroblogsEntry">
 		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
 

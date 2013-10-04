@@ -1,6 +1,7 @@
 <definition>
 	<var name="password" value="test" />
 	<var name="adminName" value="Joe Bloggs" />
+	<var name="adminListName" value="Bloggs, Joe" />
 	<var name="adminEmailAddress" value="test@liferay.com" />
 
 	<command name="addConnection">
@@ -31,6 +32,32 @@
 		<execute macro="SOContactsCenter#confirmRequestToConnect">
 			<var name="senderName" value="${adminName}" />
 			<var name="userName" value="${userName}" />
+		</execute>
+	</command>
+
+	<command name="addFollower">
+		<execute macro="SOUser#addUserWithSORole">
+			<var name="adminEmailAddress" value="test@liferay.com" />
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userFirstName" value="${userFirstName}" />
+			<var name="userLastName" value="${userLastName}" />
+			<var name="userMiddleName" value="${userMiddleName}" />
+			<var name="userScreenName" value="${userScreenName}" />
+		</execute>
+
+		<execute macro="SOUser#logoutPG" />
+
+		<execute macro="SOUser#loginPG">
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="password" value="test" />
+		</execute>
+
+		<execute macro="SOContactsCenter#followUser">
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userListName" value="${userListName}" />
+			<var name="userName" value="${userName}" />
+			<var name="userScreenName" value="${userScreenName}" />
 		</execute>
 	</command>
 
@@ -70,6 +97,21 @@
 		<execute action="PGContactscenter#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You are not connected to this user anymore." />
 	</command>
 
+	<command name="followUser">
+		<execute macro="SOUserBar#dashboardPG">
+		</execute>
+
+		<execute action="SONavigation#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+
+		<execute action="PGContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${adminName}" />
+		<execute action="PGContactscenter#assertClick" locator-key1="CONTACTS_LIST_NAME" value1="${adminListName}" />
+		<execute action="PGContactscenter#assertTextEquals" locator-key1="USER_DETAILS_NAME" value1="${adminName}" />
+		<execute action="PGContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${adminEmailAddress}" />
+		<execute action="PGContactscenter#assertClick" locator-key1="FOLLOW_BUTTON" value1="Follow" />
+		<execute action="PGContactscenter#assertTextEquals" locator-key1="FOLLOWING_MESSAGE" value1="Following" />
+		<execute action="PGContactscenter#assertTextEquals" locator-key1="UNFOLLOW_BUTTON" value1="Unfollow" />
+	</command>
+
 	<command name="requestToConnect">
 		<execute macro="SOUserBar#dashboardPG">
 			<var name="userName" value="Joe Bloggs" />
@@ -85,5 +127,20 @@
 		<execute action="PGContactscenter#assertClick" locator-key1="CONNECT_BUTTON" value1="Connect" />
 		<execute action="PGContactscenter#assertTextEquals" locator-key1="CONNECTION_REQUESTED_MESSAGE" value1="Connection Requested" />
 		<execute action="PGContactscenter#assertElementNotPresent" locator-key1="CONNECT_BUTTON" value1="Connect" />
+	</command>
+
+	<command name="unfollowUser">
+		<execute macro="SOUserBar#dashboardPG">
+		</execute>
+
+		<execute action="SONavigation#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+
+		<execute action="PGContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${adminName}" />
+		<execute action="PGContactscenter#assertClick" locator-key1="CONTACTS_LIST_NAME" value1="${adminListName}" />
+		<execute action="PGContactscenter#assertTextEquals" locator-key1="USER_DETAILS_NAME" value1="${adminName}" />
+		<execute action="PGContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${adminEmailAddress}" />
+		<execute action="PGContactscenter#assertClick" locator-key1="UNFOLLOW_BUTTON" value1="Unfollow" />
+		<execute action="PGContactscenter#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You are not following this user anymore." />
+		<execute action="PGContactscenter#assertTextEquals" locator-key1="FOLLOW_BUTTON" value1="Follow" />
 	</command>
 </definition>
