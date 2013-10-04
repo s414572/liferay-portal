@@ -2520,7 +2520,7 @@ public class JournalArticleLocalServiceImpl
 			(article.getClassNameId() ==
 				JournalArticleConstants.CLASSNAME_ID_DEFAULT) &&
 			(article.getDisplayDate() != null) &&
-			now.before(article.getDisplayDate())) {
+			 now.before(article.getDisplayDate())) {
 
 			status = WorkflowConstants.STATUS_SCHEDULED;
 		}
@@ -2772,8 +2772,8 @@ public class JournalArticleLocalServiceImpl
 				JournalArticleConstants.CLASSNAME_ID_DEFAULT,
 				WorkflowConstants.STATUS_APPROVED,
 				new Date(
-					expirationDate.getTime() + _JOURNAL_ARTICLE_CHECK_INTERVAL)
-			);
+					expirationDate.getTime() +
+						_JOURNAL_ARTICLE_CHECK_INTERVAL));
 
 		if (_log.isDebugEnabled()) {
 			_log.debug("Expiring " + articles.size() + " articles");
