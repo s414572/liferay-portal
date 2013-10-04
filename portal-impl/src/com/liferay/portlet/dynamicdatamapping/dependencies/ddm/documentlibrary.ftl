@@ -8,13 +8,6 @@
 
 <#assign controlPanelPlid = layoutLocalService.getDefaultPlid(controlPanelGroup.getGroupId(), true)>
 
-<#assign selectDocumentURL = portletURLFactory.create(request, "15", controlPanelPlid, "RENDER_PHASE")>
-
-${selectDocumentURL.setWindowState("pop_up")}
-
-${selectDocumentURL.setParameter("groupId", "${scopeGroupId}")}
-${selectDocumentURL.setParameter("struts_action", "/journal/select_document_library")}
-
 <#if !(fields?? && fields.get(fieldName)??) && (fieldRawValue == "")>
 	<#assign fieldRawValue = predefinedValue>
 </#if>
@@ -121,7 +114,14 @@ ${selectDocumentURL.setParameter("struts_action", "/journal/select_document_libr
 				Liferay.Util.openWindow(
 					{
 						id: '${portletNamespace}selectDocumentLibrary',
-						uri:'${selectDocumentURL}'
+
+						<#assign selectDocumentLibraryURL = portletURLFactory.create(request, "15", controlPanelPlid, "RENDER_PHASE")>
+
+						${selectDocumentLibraryURL.setParameter("groupId", "${scopeGroupId}")}
+						${selectDocumentLibraryURL.setParameter("struts_action", "/journal/select_document_library")}
+						${selectDocumentLibraryURL.setWindowState("pop_up")}
+
+						uri: '${selectDocumentLibraryURL}'
 					}
 				);
 
