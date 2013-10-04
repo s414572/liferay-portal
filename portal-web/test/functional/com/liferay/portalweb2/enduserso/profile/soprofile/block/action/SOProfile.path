@@ -83,6 +83,27 @@
 	<td></td>
 	<td></td>
 </tr>
+<!--NAVIGATION-->
+<tr>
+	<td>NAVIGATION_PROFILE</td>
+	<td>//nav/ul/li[contains(.,'Profile')]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_CONTACTS</td>
+	<td>//nav/ul/li[contains(.,'Contacts')]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_MICROBLOGS</td>
+	<td>//nav/ul/li[contains(.,'Microblogs')]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 <!--ADD-->
 <tr>
 	<td>ADD_ADDRESSES</td>
