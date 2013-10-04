@@ -23,26 +23,17 @@
 		<execute action="SOUserBar#assertTextEquals" locator-key1="NOTIFICATION_MENU_CONFIRM" value1="Confirm" />
 		<execute action="SOUserBar#click" locator-key1="NOTIFICATION_MENU_CONFIRM" />
 		<execute action="SOUserBar#assertTextEquals" locator-key1="NOTIFICATION_MENU_COUNT" value1="0"/>
-
-		<execute macro="SOUserBar#dashboardPG">
-			<var name="userName" value="${userName}" />
-		</execute>
-
-		<execute action="SOUserBar#click" locator-key1="GO_TO" />
-
-		<execute action="SOSites#select" locator-key1="SITE_CATEGORY_SELECT" value1="My Sites" />
-		<execute action="SOSites#assertTextEquals" locator-key1="SITE_NAME_LINK" value1="${siteName}"/>
 	</command>
 
 	<command name="viewConfirmMemberInvite">
 		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
 		<execute action="SOUserBar#click" locator-key1="GO_TO" />
-
-		<execute action="SOSites#select" locator-key1="SITE_CATEGORY_SELECT" value1="My Sites" />
-		<execute action="SOSites#assertTextNotEquals" locator-key1="SITE_LIST" value1="Liferay" />
-		<execute action="SOSites#type" locator-key1="SITE_SEARCH_FIELD" value1="${siteName}" />
-		<execute action="SOSites#assertTextEquals" locator-key1="SITE_NAME_LINK" value1="${siteName}" />
-		<execute action="SOSites#click" locator-key1="SITES_DIRECTORY_BUTTON" />
+		<execute action="SOUserBar#select" locator-key1="GO_TO_SITE_CATEGORY_SELECT" value1="My Sites" />		
+		<execute action="SOUserBar#assertTextNotEquals" locator-key1="GO_TO_SITE_LIST" value1="Liferay" />
+		<execute action="SOUserBar#click" locator-key1="GO_TO" />
+		<execute action="SOUserBar#type" locator-key1="GO_TO_SEARCH_FIELD" value1="${siteName}" />
+		<execute action="SOUserBar#assertTextEquals" locator-key1="GO_TO_SITE_NAME_LINK" value1="${siteName}" />
+		<execute action="SOUserBar#click" locator-key1="GO_TO_SITES_DIRECTORY_BUTTON" />
 
 		<execute action="SOUserBarSitesDirectory#select" locator-key1="SITE_CATEGORY_SELECT" value1="My Sites" />
 		<execute action="SOUserBarSitesDirectory#assertTextNotEquals" locator-key1="SITE_LIST" value1="Liferay" />

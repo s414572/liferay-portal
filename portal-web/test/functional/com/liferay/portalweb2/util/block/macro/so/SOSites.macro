@@ -1,7 +1,6 @@
 <definition>
 	<command name="addSOSite">
 		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
-
 		<execute action="SOUserBar#click" locator-key1="GO_TO" />
 		<execute action="SOUserBar#click" locator-key1="GO_TO_ADD_SITE_BUTTON" />
 
@@ -31,13 +30,10 @@
 
 		<execute action="SOSitesAdd#click" locator-key1="SAVE_BUTTON" />
 		<execute action="SOSitesAdd#assertElementNotPresent" locator-key1="SAVE_BUTTON" />
-
-		<execute macro="SOSites#searchSOSite" />
 	</command>
 
 	<command name="deleteSOSite">
 		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
-
 		<execute action="SOUserBar#click" locator-key1="GO_TO" />
 		<execute action="SOUserBar#click" locator-key1="GO_TO_SITES_DIRECTORY_BUTTON" />
 
@@ -62,7 +58,6 @@
 
 	<command name="searchSOSite">
 		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
-
 		<execute action="SOUserBar#click" locator-key1="GO_TO" />
 
 		<if>
@@ -99,8 +94,6 @@
 	</command>
 
 	<command name="viewSOSite">
-		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
-
 		<execute macro="SOSites#searchSOSite" />
 
 		<execute action="SOUserBar#click" locator-key1="GO_TO_SITE_NAME_LINK" />

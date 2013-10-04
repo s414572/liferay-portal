@@ -42,6 +42,8 @@
 	</command>
 
 	<command name="tearDownPG">
+		<execute macro="SOUser#firstLoginPG" />
+
 		<execute macro="SOUserBar#dashboardPG">
 			<var name="userName" value="${userName}" />
 		</execute>
