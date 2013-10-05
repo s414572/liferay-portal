@@ -44,7 +44,6 @@
 	<td>//ul[@class='aui-tabview-list']//a[contains(.,'Me')]</td>
 	<td></td>
 </tr>
-<!---->
 <!--NO_ACTIVITIES-->
 <tr>
 	<td>NO_ACTIVITIES</td>

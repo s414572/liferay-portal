@@ -3,7 +3,7 @@
 
 	<execute test-case="PGHomeAcceptance" />
 
-	<execute test-case="PGActivitiesAcceptence" />
+	<execute test-case="PGActivitiesAcceptance" />
 
 	<execute test-case="PGContactsCenterAcceptance" />
 
