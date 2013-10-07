@@ -98,14 +98,14 @@
 
 		<execute action="SOUserBar#click" locator-key1="GO_TO_SITE_NAME_LINK" />
 
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName}" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_HOME" value1="Home" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_CALENDAR" value1="Calendar" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_DOCUMENTS" value1="Documents" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_FORUMS" value1="Forums" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_BLOGS" value1="Blogs" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_WIKI" value1="Wiki" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_MEMBERS" value1="Members" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName}" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_HOME" value1="Home" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_CALENDAR" value1="Calendar" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_DOCUMENTS" value1="Documents" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_FORUMS" value1="Forums" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_BLOGS" value1="Blogs" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_WIKI" value1="Wiki" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_MEMBERS" value1="Members" />
 
 		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
 		<execute action="SOUserBar#click" locator-key1="GO_TO" />
@@ -126,14 +126,14 @@
 		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_DESCRIPTION" value1="${siteDescription}" />
 		<execute action="SOUserBarSitesDirectory#click" locator-key1="SITE_NAME_LINK" value1="${siteName}" />
 
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName}" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_HOME" value1="Home" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_CALENDAR" value1="Calendar" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_DOCUMENTS" value1="Documents" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_FORUMS" value1="Forums" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_BLOGS" value1="Blogs" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_WIKI" value1="Wiki" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_MEMBERS" value1="Members" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName}" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_HOME" value1="Home" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_CALENDAR" value1="Calendar" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_DOCUMENTS" value1="Documents" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_FORUMS" value1="Forums" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_BLOGS" value1="Blogs" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_WIKI" value1="Wiki" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_MEMBERS" value1="Members" />
 
 		<execute macro="SOUserBar#gotoCP">
 			<var name="portletName" value="Sites" />

@@ -8,6 +8,6 @@
 	<command name="gotoSiteDocuments">
 		<execute macro="Page#openURL" />
 
-		<execute action="SOSiteNavigation#click" locator-key1="NAVIGATION_DOCUMENTS" value1="Documents" />
+		<execute action="SOSiteHome#click" locator-key1="NAVIGATION_DOCUMENTS" value1="Documents" />
 	</command>
 </definition>

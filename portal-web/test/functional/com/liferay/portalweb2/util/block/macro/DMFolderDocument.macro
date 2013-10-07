@@ -72,7 +72,7 @@
 				<execute action="PGDocumentsandmediaDocument#assertTextEquals" locator-key1="DOCUMENT_INFO_TITLE" value1="${dmDocumentTitle}" />
 			</then>
 			<else>
-				<execute action="PGSODocumentsandmedia#assertTextEquals" locator-key1="DOCUMENT_INFO_TITLE" value1="${dmDocumentTitle}" />
+				<execute action="SODocuments#assertTextEquals" locator-key1="DOCUMENT_INFO_TITLE" value1="${dmDocumentTitle}" />
 			</else>
 		</if>
 		
@@ -108,7 +108,7 @@
 				<execute action="PGDocumentsandmediaDocument#assertTextEquals" locator-key1="DOCUMENT_INFO_TITLE" value1="${dmDocumentTitle}" />
 			</then>
 			<else>
-				<execute action="PGSODocumentsandmedia#assertTextEquals" locator-key1="DOCUMENT_INFO_TITLE" value1="${dmDocumentTitle}" />
+				<execute action="SODocuments#assertTextEquals" locator-key1="DOCUMENT_INFO_TITLE" value1="${dmDocumentTitle}" />
 			</else>
 		</if>
 		
@@ -125,7 +125,7 @@
 				<execute action="PGDocumentsandmediaDocument#assertTextEquals" locator-key1="DOCUMENT_INFO_TITLE" value1="${dmDocumentTitleEdit}" />
 			</then>
 			<else>
-				<execute action="PGSODocumentsandmedia#assertTextEquals" locator-key1="DOCUMENT_INFO_TITLE" value1="${dmDocumentTitleEdit}" />
+				<execute action="SODocuments#assertTextEquals" locator-key1="DOCUMENT_INFO_TITLE" value1="${dmDocumentTitleEdit}" />
 			</else>
 		</if>
 	</command>
@@ -196,7 +196,7 @@
 				<execute action="PGDocumentsandmediaDocument#assertTextEquals" locator-key1="DOCUMENT_INFO_TITLE" value1="${dmDocumentTitle}" />
 			</then>
 			<else>
-				<execute action="PGSODocumentsandmedia#assertTextEquals" locator-key1="DOCUMENT_INFO_TITLE" value1="${dmDocumentTitle}" />
+				<execute action="SODocuments#assertTextEquals" locator-key1="DOCUMENT_INFO_TITLE" value1="${dmDocumentTitle}" />
 			</else>
 		</if>
 
@@ -205,13 +205,13 @@
 		<execute action="PGDocumentsandmediaDocument#assertElementPresent" locator-key1="DOCUMENT_INFO_RATING" value1="Ratings" />
 
 		<if>
-			<condition action="PGSODocumentsandmedia#isElementPresent" locator-key1="VERSION_HISTORY_TITLE" />
+			<condition action="SODocuments#isElementPresent" locator-key1="VERSION_HISTORY_TITLE" />
 			<then>
-				<execute action="PGSODocumentsandmedia#assertTextEquals" locator-key1="VERSION_HISTORY_TITLE" value1="Version History" />
-				<execute action="PGSODocumentsandmedia#assertTextEquals" locator-key1="VERSION_HISTORY_NUMBER" value1="Version ${dmDocumentVersionNumber}" />
-				<execute action="PGSODocumentsandmedia#assertTextEquals" locator-key1="VERSION_HISTORY_UPLOADER_NAME" value1="By: ${dmDocumentUploader}" />
-				<execute action="PGSODocumentsandmedia#assertElementPresent" locator-key1="VERSION_HISTORY_DATE" />
-				<execute action="PGSODocumentsandmedia#assertTextEquals" locator-key1="VERSION_HISTORY_SIZE" value1="Size: ${dmDocumentSize}" />
+				<execute action="SODocuments#assertTextEquals" locator-key1="VERSION_HISTORY_TITLE" value1="Version History" />
+				<execute action="SODocuments#assertTextEquals" locator-key1="VERSION_HISTORY_NUMBER" value1="Version ${dmDocumentVersionNumber}" />
+				<execute action="SODocuments#assertTextEquals" locator-key1="VERSION_HISTORY_UPLOADER_NAME" value1="By: ${dmDocumentUploader}" />
+				<execute action="SODocuments#assertElementPresent" locator-key1="VERSION_HISTORY_DATE" />
+				<execute action="SODocuments#assertTextEquals" locator-key1="VERSION_HISTORY_SIZE" value1="Size: ${dmDocumentSize}" />
 			</then>
 		</if>
 

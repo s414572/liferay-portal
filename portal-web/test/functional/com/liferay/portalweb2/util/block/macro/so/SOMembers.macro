@@ -1,13 +1,13 @@
 
 <definition>
 	<command name="inviteMember">
-		<execute action="PGSOMembers#assertClick" locator-key1="INVITE_BUTTON" value1="Invite members to this site." />
+		<execute action="SOMembers#assertClick" locator-key1="INVITE_BUTTON" value1="Invite members to this site." />
 
-		<execute action="PGSOMembersInvite#assertTextEquals" locator-key1="FIND_MEMBERS_USER" value1="${userName}" />
-		<execute action="PGSOMembersInvite#click" locator-key1="FIND_MEMBERS_USER" />
-		<execute action="PGSOMembersInvite#assertTextEquals" locator-key1="MEMBERS_INVITE_LIST" value1="${userName} ${userEmailAddress}" />
-		<execute action="PGSOMembersInvite#assertClick" locator-key1="SEND_INVITATIONS_BUTTON" value1="Send Invitations"  />
-		<execute action="PGSOMembersInvite#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request processed successfully."  />
+		<execute action="SOMembersInvite#assertTextEquals" locator-key1="FIND_MEMBERS_USER" value1="${userName}" />
+		<execute action="SOMembersInvite#click" locator-key1="FIND_MEMBERS_USER" />
+		<execute action="SOMembersInvite#assertTextEquals" locator-key1="MEMBERS_INVITE_LIST" value1="${userName} ${userEmailAddress}" />
+		<execute action="SOMembersInvite#assertClick" locator-key1="SEND_INVITATIONS_BUTTON" value1="Send Invitations"  />
+		<execute action="SOMembersInvite#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request processed successfully."  />
 	</command>
 
 	<command name="confirmMemberInvite">
@@ -43,28 +43,28 @@
 		<execute action="SOUserBarSitesDirectory#assertElementPresent" locator-key1="LEAVE_SITE_ICON" />
 		<execute action="SOUserBarSitesDirectory#click" locator-key1="SITE_NAME_LINK" value1="${siteName}" />
 
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName}" />
-		<execute action="SOSiteNavigation#assertElementNotPresent" locator-key1="SITE_JOIN_LINK" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_HOME" value1="Home" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_CALENDAR" value1="Calendar" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_DOCUMENTS" value1="Documents" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_FORUMS" value1="Forums" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_BLOGS" value1="Blogs" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_WIKI" value1="Wiki" />
-		<execute action="SOSiteNavigation#assertTextEquals" locator-key1="NAVIGATION_MEMBERS" value1="Members" />
-		<execute action="SOSiteNavigation#click" locator-key1="NAVIGATION_MEMBERS" value1="Members" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName}" />
+		<execute action="SOSiteHome#assertElementNotPresent" locator-key1="SITE_JOIN_LINK" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_HOME" value1="Home" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_CALENDAR" value1="Calendar" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_DOCUMENTS" value1="Documents" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_FORUMS" value1="Forums" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_BLOGS" value1="Blogs" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_WIKI" value1="Wiki" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="NAVIGATION_MEMBERS" value1="Members" />
+		<execute action="SOSiteHome#click" locator-key1="NAVIGATION_MEMBERS" value1="Members" />
 
 		<execute macro="SOMembers#viewMember" />
 	</command>
 
 	<command name="viewMember">
-		<execute action="PGSOMembers#assertTextEquals" locator-key1="MEMBERS_LINK_ALL" value1="View all 2 users." />
-		<execute action="PGSOMembers#type" locator-key1="MEMBERS_LIST_SEARCH" value1="${userEmailAddress}" />
-		<execute action="PGSOMembers#assertTextEquals" locator-key1="MEMBERS_LIST_NAME" value1="${userLastName}, ${userFirstName}" />
-		<execute action="PGSOMembers#assertTextEquals" locator-key1="MEMBERS_LIST_EMAIL" value1="${userEmailAddress}" />
-		<execute action="PGSOMembers#click" locator-key1="MEMBERS_LIST_NAME" value1="${userLastName}, ${userFirstName}" />
+		<execute action="SOMembers#assertTextEquals" locator-key1="MEMBERS_LINK_ALL" value1="View all 2 users." />
+		<execute action="SOMembers#type" locator-key1="MEMBERS_LIST_SEARCH" value1="${userEmailAddress}" />
+		<execute action="SOMembers#assertTextEquals" locator-key1="MEMBERS_LIST_NAME" value1="${userLastName}, ${userFirstName}" />
+		<execute action="SOMembers#assertTextEquals" locator-key1="MEMBERS_LIST_EMAIL" value1="${userEmailAddress}" />
+		<execute action="SOMembers#click" locator-key1="MEMBERS_LIST_NAME" value1="${userLastName}, ${userFirstName}" />
 
-		<execute action="PGSOMembers#assertTextEquals" locator-key1="USER_DETAILS_NAME" value1="${userName}" />
-		<execute action="PGSOMembers#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${userEmailAddress}" />
+		<execute action="SOMembers#assertTextEquals" locator-key1="USER_DETAILS_NAME" value1="${userName}" />
+		<execute action="SOMembers#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${userEmailAddress}" />
 	</command>
 </definition>
