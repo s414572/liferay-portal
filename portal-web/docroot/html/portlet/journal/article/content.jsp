@@ -700,7 +700,7 @@ if (Validator.isNotNull(content)) {
 					{
 						dialog: {
 							align: Liferay.Util.Window.ALIGN_CENTER,
-							width:680
+							width: 680
 						},
 						id: '<portlet:namespace />templateSelector',
 						title: '<%= UnicodeLanguageUtil.get(pageContext, "template") %>',
