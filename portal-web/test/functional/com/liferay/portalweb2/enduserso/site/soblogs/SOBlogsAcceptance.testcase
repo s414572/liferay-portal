@@ -67,7 +67,7 @@
 
 		<execute action="PGBlogsEntry#assertTextEquals" locator-key1="ENTRY_VIEW_COUNT" value1="2 Views" />
 
-		<execute action="PGSOBlogs#open" locator-key1="OPEN_SITE_NAME_BLOGS_RSS_URL" />
+		<execute action="SOBlogs#open" locator-key1="OPEN_SITE_NAME_BLOGS_RSS_URL" />
 
 		<execute action="PGBlogs#assertTextPresent" value1="${siteName}" />
 		<execute action="PGBlogs#assertTextPresent" value1="${entryTitle}" />

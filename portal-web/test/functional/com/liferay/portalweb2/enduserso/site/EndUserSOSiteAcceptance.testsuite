@@ -1,17 +1,17 @@
 <definition>
 	<execute test-case="SocialOfficeSmoke" />
 
-	<execute test-case="PGSOBlogsAcceptance" />
+	<execute test-case="SOBlogsAcceptance" />
 
-	<execute test-case="PGSOCalendarAcceptance" />
+	<execute test-case="SOCalendarAcceptance" />
 
-	<execute test-case="PGSODocumentsandmediaAcceptance" />
+	<execute test-case="SODocumentsAcceptance" />
 
-	<execute test-case="PGSOHomeAcceptance" />
+	<execute test-case="SOSiteHomeAcceptance" />
 
-	<execute test-case="PGSOMembersAcceptance" />
+	<execute test-case="SOMembersAcceptance" />
 
-	<execute test-case="PGSOMessageBoardsAcceptance" />
+	<execute test-case="SOForumsAcceptance" />
 
-	<execute test-case="PGSOWikiAcceptance" />
+	<execute test-case="SOWikiAcceptance" />
 </definition>
