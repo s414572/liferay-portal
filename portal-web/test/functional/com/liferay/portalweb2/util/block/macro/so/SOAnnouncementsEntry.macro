@@ -1,44 +1,44 @@
 <definition>
 	<command name="addPG">
-		<execute action="PGHome#assertClick" locator-key1="ANNOUNCEMENTS_ADD_ENTRY_BUTTON" value1="Add Entry" />
+		<execute action="SODashboard#assertClick" locator-key1="ANNOUNCEMENTS_ADD_ENTRY_BUTTON" value1="Add Entry" />
 
-		<execute action="PGHomeAddAnnouncementsEntry#selectFrame" locator-key1="ADD_ENTRY_IFRAME" />
-		<execute action="PGHomeAddAnnouncementsEntry#select" locator-key1="DISTRIBUTION_SCOPE_SELECT" value1="${distributionScope}" />
-		<execute action="PGHomeAddAnnouncementsEntry#type" locator-key1="TITLE_FIELD" value1="${entryTitle}" />
-		<execute action="PGHomeAddAnnouncementsEntry#type" locator-key1="CONTENT_FIELD" value1="${entryContent}" />
-		<execute action="PGHomeAddAnnouncementsEntry#selectFrameTop" />
-		<execute action="PGHomeAddAnnouncementsEntry#selectFrame" locator-key1="ADD_ENTRY_IFRAME" />
-		<execute action="PGHomeAddAnnouncementsEntry#type" locator-key1="URL_FIELD" value1="${entryURL}" />
-		<execute action="PGHomeAddAnnouncementsEntry#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
-		<execute action="PGHomeAddAnnouncementsEntry#selectFrameTop" />
+		<execute action="SODashboardAddAnnouncementsEntry#selectFrame" locator-key1="ADD_ENTRY_IFRAME" />
+		<execute action="SODashboardAddAnnouncementsEntry#select" locator-key1="DISTRIBUTION_SCOPE_SELECT" value1="${distributionScope}" />
+		<execute action="SODashboardAddAnnouncementsEntry#type" locator-key1="TITLE_FIELD" value1="${entryTitle}" />
+		<execute action="SODashboardAddAnnouncementsEntry#type" locator-key1="CONTENT_FIELD" value1="${entryContent}" />
+		<execute action="SODashboardAddAnnouncementsEntry#selectFrameTop" />
+		<execute action="SODashboardAddAnnouncementsEntry#selectFrame" locator-key1="ADD_ENTRY_IFRAME" />
+		<execute action="SODashboardAddAnnouncementsEntry#type" locator-key1="URL_FIELD" value1="${entryURL}" />
+		<execute action="SODashboardAddAnnouncementsEntry#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+		<execute action="SODashboardAddAnnouncementsEntry#selectFrameTop" />
 
-		<execute action="PGHome#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_TITLE" />
+		<execute action="SODashboard#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_TITLE" />
 	</command>
 
 	<command name="deletePG">
-		<execute action="PGHome#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_TITLE" value1="${entryTitle}" />
-		<execute action="PGHome#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_CONTENT" value1="${entryContent}" />
-		<execute action="PGHome#click" locator-key1="ANNOUNCEMENTS_ENTRY_DELETE_LINK" />
-		<execute action="PGHome#confirm" locator-key1="CONFIRMATION" value1="Are you sure you want to delete the selected entry?" />
-		<execute action="PGHome#assertTextNotPresent" value1="{entryTitle}" />
-		<execute action="PGHome#assertTextNotPresent" value1="{entryContent}" />
+		<execute action="SODashboard#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_TITLE" value1="${entryTitle}" />
+		<execute action="SODashboard#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_CONTENT" value1="${entryContent}" />
+		<execute action="SODashboard#click" locator-key1="ANNOUNCEMENTS_ENTRY_DELETE_LINK" />
+		<execute action="SODashboard#confirm" locator-key1="CONFIRMATION" value1="Are you sure you want to delete the selected entry?" />
+		<execute action="SODashboard#assertTextNotPresent" value1="{entryTitle}" />
+		<execute action="SODashboard#assertTextNotPresent" value1="{entryContent}" />
 	</command>
 
 	<command name="editPG">
-		<execute action="PGHome#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_TITLE" value1="${entryTitle}" />
-		<execute action="PGHome#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_CONTENT" value1="${entryContent}" />
-		<execute action="PGHome#click" locator-key1="ANNOUNCEMENTS_ENTRY_EDIT_LINK" />
+		<execute action="SODashboard#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_TITLE" value1="${entryTitle}" />
+		<execute action="SODashboard#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_CONTENT" value1="${entryContent}" />
+		<execute action="SODashboard#click" locator-key1="ANNOUNCEMENTS_ENTRY_EDIT_LINK" />
 
-		<execute action="PGHomeAddAnnouncementsEntry#selectFrame" locator-key1="ADD_ENTRY_IFRAME" />
-		<execute action="PGHomeAddAnnouncementsEntry#type" locator-key1="TITLE_FIELD" value1="${entryTitleEdit}" />
-		<execute action="PGHomeAddAnnouncementsEntry#type" locator-key1="CONTENT_FIELD" value1="${entryContentEdit}" />
-		<execute action="PGHomeAddAnnouncementsEntry#selectFrameTop" />
-		<execute action="PGHomeAddAnnouncementsEntry#selectFrame" locator-key1="ADD_ENTRY_IFRAME" />
-		<execute action="PGHomeAddAnnouncementsEntry#type" locator-key1="URL_FIELD" value1="${entryURL}" />
-		<execute action="PGHomeAddAnnouncementsEntry#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
-		<execute action="PGHomeAddAnnouncementsEntry#selectFrameTop" />
+		<execute action="SODashboardAddAnnouncementsEntry#selectFrame" locator-key1="ADD_ENTRY_IFRAME" />
+		<execute action="SODashboardAddAnnouncementsEntry#type" locator-key1="TITLE_FIELD" value1="${entryTitleEdit}" />
+		<execute action="SODashboardAddAnnouncementsEntry#type" locator-key1="CONTENT_FIELD" value1="${entryContentEdit}" />
+		<execute action="SODashboardAddAnnouncementsEntry#selectFrameTop" />
+		<execute action="SODashboardAddAnnouncementsEntry#selectFrame" locator-key1="ADD_ENTRY_IFRAME" />
+		<execute action="SODashboardAddAnnouncementsEntry#type" locator-key1="URL_FIELD" value1="${entryURL}" />
+		<execute action="SODashboardAddAnnouncementsEntry#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+		<execute action="SODashboardAddAnnouncementsEntry#selectFrameTop" />
 
-		<execute action="PGHome#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_TITLE" />
+		<execute action="SODashboard#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_TITLE" />
 	</command>
 
 	<command name="tearDownPG">
@@ -49,31 +49,31 @@
 		</execute>
 
 		<while>
-			<condition action="PGHome#isElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_DELETE_LINK" />
+			<condition action="SODashboard#isElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_DELETE_LINK" />
 			<then>
-				<execute action="PGHome#assertClick" locator-key1="ANNOUNCEMENTS_ENTRY_DELETE_LINK" value1="Delete" />
-				<execute action="PGHome#confirm" locator-key1="CONFIRMATION" value1="Are you sure you want to delete the selected entry?" />
+				<execute action="SODashboard#assertClick" locator-key1="ANNOUNCEMENTS_ENTRY_DELETE_LINK" value1="Delete" />
+				<execute action="SODashboard#confirm" locator-key1="CONFIRMATION" value1="Are you sure you want to delete the selected entry?" />
 			</then>
 		</while>
 	</command>
 
 	<command name="viewPG">
-		<execute action="PGHome#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_ACTION" value1="${userName} to ${distributionScope}" />
-		<execute action="PGHome#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_TITLE" value1="${entryTitle}" />
-		<execute action="PGHome#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_CONTENT" value1="${entryContent}" />
-		<execute action="PGHome#assertClick" locator-key1="ANNOUNCEMENTS_MANAGE_ENTRIES_BUTTON" value1="Manage Entries" />
+		<execute action="SODashboard#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_ACTION" value1="${userName} to ${distributionScope}" />
+		<execute action="SODashboard#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_TITLE" value1="${entryTitle}" />
+		<execute action="SODashboard#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_CONTENT" value1="${entryContent}" />
+		<execute action="SODashboard#assertClick" locator-key1="ANNOUNCEMENTS_MANAGE_ENTRIES_BUTTON" value1="Manage Entries" />
 
-		<execute action="PGHomeManageAnnouncementsEntry#selectFrame" locator-key1="MANAGE_ENTRY_IFRAME" />
+		<execute action="SODashboardManageAnnouncementsEntry#selectFrame" locator-key1="MANAGE_ENTRY_IFRAME" />
 
-		<execute action="PGHomeManageAnnouncementsEntry#select" locator-key1="DISTRIBUTION_SCOPE_SELECT" value1="${distributionScope}" />
-		<execute action="PGHomeManageAnnouncementsEntry#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_TITLE" value1="${entryTitle}" />
-		<execute action="PGHomeManageAnnouncementsEntry#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_AUTHOR" value1="${userName}" />
-		<execute action="PGHomeManageAnnouncementsEntry#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_TYPE" value1="General" />
-		<execute action="PGHomeManageAnnouncementsEntry#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_MODIFIED_DATE" />
-		<execute action="PGHomeManageAnnouncementsEntry#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_DISPLAY_DATE" />
-		<execute action="PGHomeManageAnnouncementsEntry#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_EXPIRATION_DATE" />
-		<execute action="PGHomeManageAnnouncementsEntry#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_EDIT_LINK" value1="Edit"  />
-		<execute action="PGHomeManageAnnouncementsEntry#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_DELETE_LINK" value1="Delete"  />
-		<execute action="PGHomeManageAnnouncementsEntry#selectFrameTop" />
+		<execute action="SODashboardManageAnnouncementsEntry#select" locator-key1="DISTRIBUTION_SCOPE_SELECT" value1="${distributionScope}" />
+		<execute action="SODashboardManageAnnouncementsEntry#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_TITLE" value1="${entryTitle}" />
+		<execute action="SODashboardManageAnnouncementsEntry#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_AUTHOR" value1="${userName}" />
+		<execute action="SODashboardManageAnnouncementsEntry#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_TYPE" value1="General" />
+		<execute action="SODashboardManageAnnouncementsEntry#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_MODIFIED_DATE" />
+		<execute action="SODashboardManageAnnouncementsEntry#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_DISPLAY_DATE" />
+		<execute action="SODashboardManageAnnouncementsEntry#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_EXPIRATION_DATE" />
+		<execute action="SODashboardManageAnnouncementsEntry#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_EDIT_LINK" value1="Edit"  />
+		<execute action="SODashboardManageAnnouncementsEntry#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_DELETE_LINK" value1="Delete"  />
+		<execute action="SODashboardManageAnnouncementsEntry#selectFrameTop" />
 	</command>
 </definition>

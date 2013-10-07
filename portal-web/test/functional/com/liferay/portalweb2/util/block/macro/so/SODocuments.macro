@@ -6,7 +6,7 @@
 			<var name="userName" value="Joe Bloggs" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
 
 		<if>
 			<condition action="PGDocumentsandmedia#isElementPresent" locator-key1="ENTRIES_DOCUMENT_GENERIC" />

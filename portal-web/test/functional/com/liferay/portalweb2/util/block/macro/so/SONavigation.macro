@@ -2,7 +2,7 @@
 	<command name="gotoDashboardTasks">
 		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
 
-		<execute action="SONavigation#assertClick" locator-key1="NAVIGATION_TASKS" value1="Tasks" />
+		<execute action="SODashboard#assertClick" locator-key1="NAVIGATION_TASKS" value1="Tasks" />
 	</command>
 
 	<command name="gotoSiteDocuments">

@@ -75,9 +75,9 @@
 		<execute action="SOUserBar#click" locator-key1="NOTIFICATION_MENU_CONFIRM" />
 		<execute action="SOUserBar#assertTextEquals" locator-key1="NOTIFICATION_MENU_COUNT" value1="0"/>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
 
-		<execute action="PGContactscenter#assertTextEquals" locator-key1="CONTACTS_LINK_CONNECTIONS" value1="You have 1 connections."/>
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="CONTACTS_LINK_CONNECTIONS" value1="You have 1 connections."/>
 	</command>
 
 	<command name="disconnectFromConnection">
@@ -85,31 +85,31 @@
 			<var name="userName" value="Joe Bloggs" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
 
-		<execute action="PGContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${userScreenName}" />
-		<execute action="PGContactscenter#assertClick" locator-key1="CONTACTS_LIST_NAME" value1="${userListName}" />
+		<execute action="SOContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${userScreenName}" />
+		<execute action="SOContactscenter#assertClick" locator-key1="CONTACTS_LIST_NAME" value1="${userListName}" />
 
-		<execute action="PGContactscenter#assertTextEquals" locator-key1="USER_DETAILS_NAME" value1="${userName}" />
-		<execute action="PGContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${userEmailAddress}" />
-		<execute action="PGContactscenter#click" locator-key1="DISCONNECT_BUTTON" value1="Disconnect" />
-		<execute action="PGContactscenter#assertElementNotPresent" locator-key1="DISCONNECT_BUTTON" />
-		<execute action="PGContactscenter#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You are not connected to this user anymore." />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_NAME" value1="${userName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${userEmailAddress}" />
+		<execute action="SOContactscenter#click" locator-key1="DISCONNECT_BUTTON" value1="Disconnect" />
+		<execute action="SOContactscenter#assertElementNotPresent" locator-key1="DISCONNECT_BUTTON" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You are not connected to this user anymore." />
 	</command>
 
 	<command name="followUser">
 		<execute macro="SOUserBar#dashboardPG">
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
 
-		<execute action="PGContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${adminName}" />
-		<execute action="PGContactscenter#assertClick" locator-key1="CONTACTS_LIST_NAME" value1="${adminListName}" />
-		<execute action="PGContactscenter#assertTextEquals" locator-key1="USER_DETAILS_NAME" value1="${adminName}" />
-		<execute action="PGContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${adminEmailAddress}" />
-		<execute action="PGContactscenter#assertClick" locator-key1="FOLLOW_BUTTON" value1="Follow" />
-		<execute action="PGContactscenter#assertTextEquals" locator-key1="FOLLOWING_MESSAGE" value1="Following" />
-		<execute action="PGContactscenter#assertTextEquals" locator-key1="UNFOLLOW_BUTTON" value1="Unfollow" />
+		<execute action="SOContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${adminName}" />
+		<execute action="SOContactscenter#assertClick" locator-key1="CONTACTS_LIST_NAME" value1="${adminListName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_NAME" value1="${adminName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${adminEmailAddress}" />
+		<execute action="SOContactscenter#assertClick" locator-key1="FOLLOW_BUTTON" value1="Follow" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="FOLLOWING_MESSAGE" value1="Following" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="UNFOLLOW_BUTTON" value1="Unfollow" />
 	</command>
 
 	<command name="requestToConnect">
@@ -117,30 +117,30 @@
 			<var name="userName" value="Joe Bloggs" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
 
-		<execute action="PGContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${userScreenName}" />
-		<execute action="PGContactscenter#assertClick" locator-key1="CONTACTS_LIST_NAME" value1="${userListName}" />
+		<execute action="SOContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${userScreenName}" />
+		<execute action="SOContactscenter#assertClick" locator-key1="CONTACTS_LIST_NAME" value1="${userListName}" />
 
-		<execute action="PGContactscenter#assertTextEquals" locator-key1="USER_DETAILS_NAME" value1="${userName}" />
-		<execute action="PGContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${userEmailAddress}" />
-		<execute action="PGContactscenter#assertClick" locator-key1="CONNECT_BUTTON" value1="Connect" />
-		<execute action="PGContactscenter#assertTextEquals" locator-key1="CONNECTION_REQUESTED_MESSAGE" value1="Connection Requested" />
-		<execute action="PGContactscenter#assertElementNotPresent" locator-key1="CONNECT_BUTTON" value1="Connect" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_NAME" value1="${userName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${userEmailAddress}" />
+		<execute action="SOContactscenter#assertClick" locator-key1="CONNECT_BUTTON" value1="Connect" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="CONNECTION_REQUESTED_MESSAGE" value1="Connection Requested" />
+		<execute action="SOContactscenter#assertElementNotPresent" locator-key1="CONNECT_BUTTON" value1="Connect" />
 	</command>
 
 	<command name="unfollowUser">
 		<execute macro="SOUserBar#dashboardPG">
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
 
-		<execute action="PGContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${adminName}" />
-		<execute action="PGContactscenter#assertClick" locator-key1="CONTACTS_LIST_NAME" value1="${adminListName}" />
-		<execute action="PGContactscenter#assertTextEquals" locator-key1="USER_DETAILS_NAME" value1="${adminName}" />
-		<execute action="PGContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${adminEmailAddress}" />
-		<execute action="PGContactscenter#assertClick" locator-key1="UNFOLLOW_BUTTON" value1="Unfollow" />
-		<execute action="PGContactscenter#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You are not following this user anymore." />
-		<execute action="PGContactscenter#assertTextEquals" locator-key1="FOLLOW_BUTTON" value1="Follow" />
+		<execute action="SOContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${adminName}" />
+		<execute action="SOContactscenter#assertClick" locator-key1="CONTACTS_LIST_NAME" value1="${adminListName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_NAME" value1="${adminName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${adminEmailAddress}" />
+		<execute action="SOContactscenter#assertClick" locator-key1="UNFOLLOW_BUTTON" value1="Unfollow" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You are not following this user anymore." />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="FOLLOW_BUTTON" value1="Follow" />
 	</command>
 </definition>

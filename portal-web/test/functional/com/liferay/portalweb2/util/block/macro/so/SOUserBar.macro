@@ -2,7 +2,7 @@
 	<command name="dashboardPG">
 		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
 
-		<execute action="SONavigation#assertTextEquals" locator-key1="PROFILE_NAME" value1="${userName}" />
+		<execute action="SODashboard#assertTextEquals" locator-key1="PROFILE_NAME" value1="${userName}" />
 	</command>
 
 	<command name="gotoCP">

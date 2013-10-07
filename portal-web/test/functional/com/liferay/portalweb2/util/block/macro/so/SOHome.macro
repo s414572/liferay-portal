@@ -21,19 +21,19 @@
 		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
 
 		<if>
-			<condition action="PGHome#isElementNotPresent" locator-key1="WHATS_HAPPENING_ENTRY_CONTENT" />
+			<condition action="SODashboard#isElementNotPresent" locator-key1="WHATS_HAPPENING_ENTRY_CONTENT" />
 			<then>
-				<execute action="PGHome#assertTextEquals" locator-key1="WHATS_HAPPENING_INFO_MESSAGE" value1="You do not have any microblog entries." />
+				<execute action="SODashboard#assertTextEquals" locator-key1="WHATS_HAPPENING_INFO_MESSAGE" value1="You do not have any microblog entries." />
 			</then>
 		</if>
 
-		<execute action="PGHome#click" locator-key1="WHATS_HAPPENING_CONTENT_FIELD" />
-		<execute action="PGHome#click" locator-key1="WHATS_HAPPENING_CONTENT_INPUT_FIELD" />
-		<execute action="PGHome#type" locator-key1="WHATS_HAPPENING_CONTENT_INPUT_FIELD" value1="${whatsHappeningEntryContent}" />
-		<execute action="PGHome#assertTextEquals" locator-key1="WHATS_HAPPENING_CONTENT_COUNTDOWN" value1="${whatsHappeningEntryCharacterCountdown}" />
-		<execute action="PGHome#select" locator-key1="WHATS_HAPPENING_CONTENT_VIEW_FILTER" value1="${whatsHappeningEntryViewableBy}" />
-		<execute action="PGHome#click" locator-key1="WHATS_HAPPENING_POST_BUTTON" />
-		<execute action="PGHome#assertTextEquals" locator-key1="WHATS_HAPPENING_ENTRY_CONTENT" value1="${whatsHappeningEntryContent}" />
+		<execute action="SODashboard#click" locator-key1="WHATS_HAPPENING_CONTENT_FIELD" />
+		<execute action="SODashboard#click" locator-key1="WHATS_HAPPENING_CONTENT_INPUT_FIELD" />
+		<execute action="SODashboard#type" locator-key1="WHATS_HAPPENING_CONTENT_INPUT_FIELD" value1="${whatsHappeningEntryContent}" />
+		<execute action="SODashboard#assertTextEquals" locator-key1="WHATS_HAPPENING_CONTENT_COUNTDOWN" value1="${whatsHappeningEntryCharacterCountdown}" />
+		<execute action="SODashboard#select" locator-key1="WHATS_HAPPENING_CONTENT_VIEW_FILTER" value1="${whatsHappeningEntryViewableBy}" />
+		<execute action="SODashboard#click" locator-key1="WHATS_HAPPENING_POST_BUTTON" />
+		<execute action="SODashboard#assertTextEquals" locator-key1="WHATS_HAPPENING_ENTRY_CONTENT" value1="${whatsHappeningEntryContent}" />
 	</command>
 
 	<command name="tearDownPG">
@@ -52,12 +52,12 @@
 		</if>
 
 		<while>
-			<condition action="SONavigation#isElementPresent" locator-key1="NAVIGATION_PAGE" />
+			<condition action="SODashboard#isElementPresent" locator-key1="NAVIGATION_PAGE" />
 			<then>
-				<execute action="SONavigation#mouseOver" locator-key1="NAVIGATION_PAGE" />
-				<execute action="SONavigation#click" locator-key1="NAVIGATION_PAGE_DELETE" />
-				<execute action="SONavigation#confirm" locator-key1="CONFIRMATION" value1="Are you sure you want to delete this page?" />
-				<execute action="SONavigation#assertElementNotPresent" locator-key1="NAVIGATION_PAGE" />
+				<execute action="SODashboard#mouseOver" locator-key1="NAVIGATION_PAGE" />
+				<execute action="SODashboard#click" locator-key1="NAVIGATION_PAGE_DELETE" />
+				<execute action="SODashboard#confirm" locator-key1="CONFIRMATION" value1="Are you sure you want to delete this page?" />
+				<execute action="SODashboard#assertElementNotPresent" locator-key1="NAVIGATION_PAGE" />
 			</then>
 		</while>
 	</command>
@@ -67,9 +67,9 @@
 			<var name="userName" value="${userName}" />
 		</execute>
 
-		<execute action="PGHome#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle}" />
-		<execute action="PGHome#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_CREATOR" value1="${userName}" />
-		<execute action="PGHome#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
+		<execute action="SODashboard#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle}" />
+		<execute action="SODashboard#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_CREATOR" value1="${userName}" />
+		<execute action="SODashboard#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
 	</command>
 
 </definition>
