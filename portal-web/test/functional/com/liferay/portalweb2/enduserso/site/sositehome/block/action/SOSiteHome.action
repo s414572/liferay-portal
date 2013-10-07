@@ -15,6 +15,16 @@
 		</case>
 	</command>
 
+	<command name="click">
+		<case locator-key1="NAVIGATION_DOCUMENTS">
+			<execute function="Click#textClickAtAndWait" />
+		</case>
+
+		<case locator-key1="NAVIGATION_MEMBERS">
+			<execute function="Click#textClickAtAndWait" />
+		</case>
+	</command>
+
 	<command name="close">
 		<case locator-key1="BOOKMARKS_POP_UP_GOOGLE">
 			<execute function="Close#closeWindow" />
