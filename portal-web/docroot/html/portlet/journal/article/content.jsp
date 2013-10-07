@@ -410,7 +410,7 @@ if (Validator.isNotNull(content)) {
 											}
 
 											String taglibEditArticleURL = HttpUtil.addParameter(editArticleRenderPopUpURL.toString(), renderResponse.getNamespace() + "toLanguageId", LocaleUtil.toLanguageId(locales[i]));
-											String taglibEditURL = "javascript:Liferay.Util.openWindow({cache: false, id: '" + renderResponse.getNamespace() + LocaleUtil.toLanguageId(locales[i]) + "', title: '" + UnicodeLanguageUtil.get(pageContext, "web-content-translation") + "', uri: '" + taglibEditArticleURL + "'});";
+											String taglibEditURL = "javascript:Liferay.Util.openWindow({cache: false, dialog: {align: Liferay.Util.Window.ALIGN_CENTER}, id: '" + renderResponse.getNamespace() + LocaleUtil.toLanguageId(locales[i]) + "', title: '" + UnicodeLanguageUtil.get(pageContext, "web-content-translation") + "', uri: '" + taglibEditArticleURL + "'});";
 										%>
 
 											<liferay-ui:icon
@@ -465,7 +465,7 @@ if (Validator.isNotNull(content)) {
 											String editTranslationURL = HttpUtil.addParameter(editArticleRenderPopUpURL.toString(), renderResponse.getNamespace() + "toLanguageId", translations[i]);
 										%>
 
-										<a class="lfr-token journal-article-translation-<%= translations[i] %>" href="javascript:;" onClick="Liferay.Util.openWindow({cache: false, id: '<portlet:namespace /><%= translations[i] %>', title: '<%= UnicodeLanguageUtil.get(pageContext, "web-content-translation") %>', uri: '<%= editTranslationURL %>'});">
+										<a class="lfr-token journal-article-translation-<%= translations[i] %>" href="javascript:;" onClick="Liferay.Util.openWindow({cache: false, dialog: {align: Liferay.Util.Window.ALIGN_CENTER}, id: '<portlet:namespace /><%= translations[i] %>', title: '<%= UnicodeLanguageUtil.get(pageContext, "web-content-translation") %>', uri: '<%= editTranslationURL %>'});">
 											<img alt="" src='<%= themeDisplay.getPathThemeImages() + "/language/" + translations[i] + ".png" %>' />
 
 											<%= LocaleUtil.fromLanguageId(translations[i]).getDisplayName(locale) %>
@@ -665,6 +665,9 @@ if (Validator.isNotNull(content)) {
 					function(event) {
 						Liferay.Util.openWindow(
 							{
+								dialog: {
+									align: Liferay.Util.Window.ALIGN_CENTER
+								},
 								id: '<portlet:namespace />' + newLanguageId,
 								title: '<%= UnicodeLanguageUtil.get(pageContext, "web-content-translation") %>',
 								uri: editTranslationURL
@@ -696,6 +699,7 @@ if (Validator.isNotNull(content)) {
 				Liferay.Util.openWindow(
 					{
 						dialog: {
+							align: Liferay.Util.Window.ALIGN_CENTER,
 							width:680
 						},
 						id: '<portlet:namespace />templateSelector',
