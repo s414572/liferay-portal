@@ -66,8 +66,8 @@
 		</execute>
 
 		<execute macro="SOMicroblogs#deleteMicroblogsEntry" />
-		<execute action="PGMicroblogs#assertTextEquals" locator-key1="INFO_MESSAGE" value1="You do not have any microblog entries." />
-		<execute action="PGMicroblogs#assertElementNotPresent" locator-key1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
+		<execute action="SOMicroblogs#assertTextEquals" locator-key1="INFO_MESSAGE" value1="You do not have any microblog entries." />
+		<execute action="SOMicroblogs#assertElementNotPresent" locator-key1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
 	</command>
 
 	<tear-down>

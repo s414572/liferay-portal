@@ -32,7 +32,7 @@
 			<var name="userName" value="Joe Bloggs" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
 
 		<execute macro="DMFolder#addPG" />
 
@@ -40,7 +40,7 @@
 			<var name="userName" value="Joe Bloggs" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
 
 		<execute macro="DMFolderDocument#addPG" />
 
@@ -48,7 +48,7 @@
 			<var name="userName" value="Joe Bloggs" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
 
 		<execute action="PGDocumentsandmedia#click" locator-key1="ENTRIES_FOLDER" />
 
@@ -72,7 +72,7 @@
 			<var name="userName" value="Joe Bloggs" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
 
 		<execute macro="DMFolder#addPG" />
 
@@ -80,7 +80,7 @@
 			<var name="userName" value="Joe Bloggs" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
 
 		<execute macro="DMFolderDocument#addPG" />
 
@@ -88,7 +88,7 @@
 			<var name="userName" value="Joe Bloggs" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
 
 		<execute macro="DMFolderDocument#deletePG" />
 	</command>
@@ -114,7 +114,7 @@
 			<var name="userName" value="Joe Bloggs" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
 
 		<execute macro="DMFolder#addPG" />
 
@@ -122,7 +122,7 @@
 			<var name="userName" value="Joe Bloggs" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
 
 		<execute macro="DMFolderDocument#addPG" />
 
@@ -130,7 +130,7 @@
 			<var name="userName" value="Joe Bloggs" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
 
 		<execute macro="DMFolderDocument#editPG" />
 
@@ -138,7 +138,7 @@
 			<var name="userName" value="Joe Bloggs" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
 
 		<execute action="PGDocumentsandmedia#click" locator-key1="ENTRIES_FOLDER" />
 

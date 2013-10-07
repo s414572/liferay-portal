@@ -110,7 +110,7 @@
 			<var name="userName" value="${userName}" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
 
 		<execute macro="SOProfile#viewConnectionProfile">
 			<var name="filterType" value="Connections" />
@@ -131,7 +131,7 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
 
 		<execute macro="SOProfile#viewConnectionProfile">
 			<var name="filterType" value="Connections" />
@@ -339,7 +339,7 @@
 			<var name="userName" value="${userName}" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
 
 		<execute macro="SOProfile#viewConnectionProfile">
 			<var name="filterType" value="Connections" />
@@ -360,7 +360,7 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
 
 		<execute macro="SOProfile#viewConnectionProfile">
 			<var name="filterType" value="Connections" />
@@ -374,7 +374,7 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
 
 		<execute macro="SOProfile#disconnectFromConnection">
 			<var name="filterType" value="Connections" />
@@ -395,7 +395,7 @@
 			<var name="userName" value="${userName}" />
 		</execute>
 
-		<execute action="SONavigation#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
 
 		<execute macro="SOProfile#viewNoConnection">
 			<var name="adminEmailAddress" value="${adminEmailAddress}" />
