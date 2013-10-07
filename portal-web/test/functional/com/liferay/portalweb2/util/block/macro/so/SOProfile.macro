@@ -9,8 +9,6 @@
 		<execute action="CPMyAccount#click" locator-key1="ADDITIONAL_EMAIL_ADDRESSES_PRIMARY_RADIO_BUTTON" />
 		<execute action="CPMyAccount#click" locator-key1="SAVE_BUTTON" />
 		<execute action="CPMyAccount#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
-
-		<execute action="SOMyAccount#selectFrameTop" />
 	</command>
 
 	<command name="addAdditionalEmailAddressProfile">
@@ -68,8 +66,6 @@
 		<execute action="CPMyAccount#check" locator-key1="ADDRESSES_MAILING_CHECKBOX" />
 		<execute action="CPMyAccount#click" locator-key1="SAVE_BUTTON" />
 		<execute action="CPMyAccount#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
-
-		<execute action="SOMyAccount#selectFrameTop" />
 	</command>
 
 	<command name="addAddressProfile">
@@ -127,8 +123,6 @@
 		<execute action="CPMyAccount#type" locator-key1="COMMENTS_FIELD" value1="${userIntroduction}" />
 		<execute action="CPMyAccount#click" locator-key1="SAVE_BUTTON" />
 		<execute action="CPMyAccount#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
-
-		<execute action="SOMyAccount#selectFrameTop" />
 	</command>
 
 	<command name="addConnection">
@@ -215,8 +209,6 @@
 
 		<execute action="CPMyAccount#click" locator-key1="SAVE_BUTTON" />
 		<execute action="CPMyAccount#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
-
-		<execute action="SOMyAccount#selectFrameTop" />
 	</command>
 
 	<command name="addInstantMessengerProfile">
@@ -297,8 +289,6 @@
 		<execute action="CPMyAccount#click" locator-key1="PHONE_NUMBERS_PRIMARY_RADIO_BUTTON" />
 		<execute action="CPMyAccount#click" locator-key1="SAVE_BUTTON" />
 		<execute action="CPMyAccount#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
-
-		<execute action="SOMyAccount#selectFrameTop" />
 	</command>
 
 	<command name="addPhoneNumbersProfile">
@@ -352,8 +342,6 @@
 
 		<execute action="CPMyAccount#click" locator-key1="SAVE_BUTTON" />
 		<execute action="CPMyAccount#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
-
-		<execute action="SOMyAccount#selectFrameTop" />
 	</command>
 
 	<command name="addProjectsProfile">
@@ -395,8 +383,6 @@
 		<execute action="CPMyAccount#type" locator-key1="SMS_SMS_FIELD" value1="${userSMS}" />
 		<execute action="CPMyAccount#click" locator-key1="SAVE_BUTTON" />
 		<execute action="CPMyAccount#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
-
-		<execute action="SOMyAccount#selectFrameTop" />
 	</command>
 
 	<command name="addSMSProfile">
@@ -441,8 +427,6 @@
 
 		<execute action="CPMyAccount#click" locator-key1="SAVE_BUTTON" />
 		<execute action="CPMyAccount#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
-
-		<execute action="SOMyAccount#selectFrameTop" />
 	</command>
 
 	<command name="addSocialNetworkProfile">
@@ -489,8 +473,6 @@
 		<execute action="CPMyAccount#click" locator-key1="CATEGORIZATION_ADD_BUTTON" />
 		<execute action="CPMyAccount#click" locator-key1="SAVE_BUTTON" />
 		<execute action="CPMyAccount#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
-
-		<execute action="SOMyAccount#selectFrameTop" />
 	</command>
 
 	<command name="addTagProfile">
@@ -517,8 +499,6 @@
 		<execute action="CPMyAccount#click" locator-key1="WEBSITES_PRIMARY_RADIO_BUTTON" />
 		<execute action="CPMyAccount#click" locator-key1="SAVE_BUTTON" />
 		<execute action="CPMyAccount#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
-
-		<execute action="SOMyAccount#selectFrameTop" />
 	</command>
 
 	<command name="addWebsiteProfile">
