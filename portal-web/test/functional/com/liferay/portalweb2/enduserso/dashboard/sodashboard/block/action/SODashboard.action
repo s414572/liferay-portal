@@ -1,4 +1,13 @@
 <definition>
+	<command name="assertTextEquals">
+		<case locator-key1="ANNOUNCEMENTS_ENTRY_ACTION">
+			<execute function="AssertTextEquals#assertPartialText" />
+		</case>
+		<case locator-key1="ANNOUNCEMENTS_ENTRY_CONTENT">
+			<execute function="AssertTextEquals#assertPartialText" />
+		</case>
+	</command>
+
 	<command name="click">
 		<case locator-key1="NAVIGATION_CONTACTS_CENTER">
 			<execute function="Click#textClickAtAndWait" value1="Contacts Center" />
@@ -34,8 +43,11 @@
 			<execute function="Confirm#waitForConfirmation" />
 		</case>
 	</command>
-	
+
 	<command name="isElementPresent">
+		<case locator-key1="ANNOUNCEMENTS_ENTRY_DELETE_LINK">
+			<execute function="IsElementPresent#pauseIsElementPresent" />
+		</case>
 		<case locator-key1="NAVIGATION_PAGE">
 			<execute function="IsElementPresent#isElementPresentClickNavigation" />
 		</case>
@@ -44,6 +56,12 @@
 	<command name="mouseOver">
 		<case locator-key1="NAVIGATION_PAGE">
 			<execute function="MouseOver#mouseOverClickNavigation" />
+		</case>
+	</command>
+
+	<command name="type">
+		<case locator-key1="WHATS_HAPPENING_CONTENT_INPUT_FIELD">
+			<execute function="Type#sendKeys" />
 		</case>
 	</command>
 </definition>

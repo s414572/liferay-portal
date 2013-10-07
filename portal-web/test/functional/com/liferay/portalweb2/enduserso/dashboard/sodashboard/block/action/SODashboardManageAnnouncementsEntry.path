@@ -1,17 +1,17 @@
 <html>
 <head>
-<title>PGHomeManageAnnouncementsEntry</title>
+<title>SODashboardManageAnnouncementsEntry</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">PGHomeManageAnnouncementsEntry</td></tr>
+<tr><td rowspan="1" colspan="3">SODashboardManageAnnouncementsEntry</td></tr>
 </thead>
 <tbody>
 <tr>
 	<td>PAGE_NAME</td>
 	<td></td>
-	<td>PGHomeManageAnnouncementsEntry</td>
+	<td>SODashboardManageAnnouncementsEntry</td>
 </tr>
 <tr>
 	<td></td>

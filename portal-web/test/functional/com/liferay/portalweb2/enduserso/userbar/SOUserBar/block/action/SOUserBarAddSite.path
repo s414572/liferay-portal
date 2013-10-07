@@ -1,11 +1,11 @@
 <html>
 <head>
-<title>SOSitesAdd</title>
+<title>SOUserBarAddSite</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">SOSitesAdd</td></tr>
+<tr><td rowspan="1" colspan="3">SOUserBarAddSite</td></tr>
 </thead>
 <tbody>
 <tr>
