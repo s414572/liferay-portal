@@ -36,7 +36,7 @@
 		</execute>
 
 		<execute action="SOSiteHome#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle}" />
-		<execute action="PGHome#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
+		<execute action="SODashboard#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
 		<execute action="SOSiteHome#click" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle}" />
 
 		<execute macro="Event#viewDetailsPG" />
