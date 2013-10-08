@@ -51,6 +51,7 @@ import com.liferay.portal.kernel.zip.ZipReaderFactoryUtil;
 import com.liferay.portal.model.Company;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Layout;
+import com.liferay.portal.model.LayoutConstants;
 import com.liferay.portal.model.Lock;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.model.PortletConstants;
@@ -1088,12 +1089,14 @@ public class PortletImporter {
 			boolean importPortletData)
 		throws Exception {
 
-		long defaultUserId = UserLocalServiceUtil.getDefaultUserId(companyId);
+		if (portletId == null) {
+			portletId = parentElement.attributeValue("portlet-id");
+		}
 
 		String languageId = LocaleUtil.toLanguageId(
 			LocaleUtil.getMostRelevantLocale());
 
-		long plid = 0;
+		long plid = LayoutConstants.DEFAULT_PLID;
 		String portletSetupTitle = StringPool.BLANK;
 		String scopeType = StringPool.BLANK;
 		String scopeLayoutUuid = StringPool.BLANK;
@@ -1148,12 +1151,7 @@ public class PortletImporter {
 				int ownerType = GetterUtil.getInteger(
 					element.attributeValue("owner-type"));
 
-				if (ownerType == PortletKeys.PREFS_OWNER_TYPE_COMPANY) {
-					continue;
-				}
-
-				if (((ownerType == PortletKeys.PREFS_OWNER_TYPE_GROUP) ||
-					 (ownerType == PortletKeys.PREFS_OWNER_TYPE_LAYOUT)) &&
+				if ((ownerType == PortletKeys.PREFS_OWNER_TYPE_COMPANY) ||
 					!importPortletSetup) {
 
 					continue;
@@ -1175,13 +1173,7 @@ public class PortletImporter {
 				if (ownerType == PortletKeys.PREFS_OWNER_TYPE_GROUP) {
 					plid = PortletKeys.PREFS_PLID_SHARED;
 					ownerId = portletDataContext.getScopeGroupId();
-				}
-
-				boolean defaultUser = GetterUtil.getBoolean(
-					element.attributeValue("default-user"));
-
-				if (portletId == null) {
-					portletId = element.attributeValue("portlet-id");
+					portletId = PortletConstants.getRootPortletId(portletId);
 				}
 
 				if (ownerType == PortletKeys.PREFS_OWNER_TYPE_ARCHIVED) {
@@ -1198,17 +1190,21 @@ public class PortletImporter {
 							userId, groupId, name, portletId,
 							PortletPreferences.class.getName());
 
-					plid = 0;
+					plid = LayoutConstants.DEFAULT_PLID;
 					ownerId = portletItem.getPortletItemId();
 				}
-				else if (ownerType == PortletKeys.PREFS_OWNER_TYPE_USER) {
+
+				if (ownerType == PortletKeys.PREFS_OWNER_TYPE_USER) {
 					String userUuid = element.attributeValue("user-uuid");
 
 					ownerId = portletDataContext.getUserId(userUuid);
 				}
 
+				boolean defaultUser = GetterUtil.getBoolean(
+					element.attributeValue("default-user"));
+
 				if (defaultUser) {
-					ownerId = defaultUserId;
+					ownerId = UserLocalServiceUtil.getDefaultUserId(companyId);
 				}
 
 				String rootPotletId = PortletConstants.getRootPortletId(
