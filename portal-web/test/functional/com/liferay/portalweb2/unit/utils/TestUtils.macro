@@ -48,9 +48,9 @@
 		<execute macro="Page#openURL" />
 
 		<execute action="Dockbar#click" locator-key1="ADD" value1="Add" />
-		<execute action="Dockbar#assertClick" locator-key1="ADD_PAGE_LINK" value1="Page" />
-		<execute action="Dockbar#type" locator-key1="ADD_PAGE_NAME_FIELD" value1="${text}" />
+		<execute action="Dockbar#assertClick" locator-key1="ADD_PAGE" value1="Page" />
+		<execute action="Home#type" locator-key1="NEW_PAGE_FIELD" value1="${text}" />
 
-		<execute action="Dockbar#assertTextEquals" locator-key1="ADD_PAGE_NAME_FIELD" value1="${text}" />
+		<execute action="Home#assertTextEquals" locator-key1="NEW_PAGE_FIELD" value1="${text}" />
 	</command>
 </definition>
