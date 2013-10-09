@@ -18,7 +18,7 @@
 	<set-up>
 		<execute macro="SOUser#firstLoginPG" />
 
-		<execute macro="SOSites#addSOSite">
+		<execute macro="SOUserBar#addSOSite">
 			<var name="siteName" value="${siteName}" />
 			<var name="siteDescription" value="${siteDescription}" />
 			<var name="siteType" value="${siteType}" />
@@ -79,6 +79,6 @@
 	<tear-down>
 		<execute macro="SOUser#tearDownCP" />
 
-		<execute macro="SOSites#tearDownCP" />
+		<execute macro="SOUserBar#tearDownSites" />
 	</tear-down>
 </definition>

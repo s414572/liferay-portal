@@ -51,7 +51,7 @@
 	</set-up>
 
 	<command name="SendMessage">
-		<execute macro="SOPrivateMessages#sendMessage">
+		<execute macro="SOMessages#sendMessage">
 			<var name="key_recipientName" value="${userName}" />
 			<var name="messageBody" value="Message Body" />
 			<var name="messageSubject" value="Message Subject" />
@@ -60,7 +60,7 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute macro="SOPrivateMessages#readMessage">
+		<execute macro="SOMessages#readMessage">
 			<var name="connectionName" value="${userName}" />
 			<var name="messageBody" value="Message Body" />
 			<var name="messageSubject" value="Message Subject" />
@@ -75,7 +75,7 @@
 			<var name="password" value="test" />
 		</execute>
 
-		<execute macro="SOPrivateMessages#readMessage">
+		<execute macro="SOMessages#readMessage">
 			<var name="connectionName" value="${adminName}" />
 			<var name="messageBody" value="Message Body" />
 			<var name="messageSubject" value="Message Subject" />
@@ -85,7 +85,7 @@
 	</command>
 
 	<command name="DeleteMessage">
-		<execute macro="SOPrivateMessages#sendMessage">
+		<execute macro="SOMessages#sendMessage">
 			<var name="key_recipientName" value="${userName}" />
 			<var name="messageBody" value="Message Body" />
 			<var name="messageSubject" value="Message Subject" />
@@ -94,7 +94,7 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute macro="SOPrivateMessages#deleteMessageFromMessageView">
+		<execute macro="SOMessages#deleteMessageFromMessageView">
 			<var name="connectionName" value="${userName}" />
 			<var name="messageBody" value="Message Body" />
 			<var name="messageSubject" value="Message Subject" />
@@ -103,7 +103,7 @@
 	</command>
 
 	<command name="DeleteMessageBySOUser">
-		<execute macro="SOPrivateMessages#sendMessage">
+		<execute macro="SOMessages#sendMessage">
 			<var name="key_recipientName" value="${userName}" />
 			<var name="messageBody" value="Message Body" />
 			<var name="messageSubject" value="Message Subject" />
@@ -119,7 +119,7 @@
 			<var name="password" value="test" />
 		</execute>
 
-		<execute macro="SOPrivateMessages#deleteMessageFromMessageView">
+		<execute macro="SOMessages#deleteMessageFromMessageView">
 			<var name="connectionName" value="${adminName}" />
 			<var name="messageBody" value="Message Body" />
 			<var name="messageSubject" value="Message Subject" />
@@ -133,7 +133,7 @@
 		<var name="password" value="test" />
 		<var name="userName" value="Social01 Office01 User01" />
 
-		<execute macro="SOPrivateMessages#tearDownPG">
+		<execute macro="SOMessages#tearDownPG">
 			<var name="userName" value="${adminName}" />
 		</execute>
 

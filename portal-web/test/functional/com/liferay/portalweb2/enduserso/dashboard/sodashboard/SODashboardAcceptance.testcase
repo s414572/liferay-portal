@@ -37,7 +37,7 @@
 			<var name="userScreenName" value="socialoffice01" />
 		</execute>
 
-		<execute macro="SOHome#addWhatsHappeningEntry">
+		<execute macro="SODashboard#addWhatsHappeningEntry">
 			<var name="whatsHappeningEntryContent" value="${whatsHappeningEntryContent}" />
 			<var name="whatsHappeningEntryCharacterCountdown" value="${whatsHappeningEntryCharacterCountdown}" />
 			<var name="whatsHappeningEntryViewableBy" value="${whatsHappeningEntryViewableBy}" />
@@ -149,13 +149,13 @@
 
 		<execute action="SOUserBar#click" locator-key1="TOGGLE_DOCKBAR" />
 
-		<execute macro="SOHome#addPage">
+		<execute macro="SODashboard#addPage">
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute action="SOUserBar#click" locator-key1="TOGGLE_DOCKBAR" />
 
-		<execute macro="SOHome#addPortlet">
+		<execute macro="SODashboard#addPortlet">
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
@@ -163,7 +163,7 @@
 			<var name="eventTitle" value="${eventTitle}" />
 		</execute>
 
-		<execute macro="SOHome#viewTodaysEvent">
+		<execute macro="SODashboard#viewTodaysEvent">
 			<var name="eventTitle" value="${eventTitle}" />
 			<var name="userName" value="${userName}" />
 		</execute>
@@ -178,7 +178,7 @@
 
 		<execute macro="SOCalendar#tearDownCP" />
 
-		<execute macro="SOHome#tearDownPG" />
+		<execute macro="SODashboard#tearDownPG" />
 
 		<execute macro="SOUserBar#tearDownNotifications" />
 	</tear-down>

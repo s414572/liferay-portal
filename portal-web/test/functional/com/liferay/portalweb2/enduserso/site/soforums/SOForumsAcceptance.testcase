@@ -8,7 +8,7 @@
 	<set-up>
 		<execute macro="SOUser#firstLoginPG" />
 
-		<execute macro="SOSites#addSOSite">
+		<execute macro="SOUserBar#addSOSite">
 			<var name="siteName" value="${siteName}" />
 			<var name="siteDescription" value="${siteDescription}" />
 			<var name="siteType" value="${siteType}" />
@@ -54,21 +54,21 @@
 			<var name="pageType" value="Open Site" />
 		</execute>
 
-		<execute macro="SOMessageboardsCategoryThread#viewPG" />
+		<execute macro="SOForumsCategoryThread#viewPG" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 			<var name="pageType" value="Open Site" />
 		</execute>
 
-		<execute macro="SOMessageboardsCategoryThread#viewMyPostsPG" />
+		<execute macro="SOForumsCategoryThread#viewMyPostsPG" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 			<var name="pageType" value="Open Site" />
 		</execute>
 
-		<execute macro="SOMessageboardsCategoryThread#viewRecentPostsPG" />
+		<execute macro="SOForumsCategoryThread#viewRecentPostsPG" />
 	</command>
 
 	<command name="DeleteMBCategoryThread">
@@ -107,7 +107,7 @@
 			<var name="categoryName" value="${categoryName}" />
 		</execute>
 
-		<execute macro="SOMessageboardsCategoryThread#deletePG" />
+		<execute macro="SOForumsCategoryThread#deletePG" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -169,13 +169,13 @@
 			<var name="pageType" value="Open Site" />
 		</execute>
 
-		<execute macro="SOMessageboardsCategoryThread#viewPG">
+		<execute macro="SOForumsCategoryThread#viewPG">
 			<var name="threadBody" value="${threadBodyEdit}" />
 			<var name="threadSubject" value="${threadSubjectEdit}" />
 		</execute>
 	</command>
 
 	<tear-down>
-		<execute macro="SOSites#tearDownCP" />
+		<execute macro="SOUserBar#tearDownSites" />
 	</tear-down>
 </definition>
