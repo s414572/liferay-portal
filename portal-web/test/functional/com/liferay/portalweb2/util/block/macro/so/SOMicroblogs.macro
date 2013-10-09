@@ -119,18 +119,18 @@
 		<if>
 			<isset var="microblogsEntryAuthorMiddleName" />
 			<then>
-				<execute action="PGProfileMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_ENTRY_AUTHOR" value1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}" />
+				<execute action="SOProfileMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_ENTRY_AUTHOR" value1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}" />
 			</then>
 			<else>
-				<execute action="PGProfileMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_ENTRY_AUTHOR" value1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}" />
+				<execute action="SOProfileMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_ENTRY_AUTHOR" value1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}" />
 			</else>
 		</if>
 
-		<execute action="PGProfileMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
-		<execute action="PGProfileMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_ENTRY_COMMENT_LINK" value1="Comment" />
-		<execute action="PGProfileMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_ENTRY_REPOST_LINK" value1="Repost" />
-		<execute action="PGProfileMicroblogs#assertElementNotPresent" locator-key1="MICROBLOGS_ENTRY_EDIT_LINK" value1="Edit" />
-		<execute action="PGProfileMicroblogs#assertElementNotPresent" locator-key1="MICROBLOGS_ENTRY_DELETE_LINK" value1="Delete" />
+		<execute action="SOProfileMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
+		<execute action="SOProfileMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_ENTRY_COMMENT_LINK" value1="Comment" />
+		<execute action="SOProfileMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_ENTRY_REPOST_LINK" value1="Repost" />
+		<execute action="SOProfileMicroblogs#assertElementNotPresent" locator-key1="MICROBLOGS_ENTRY_EDIT_LINK" value1="Edit" />
+		<execute action="SOProfileMicroblogs#assertElementNotPresent" locator-key1="MICROBLOGS_ENTRY_DELETE_LINK" value1="Delete" />
 	</command>
 
 	<command name="viewOwnMicroblogsEntry">
