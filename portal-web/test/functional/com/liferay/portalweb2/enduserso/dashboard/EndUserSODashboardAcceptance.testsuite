@@ -1,8 +1,6 @@
 <definition>
 	<execute test-case="SocialOfficeSmoke" />
 
-	<execute test-case="SOActivitiesAcceptance" />
-
 	<execute test-case="SOContactsCenterAcceptance" />
 
 	<execute test-case="SOContactsCenterViewProfileAcceptance" />
