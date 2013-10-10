@@ -55,6 +55,7 @@ import javax.portlet.PortletMode;
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
+import javax.portlet.PortletURL;
 import javax.portlet.PreferencesValidator;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
@@ -1228,6 +1229,14 @@ public class PortalUtil {
 		Portlet portlet, ServletContext servletContext) {
 
 		return getPortal().getServletContext(portlet, servletContext);
+	}
+
+	public static PortletURL getSiteAdministrationURL(
+		PortletResponse portletResponse, ThemeDisplay themeDisplay,
+		String portletName) {
+
+		return getPortal().getSiteAdministrationURL(
+			portletResponse, themeDisplay, portletName);
 	}
 
 	public static String getSiteLoginURL(ThemeDisplay themeDisplay)

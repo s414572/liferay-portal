@@ -50,6 +50,7 @@ import javax.portlet.PortletMode;
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
+import javax.portlet.PortletURL;
 import javax.portlet.PreferencesValidator;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
@@ -1042,6 +1043,10 @@ public interface Portal {
 
 	public ServletContext getServletContext(
 		Portlet portlet, ServletContext servletContext);
+
+	public PortletURL getSiteAdministrationURL(
+		PortletResponse portletResponse, ThemeDisplay themeDisplay,
+		String portletName);
 
 	/**
 	 * Returns the URL of the login page for the current site if one is

@@ -39,6 +39,7 @@ import com.liferay.portal.kernel.portlet.LiferayPortletContext;
 import com.liferay.portal.kernel.portlet.LiferayPortletMode;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
+import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.portlet.PortletBag;
 import com.liferay.portal.kernel.portlet.PortletBagPool;
@@ -4247,6 +4248,24 @@ public class PortalImpl implements Portal {
 			(LiferayPortletContext)portletConfig.getPortletContext();
 
 		return liferayPortletContext.getServletContext();
+	}
+
+	@Override
+	public PortletURL getSiteAdministrationURL(
+		PortletResponse portletResponse, ThemeDisplay themeDisplay,
+		String portletName) {
+
+		LiferayPortletResponse liferayPortletResponse =
+			(LiferayPortletResponse)portletResponse;
+
+		LiferayPortletURL siteAdministrationURL =
+			liferayPortletResponse.createRenderURL(portletName);
+
+		siteAdministrationURL.setDoAsGroupId(themeDisplay.getScopeGroupId());
+		siteAdministrationURL.setParameter(
+			"redirect", themeDisplay.getURLCurrent());
+
+		return siteAdministrationURL;
 	}
 
 	@Override
