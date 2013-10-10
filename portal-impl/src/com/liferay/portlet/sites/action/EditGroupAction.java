@@ -115,6 +115,12 @@ public class EditGroupAction extends PortletAction {
 							PortletKeys.SITE_SETTINGS);
 
 					redirect = siteAdministrationURL.toString();
+
+					PortletURL backURL = PortalUtil.getSiteAdministrationURL(
+						actionResponse, themeDisplay, PortletKeys.SITES_ADMIN);
+
+					redirect = HttpUtil.setParameter(
+						redirect, "backURL", backURL.toString());
 				}
 				else {
 					String oldFriendlyURL = (String)returnValue[1];
