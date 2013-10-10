@@ -58,87 +58,87 @@
 <!--ACTIVITIES-->
 <tr>
 	<td>ACTIVITIES_USER</td>
-	<td>xpath=(//div[@class='activity-user-name'])[${number}]</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[@class='activity-user-name']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ACTIVITIES_SITE</td>
-	<td>xpath=(//div[@class='activity-user-name']/a)[${number}]</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[@class='activity-user-name']/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ACTIVITIES_TIME_STAMP</td>
-	<td>xpath=(//div[@class='activity-time'])[${number}]</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[@class='activity-time']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ACTIVITIES_ACTION</td>
-	<td>xpath=(//div[@class='activity-action'])[${number}]</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[@class='activity-action']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ACTIVITIES_TITLE</td>
-	<td>xpath=(//div[@class='title']/a/span[2])[${number}]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ACTIVITIES_EVENT_DATE</td>
-	<td>xpath=(//div[@class='date'])[${number}]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ACTIVITIES_EVENT_LOCATION</td>
-	<td>xpath=(//div[@class='location'])[${number}]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ACTIVITIES_EVENT_DESCRIPTION</td>
-	<td>xpath=(//div[@class='description'])[${number}]</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[@class='title']/a/span[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ACTIVITIES_CONTENT</td>
-	<td>xpath=(//div[contains(@class,'activity-body')]//div[contains(@class,'content')])[${number}]</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[contains(@class,'activity-body')]//div[contains(@class,'content')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_EVENT_DATE</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[@class='date']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_EVENT_LOCATION</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[@class='location']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_EVENT_DESCRIPTION</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[@class='description']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ACTIVITIES_DOCUMENT_DESCRIPTION</td>
-	<td>xpath=(//div[@class='document-content'])[${number}]</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[@class='document-content']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ACTIVITIES_DOCUMENT_VERSION</td>
-	<td>xpath=(//div[@class='version'])[${number}]</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[@class='version']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ACTIVITIES_VIEW_MICROBLOGS</td>
-	<td>xpath=(//a[contains(.,'View Microblogs')])[${number}]</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//a[contains(.,'View Microblogs')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ACTIVITIES_DOWNLOAD</td>
-	<td>xpath=(//a[contains(.,'Download')])[${number}]</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//a[contains(.,'Download')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ACTIVITIES_REPOST</td>
-	<td>xpath=(//a[contains(.,'Repost')])[${number}]</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//a[contains(.,'Repost')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ACTIVITIES_VIEW_CHANGES</td>
-	<td>xpath=(//a[contains(.,'View Changes')])[${number}]</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//a[contains(.,'View Changes')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ACTIVITIES_COMMENT</td>
-	<td>xpath=(//span[@class='view-comments action']/a)[${number}]</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//span[@class='view-comments action']/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ACTIVITIES_COMMENT_FIELD</td>
-	<td>xpath=(//input[contains(@placeholder,'Leave a comment')])[${number}]</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//input[contains(@placeholder,'Leave a comment')]</td>
 	<td></td>
 </tr>
 </tbody>
