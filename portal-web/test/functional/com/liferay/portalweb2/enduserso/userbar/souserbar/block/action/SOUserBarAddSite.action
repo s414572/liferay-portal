@@ -1,0 +1,13 @@
+<definition>
+	<command name="assertElementNotPresent">
+		<case locator-key1="SAVE_BUTTON">
+			<execute function="AssertElementNotPresent#assertNotVisible" />
+		</case>
+	</command>
+
+	<command name="click">
+		<case locator-key1="SAVE_BUTTON">
+			<execute function="Click#clickAtPause" />
+		</case>
+	</command>
+</definition>

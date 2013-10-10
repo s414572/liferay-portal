@@ -1,0 +1,208 @@
+<html>
+<head>
+<title>SOUserBar</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SOUserBar</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>SOUserBar</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>DASHBOARD</td>
+	<td>//a[contains(text(),'Dashboard')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CONTACT_CENTER</td>
+	<td>//a[contains(text(),'Contacts Center')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MICROBLOGS</td>
+	<td>//a[contains(text(),'Microblogs')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MESSAGES</td>
+	<td>//a[contains(text(),'Messages')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MY_DOCUMENTS</td>
+	<td>//a[contains(text(),'My Documents')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TASKS</td>
+	<td>//a[contains(text(),'Tasks')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>HOME</td>
+	<td>//a[contains(text(),'Home')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PLUGINS</td>
+	<td>//a[contains(text(),'Plugins')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>GO_TO</td>
+	<td>//input[contains(@class,'search-input')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NOTIFICATION</td>
+	<td>//li[@class='notifications-menu']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_NAME</td>
+	<td>//li[contains(@class,'user-menu has-submenu')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TOGGLE_DOCKBAR</td>
+	<td>//a[contains(@id,'toggleDockbar')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EDIT_CONTROLS_NOT_FLAGGED</td>
+	<td>//body[@class='normal yui3-skin-sam controls-hidden signed-in private-page user-site user-group dockbar-ready show-dockbar'] 	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUCCESS_MESSAGE</td>
+	<td>//span[@class='portlet-msg-success']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>INFO_MESSAGE</td>
+	<td>//div[@class='portlet-msg-info']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--GO_TO-->
+<tr>
+	<td>GO_TO_SEARCH_FIELD</td>
+	<td>//input[@class='search-input focus']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>GO_TO_SITE_CATEGORY_SELECT</td>
+	<td>//select[contains(@id,'soportlet_tabs1')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>GO_TO_SITE_LIST</td>
+	<td>//ul[contains(@class,'site-list')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>GO_TO_SITE_NAME</td>
+	<td>//li[contains(@class,'social-office-enabled')]/span[contains(.,'${siteName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>GO_TO_SITE_NAME_LINK</td>
+	<td>//li[contains(@class,'social-office-enabled')]/span[contains(.,'${siteName}')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>GO_TO_FAVORITE_SITE_ICON</td>
+	<td>//li[contains(@class,'social-office-enabled')]/span[@class='action favorite']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>GO_TO_UNFAVORITE_SITE_ICON</td>
+	<td>//li[contains(@class,'social-office-enabled')]/span[@class='action unfavorite']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>GO_TO_ADD_SITE_BUTTON</td>
+	<td>//button[contains(.,'Add Site')]/span[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>GO_TO_SITES_DIRECTORY_BUTTON</td>
+	<td>//button[contains(.,'Sites Directory')]/span[2]</td>
+	<td></td>
+</tr>
+<!---->
+<!--NOTIFICATION_MENU-->
+<tr>
+	<td>NOTIFICATION_MENU_COUNT</td>
+	<td>//span[@class='notification-count']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NOTIFICATION_MENU_ENTRY_SENDER</td>
+	<td>//div[@class='notification-entry']/div[@class='title']//a</td>
+	<td>Joe Bloggs</td>
+</tr>
+<tr>
+	<td>NOTIFICATION_MENU_ENTRY_CONTENT</td>
+	<td>//div[@class='notification-entry']/div[@class='title']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NOTIFICATION_MENU_CONFIRM</td>
+	<td>//div/span/a[contains(text(),'Confirm')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NOTIFICATION_MENU_IGNORE</td>
+	<td>//div/span/a[contains(text(),'Ignore')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NOTIFICATION_MENU_VIEW_ALL</td>
+	<td>//span[@class='view-all']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--USER_MENU-->
+<tr>
+	<td>USER_MENU_MY_PROFILE</td>
+	<td>//a[contains(text(),'My Profile')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_MENU_MY_ACCOUNT</td>
+	<td>//a[contains(text(),'My Account')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_MENU_CONTROL_PANEL</td>
+	<td>//a[contains(text(),'Control Panel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_MENU_SIGN_OUT</td>
+	<td>//a[contains(text(),'Sign Out')]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
