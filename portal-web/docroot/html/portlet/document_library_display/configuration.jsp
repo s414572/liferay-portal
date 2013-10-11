@@ -188,7 +188,7 @@ String portletNameSpace = PortalUtil.getPortletNamespace(portletResource);
 		folderWindow.focus();
 	}
 
-	function <%= portletNameSpace %>selectFolder(rootFolderId, rootFolderName) {
+	window['<%= HtmlUtil.escapeJS(portletNameSpace) %>selectFolder'] = function(rootFolderId, rootFolderName) {
 		var folderData = {
 			idString: 'rootFolderId',
 			idValue: rootFolderId,
@@ -228,7 +228,7 @@ String portletNameSpace = PortalUtil.getPortletNamespace(portletResource);
 			valueMap.delta2 = fileEntriesPerPageInput.val();
 		}
 
-		var portlet = Liferay.Util.getTop().AUI().one('#p_p_id<%= portletNameSpace %>');
+		var portlet = Liferay.Util.getTop().AUI().one('#p_p_id<%= HtmlUtil.escapeJS(portletNameSpace) %>');
 
 		portlet.refreshURL = portlet.refreshURL.replace(
 			/(cur\d{1}|delta[12])(=|%3D)[^%&]+/g,

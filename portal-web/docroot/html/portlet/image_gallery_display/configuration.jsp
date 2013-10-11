@@ -115,7 +115,7 @@ String redirect = ParamUtil.getString(request, "redirect");
 		folderWindow.focus();
 	}
 
-	function <%= PortalUtil.getPortletNamespace(portletResource) %>selectFolder(rootFolderId, rootFolderName) {
+	window['<%= HtmlUtil.escapeJS(PortalUtil.getPortletNamespace(portletResource)) %>selectFolder'] = function(rootFolderId, rootFolderName) {
 		var folderData = {
 			idString: 'rootFolderId',
 			idValue: rootFolderId,
@@ -123,7 +123,7 @@ String redirect = ParamUtil.getString(request, "redirect");
 			nameValue: rootFolderName
 		};
 
-		Liferay.Util.selectFolder(folderData, '<liferay-portlet:renderURL portletName="<%= HtmlUtil.escapeJS(portletResource) %>"><portlet:param name="struts_action" value='<%= "/image_gallery_display/view" %>' /></liferay-portlet:renderURL>', '<portlet:namespace />');
+		Liferay.Util.selectFolder(folderData, '<liferay-portlet:renderURL portletName="<%= portletResource %>"><portlet:param name="struts_action" value='<%= "/image_gallery_display/view" %>' /></liferay-portlet:renderURL>', '<portlet:namespace />');
 	}
 
 	Liferay.provide(

@@ -24,7 +24,7 @@ String portletId = portlet.getPortletId();
 
 <c:choose>
 	<c:when test="<%= portlet.getRenderWeight() >= 1 %>">
-		[$TEMPLATE_PORTLET_<%= portletId %>$]
+		[$TEMPLATE_PORTLET_<%= HtmlUtil.escape(portletId) %>$]
 	</c:when>
 	<c:otherwise>
 
@@ -35,10 +35,10 @@ String portletId = portlet.getPortletId();
 		String url = PortletURLUtil.getRefreshURL(request, themeDisplay);
 		%>
 
-		<div class="loading-animation" id="p_load<%= portletDisplay.getNamespace() %>"></div>
+		<div class="loading-animation" id="p_load<%= HtmlUtil.escapeAttribute(portletDisplay.getNamespace()) %>"></div>
 
 		<aui:script use="aui-base">
-			var ns = '<%= portletDisplay.getNamespace() %>';
+			var ns = '<%= HtmlUtil.escapeJS(portletDisplay.getNamespace()) %>';
 
 			Liferay.Portlet.addHTML(
 				{

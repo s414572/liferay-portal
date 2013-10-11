@@ -176,7 +176,7 @@ if (!defaultFolderView && (folder != null) && portletName.equals(PortletKeys.DOC
 			},
 			allRowIds: '<%= RowChecker.ALL_ROW_IDS %>',
 			defaultParams: {
-				p_p_id: <%= portletId %>,
+				p_p_id: '<%= HtmlUtil.escapeJS(portletId) %>',
 				p_p_lifecycle: 0
 			},
 			defaultParentFolderId: '<%= DLFolderConstants.DEFAULT_PARENT_FOLDER_ID %>',
@@ -203,7 +203,7 @@ if (!defaultFolderView && (folder != null) && portletName.equals(PortletKeys.DOC
 			mainUrl: '<%= mainURL %>',
 			moveEntryRenderUrl: '<portlet:renderURL><portlet:param name="struts_action" value="/document_library/move_entry" /></portlet:renderURL>',
 			namespace: '<portlet:namespace />',
-			portletId: '<%= portletId %>',
+			portletId: '<%= HtmlUtil.escapeJS(portletId) %>',
 			rowIds: '<%= RowChecker.ROW_IDS %>',
 			strutsAction: '/document_library/view',
 			updateable: <%= DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.UPDATE) %>
