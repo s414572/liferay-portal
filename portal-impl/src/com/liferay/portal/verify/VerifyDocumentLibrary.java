@@ -204,7 +204,7 @@ public class VerifyDocumentLibrary extends VerifyProcess {
 						dlFileVersion.getUserId(),
 						dlFileVersion.getFileEntryId(),
 						dlFileVersion.getVersion(), false);
-					}
+				}
 				catch (Exception e) {
 					DLFileEntry fileEntry = dlFileVersion.getFileEntry();
 
