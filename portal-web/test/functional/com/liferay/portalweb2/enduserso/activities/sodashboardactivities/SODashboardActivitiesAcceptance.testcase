@@ -3,7 +3,7 @@
 		<execute macro="SOUser#firstLoginPG" />
 	</set-up>
 
-	<command name="ViewActivitiesDashboard">
+	<command name="ViewDashboardActivitiesDashboard">
 		<var name="adminEmailAddress" value="test@liferay.com" />
 		<var name="adminName" value="Joe Bloggs" />
 		<var name="microblogsEntryAuthorFirstName" value="Joe" />
@@ -76,22 +76,22 @@
 			<var name="userName" value="${userName1}" />
 		</execute>
 
-		<execute macro="SOActivities#viewActivitiesMicroblogs">
+		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="microblogsEntryContent" value="${microblogsEntryContent}" />
 		</execute>
 
-		<execute macro="SOActivities#viewActivitiesMicroblogs">
+		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="microblogsEntryContent" value="${userName1}" />
 			<var name="number" value="02" />
 		</execute>
 
 		<execute action="SOActivities#click" locator-key1="NAVIGATION_CONNECTIONS" />
 
-		<execute macro="SOActivities#viewActivitiesMicroblogs">
+		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="microblogsEntryContent" value="${microblogsEntryContent}" />
 		</execute>
 
-		<execute macro="SOActivities#viewActivitiesMicroblogs">
+		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="microblogsEntryContent" value="${userName1}" />
 			<var name="number" value="02" />
 		</execute>
@@ -149,22 +149,22 @@
 			<var name="userName" value="${userName2}" />
 		</execute>
 
-		<execute macro="SOActivities#viewActivitiesMicroblogs">
+		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="microblogsEntryContent" value="${microblogsEntryContent}" />
 		</execute>
 
-		<execute macro="SOActivities#viewActivitiesMicroblogs">
+		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="microblogsEntryContent" value="${userName1}" />
 			<var name="number" value="02" />
 		</execute>
 
 		<execute action="SOActivities#click" locator-key1="NAVIGATION_FOLLOWING" />
 
-		<execute macro="SOActivities#viewActivitiesMicroblogs">
+		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="microblogsEntryContent" value="${microblogsEntryContent}" />
 		</execute>
 
-		<execute macro="SOActivities#viewActivitiesMicroblogs">
+		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="microblogsEntryContent" value="${userName1}" />
 			<var name="number" value="02" />
 		</execute>

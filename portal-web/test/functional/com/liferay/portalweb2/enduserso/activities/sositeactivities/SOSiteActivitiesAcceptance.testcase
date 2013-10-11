@@ -1,9 +1,15 @@
 <definition>
 	<set-up>
 		<execute macro="SOUser#firstLoginPG" />
+
+		<execute macro="SOUserBar#addSOSite">
+			<var name="siteName" value="${siteName}" />
+			<var name="siteDescription" value="${siteDescription}" />
+			<var name="siteType" value="${siteType}" />
+		</execute>
 	</set-up>
 
-	<command name="ViewActivitiesDashboard">
+	<command name="ViewSiteActivitiesDashboard">
 		<var name="adminEmailAddress" value="test@liferay.com" />
 		<var name="adminName" value="Joe Bloggs" />
 		<var name="bookmarksEntryDescription" value="Bookmarks Entry Description" />
@@ -29,13 +35,6 @@
 		<var name="wikiPageContent" value="Wiki FrontPage Content" />
 		<var name="wikiPageContentEdit" value="Wiki FrontPage Content Edit" />
 
-
-		<execute macro="SOUserBar#addSOSite">
-			<var name="siteName" value="${siteName}" />
-			<var name="siteDescription" value="${siteDescription}" />
-			<var name="siteType" value="${siteType}" />
-		</execute>
-
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Calendar" />
 			<var name="pageType" value="Open Site" />
@@ -52,6 +51,7 @@
 		<execute macro="SONavigation#gotoSiteDocuments">
 			<var name="pageType" value="Open Site" />
 		</execute>
+
 		<execute macro="DMFolderDocument#addPG" />
 
 		<execute macro="Page#gotoPG">
@@ -109,12 +109,12 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute macro="SOActivities#viewActivitiesBookmarks">
+		<execute macro="SOActivities#viewBookmarksActivityEntry">
 			<var name="action" value="Added a new bookmark." />
 			<var name="userName" value="Joe in ${siteName}" />
 		</execute>
 
-		<execute macro="SOActivities#viewActivitiesWiki">
+		<execute macro="SOActivities#viewWikiActivityEntry">
 			<var name="action" value="Made 2 updates to a wiki page in the Main wiki." />
 			<var name="wikiPageContent" value="${wikiPageContentEdit}" />
 			<var name="wikiPageTitle" value="FrontPage" />
@@ -122,25 +122,25 @@
 			<var name="userName" value="Joe in ${siteName}" />
 		</execute>
 
-		<execute macro="SOActivities#viewActivitiesBlogs">
+		<execute macro="SOActivities#viewBlogsActivityEntry">
 			<var name="action" value="Wrote a new blog entry." />
 			<var name="number" value="03" />
 			<var name="userName" value="Joe in ${siteName}" />
 		</execute>
 
-		<execute macro="SOActivities#viewActivitiesForums">
+		<execute macro="SOActivities#viewForumsActivityEntry">
 			<var name="action" value="Wrote a new forum post in MB Category Name." />
 			<var name="number" value="04" />
 			<var name="userName" value="Joe in ${siteName}" />
 		</execute>
 
-		<execute macro="SOActivities#viewActivitiesDocuments">
+		<execute macro="SOActivities#viewDocumentsActivityEntry">
 			<var name="action" value="Uploaded a new document in the DM Folder Name folder." />
 			<var name="number" value="05" />
 			<var name="userName" value="Joe in ${siteName}" />
 		</execute>
 
-		<execute macro="SOActivities#viewActivitiesCalendar">
+		<execute macro="SOActivities#viewCalendarActivityEntry">
 			<var name="action" value="Added a new calendar event." />
 			<var name="number" value="06" />
 			<var name="userName" value="Joe in ${siteName}" />

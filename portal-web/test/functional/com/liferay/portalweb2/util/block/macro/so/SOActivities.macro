@@ -1,5 +1,5 @@
 <definition>
-	<command name="viewActivitiesBlogs">
+	<command name="viewBlogsActivityEntry">
 		<if>
 			<isset var="number" />
 			<then>
@@ -19,7 +19,7 @@
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
 	</command>
 
-	<command name="viewActivitiesBookmarks">
+	<command name="viewBookmarksActivityEntry">
 		<if>
 			<isset var="number" />
 			<then>
@@ -39,7 +39,7 @@
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
 	</command>
 
-	<command name="viewActivitiesCalendar">
+	<command name="viewCalendarActivityEntry">
 		<if>
 			<isset var="number" />
 			<then>
@@ -53,15 +53,13 @@
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${userName}" />
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_TIME_STAMP" />
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${action}" />
-
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_EVENT_DATE" />
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_EVENT_DESCRIPTION" value1="Description: ${eventDescription}" />
-
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_COMMENT" value1="Comment" />
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
 	</command>
 
-	<command name="viewActivitiesDocuments">
+	<command name="viewDocumentsActivityEntry">
 		<if>
 			<isset var="number" />
 			<then>
@@ -82,7 +80,7 @@
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
 	</command>
 
-	<command name="viewActivitiesForums">
+	<command name="viewForumsActivityEntry">
 		<if>
 			<isset var="number" />
 			<then>
@@ -100,7 +98,7 @@
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_CONTENT" value1="${threadBody}" />
 	</command>
 
-	<command name="viewActivitiesMicroblogs">
+	<command name="viewMicroblogsActivityEntry">
 		<if>
 			<isset var="number" />
 			<then>
@@ -120,7 +118,7 @@
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
 	</command>
 
-	<command name="viewActivitiesWiki">
+	<command name="viewWikiActivityEntry">
 		<if>
 			<isset var="number" />
 			<then>
