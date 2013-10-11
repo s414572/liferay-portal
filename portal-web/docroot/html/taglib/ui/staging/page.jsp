@@ -110,6 +110,7 @@ String publishScheduleMessage = LanguageUtil.get(pageContext, publishScheduleDia
 %>
 
 <liferay-portlet:renderURL plid="<%= plid %>" portletMode="<%= PortletMode.VIEW.toString() %>" portletName="<%= PortletKeys.LAYOUTS_ADMIN %>" varImpl="publishRenderURL" windowState="<%= LiferayWindowState.EXCLUSIVE.toString() %>">
+	<liferay-portlet:param name="p_p_auth" value="<%= String.valueOf(AuthTokenUtil.getToken(request, layout.getPlid(), PortletKeys.LAYOUTS_ADMIN)) %>" />
 	<liferay-portlet:param name="struts_action" value="/layouts_admin/publish_layouts" />
 	<liferay-portlet:param name="<%= Constants.CMD %>" value='<%= (group.isCompany()) ? "publish_to_remote" : "publish_to_live" %>' />
 	<liferay-portlet:param name="tabs1" value='<%= (privateLayout) ? "private-pages" : "public-pages" %>' />
