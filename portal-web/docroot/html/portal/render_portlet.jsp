@@ -153,6 +153,34 @@ else if (allowAddPortletDefaultResource) {
 	access = PortletPermissionUtil.hasAccessPermission(permissionChecker, themeDisplay.getScopeGroupId(), layout, portlet, portletMode);
 }
 
+if (access) {
+	for (int i = 0; i < portletId.length(); i++) {
+		char c = portletId.charAt(i);
+
+		if ((c >= CharPool.LOWER_CASE_A) && (c <= CharPool.LOWER_CASE_Z)) {
+			continue;
+		}
+
+		if ((c >= CharPool.UPPER_CASE_A) && (c <= CharPool.UPPER_CASE_Z)) {
+			continue;
+		}
+
+		if ((c >= CharPool.NUMBER_0) && (c <= CharPool.NUMBER_9)) {
+			continue;
+		}
+
+		if (c == CharPool.UNDERLINE) {
+			continue;
+		}
+
+		_log.warn("Invalid portlet id " + portletId);
+
+		request.getRequestDispatcher("/html/portal/portlet_access_denied.jsp").include(request, response);
+
+		return;
+	}
+}
+
 InvokerPortlet invokerPortlet = null;
 
 try {
