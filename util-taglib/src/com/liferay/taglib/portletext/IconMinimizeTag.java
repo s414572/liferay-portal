@@ -101,9 +101,9 @@ public class IconMinimizeTag extends IconTag {
 		try {
 			liferayPortletURL.setWindowState(LiferayWindowState.EXCLUSIVE);
 		}
-		catch (WindowStateException e) {
+		catch (WindowStateException wse) {
 			if (_log.isDebugEnabled()) {
-				_log.debug("Unable to set EXCLUSIVE state", e);
+				_log.debug("Unable to set EXCLUSIVE state", wse);
 			}
 		}
 
