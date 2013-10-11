@@ -47,6 +47,7 @@ import com.liferay.portlet.documentlibrary.util.DLProcessorRegistryUtil;
 
 import java.io.Serializable;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -611,9 +612,13 @@ public class DLAppHelperLocalServiceImpl
 
 			// Social
 
+			Date activityDate = latestFileVersion.getModifiedDate();
+
 			int activityType = DLActivityKeys.UPDATE_FILE_ENTRY;
 
 			if (event.equals(DLSyncConstants.EVENT_ADD)) {
+				activityDate = latestFileVersion.getCreateDate();
+
 				activityType = DLActivityKeys.ADD_FILE_ENTRY;
 			}
 
@@ -623,9 +628,9 @@ public class DLAppHelperLocalServiceImpl
 
 			socialActivityLocalService.addUniqueActivity(
 				latestFileVersion.getStatusByUserId(), fileEntry.getGroupId(),
-				latestFileVersion.getCreateDate(),
-				DLFileEntryConstants.getClassName(), fileEntry.getFileEntryId(),
-				activityType, extraDataJSONObject.toString(), 0);
+				activityDate, DLFileEntryConstants.getClassName(),
+				fileEntry.getFileEntryId(), activityType,
+				extraDataJSONObject.toString(), 0);
 		}
 		else {
 
