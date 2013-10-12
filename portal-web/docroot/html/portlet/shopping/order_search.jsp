@@ -48,13 +48,7 @@ OrderDisplayTerms displayTerms = (OrderDisplayTerms)searchContainer.getDisplayTe
 		</aui:select>
 	</aui:column>
 
-	<aui:column>
-		<aui:input name="<%= displayTerms.FIRST_NAME %>" size="20" type="text" value="<%= displayTerms.getFirstName() %>" />
-	</aui:column>
-
-	<aui:column>
-		<aui:input name="<%= displayTerms.LAST_NAME %>" size="20" type="text" value="<%= displayTerms.getLastName() %>" />
-	</aui:column>
+	<%@ include file="/html/portlet/shopping/order_search_user_name.jspf" %>
 
 	<aui:column>
 		<aui:input name="<%= displayTerms.EMAIL_ADDRESS %>" size="20" type="text" value="<%= displayTerms.getEmailAddress() %>" />
