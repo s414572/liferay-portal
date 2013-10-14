@@ -3,6 +3,16 @@
 		<execute action="CPDocumentsandmedia#assertClick" locator-key1="ADD" value1="Add" />
 		<execute action="CPDocumentsandmedia#assertClick" locator-key1="ADD_MENULIST_BASIC_DOCUMENT" value1="Basic Document" />
 
+		<if>
+			<equals arg1="${uploadTempFile}" arg2="true" />
+			<then>
+				<execute action="CPDocumentsandmediaAdddocument#uploadTempFile" locator-key1="FILE_FIELD" value1="${dmDocumentFile}" />
+			</then>
+			<else>
+				<execute action="CPDocumentsandmediaAdddocument#uploadCommonFile" locator-key1="FILE_FIELD" value1="${dmDocumentFile}" />
+			</else>
+		</if>
+
 		<execute action="CPDocumentsandmediaAdddocument#uploadCommonFile" locator-key1="FILE_FIELD" value1="${dmDocumentFile}" />
 		<execute action="CPDocumentsandmediaAdddocument#type" locator-key1="TITLE_FIELD" value1="${dmDocumentTitle}" />
 		<execute action="CPDocumentsandmediaAdddocument#type" locator-key1="DESCRIPTION_FIELD" value1="${dmDocumentDescription}" />
@@ -125,6 +135,16 @@
 		<execute action="PGDocumentlibrarydisplay#confirm" locator-key1="CONFIRMATION" value1="Are you sure you want to delete this?" />
 		<execute action="PGDocumentlibrarydisplay#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute action="PGDocumentlibrarydisplay#assertTextNotPresent" value1="${dmdDocumentTitle}" />
+	</command>
+
+	<command name="downloadCP">
+		<execute action="CPDocumentsandmedia#assertElementPresent" locator-key1="DOCUMENT_CONTAINER_DOCUMENT1" />
+		<execute action="CPDocumentsandmedia#assertTextEquals" locator-key1="DOCUMENT_CONTAINER_DOCUMENT1_TITLE" value1="${dmDocumentTitle}" />
+
+		<execute action="CPDocumentsandmedia#mouseOver" locator-key1="DOCUMENT_CONTAINER_DOCUMENT1" />
+		<execute action="CPDocumentsandmedia#assertElementPresent" locator-key1="DOCUMENT_CONTAINER_DOCUMENT1_DROPDOWN" />
+		<execute action="CPDocumentsandmedia#click" locator-key1="DOCUMENT_CONTAINER_DOCUMENT1_DROPDOWN" />
+		<execute action="CPDocumentsandmedia#click" locator-key1="DOCUMENT_MENULIST_DOWNLOAD" value1="Download" />
 	</command>
 
 	<command name="editCP">
