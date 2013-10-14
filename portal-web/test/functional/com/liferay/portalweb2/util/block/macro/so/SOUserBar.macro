@@ -99,6 +99,13 @@
 		<execute action="SOUserBar#click" locator-key1="USER_MENU_MY_PROFILE" value1="My Profile" />
 	</command>
 
+	<command name="myProfilePG">
+		<execute action="SOUserBar#click" locator-key1="USER_NAME" />
+		<execute action="SOUserBar#click" locator-key1="USER_MENU_MY_PROFILE" value1="My Profile"/>
+
+		<execute action="SOProfile#assertTextEquals" locator-key1="USER_NAME" value1="${userName}" />
+	</command>
+
 	<command name="searchSOSite">
 		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
 		<execute action="SOUserBar#click" locator-key1="GO_TO" />
