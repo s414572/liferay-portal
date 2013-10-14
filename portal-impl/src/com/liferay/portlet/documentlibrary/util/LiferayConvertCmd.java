@@ -17,13 +17,12 @@ package com.liferay.portlet.documentlibrary.util;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
-
-import jodd.util.StringPool;
 
 import org.im4java.core.ConvertCmd;
 
