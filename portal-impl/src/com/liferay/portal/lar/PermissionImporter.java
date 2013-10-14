@@ -204,13 +204,10 @@ public class PermissionImporter {
 			String resourceName = Layout.class.getName();
 			String resourcePrimKey = String.valueOf(layout.getPlid());
 
-			if (PropsValues.PERMISSIONS_USER_CHECK_ALGORITHM == 5) {
-				importPermissions_5(
-					layoutCache, companyId, groupId, userId, layout,
-					resourceName, resourcePrimKey, permissionsElement, false);
-			}
-			else if (PropsValues.PERMISSIONS_USER_CHECK_ALGORITHM == 6) {
-				importPermissions_6(
+			if ((PropsValues.PERMISSIONS_USER_CHECK_ALGORITHM == 5) ||
+				(PropsValues.PERMISSIONS_USER_CHECK_ALGORITHM == 6)) {
+
+				importPermissions(
 					layoutCache, companyId, groupId, userId, layout,
 					resourceName, resourcePrimKey, permissionsElement, false);
 			}
@@ -289,91 +286,7 @@ public class PermissionImporter {
 			rolesElement);
 	}
 
-	protected void importPermissions_5(
-			LayoutCache layoutCache, long companyId, long groupId, long userId,
-			Layout layout, String resourceName, String resourcePrimKey,
-			Element permissionsElement, boolean portletActions)
-		throws Exception {
-
-		Map<Long, String[]> roleIdsToActionIds = new HashMap<Long, String[]>();
-
-		List<Element> roleElements = permissionsElement.elements("role");
-
-		for (Element roleElement : roleElements) {
-			String name = roleElement.attributeValue("name");
-
-			Role role = null;
-
-			if (name.startsWith(PermissionExporter.ROLE_TEAM_PREFIX)) {
-				name = name.substring(
-					PermissionExporter.ROLE_TEAM_PREFIX.length());
-
-				String description = roleElement.attributeValue("description");
-
-				Team team = null;
-
-				try {
-					team = TeamLocalServiceUtil.getTeam(groupId, name);
-				}
-				catch (NoSuchTeamException nste) {
-					team = TeamLocalServiceUtil.addTeam(
-						userId, groupId, name, description);
-				}
-
-				role = RoleLocalServiceUtil.getTeamRole(
-					companyId, team.getTeamId());
-			}
-			else {
-				role = layoutCache.getRole(companyId, name);
-			}
-
-			if (role == null) {
-				String title = roleElement.attributeValue("title");
-
-				Map<Locale, String> titleMap =
-					LocalizationUtil.getLocalizationMap(title);
-
-				String description = roleElement.attributeValue("description");
-
-				Map<Locale, String> descriptionMap =
-					LocalizationUtil.getLocalizationMap(description);
-
-				int type = Integer.valueOf(roleElement.attributeValue("type"));
-				String subType = roleElement.attributeValue("subType");
-
-				role = RoleLocalServiceUtil.addRole(
-					userId, null, 0, name, titleMap, descriptionMap, type,
-					subType);
-			}
-
-			Group group = GroupLocalServiceUtil.getGroup(groupId);
-
-			if (!group.isLayoutPrototype() && !group.isLayoutSetPrototype() &&
-				layout.isPrivateLayout()) {
-
-				String roleName = role.getName();
-
-				if (roleName.equals(RoleConstants.GUEST)) {
-					continue;
-				}
-			}
-
-			List<String> actions = getActions(roleElement);
-
-			roleIdsToActionIds.put(
-				role.getRoleId(), actions.toArray(new String[actions.size()]));
-		}
-
-		if (roleIdsToActionIds.isEmpty()) {
-			return;
-		}
-
-		PermissionLocalServiceUtil.setRolesPermissions(
-			companyId, roleIdsToActionIds, resourceName,
-			ResourceConstants.SCOPE_INDIVIDUAL, resourcePrimKey);
-	}
-
-	protected void importPermissions_6(
+	protected void importPermissions(
 			LayoutCache layoutCache, long companyId, long groupId, long userId,
 			Layout layout, String resourceName, String resourcePrimKey,
 			Element permissionsElement, boolean portletActions)
@@ -453,9 +366,16 @@ public class PermissionImporter {
 			return;
 		}
 
-		ResourcePermissionLocalServiceUtil.setResourcePermissions(
-			companyId, resourceName, ResourceConstants.SCOPE_INDIVIDUAL,
-			resourcePrimKey, roleIdsToActionIds);
+		if (PropsValues.PERMISSIONS_USER_CHECK_ALGORITHM == 5) {
+			PermissionLocalServiceUtil.setRolesPermissions(
+				companyId, roleIdsToActionIds, resourceName,
+				ResourceConstants.SCOPE_INDIVIDUAL, resourcePrimKey);
+		}
+		else {
+			ResourcePermissionLocalServiceUtil.setResourcePermissions(
+				companyId, resourceName, ResourceConstants.SCOPE_INDIVIDUAL,
+				resourcePrimKey, roleIdsToActionIds);
+		}
 	}
 
 	protected void importPortletPermissions(
@@ -472,13 +392,10 @@ public class PermissionImporter {
 			String resourcePrimKey = PortletPermissionUtil.getPrimaryKey(
 				layout.getPlid(), portletId);
 
-			if (PropsValues.PERMISSIONS_USER_CHECK_ALGORITHM == 5) {
-				importPermissions_5(
-					layoutCache, companyId, groupId, userId, layout,
-					resourceName, resourcePrimKey, permissionsElement, true);
-			}
-			else if (PropsValues.PERMISSIONS_USER_CHECK_ALGORITHM == 6) {
-				importPermissions_6(
+			if ((PropsValues.PERMISSIONS_USER_CHECK_ALGORITHM == 5) ||
+				(PropsValues.PERMISSIONS_USER_CHECK_ALGORITHM == 6)) {
+
+				importPermissions(
 					layoutCache, companyId, groupId, userId, layout,
 					resourceName, resourcePrimKey, permissionsElement, true);
 			}
