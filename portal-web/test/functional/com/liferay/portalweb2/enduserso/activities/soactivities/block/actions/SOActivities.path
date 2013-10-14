@@ -62,8 +62,13 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ACTIVITIES_USER_LINK</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[@class='activity-user-name']/a[@class='user']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ACTIVITIES_SITE</td>
-	<td>//div[contains(@class,'activity-item')][${number}]//div[@class='activity-user-name']/a</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[@class='activity-user-name']/a[@class='group']</td>
 	<td></td>
 </tr>
 <tr>
