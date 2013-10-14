@@ -110,7 +110,6 @@ String publishScheduleMessage = LanguageUtil.get(pageContext, publishScheduleDia
 %>
 
 <liferay-portlet:renderURL plid="<%= plid %>" portletMode="<%= PortletMode.VIEW.toString() %>" portletName="<%= PortletKeys.LAYOUTS_ADMIN %>" varImpl="publishRenderURL" windowState="<%= LiferayWindowState.EXCLUSIVE.toString() %>">
-	<liferay-portlet:param name="p_p_auth" value="<%= String.valueOf(AuthTokenUtil.getToken(request, layout.getPlid(), PortletKeys.LAYOUTS_ADMIN)) %>" />
 	<liferay-portlet:param name="struts_action" value="/layouts_admin/publish_layouts" />
 	<liferay-portlet:param name="<%= Constants.CMD %>" value='<%= (group.isCompany()) ? "publish_to_remote" : "publish_to_live" %>' />
 	<liferay-portlet:param name="tabs1" value='<%= (privateLayout) ? "private-pages" : "public-pages" %>' />
@@ -118,6 +117,12 @@ String publishScheduleMessage = LanguageUtil.get(pageContext, publishScheduleDia
 	<liferay-portlet:param name="groupId" value="<%= String.valueOf(groupId) %>" />
 	<liferay-portlet:param name="selPlid" value="<%= String.valueOf(selPlid) %>" />
 </liferay-portlet:renderURL>
+
+<%
+if (PropsValues.PORTLET_ADD_DEFAULT_RESOURCE_CHECK_ENABLED && themeDisplay.getPortletDisplay().getId().equals(PortletKeys.CONTROL_PANEL_MENU)) {
+	publishRenderURL.setParameter("p_p_auth", AuthTokenUtil.getToken(request, layout.getPlid(), PortletKeys.LAYOUTS_ADMIN));
+}
+%>
 
 <c:if test="<%= stagingGroup != null %>">
 	<span class="staging-icon-menu-container">
