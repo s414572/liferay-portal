@@ -310,6 +310,12 @@ public class UserGroupWrapper implements UserGroup, ModelWrapper<UserGroup> {
 		return _userGroup.getGroup();
 	}
 
+	public long getGroupId()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _userGroup.getGroupId();
+	}
+
 	public int getPrivateLayoutsPageCount()
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
