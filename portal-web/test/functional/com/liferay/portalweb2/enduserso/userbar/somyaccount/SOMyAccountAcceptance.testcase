@@ -5,7 +5,6 @@
 	<var name="userMiddleName" value="Office01" />
 	<var name="userName" value="Social01 Office01 User01" />
 	<var name="userScreenName" value="socialoffice01" />
-	<var name="viewProfileLocation" value="myProfile" />
 
 	<set-up>
 		<execute macro="SOUser#firstLoginPG" />
@@ -51,8 +50,7 @@
 			<var name="userAdditionalEmailAddress" value="${userAdditionalEmailAddress}" />
 		</execute>
 
-		<execute macro="SOProfile#viewLocation">
-			<var name="viewProfileLocation" value="${viewProfileLocation}" />
+		<execute macro="SOUserBar#gotoProfile">
 			<var name="userName" value="${userName}" />
 		</execute>
 
@@ -78,8 +76,7 @@
 			<var name="userAddressType" value="${userAddressType}" />
 		</execute>
 
-		<execute macro="SOProfile#viewLocation">
-			<var name="viewProfileLocation" value="${viewProfileLocation}" />
+		<execute macro="SOUserBar#gotoProfile">
 			<var name="userName" value="${userName}" />
 		</execute>
 
@@ -100,8 +97,7 @@
 			<var name="userIntroduction" value="${userIntroduction}" />
 		</execute>
 
-		<execute macro="SOProfile#viewLocation">
-			<var name="viewProfileLocation" value="${viewProfileLocation}" />
+		<execute macro="SOUserBar#gotoProfile">
 			<var name="userName" value="${userName}" />
 		</execute>
 
@@ -127,8 +123,7 @@
 			<var name="userInstantMessengerYM" value="${userInstantMessengerYM}" />
 		</execute>
 
-		<execute macro="SOProfile#viewLocation">
-			<var name="viewProfileLocation" value="${viewProfileLocation}" />
+		<execute macro="SOUserBar#gotoProfile">
 			<var name="userName" value="${userName}" />
 		</execute>
 
@@ -153,8 +148,7 @@
 			<var name="userPhoneNumberType" value="${userPhoneNumberType}" />
 		</execute>
 
-		<execute macro="SOProfile#viewLocation">
-			<var name="viewProfileLocation" value="${viewProfileLocation}" />
+		<execute macro="SOUserBar#gotoProfile">
 			<var name="userName" value="${userName}" />
 		</execute>
 
@@ -174,8 +168,7 @@
 			<var name="userProjectDescription" value="${userProjectDescription}" />
 		</execute>
 
-		<execute macro="SOProfile#viewLocation">
-			<var name="viewProfileLocation" value="${viewProfileLocation}" />
+		<execute macro="SOUserBar#gotoProfile">
 			<var name="userName" value="${userName}" />
 		</execute>
 
@@ -192,8 +185,7 @@
 			<var name="userSMS" value="${userSMS}" />
 		</execute>
 
-		<execute macro="SOProfile#viewLocation">
-			<var name="viewProfileLocation" value="${viewProfileLocation}" />
+		<execute macro="SOUserBar#gotoProfile">
 			<var name="userName" value="${userName}" />
 		</execute>
 
@@ -213,8 +205,7 @@
 			<var name="userSocialNetworkTwitter" value="${userSocialNetworkTwitter}" />
 		</execute>
 
-		<execute macro="SOProfile#viewLocation">
-			<var name="viewProfileLocation" value="${viewProfileLocation}" />
+		<execute macro="SOUserBar#gotoProfile">
 			<var name="userName" value="${userName}" />
 		</execute>
 
@@ -232,8 +223,7 @@
 			<var name="userTag" value="${userTag}" />
 		</execute>
 
-		<execute macro="SOProfile#viewLocation">
-			<var name="viewProfileLocation" value="${viewProfileLocation}" />
+		<execute macro="SOUserBar#gotoProfile">
 			<var name="userName" value="${userName}" />
 		</execute>
 
@@ -251,8 +241,7 @@
 			<var name="userWebsiteType" value="${userWebsiteType}" />
 		</execute>
 
-		<execute macro="SOProfile#viewLocation">
-			<var name="viewProfileLocation" value="${viewProfileLocation}" />
+		<execute macro="SOUserBar#gotoProfile">
 			<var name="userName" value="${userName}" />
 		</execute>
 

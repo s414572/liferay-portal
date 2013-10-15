@@ -1,0 +1,4 @@
+<definition>
+	<execute test-case-command="SOContactsCenter#AddConnection" />
+	<execute test-case-command="SOContactsCenter#ViewContactsCenterUserDetails" />
+</definition>

@@ -3,56 +3,246 @@
 		<execute macro="SOUser#firstLoginPG" />
 	</set-up>
 
+	<var name="adminName" value="Joe Bloggs" />
+	<var name="adminFirstName" value="Joe" />
+	<var name="adminListName" value="Bloggs, Joe" />
+	<var name="adminEmailAddress" value="test@liferay.com" />
+	<var name="contactEmailAddress" value="socialofficecontact01@liferay.com" />
+	<var name="contactName" value="Social01 Office01 Contact01" />
+	<var name="password" value="test" />
+	<var name="userEmailAddress" value="socialoffice01@liferay.com" />
+	<var name="userFirstName" value="Social01" />
+	<var name="userMiddleName" value="Office01" />
+	<var name="userName" value="Social01 Office01 User01" />
+	<var name="userLastName" value="User01" />
+	<var name="userListName" value="User01, Social01" />
+	<var name="userScreenName" value="socialoffice01" />
+	<var name="roleName" value="Social Office" />
+
+	<command name="AddContact">
+		<execute macro="SOContactsCenter#addContact">
+			<var name="contactName" value="${contactName}" />
+			<var name="contactEmailAddress" value="${contactEmailAddress}" />
+		</execute>
+
+		<execute macro="SOContactsCenter#viewContact" />
+	</command>
+
+	<command name="AddConnection">
+		<execute macro="SOContactsCenter#addConnection">
+			<var name="adminEmailAddress" value="${adminEmailAddress}" />
+			<var name="senderName" value="${adminName}" />
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userName" value="${userName}" />
+			<var name="userFirstName" value="${userFirstName}" />
+			<var name="userListName" value="${userListName}" />
+			<var name="userLastName" value="${userLastName}" />
+			<var name="userMiddleName" value="${userMiddleName}" />
+			<var name="userScreenName" value="${userScreenName}" />
+		</execute>
+
+		<execute macro="SOUser#logoutPG" />
+
+		<execute macro="SOUser#loginPG">
+			<var name="userEmailAddress" value="${adminEmailAddress}" />
+			<var name="password" value="test" />
+		</execute>
+
+		<execute macro="SOContactsCenter#disconnectFromConnection">
+			<var name="userScreenName" value="${userScreenName}" />
+			<var name="userName" value="${userName}" />
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userListName" value="${userListName}" />
+		</execute>
+	</command>
+
+	<command name="AddFollower">
+		<execute macro="SOContactsCenter#addFollower">
+			<var name="adminEmailAddress" value="${adminEmailAddress}" />
+			<var name="adminListName" value="${adminListName}" />
+			<var name="adminName" value="${adminName}" />
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userName" value="${userName}" />
+			<var name="userFirstName" value="${userFirstName}" />
+			<var name="userListName" value="${userListName}" />
+			<var name="userLastName" value="${userLastName}" />
+			<var name="userMiddleName" value="${userMiddleName}" />
+			<var name="userScreenName" value="${userScreenName}" />
+		</execute>
+
+		<execute macro="SOContactsCenter#unfollowUser" />
+	</command>
+
+	<command name="SearchConnection">
+		<execute macro="SOUser#addUserWithSORole">
+			<var name="adminEmailAddress" value="test@liferay.com" />
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userFirstName" value="${userFirstName}" />
+			<var name="userMiddleName" value="${userMiddleName}" />
+			<var name="userLastName" value="${userLastName}" />
+			<var name="userScreenName" value="${userScreenName}" />
+		</execute>
+
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
+
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+
+		<execute action="SOContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
+		<execute action="SOContactscenter#select" locator-key1="CONTACTS_LIST_FILTER" value1="Connections" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="CONTACTS_LIST_EMPTY" value1="There are no results." />
+
+		<execute macro="SOContactsCenter#requestToConnect">
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userListName" value="${userListName}" />
+			<var name="userName" value="${userName}" />
+			<var name="userScreenName" value="${userScreenName}" />
+		</execute>
+
+		<execute macro="SOUser#logoutPG" />
+
+		<execute macro="SOUser#loginPG">
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="password" value="test" />
+		</execute>
+
+		<execute macro="SOContactsCenter#confirmRequestToConnect">
+			<var name="senderName" value="${adminName}" />
+			<var name="userName" value="${userName}" />
+		</execute>
+
+		<execute macro="SOUser#logoutPG" />
+
+		<execute macro="SOUser#loginPG">
+			<var name="userEmailAddress" value="${adminEmailAddress}" />
+			<var name="password" value="test" />
+		</execute>
+
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
+
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+
+		<execute action="SOContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
+		<execute action="SOContactscenter#select" locator-key1="CONTACTS_LIST_FILTER" value1="Connections" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="CONTACTS_LIST_NAME" value1="${userListName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="CONTACTS_LIST_EMAIL" value1="${userEmailAddress}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="CONNECTIONS_LINK" value1="You have 1 connections." />
+		<execute action="SOContactscenter#pause" value1="1000" />
+		<execute action="SOContactscenter#click" locator-key1="CONTACTS_LIST_NAME" value1="${userListName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_NAME" value1="${userName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${userEmailAddress}" />
+	</command>
+
+	<command name="SearchFollowing">
+		<execute macro="SOUser#addUserWithSORole">
+			<var name="adminEmailAddress" value="test@liferay.com" />
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userFirstName" value="${userFirstName}" />
+			<var name="userMiddleName" value="${userMiddleName}" />
+			<var name="userLastName" value="${userLastName}" />
+			<var name="userScreenName" value="${userScreenName}" />
+		</execute>
+
+		<execute macro="SOUser#logoutPG" />
+
+		<execute macro="SOUser#loginPG">
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="password" value="test" />
+		</execute>
+
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
+
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+
+		<execute action="SOContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${adminFirstName}" />
+		<execute action="SOContactscenter#select" locator-key1="CONTACTS_LIST_FILTER" value1="Following" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="CONTACTS_LIST_EMPTY" value1="There are no results." />
+
+		<execute macro="SOContactsCenter#followUser">
+			<var name="adminEmailAddress" value="${adminEmailAddress}" />
+			<var name="adminListName" value="${adminListName}" />
+			<var name="adminName" value="${adminName}" />
+		</execute>
+
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
+
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+
+		<execute action="SOContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${adminFirstName}" />
+		<execute action="SOContactscenter#select" locator-key1="CONTACTS_LIST_FILTER" value1="Following" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="CONTACTS_LIST_NAME" value1="${adminListName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="CONTACTS_LIST_EMAIL" value1="${adminEmailAddress}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="FOLLOWING_LINK" value1="You are following 1 people." />
+		<execute action="SOContactscenter#pause" value1="1000" />
+		<execute action="SOContactscenter#click" locator-key1="CONTACTS_LIST_NAME" value1="${adminListName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_NAME" value1="${adminName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${adminEmailAddress}" />
+	</command>
+
+	<command name="SearchUser">
+		<execute macro="SOUser#addUserWithSORole">
+			<var name="adminEmailAddress" value="test@liferay.com" />
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userFirstName" value="${userFirstName}" />
+			<var name="userMiddleName" value="${userMiddleName}" />
+			<var name="userLastName" value="${userLastName}" />
+			<var name="userScreenName" value="${userScreenName}" />
+		</execute>
+
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
+
+		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
+
+		<execute action="SOContactscenter#pause" value1="1000" />
+		<execute action="SOContactscenter#select" locator-key1="CONTACTS_LIST_FILTER" value1="All" />
+		<execute action="SOContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="CONTACTS_LIST_NAME" value1="${userListName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="CONTACTS_LIST_EMAIL" value1="${userEmailAddress}" />
+		<execute action="SOContactscenter#click" locator-key1="CONTACTS_LIST_NAME" value1="${userListName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_NAME" value1="${userName}" />
+		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${userEmailAddress}" />
+	</command>
+
 	<command name="ViewContactsCenterUserDetails">
-		<var name="adminName" value="Joe Bloggs" />
-		<var name="adminEmailAddress" value="test@liferay.com" />
+		<var name="adminName" value="${adminName}" />
+		<var name="adminEmailAddress" value="${adminEmailAddress}" />
 		<var name="password" value="test" />
-		<var name="userEmailAddress" value="socialoffice01@liferay.com" />
-		<var name="userFirstName" value="Social01" />
-		<var name="userMiddleName" value="Office01" />
-		<var name="userName" value="Social01 Office01 User01" />
-		<var name="userLastName" value="User01" />
-		<var name="userListName" value="User01, Social01" />
-		<var name="userScreenName" value="socialoffice01" />
+		<var name="userEmailAddress" value="${userEmailAddress}" />
+		<var name="userName" value="${userName}" />
+		<var name="userFirstName" value="${userFirstName}" />
+		<var name="userListName" value="${userListName}" />
+		<var name="userLastName" value="${userLastName}" />
+		<var name="userMiddleName" value="${userMiddleName}" />
+		<var name="userScreenName" value="${userScreenName}" />
 		<var name="roleName" value="Social Office" />
-
 		<var name="userAdditionalEmailAddress" value="socialoffice02@liferay.com" />
-
 		<var name="userAddressCity" value="Ray of Light" />
 		<var name="userAddressCountry" value="United States" />
 		<var name="userAddressPostalCode" value="91234" />
 		<var name="userAddressRegion" value="California" />
 		<var name="userAddressStreet1" value="123 Liferay Ln." />
 		<var name="userAddressType" value="Personal" />
-
 		<var name="userIntroduction" value="Introduction Content" />
-
 		<var name="userInstantMessengerAIM" value="socialofficesn" />
 		<var name="userInstantMessengerICQ" value="socialofficesn" />
 		<var name="userInstantMessengerJabber" value="socialofficesn" />
 		<var name="userInstantMessengerSkype" value="socialofficesn" />
 		<var name="userInstantMessengerWindowsLiveMessenger" value="socialofficesn" />
 		<var name="userInstantMessengerYM" value="socialofficesn" />
-
 		<var name="userPhoneNumberNumber" value="123-123-1234" />
 		<var name="userPhoneNumberExtension" value="123" />
 		<var name="userPhoneNumberType" value="Business" />
-
 		<var name="userProjectTitle" value="Expertise Title" />
 		<var name="userProjectDescription" value="Expertise Description" />
-
 		<var name="userSMS" value="socialoffice@liferay.com" />
-
 		<var name="userSocialNetworkFacebook" value="socialoffice01" />
 		<var name="userSocialNetworkMyspace" value="socialoffice01" />
 		<var name="userSocialNetworkTwitter" value="socialoffice01" />
-
 		<var name="userTag" value="tag1" />
-
 		<var name="userWebsiteURL" value="http://www.socialoffice01.com" />
 		<var name="userWebsiteType" value="Personal" />
-
-		<var name="viewProfileLocation" value="contactsCenter" />
 
 		<execute macro="SOUser#addUserWithSORole">
 			<var name="adminEmailAddress" value="test@liferay.com" />
@@ -134,11 +324,10 @@
 			<var name="password" value="test" />
 		</execute>
 
-		<execute macro="SOProfile#viewLocation">
+		<execute macro="SOContactsCenter#gotoProfile">
 			<var name="userListName" value="User01, Social01" />
 			<var name="userName" value="${adminName}" />
 			<var name="userScreenName" value="socialoffice01" />
-			<var name="viewProfileLocation" value="${viewProfileLocation}" />
 		</execute>
 
 		<execute macro="SOProfile#viewAdditionalEmailAddressProfile">
@@ -200,11 +389,10 @@
 			<var name="password" value="test" />
 		</execute>
 
-		<execute macro="SOProfile#viewLocation">
+		<execute macro="SOContactsCenter#gotoProfile">
 			<var name="userListName" value="User01, Social01" />
 			<var name="userName" value="${userName}" />
 			<var name="userScreenName" value="socialoffice01" />
-			<var name="viewProfileLocation" value="${viewProfileLocation}" />
 		</execute>
 
 		<execute macro="SOProfile#viewAdditionalEmailAddressProfile">
@@ -262,5 +450,7 @@
 
 	<tear-down>
 		<execute macro="SOUser#tearDownCP" />
+
+		<execute macro="SOContactsCenter#tearDownContacts" />
 	</tear-down>
 </definition>
