@@ -1104,6 +1104,12 @@
 		</antcall>
 
 		<antcall target="build-test-ant-script">
+			<param name="test.ant.script.command" value="end-user-so-dashboard-p5" />
+			<param name="test.ant.script.social.office" value="true" />
+			<param name="test.ant.script.suite" value="EndUserSODashboardP5TestSuite" />
+		</antcall>
+
+		<antcall target="build-test-ant-script">
 			<param name="test.ant.script.command" value="end-user-so-profile-acceptance" />
 			<param name="test.ant.script.social.office" value="true" />
 			<param name="test.ant.script.suite" value="EndUserSOProfileAcceptanceTestSuite" />
