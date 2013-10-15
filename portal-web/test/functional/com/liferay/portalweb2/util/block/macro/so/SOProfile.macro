@@ -587,32 +587,6 @@
 		<execute action="SOProfile#assertTextEquals" locator-key1="PROFILE_INFO_INTRODUCTION_CONTENT" value1="${userIntroduction}"  />
 	</command>
 
-	<command name="viewLocation">
-		<if>
-			<equals arg1="${viewProfileLocation}" arg2="myProfile" />
-			<then>
-				<execute macro="SOUserBar#dashboardPG">
-					<var name="userName" value="${userName}" />
-				</execute>
-				<execute action="SOUserBar#click" locator-key1="USER_NAME" />
-				<execute action="SOUserBar#click" locator-key1="USER_MENU_MY_PROFILE" value1="My Profile" />
-			</then>
-			<elseif>
-				<equals arg1="${viewProfileLocation}" arg2="contactsCenter" />
-				<then>
-					<execute macro="SOUserBar#dashboardPG">
-						<var name="userName" value="${userName}" />
-					</execute>
-
-					<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
-
-					<execute action="SOContactscenter#type" locator-key1="CONTACTS_LIST_SEARCH" value1="${userScreenName}" />
-					<execute action="SOContactscenter#assertClick" locator-key1="CONTACTS_LIST_NAME" value1="${userListName}" />
-				</then>
-			</elseif>
-		</if>
-	</command>
-
 	<command name="viewPhoneNumbersProfile">
 		<execute action="SOProfile#assertTextEquals" locator-key1="PROFILE_INFO_PHONE_NUMBERS_TITLE" value1="Phones:" />
 
