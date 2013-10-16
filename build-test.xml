@@ -2597,7 +2597,8 @@
 				<isset property="skip.delete-liferay-home" />
 			</not>
 			<then>
-				<delete dir="${test.liferay.home}" />
+				<delete dir="${liferay.home}/data" />
+				<delete dir="${liferay.home}/deploy" />
 			</then>
 		</if>
 
@@ -3142,7 +3143,7 @@
 	</target>
 
 	<target name="prepare-portal-ext-properties" depends="generate-test-properties">
-		<echo file="portal-impl/src/portal-ext.properties">liferay.home=${test.liferay.home}
+		<echo file="portal-impl/src/portal-ext.properties">liferay.home=${liferay.home}
 
 plugin.notifications.enabled=false
 
@@ -3424,7 +3425,7 @@ message.boards.subscribe.by.default=false</echo>
 			<then>
 				<replace
 					file="portal-impl/src/portal-ext.properties"
-					token="liferay.home=$${test.liferay.home}"
+					token="liferay.home=${liferay.home}"
 					value="liferay.home=C:/WINDOWS/system32/config/systemprofile/liferay"
 				/>
 
@@ -4075,14 +4076,15 @@ custom.sql.function.isnotnull=CONVERT(VARCHAR,?) IS NOT NULL</echo>
 						<isset property="skip.delete-liferay-home" />
 					</not>
 					<then>
-						<delete dir="${test.liferay.home}" />
+						<delete dir="${liferay.home}/data" />
+						<delete dir="${liferay.home}/deploy" />
 					</then>
 				</if>
 
 				<if>
 					<equals arg1="${database}" arg2="hsql" />
 					<then>
-						<delete dir="${test.liferay.home}/data" includeemptydirs="true" />
+						<delete dir="${liferay.home}/data" includeemptydirs="true" />
 
 						<if>
 							<not>
@@ -4093,8 +4095,8 @@ custom.sql.function.isnotnull=CONVERT(VARCHAR,?) IS NOT NULL</echo>
 								</or>
 							</not>
 							<then>
-								<copy file="sql/${database.name}.properties" tofile="${test.liferay.home}/data/hsql/${database.name}.properties" />
-								<copy file="sql/${database.name}.script" tofile="${test.liferay.home}/data/hsql/${database.name}.script" />
+								<copy file="sql/${database.name}.properties" tofile="${liferay.home}/data/hsql/${database.name}.properties" />
+								<copy file="sql/${database.name}.script" tofile="${liferay.home}/data/hsql/${database.name}.script" />
 							</then>
 						</if>
 					</then>
