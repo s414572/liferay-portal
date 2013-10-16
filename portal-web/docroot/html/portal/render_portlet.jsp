@@ -854,7 +854,7 @@ if ((invokerPortlet != null) && (invokerPortlet.isStrutsPortlet() || invokerPort
 	request.removeAttribute(ComponentConstants.COMPONENT_CONTEXT);
 }
 
-if ((layout.isTypePanel() || layout.isTypeControlPanel()) && !portletDisplay.getId().equals(PortletKeys.CONTROL_PANEL_MENU)) {
+if ((layout.isTypePanel() || layout.isTypeControlPanel()) && !portletDisplay.getId().equals(PortletKeys.CONTROL_PANEL_MENU) && portletDisplay.isFocused()) {
 	PortalUtil.setPageTitle(portletDisplay.getTitle(), request);
 }
 %>
@@ -862,7 +862,7 @@ if ((layout.isTypePanel() || layout.isTypeControlPanel()) && !portletDisplay.get
 <c:if test="<%= !themeDisplay.isFacebook() && !themeDisplay.isStateExclusive() && !themeDisplay.isWapTheme() %>">
 
 	<%
-	if (themeDisplay.isStatePopUp() || themeDisplay.isWidget()) {
+	if ((themeDisplay.isStatePopUp() || themeDisplay.isWidget()) && portletDisplay.isFocused()) {
 		PortalUtil.setPageTitle(portletDisplay.getTitle(), request);
 	}
 
