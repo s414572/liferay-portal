@@ -397,6 +397,13 @@ public class LayoutExporter {
 			plid = firstLayout.getPlid();
 		}
 
+		if ((layoutIds != null) && (layoutIds.length > 0)) {
+			Layout layout = LayoutLocalServiceUtil.getLayout(
+				groupId, privateLayout, layoutIds[0]);
+
+			plid = layout.getPlid();
+		}
+
 		if (group.isStagingGroup()) {
 			group = group.getLiveGroup();
 		}

@@ -207,6 +207,10 @@
 			<bean class="com.liferay.portal.language.UnicodeLanguageImpl" />
 		</property>
 	</bean>
+	<bean id="com.liferay.portal.kernel.lar.ExportImportHelper" class="com.liferay.portal.lar.ExportImportHelperImpl" />
+	<bean id="com.liferay.portal.kernel.lar.ExportImportHelperUtil" class="com.liferay.portal.kernel.lar.ExportImportHelperUtil">
+		<property name="exportImportHelper" ref="com.liferay.portal.kernel.lar.ExportImportHelper" />
+	</bean>
 	<bean id="com.liferay.portal.kernel.lock.LockListenerRegistryUtil" class="com.liferay.portal.kernel.lock.LockListenerRegistryUtil">
 		<property name="lockListenerRegistry">
 			<bean class="com.liferay.portal.util.LockListenerRegistryImpl" />

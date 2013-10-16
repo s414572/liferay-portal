@@ -628,17 +628,15 @@ public class LayoutImporter {
 		}
 
 		for (Element layoutElement : layoutElements) {
-			String action = layoutElement.attributeValue("action");
+			importLayout(
+				portletDataContext, user, layoutCache, previousLayouts,
+				newLayouts, newLayoutsMap, portletsMergeMode, themeId,
+				colorSchemeId, layoutsImportMode, privateLayout,
+				importPermissions, importPublicLayoutPermissions,
+				importUserPermissions, importThemeSettings, rootElement,
+				layoutElement);
 
-			if (!action.equals(Constants.SKIP)) {
-				importLayout(
-					portletDataContext, user, layoutCache, previousLayouts,
-					newLayouts, newLayoutsMap, portletsMergeMode, themeId,
-					colorSchemeId, layoutsImportMode, privateLayout,
-					importPermissions, importPublicLayoutPermissions,
-					importUserPermissions, importThemeSettings, rootElement,
-					layoutElement);
-			}
+			String action = layoutElement.attributeValue("action");
 
 			if (!action.equals(Constants.DELETE)) {
 				sourceLayoutsUuids.add(
@@ -1027,6 +1025,12 @@ public class LayoutImporter {
 			Element rootElement, Element layoutElement)
 		throws Exception {
 
+		String action = layoutElement.attributeValue("action");
+
+		if (action.equals(Constants.SKIP)) {
+			return;
+		}
+
 		long groupId = portletDataContext.getGroupId();
 
 		String layoutUuid = GetterUtil.getString(
@@ -1036,8 +1040,6 @@ public class LayoutImporter {
 			layoutElement.attributeValue("layout-id"));
 
 		long oldLayoutId = layoutId;
-
-		String action = layoutElement.attributeValue("action");
 
 		if (action.equals(Constants.DELETE)) {
 			Layout layout = LayoutLocalServiceUtil.fetchLayoutByUuidAndGroupId(
@@ -1240,7 +1242,9 @@ public class LayoutImporter {
 
 			Layout parentLayout = newLayoutsMap.get(parentLayoutId);
 
-			parentLayoutId = parentLayout.getLayoutId();
+			if (parentLayout != null) {
+				parentLayoutId = parentLayout.getLayoutId();
+			}
 		}
 		else if (Validator.isNotNull(parentLayoutUuid)) {
 			Layout parentLayout =

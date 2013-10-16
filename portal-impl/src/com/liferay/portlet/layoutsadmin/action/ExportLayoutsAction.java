@@ -16,6 +16,7 @@ package com.liferay.portlet.layoutsadmin.action;
 
 import com.liferay.portal.NoSuchGroupException;
 import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.lar.ExportImportHelperUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
@@ -169,6 +170,11 @@ public class ExportLayoutsAction extends PortletAction {
 						layoutIds, childLayout.getLayoutId());
 				}
 			}
+
+			layoutIds = ArrayUtil.append(
+				layoutIds,
+				ExportImportHelperUtil.collectAllParentLayoutIds(
+					groupId, privateLayout, layoutIds));
 
 			file = LayoutServiceUtil.exportLayoutsAsFile(
 				groupId, privateLayout, layoutIds,
