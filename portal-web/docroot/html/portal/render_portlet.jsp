@@ -173,7 +173,9 @@ if (access) {
 			continue;
 		}
 
-		_log.warn("Invalid portlet id " + portletId);
+		if (_log.isWarnEnabled()) {
+			_log.warn("Invalid portlet id " + portletId);
+		}
 
 		request.getRequestDispatcher("/html/portal/portlet_access_denied.jsp").include(request, response);
 

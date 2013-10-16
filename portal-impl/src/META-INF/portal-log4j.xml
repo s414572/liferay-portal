@@ -1274,6 +1274,10 @@
 		<priority value="WARN" />
 	</category>
 
+	<category name="portal-web.docroot.html.portal.render_portlet_jsp">
+		<priority value="WARN" />
+	</category>
+
 	<root>
 		<priority value="INFO" />
 		<appender-ref ref="CONSOLE" />
