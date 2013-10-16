@@ -86,8 +86,8 @@ public class CleanUpSubscriptionMessageListener extends BaseMessageListener {
 		String className = subscription.getClassName();
 
 		AssetRendererFactory assetRendererFactory =
-			AssetRendererFactoryRegistryUtil.
-				getAssetRendererFactoryByClassName(className);
+			AssetRendererFactoryRegistryUtil.getAssetRendererFactoryByClassName(
+				className);
 
 		if (assetRendererFactory != null) {
 			AssetEntry assetEntry = assetRendererFactory.getAssetEntry(
@@ -103,10 +103,6 @@ public class CleanUpSubscriptionMessageListener extends BaseMessageListener {
 
 			return;
 		}
-
-		// This means the subscription was not handled by any other case.
-
-		throw new PortalException();
 	}
 
 	protected void processLayout(
@@ -129,21 +125,18 @@ public class CleanUpSubscriptionMessageListener extends BaseMessageListener {
 			Subscription subscription, long groupId, long[] groupIds)
 		throws PortalException, SystemException {
 
-		MBCategory category = MBCategoryLocalServiceUtil.fetchMBCategory(
+		MBCategory mbCategory = MBCategoryLocalServiceUtil.fetchMBCategory(
 			subscription.getClassPK());
 
-		if ((category != null) &&
-			((category.getGroupId() == groupId) ||
-			 !ArrayUtil.contains(groupIds, category.getGroupId()))) {
+		if ((mbCategory != null) &&
+			((mbCategory.getGroupId() == groupId) ||
+			 !ArrayUtil.contains(groupIds, mbCategory.getGroupId()))) {
 
 			SubscriptionLocalServiceUtil.deleteSubscription(
 				subscription.getSubscriptionId());
 
 			return;
 		}
-
-		// Perhaps this is a registration of message board categories for the
-		// group.
 
 		Group group = GroupLocalServiceUtil.fetchGroup(
 			subscription.getClassPK());
@@ -161,12 +154,12 @@ public class CleanUpSubscriptionMessageListener extends BaseMessageListener {
 			Subscription subscription, long groupId, long[] groupIds)
 		throws PortalException, SystemException {
 
-		MBThread thread = MBThreadLocalServiceUtil.fetchThread(
+		MBThread mbThread = MBThreadLocalServiceUtil.fetchThread(
 			subscription.getClassPK());
 
-		if ((thread != null) &&
-			((thread.getGroupId() == groupId) ||
-			 !ArrayUtil.contains(groupIds, thread.getGroupId()))) {
+		if ((mbThread != null) &&
+			((mbThread.getGroupId() == groupId) ||
+			 !ArrayUtil.contains(groupIds, mbThread.getGroupId()))) {
 
 			SubscriptionLocalServiceUtil.deleteSubscription(
 				subscription.getSubscriptionId());
@@ -197,6 +190,8 @@ public class CleanUpSubscriptionMessageListener extends BaseMessageListener {
 		else {
 			processAssetEntry(subscription, groupId, groupIds);
 		}
+
+		throw new PortalException();
 	}
 
 	protected void processUser(User user, long groupId)
@@ -204,9 +199,9 @@ public class CleanUpSubscriptionMessageListener extends BaseMessageListener {
 
 		// Get the list of groups the current user is still a member of and
 		// verify that subscriptions outside those groups are automatically
-		// removed as well.
+		// removed as well
 
-		List<Group> groups = user.getMySiteGroups(true, QueryUtil.ALL_POS);
+		List<Group> groups = user.getGroups();
 
 		long[] groupIds = getGroupIds(groups);
 
@@ -220,17 +215,16 @@ public class CleanUpSubscriptionMessageListener extends BaseMessageListener {
 			}
 			catch (Exception e) {
 				if (_log.isWarnEnabled()) {
-					StringBundler sb = new StringBundler(9);
+					StringBundler sb = new StringBundler(8);
 
-					sb.append("Subscription was not removed for {className=");
+					sb.append("Subscription was not removed for class name ");
 					sb.append(subscription.getClassName());
-					sb.append(", classPK=");
+					sb.append(" with class PK ");
 					sb.append(subscription.getClassPK());
-					sb.append(", userId=");
-					sb.append(subscription.getUserId());
-					sb.append(", groupId=");
+					sb.append(" in group ");
 					sb.append(groupId);
-					sb.append("}");
+					sb.append(" for user ");
+					sb.append(subscription.getUserId());
 
 					_log.warn(sb.toString());
 				}
@@ -242,12 +236,12 @@ public class CleanUpSubscriptionMessageListener extends BaseMessageListener {
 			Subscription subscription, long groupId, long[] groupIds)
 		throws PortalException, SystemException {
 
-		WikiNode node = WikiNodeLocalServiceUtil.fetchWikiNode(
+		WikiNode wikiNode = WikiNodeLocalServiceUtil.fetchWikiNode(
 			subscription.getClassPK());
 
-		if ((node != null) &&
-			((node.getGroupId() == groupId) ||
-			 !ArrayUtil.contains(groupIds, node.getGroupId()))) {
+		if ((wikiNode != null) &&
+			((wikiNode.getGroupId() == groupId) ||
+			 !ArrayUtil.contains(groupIds, wikiNode.getGroupId()))) {
 
 			SubscriptionLocalServiceUtil.deleteSubscription(
 				subscription.getSubscriptionId());
@@ -265,12 +259,12 @@ public class CleanUpSubscriptionMessageListener extends BaseMessageListener {
 		Map<String, Serializable> workflowContext =
 			workflowInstance.getWorkflowContext();
 
-		long instanceGroupId = GetterUtil.getLong(
+		long workflowInstanceGroupId = GetterUtil.getLong(
 			(String)workflowContext.get(WorkflowConstants.CONTEXT_GROUP_ID));
 
-		if ((instanceGroupId > 0) &&
-			((instanceGroupId == groupId) ||
-			 !ArrayUtil.contains(groupIds, instanceGroupId))) {
+		if ((workflowInstanceGroupId > 0) &&
+			((workflowInstanceGroupId == groupId) ||
+			 !ArrayUtil.contains(groupIds, workflowInstanceGroupId))) {
 
 			SubscriptionLocalServiceUtil.deleteSubscription(
 				subscription.getSubscriptionId());
