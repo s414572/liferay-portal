@@ -134,6 +134,9 @@ public interface DestinationNames {
 
 	public static final String SEARCH_WRITER = "liferay/search_writer";
 
+	public static final String SUBSCRIPTION_CLEAN_UP =
+		"liferay/subscription_clean_up";
+
 	public static final String SUBSCRIPTION_SENDER =
 		"liferay/subscription_sender";
 
