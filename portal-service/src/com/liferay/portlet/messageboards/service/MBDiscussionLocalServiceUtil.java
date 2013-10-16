@@ -273,6 +273,18 @@ public class MBDiscussionLocalServiceUtil {
 		return getService().addDiscussion(classNameId, classPK, threadId);
 	}
 
+	public static com.liferay.portlet.messageboards.model.MBDiscussion fetchDiscussion(
+		long discussionId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().fetchDiscussion(discussionId);
+	}
+
+	public static com.liferay.portlet.messageboards.model.MBDiscussion fetchDiscussion(
+		java.lang.String className, long classPK)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().fetchDiscussion(className, classPK);
+	}
+
 	public static com.liferay.portlet.messageboards.model.MBDiscussion getDiscussion(
 		long discussionId)
 		throws com.liferay.portal.kernel.exception.PortalException,
