@@ -244,7 +244,9 @@ public class WordPressImporter {
 			postDate = dateFormat.parse(dateText);
 		}
 		catch (ParseException pe) {
-			_log.warn("Parse " + dateText, pe);
+			if (_log.isWarnEnabled()) {
+				_log.warn("Parse " + dateText, pe);
+			}
 		}
 
 		Calendar cal = Calendar.getInstance();

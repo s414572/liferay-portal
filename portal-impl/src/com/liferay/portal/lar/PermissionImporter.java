@@ -141,9 +141,11 @@ public class PermissionImporter {
 				companyId, entityName, name);
 
 			if (entityGroupId == 0) {
-				_log.warn(
-					"Ignore inherited permissions for entity " + entityName +
-						" with name " + name);
+				if (_log.isWarnEnabled()) {
+					_log.warn(
+						"Ignore inherited permissions for entity " +
+							entityName + " with name " + name);
+				}
 			}
 			else {
 				Element parentElement = SAXReaderUtil.createElement("parent");
@@ -179,9 +181,11 @@ public class PermissionImporter {
 				companyId, entityName, name);
 
 			if (entityGroupId == 0) {
-				_log.warn(
-					"Ignore inherited roles for entity " + entityName +
-						" with name " + name);
+				if (_log.isWarnEnabled()) {
+					_log.warn(
+						"Ignore inherited roles for entity " + entityName +
+							" with name " + name);
+				}
 			}
 			else {
 				importRolePermissions(
@@ -565,8 +569,10 @@ public class PermissionImporter {
 			Role role = layoutCache.getRole(companyId, roleName);
 
 			if (role == null) {
-				_log.warn(
-					"Ignoring permissions for role with name " + roleName);
+				if (_log.isWarnEnabled()) {
+					_log.warn(
+						"Ignoring permissions for role with name " + roleName);
+				}
 			}
 			else {
 				List<String> actions = getActions(roleElement);

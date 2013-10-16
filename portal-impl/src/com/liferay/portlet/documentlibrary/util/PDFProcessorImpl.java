@@ -216,7 +216,7 @@ public class PDFProcessorImpl
 			enabled = PropsValues.IMAGEMAGICK_ENABLED;
 		}
 
-		if (!enabled && !_warned) {
+		if (!enabled && !_warned && _log.isWarnEnabled()) {
 			StringBundler sb = new StringBundler(6);
 
 			sb.append("Liferay is not configured to use ImageMagick. For ");
