@@ -29,7 +29,6 @@ import com.liferay.portlet.blogs.model.BlogsEntry;
 import com.liferay.portlet.blogs.service.permission.BlogsPermission;
 import com.liferay.portlet.journal.model.JournalArticle;
 import com.liferay.portlet.journal.service.permission.JournalPermission;
-import com.liferay.portlet.messageboards.NoSuchDiscussionException;
 import com.liferay.portlet.messageboards.model.MBCategory;
 import com.liferay.portlet.messageboards.model.MBDiscussion;
 import com.liferay.portlet.messageboards.model.MBThread;
@@ -100,18 +99,11 @@ public class SubscriptionPermissionImpl implements SubscriptionPermission {
 			return false;
 		}
 
-		MBThread discussionThread = null;
+		MBDiscussion discussion = MBDiscussionLocalServiceUtil.fetchDiscussion(
+			subscriptionClassName, subscriptionClassPK);
 
-		try {
-			MBDiscussion discussion =
-				MBDiscussionLocalServiceUtil.getDiscussion(
-					subscriptionClassName, subscriptionClassPK);
-
-			discussionThread = MBThreadLocalServiceUtil.fetchThread(
-				discussion.getThreadId());
-		}
-		catch (NoSuchDiscussionException nsde) {
-		}
+		MBThread discussionThread = MBThreadLocalServiceUtil.fetchThread(
+			discussion.getThreadId());
 
 		if (Validator.isNotNull(inferredClassName)) {
 			Boolean hasPermission = hasPermission(
