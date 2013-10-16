@@ -944,7 +944,9 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 				String strutsPath = portlet.getStrutsPath();
 
 				if (_portletIdsByStrutsPath.containsKey(strutsPath)) {
-					_log.warn("Duplicate struts path " + strutsPath);
+					if (_log.isWarnEnabled()) {
+						_log.warn("Duplicate struts path " + strutsPath);
+					}
 				}
 
 				_portletIdsByStrutsPath.put(strutsPath, portlet.getPortletId());
@@ -1225,7 +1227,9 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 					strutsPath);
 
 				if (!strutsPathPortletId.equals(portletId)) {
-					_log.warn("Duplicate struts path " + strutsPath);
+					if (_log.isWarnEnabled()) {
+						_log.warn("Duplicate struts path " + strutsPath);
+					}
 				}
 			}
 

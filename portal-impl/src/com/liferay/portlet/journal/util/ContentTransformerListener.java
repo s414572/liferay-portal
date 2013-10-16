@@ -120,7 +120,9 @@ public class ContentTransformerListener extends BaseTransformerListener {
 			}
 		}
 		catch (Exception e) {
-			_log.warn(e.getMessage());
+			if (_log.isWarnEnabled()) {
+				_log.warn(e.getMessage());
+			}
 		}
 
 		return script;
@@ -195,7 +197,9 @@ public class ContentTransformerListener extends BaseTransformerListener {
 			xml = DDMXMLUtil.formatXML(document);
 		}
 		catch (Exception e) {
-			_log.warn(e.getMessage());
+			if (_log.isWarnEnabled()) {
+				_log.warn(e.getMessage());
+			}
 		}
 
 		return xml;

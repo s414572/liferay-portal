@@ -111,7 +111,9 @@ public class FriendlyURLServlet extends HttpServlet {
 			}
 		}
 		catch (NoSuchLayoutException nsle) {
-			_log.warn(nsle);
+			if (_log.isWarnEnabled()) {
+				_log.warn(nsle);
+			}
 
 			PortalUtil.sendError(
 				HttpServletResponse.SC_NOT_FOUND, nsle, request, response);
