@@ -201,7 +201,7 @@ public class CleanUpSubscriptionMessageListener extends BaseMessageListener {
 		// verify that subscriptions outside those groups are automatically
 		// removed as well
 
-		List<Group> groups = user.getGroups();
+		List<Group> groups = user.getMySites(true, QueryUtil.ALL_POS);
 
 		long[] groupIds = getGroupIds(groups);
 
