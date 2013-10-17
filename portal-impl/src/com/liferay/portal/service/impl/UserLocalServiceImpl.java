@@ -3693,7 +3693,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		throws PortalException, SystemException {
 
 		userGroupRoleLocalService.deleteUserGroupRoles(
-				userIds, groupId, RoleConstants.TYPE_SITE);
+			userIds, groupId, RoleConstants.TYPE_SITE);
 
 		userLocalService.unsetGroupTeamsUsers(groupId, userIds);
 
@@ -3744,7 +3744,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		final Group group = organization.getGroup();
 
 		userGroupRoleLocalService.deleteUserGroupRoles(
-				userIds, group.getGroupId(), RoleConstants.TYPE_ORGANIZATION);
+			userIds, group.getGroupId(), RoleConstants.TYPE_ORGANIZATION);
 
 		organizationPersistence.removeUsers(organizationId, userIds);
 
