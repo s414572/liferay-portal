@@ -296,6 +296,7 @@ public class PortalSecurityManagerImpl extends SecurityManager
 		AccessController.checkPermission(permission);
 	}
 
+	@Override
 	public void destroy() {
 		synchronized (_originalSecurityManager) {
 			Policy.setPolicy(_portalPolicy.getOriginalPolicy());
