@@ -56,7 +56,7 @@
 </tr>
 <tr>
 	<td>BASIC_SEARCH_BUTTON</td>
-	<td>//input[@value='Search']</td>
+	<td>//span/span/input[@value='Search']</td>
 	<td></td>
 </tr>
 <tr>

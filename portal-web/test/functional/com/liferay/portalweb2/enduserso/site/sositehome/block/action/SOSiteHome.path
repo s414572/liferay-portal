@@ -101,6 +101,16 @@
 	<td></td>
 </tr>
 <tr>
+	<td>BOOKMARKS_ENTRY_LINK_INCREMENT</td>
+	<td>//tr[contains(.,'${number}')]/td/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BOOKMARKS_ENTRY_ACTIONS_INCREMENT</td>
+	<td>//tr[contains(.,'${number}')]//span[@title='Actions']/ul/li/strong/a</td>
+	<td></td>
+</tr>
+<tr>
 	<td>BOOKMARKS_NO_ENTRIES_MESSAGE</td>
 	<td>//div[@class='portlet-body']/form[contains(.,'There are no entries')]</td>
 	<td></td>

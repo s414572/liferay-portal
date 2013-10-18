@@ -111,6 +111,26 @@
 	<td></td>
 </tr>
 <tr>
+	<td>EVENT_TABLE_TIME_INCREMENT</td>
+	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr[contains(.,'${number}')]/td[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENT_TABLE_TITLE_INCREMENT</td>
+	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr[contains(.,'${number}')]/td[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENT_TABLE_TYPE_INCREMENT</td>
+	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr[contains(.,'${number}')]/td[3]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENT_TABLE_ACTIONS_INCREMENT</td>
+	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr[contains(.,'${number}')]/td[4]/span[@title='Actions']/ul/li/strong/a</td>
+	<td></td>
+</tr>
+<tr>
 	<td></td>
 	<td></td>
 	<td></td>

@@ -299,6 +299,86 @@
 	<td>xpath=(//div[contains(@id,'ratingScore')]/div)[3]</td>
 	<td></td>
 </tr>
+<tr>
+	<td>ENTRY_TITLE_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='entry-title']/h2/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_DATE_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='entry-date']/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_WORKFLOW_STATUS_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='entry-content']/h3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_CONTENT_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='entry-body']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_EDIT_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//span[.='Edit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_PERMISSIONS_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//span[.='Permissions']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_DELETE_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//span[.='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_AUTHOR_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='entry-author']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_COMMENTS_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//span[@class='comments']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_FLAG_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='taglib-flags']/span/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_TWITTER_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//li[@class='taglib-social-bookmark-twitter']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_FACEBOOK_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//li[@class='taglib-social-bookmark-facebook']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_GOOGLE_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//li[@class='taglib-social-bookmark-plusone']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_YOUR_RATING_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[contains(@id,'ratingStar')]/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_AVERAGE_RATING_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[contains(@id,'ratingScore')]/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 <!--RSS-->
 <tr>
 	<td>RSS_SITE_NAME</td>
