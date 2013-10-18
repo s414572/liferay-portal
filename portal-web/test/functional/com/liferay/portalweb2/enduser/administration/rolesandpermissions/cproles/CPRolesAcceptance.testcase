@@ -955,6 +955,7 @@
 
 		<execute macro="Site#assignRoleCP">
 			<var name="roleName" value="${roleName}" />
+			<var name="searchTerm" value="Siterole" />
 			<var name="siteName" value="${siteName}" />
 			<var name="userFirstName" value="${userFirstName}" />
 			<var name="userLastName" value="${userLastName}" />
