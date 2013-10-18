@@ -70,7 +70,6 @@ import com.liferay.portlet.sites.util.SitesUtil;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -863,6 +862,46 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	}
 
 	/**
+	 * @deprecated {@link #fetchLayoutByUuidAndGroupId(String, long, boolean)}
+	 * 
+	 * The Layout object is not unique by uuid and groupId, the private flag is
+	 * also necessary. This method implements the old and bad behavior to
+	 * provide backward compatibility.
+	 */
+	public Layout fetchLayoutByUuidAndGroupId(String uuid, long groupId)
+		throws SystemException {
+
+		Layout publicLayout = fetchLayoutByUuidAndGroupId(uuid, groupId, false);
+
+		Layout privateLayout = fetchLayoutByUuidAndGroupId(uuid, groupId, true);
+
+		if (privateLayout == null) {
+			return publicLayout;
+		}
+
+		if (publicLayout == null) {
+			return privateLayout;
+		}
+
+		if (publicLayout.getParentLayoutId() <
+			privateLayout.getParentLayoutId()) {
+
+			return publicLayout;
+		}
+		else if (publicLayout.getParentLayoutId() >
+				 privateLayout.getParentLayoutId()) {
+
+			return privateLayout;
+		}
+
+		if (publicLayout.getPriority() > privateLayout.getPriority()) {
+			return privateLayout;
+		}
+
+		return publicLayout;
+	}
+
+	/**
 	 * @param  uuid the universally unique identifier of the scope layout
 	 * @param  groupId the primary key of the group
 	 * @param  privateLayout whether the layout is private to the group
@@ -1041,6 +1080,37 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 		throws PortalException, SystemException {
 
 		return layoutPersistence.findByIconImageId(iconImageId);
+	}
+
+	/**
+	 * @deprecated {@link #getLayoutByUuidAndGroupId(String, long, boolean)}
+	 * 
+	 * The Layout object is not unique by uuid and groupId, the private flag is
+	 * also necessary. This method implements the old and bad behavior to
+	 * provide backward compatibility.
+	 */
+	public Layout getLayoutByUuidAndGroupId(String uuid, long groupId)
+		throws PortalException, SystemException {
+
+		Layout layout = fetchLayoutByUuidAndGroupId(uuid, groupId);
+
+		if (layout == null) {
+			StringBundler msg = new StringBundler(6);
+
+			msg.append("No Layout exists with the key {");
+
+			msg.append("uuid=");
+			msg.append(uuid);
+
+			msg.append(", groupId=");
+			msg.append(groupId);
+
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+			throw new NoSuchLayoutException(msg.toString());
+		}
+
+		return layout;
 	}
 
 	/**
