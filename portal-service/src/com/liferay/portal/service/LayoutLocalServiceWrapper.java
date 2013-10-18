@@ -638,6 +638,19 @@ public class LayoutLocalServiceWrapper implements LayoutLocalService,
 	}
 
 	/**
+	* @deprecated {@link #fetchLayoutByUuidAndGroupId(String, long, boolean)}
+
+	The Layout object is not unique by uuid and groupId, the private flag is
+	also necessary. This method implements the old and bad behavior to
+	provide backward compatibility.
+	*/
+	public com.liferay.portal.model.Layout fetchLayoutByUuidAndGroupId(
+		java.lang.String uuid, long groupId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _layoutLocalService.fetchLayoutByUuidAndGroupId(uuid, groupId);
+	}
+
+	/**
 	* @param uuid the universally unique identifier of the scope layout
 	* @param groupId the primary key of the group
 	* @param privateLayout whether the layout is private to the group
@@ -752,6 +765,20 @@ public class LayoutLocalServiceWrapper implements LayoutLocalService,
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return _layoutLocalService.getLayoutByIconImageId(iconImageId);
+	}
+
+	/**
+	* @deprecated {@link #getLayoutByUuidAndGroupId(String, long, boolean)}
+
+	The Layout object is not unique by uuid and groupId, the private flag is
+	also necessary. This method implements the old and bad behavior to
+	provide backward compatibility.
+	*/
+	public com.liferay.portal.model.Layout getLayoutByUuidAndGroupId(
+		java.lang.String uuid, long groupId)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _layoutLocalService.getLayoutByUuidAndGroupId(uuid, groupId);
 	}
 
 	/**
