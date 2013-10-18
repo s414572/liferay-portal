@@ -1247,6 +1247,7 @@ public class PortalSecurityManagerImpl extends SecurityManager
 	private static class DoServiceComponentLocalServiceImplPACL
 		implements ServiceComponentLocalServiceImpl.PACL {
 
+		@Override
 		public void doUpgradeDB(
 				DoUpgradeDBPrivilegedExceptionAction
 					doUpgradeDBPrivilegedExceptionAction)

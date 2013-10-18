@@ -259,14 +259,14 @@ public class ServiceComponentLocalServiceImpl
 			return null;
 		}
 
-		private ClassLoader _classLoader;
+		private boolean _buildAutoUpgrade;
 		private String _buildNamespace;
 		private long _buildNumber;
-		private boolean _buildAutoUpgrade;
+		private ClassLoader _classLoader;
 		private String _indexesSQL;
 		private ServiceComponent _previousServiceComponent;
-		private String _tablesSQL;
 		private String _sequencesSQL;
+		private String _tablesSQL;
 
 	}
 
@@ -465,6 +465,7 @@ public class ServiceComponentLocalServiceImpl
 
 	private static class NoPACL implements PACL {
 
+		@Override
 		public void doUpgradeDB(
 				DoUpgradeDBPrivilegedExceptionAction
 					doUpgradeDBPrivilegedExceptionAction)
