@@ -143,6 +143,8 @@
 	</command>
 
 	<command name="tearDownSites">
+		<execute macro="SOUser#firstLoginPG" />
+
 		<execute macro="SOUserBar#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>

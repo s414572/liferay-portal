@@ -17,15 +17,33 @@
 		<execute action="PGCalendar#assertClick" locator-key1="VIEW_SUMMARY" value1="Summary" />
 		<execute action="PGCalendar#assertClick" locator-key1="ADD_EVENT_BUTTON" value1="Add Event" />
 
-		<execute action="PGCalendarAddEvent#type" locator-key1="TITLE_FIELD" value1="${eventTitle}" />
-		<execute action="PGCalendarAddEvent#type" locator-key1="DESCRIPTION_FIELD" value1="${eventDescription}" />
-		<execute action="PGCalendarAddEvent#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+		<if>
+			<isset var="number" />
+			<then>
+				<var name="number" value="${number}" />
 
-		<execute action="PGCalendar#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
-		<execute action="PGCalendar#assertElementPresent" locator-key1="EVENT_TABLE_TIME" />
-		<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TITLE" value1="${eventTitle}" />
-		<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TYPE" value1="Anniversary" />
-		<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_ACTIONS" value1="Actions" />
+				<execute action="PGCalendarAddEvent#type" locator-key1="TITLE_FIELD" value1="${eventTitle}${number}" />
+				<execute action="PGCalendarAddEvent#type" locator-key1="DESCRIPTION_FIELD" value1="${eventDescription}${number}" />
+				<execute action="PGCalendarAddEvent#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+
+				<execute action="PGCalendar#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
+				<execute action="PGCalendar#assertElementPresent" locator-key1="EVENT_TABLE_TIME_INCREMENT" />
+				<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TITLE_INCREMENT" value1="${eventTitle}${number}" />
+				<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TYPE_INCREMENT" value1="Anniversary" />
+				<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_ACTIONS_INCREMENT" value1="Actions" />
+			</then>
+			<else>
+				<execute action="PGCalendarAddEvent#type" locator-key1="TITLE_FIELD" value1="${eventTitle}" />
+				<execute action="PGCalendarAddEvent#type" locator-key1="DESCRIPTION_FIELD" value1="${eventDescription}" />
+				<execute action="PGCalendarAddEvent#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+
+				<execute action="PGCalendar#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
+				<execute action="PGCalendar#assertElementPresent" locator-key1="EVENT_TABLE_TIME" />
+				<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TITLE" value1="${eventTitle}" />
+				<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TYPE" value1="Anniversary" />
+				<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_ACTIONS" value1="Actions" />
+			</else>
+		</if>
 	</command>
 
 	<command name="deleteCP">

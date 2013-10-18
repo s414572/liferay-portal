@@ -2,8 +2,19 @@
 	<command name="addPG">
 		<execute action="PGMessageboards#assertClick" locator-key1="ADD_CATEGORY_BUTTON" value1="Add Category" />
 
-		<execute action="PGMessageboardsAddcategory#type" locator-key1="NAME_FIELD" value1="${categoryName}" />
-		<execute action="PGMessageboardsAddcategory#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+	<if>
+		<isset var="number" />
+		<then>
+			<var name="number" value="${number}" />
+
+			<execute action="PGMessageboardsAddcategory#type" locator-key1="NAME_FIELD" value1="${categoryName}${number}" />
+			<execute action="PGMessageboardsAddcategory#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+		</then>
+		<else>
+			<execute action="PGMessageboardsAddcategory#type" locator-key1="NAME_FIELD" value1="${categoryName}" />
+			<execute action="PGMessageboardsAddcategory#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+		</else>
+	</if>
 
 		<execute action="PGMessageboards#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
@@ -30,7 +41,17 @@
 	</command>
 
 	<command name="gotoPG">
-		<execute action="PGMessageboards#assertClick" locator-key1="CATEGORY_TABLE_CATEGORY_1" value1="${categoryName}" />
+			<if>
+		<isset var="number" />
+		<then>
+			<var name="number" value="${number}" />
+
+			<execute action="PGMessageboards#assertClick" locator-key1="CATEGORY_TABLE_CATEGORY_INCREMENT" value1="${categoryName}${number}" />
+		</then>
+		<else>
+			<execute action="PGMessageboards#assertClick" locator-key1="CATEGORY_TABLE_CATEGORY_1" value1="${categoryName}" />
+		</else>
+	</if>
 	</command>
 
 	<command name="tearDownCP">

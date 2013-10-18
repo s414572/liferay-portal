@@ -31,7 +31,7 @@
 	<command name="assignRegRoleCP">
 		<execute action="CPRoles#type" locator-key1="SEARCH_FIELD" value1="${roleName}" />
 		<execute action="CPRoles#assertClick" locator-key1="SEARCH_BUTTON" value1="Search" />
-		<execute action="CPRoles#assertClick" locator-key1="ROLE_TABLE_ACTIONS_1" value1="Actions" />
+		<execute action="CPRoles#assertClick" locator-key1="ROLE_TABLE_ACTIONS" value1="Actions" />
 		<execute action="CPRoles#assertClick" locator-key1="ROLE_MENULIST_ASSIGN_MEMBERS" value1="Assign Members" />
 
 		<execute action="CPRolesAssignmembersUsers#assertClick" locator-key1="STATUS_AVAILABLE" value1="Available" />

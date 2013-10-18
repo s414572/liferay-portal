@@ -1,52 +1,172 @@
 <definition>
+	<command name="addSiteContent">
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Calendar" />
+			<var name="pageType" value="Open Site" />
+		</execute>
+
+		<execute macro="Event#addPG">
+			<var name="eventDescription" value="${eventDescription}" />
+			<var name="eventTitle" value="${eventTitle}" />
+		</execute>
+
+		<execute macro="SONavigation#gotoSiteDocuments">
+			<var name="pageType" value="Open Site" />
+		</execute>
+
+		<execute macro="DMFolder#addPG">
+			<var name="dmFolderName" value="${dmFolderName}" />
+			<var name="dmFolderDescription" value="${dmFolderDescription}" />
+			<var name="pageType" value="Open Site" />
+		</execute>
+
+		<execute macro="SONavigation#gotoSiteDocuments">
+			<var name="pageType" value="Open Site" />
+		</execute>
+
+		<execute macro="DMFolderDocument#addPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
+			<var name="dmDocumentFile" value="${dmDocumentFile}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+			<var name="dmFolderName" value="${dmFolderName2}" />
+			<var name="dmFolderName" value="${dmFolderName}" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Forums" />
+			<var name="pageType" value="Open Site" />
+		</execute>
+
+		<execute macro="MessageboardsCategory#addPG">
+			<var name="categoryName" value="${categoryName}" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Forums" />
+			<var name="pageType" value="Open Site" />
+		</execute>
+
+		<execute macro="MessageboardsCategory#gotoPG">
+			<var name="categoryName" value="${categoryName}" />
+		</execute>
+
+		<execute macro="MessageboardsThread#addPG" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Blogs" />
+			<var name="pageType" value="Open Site" />
+		</execute>
+
+		<execute macro="BlogsEntry#addPG" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Wiki" />
+			<var name="pageType" value="Open Site" />
+		</execute>
+
+		<if>
+			<not>
+				<isset var="wikiEditOnly" />
+			</not>
+			<then>
+				<execute macro="WikiPage#addFrontPagePG">
+					<var name="pageName" value="Wiki" />
+					<var name="wikiPageContent" value="${wikiPageContent}" />
+				</execute>
+			</then>
+		</if>
+
+		<execute macro="WikiPage#editFrontPagePG">
+			<var name="pageName" value="Wiki" />
+			<var name="pageType" value="Open Site" />
+			<var name="wikiPageContentEdit" value="${wikiPageContentEdit}" />
+		</execute>
+
+		<execute macro="Page#openURL">
+			<var name="pageType" value="Open Site" />
+		</execute>
+
+		<execute macro="SOBookmarks#addBookmarksEntry">
+			<var name="bookmarksEntryDescription" value="${bookmarksEntryDescription}" />
+			<var name="bookmarksEntryName" value="${bookmarksEntryName}" />
+			<var name="bookmarksEntryUrl" value="${bookmarksEntryUrl}" />
+		</execute>
+	</command>
+
 	<command name="viewBlogsActivityEntry">
 		<if>
-			<isset var="number" />
+			<isset var="row" />
 			<then>
-				<var name="number" value="${number}" />
+				<var name="row" value="${row}" />
 			</then>
 			<else>
-				<var name="number" value="01" />
+				<var name="row" value="01" />
 			</else>
 		</if>
 
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${userName}" />
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_TIME_STAMP" />
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${action}" />
-		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_TITLE" value1="${entryTitle}" />
-		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_CONTENT" value1="${entryContent}" />
+
+		<if>
+			<isset var="number" />
+			<then>
+				<var name="number" value="${number}" />
+
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_TITLE" value1="${entryTitle}${number}" />
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_CONTENT" value1="${entryContent}${number}" />
+			</then>
+			<else>
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_TITLE" value1="${entryTitle}" />
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_CONTENT" value1="${entryContent}" />
+			</else>
+		</if>
+
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_COMMENT" value1="Comment" />
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
 	</command>
 
 	<command name="viewBookmarksActivityEntry">
 		<if>
-			<isset var="number" />
+			<isset var="row" />
 			<then>
-				<var name="number" value="${number}" />
+				<var name="row" value="${row}" />
 			</then>
 			<else>
-				<var name="number" value="01" />
+				<var name="row" value="01" />
 			</else>
 		</if>
 
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${userName}" />
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_TIME_STAMP" />
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${action}" />
-		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_TITLE" value1="${bookmarksEntryName}" />
-		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_CONTENT" value1="${bookmarksEntryDescription}" />
+
+		<if>
+			<isset var="number" />
+			<then>
+				<var name="number" value="${number}" />
+
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_TITLE" value1="${bookmarksEntryName}${number}" />
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_CONTENT" value1="${bookmarksEntryDescription}${number}" />
+			</then>
+			<else>
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_TITLE" value1="${bookmarksEntryName}" />
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_CONTENT" value1="${bookmarksEntryDescription}" />
+			</else>
+		</if>
+
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_COMMENT" value1="Comment" />
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
 	</command>
 
 	<command name="viewCalendarActivityEntry">
 		<if>
-			<isset var="number" />
+			<isset var="row" />
 			<then>
-				<var name="number" value="${number}" />
+				<var name="row" value="${row}" />
 			</then>
 			<else>
-				<var name="number" value="01" />
+				<var name="row" value="01" />
 			</else>
 		</if>
 
@@ -54,27 +174,54 @@
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_TIME_STAMP" />
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${action}" />
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_EVENT_DATE" />
-		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_EVENT_DESCRIPTION" value1="Description: ${eventDescription}" />
+
+		<if>
+			<isset var="number" />
+			<then>
+				<var name="number" value="${number}" />
+
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_EVENT_DESCRIPTION" value1="Description: ${eventDescription}${number}" />
+			</then>
+			<else>
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_EVENT_DESCRIPTION" value1="Description: ${eventDescription}" />
+			</else>
+		</if>
+
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_COMMENT" value1="Comment" />
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
 	</command>
 
 	<command name="viewDocumentsActivityEntry">
 		<if>
-			<isset var="number" />
+			<isset var="row" />
 			<then>
-				<var name="number" value="${number}" />
+				<var name="row" value="${row}" />
 			</then>
 			<else>
-				<var name="number" value="01" />
+				<var name="row" value="01" />
 			</else>
 		</if>
 
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${userName}" />
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_TIME_STAMP" />
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${action}" />
-		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_TITLE" value1="${dmDocumentTitle}" />
-		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_DOCUMENT_DESCRIPTION" value1="${dmDocumentDescription}" />
+
+		<if>
+			<isset var="number" />
+			<then>
+				<var name="number" value="${number}" />
+
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_TITLE" value1="${dmDocumentTitle}${number}" />
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_DOCUMENT_VERSION" value1="Version ${dmDocumentVersionNumber}" />
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_DOCUMENT_DESCRIPTION" value1="${dmDocumentDescription}${number}" />
+			</then>
+			<else>
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_TITLE" value1="${dmDocumentTitle}" />
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_DOCUMENT_VERSION" value1="Version ${dmDocumentVersionNumber}" />
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_DOCUMENT_DESCRIPTION" value1="${dmDocumentDescription}" />
+			</else>
+		</if>
+
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_DOWNLOAD" value1="Download" />
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_COMMENT" value1="Comment" />
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
@@ -82,30 +229,43 @@
 
 	<command name="viewForumsActivityEntry">
 		<if>
-			<isset var="number" />
+			<isset var="row" />
 			<then>
-				<var name="number" value="${number}" />
+				<var name="row" value="${row}" />
 			</then>
 			<else>
-				<var name="number" value="01" />
+				<var name="row" value="01" />
 			</else>
 		</if>
 
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${userName}" />
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_TIME_STAMP" />
 		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${action}" />
-		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_TITLE" value1="${threadSubject}" />
-		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_CONTENT" value1="${threadBody}" />
-	</command>
 
-	<command name="viewMicroblogsActivityEntry">
 		<if>
 			<isset var="number" />
 			<then>
 				<var name="number" value="${number}" />
+
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_TITLE" value1="${threadSubject}${number}" />
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_CONTENT" value1="${threadBody}${number}" />
 			</then>
 			<else>
-				<var name="number" value="01" />
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_TITLE" value1="${threadSubject}" />
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_CONTENT" value1="${threadBody}" />
+			</else>
+		</if>
+
+	</command>
+
+	<command name="viewMicroblogsActivityEntry">
+		<if>
+			<isset var="row" />
+			<then>
+				<var name="row" value="${row}" />
+			</then>
+			<else>
+				<var name="row" value="01" />
 			</else>
 		</if>
 
@@ -624,14 +784,45 @@
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
 	</command>
 
+	<command name="viewSiteContent">
+		<execute macro="SOActivities#viewBookmarksActivityEntry">
+			<var name="action" value="${bookmarkAction}" />
+		</execute>
+
+		<execute macro="SOActivities#viewWikiActivityEntry">
+			<var name="action" value="${wikiAction}" />
+			<var name="row" value="02" />
+		</execute>
+
+		<execute macro="SOActivities#viewBlogsActivityEntry">
+			<var name="action" value="${blogsAction}" />
+			<var name="row" value="03" />
+		</execute>
+
+		<execute macro="SOActivities#viewForumsActivityEntry">
+			<var name="action" value="${forumsAction}" />
+			<var name="row" value="04" />
+		</execute>
+
+		<execute macro="SOActivities#viewDocumentsActivityEntry">
+			<var name="action" value="${documentsAction}" />
+			<var name="row" value="05" />
+		</execute>
+
+		<execute macro="SOActivities#viewCalendarActivityEntry">
+			<var name="action" value="${calendarAction}" />
+			<var name="row" value="06" />
+		</execute>
+	</command>
+
 	<command name="viewWikiActivityEntry">
 		<if>
-			<isset var="number" />
+			<isset var="row" />
 			<then>
-				<var name="number" value="${number}" />
+				<var name="row" value="${row}" />
 			</then>
 			<else>
-				<var name="number" value="01" />
+				<var name="row" value="01" />
 			</else>
 		</if>
 
