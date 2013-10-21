@@ -70,6 +70,7 @@ import com.liferay.portlet.sites.util.SitesUtil;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -862,18 +863,18 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	}
 
 	/**
-	 * @deprecated {@link #fetchLayoutByUuidAndGroupId(String, long, boolean)}
-	 * 
-	 * The Layout object is not unique by uuid and groupId, the private flag is
-	 * also necessary. This method implements the old and bad behavior to
-	 * provide backward compatibility.
+	 * @deprecated As of 6.1.0, replaced by {@link
+	 *             #fetchLayoutByUuidAndGroupId(String, long, boolean)}
 	 */
 	public Layout fetchLayoutByUuidAndGroupId(String uuid, long groupId)
 		throws SystemException {
 
-		Layout publicLayout = fetchLayoutByUuidAndGroupId(uuid, groupId, false);
+		// The Layout object is not unique by uuid and groupId. The private flag
+		// is also necessary. This method implements the old and bad behavior to
+		// provide backward compatibility.
 
 		Layout privateLayout = fetchLayoutByUuidAndGroupId(uuid, groupId, true);
+		Layout publicLayout = fetchLayoutByUuidAndGroupId(uuid, groupId, false);
 
 		if (privateLayout == null) {
 			return publicLayout;
@@ -884,12 +885,12 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 		}
 
 		if (publicLayout.getParentLayoutId() <
-			privateLayout.getParentLayoutId()) {
+				privateLayout.getParentLayoutId()) {
 
 			return publicLayout;
 		}
 		else if (publicLayout.getParentLayoutId() >
-				 privateLayout.getParentLayoutId()) {
+					privateLayout.getParentLayoutId()) {
 
 			return privateLayout;
 		}
@@ -1083,34 +1084,31 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	}
 
 	/**
-	 * @deprecated {@link #getLayoutByUuidAndGroupId(String, long, boolean)}
-	 * 
-	 * The Layout object is not unique by uuid and groupId, the private flag is
-	 * also necessary. This method implements the old and bad behavior to
-	 * provide backward compatibility.
+	 * @deprecated As of 6.1.0, replaced by {@link
+	 *               #getLayoutByUuidAndGroupId(String, long, boolean)}
 	 */
 	public Layout getLayoutByUuidAndGroupId(String uuid, long groupId)
 		throws PortalException, SystemException {
 
+		// The Layout object is not unique by uuid and groupId. The private flag
+		// is also necessary. This method implements the old and bad behavior to
+		// provide backward compatibility.
+
 		Layout layout = fetchLayoutByUuidAndGroupId(uuid, groupId);
 
-		if (layout == null) {
-			StringBundler msg = new StringBundler(6);
-
-			msg.append("No Layout exists with the key {");
-
-			msg.append("uuid=");
-			msg.append(uuid);
-
-			msg.append(", groupId=");
-			msg.append(groupId);
-
-			msg.append(StringPool.CLOSE_CURLY_BRACE);
-
-			throw new NoSuchLayoutException(msg.toString());
+		if (layout != null) {
+			return layout;
 		}
 
-		return layout;
+		StringBundler sb = new StringBundler(5);
+
+		sb.append("No Layout exists with the key {uuid=");
+		sb.append(uuid);
+		sb.append(", groupId=");
+		sb.append(groupId);
+		sb.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchLayoutException(sb.toString());
 	}
 
 	/**
