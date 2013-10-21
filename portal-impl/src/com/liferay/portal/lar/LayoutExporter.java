@@ -572,14 +572,14 @@ public class LayoutExporter {
 
 	protected void exportAssetCategories(
 			PortletDataContext portletDataContext, boolean exportCategories,
-			boolean isCompanyGroup)
+			boolean companyGroup)
 		throws Exception {
 
 		Document document = SAXReaderUtil.createDocument();
 
 		Element rootElement = document.addElement("categories-hierarchy");
 
-		if (exportCategories || isCompanyGroup) {
+		if (exportCategories || companyGroup) {
 			Element assetVocabulariesElement = rootElement.addElement(
 				"vocabularies");
 
