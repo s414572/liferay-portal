@@ -638,11 +638,8 @@ public class LayoutLocalServiceWrapper implements LayoutLocalService,
 	}
 
 	/**
-	* @deprecated {@link #fetchLayoutByUuidAndGroupId(String, long, boolean)}
-
-	The Layout object is not unique by uuid and groupId, the private flag is
-	also necessary. This method implements the old and bad behavior to
-	provide backward compatibility.
+	* @deprecated As of 6.1.0, replaced by {@link
+	#fetchLayoutByUuidAndGroupId(String, long, boolean)}
 	*/
 	public com.liferay.portal.model.Layout fetchLayoutByUuidAndGroupId(
 		java.lang.String uuid, long groupId)
@@ -768,11 +765,8 @@ public class LayoutLocalServiceWrapper implements LayoutLocalService,
 	}
 
 	/**
-	* @deprecated {@link #getLayoutByUuidAndGroupId(String, long, boolean)}
-
-	The Layout object is not unique by uuid and groupId, the private flag is
-	also necessary. This method implements the old and bad behavior to
-	provide backward compatibility.
+	* @deprecated As of 6.1.0, replaced by {@link
+	#getLayoutByUuidAndGroupId(String, long, boolean)}
 	*/
 	public com.liferay.portal.model.Layout getLayoutByUuidAndGroupId(
 		java.lang.String uuid, long groupId)

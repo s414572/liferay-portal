@@ -581,11 +581,8 @@ public interface LayoutLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* @deprecated {@link #fetchLayoutByUuidAndGroupId(String, long, boolean)}
-
-	The Layout object is not unique by uuid and groupId, the private flag is
-	also necessary. This method implements the old and bad behavior to
-	provide backward compatibility.
+	* @deprecated As of 6.1.0, replaced by {@link
+	#fetchLayoutByUuidAndGroupId(String, long, boolean)}
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.liferay.portal.model.Layout fetchLayoutByUuidAndGroupId(
@@ -700,11 +697,8 @@ public interface LayoutLocalService extends BaseLocalService,
 			com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* @deprecated {@link #getLayoutByUuidAndGroupId(String, long, boolean)}
-
-	The Layout object is not unique by uuid and groupId, the private flag is
-	also necessary. This method implements the old and bad behavior to
-	provide backward compatibility.
+	* @deprecated As of 6.1.0, replaced by {@link
+	#getLayoutByUuidAndGroupId(String, long, boolean)}
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.liferay.portal.model.Layout getLayoutByUuidAndGroupId(
