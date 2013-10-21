@@ -326,7 +326,7 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 		}
 
 		if ((folderId != DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) &&
-			(!folderIds.containsKey(fileEntry.getFolderId()))) {
+			!folderIds.containsKey(fileEntry.getFolderId())) {
 
 			String folderPath = getImportFolderPath(
 				portletDataContext, folderId);
@@ -1617,7 +1617,7 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 			folderPath, folder, _NAMESPACE);
 
 		if ((parentFolderId != DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) &&
-			(!folderIds.containsKey(folder.getParentFolderId()))) {
+			!folderIds.containsKey(folder.getParentFolderId())) {
 
 			String path = getImportFolderPath(
 				portletDataContext, parentFolderId);
