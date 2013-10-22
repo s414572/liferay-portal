@@ -126,9 +126,9 @@
 	</command>
 
 	<command name="tearDownNotifications">
-		<execute macro="SOUserBar#dashboardPG">
-			<var name="userName" value="${userName}" />
-		</execute>
+		<execute macro="SOUser#firstLoginPG" />
+
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
 
 		<execute action="SOUserBar#mouseOver" locator-key1="NOTIFICATION" />
 		<execute action="SOUserBar#click" locator-key1="NOTIFICATION_MENU_VIEW_ALL" value1="View All" />

@@ -136,6 +136,494 @@
 		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
 	</command>
 
+	<command name="viewMicroblogsActivityEntryProfile">
+		<if>
+			<isset var="number" />
+			<then>
+				<var name="number" value="${number}" />
+			</then>
+			<else>
+				<var name="number" value="01" />
+			</else>
+		</if>
+
+		<execute action="SOUserBar#click" locator-key1="USER_NAME" />
+		<execute action="SOUserBar#click" locator-key1="USER_MENU_MY_ACCOUNT" value1="My Account" />
+
+		<var name="currentUser" path="CPMyAccount" locator-key="USER_NAME_HEADER" />
+
+		<if>
+			<isset var="profileScreenName" />
+			<then>
+				<execute action="SOProfile#open" locator-key1="PROFILE_URL" />
+			</then>
+			<else>
+				<execute action="SOUserBar#click" locator-key1="USER_NAME" />
+				<execute action="SOUserBar#click" locator-key1="USER_MENU_MY_PROFILE" value1="My Profile"/>
+			</else>
+		</if>
+
+		<execute action="SOActivities#assertElementPresent" locator-key1="NO_ACTIVITIES" />
+
+		<if>
+			<isset var="microblogsEntryAuthorMiddleName" />
+			<then>
+				<if>
+					<equals arg1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}" arg2="${currentUser}" />
+					<then>
+						<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${microblogsEntryAuthorFirstName}" />
+					</then>
+					<else>
+						<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}" />
+					</else>
+				</if>
+			</then>
+			<else>
+				<if>
+					<equals arg1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}" arg2="${currentUser}" />
+					<then>
+						<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${microblogsEntryAuthorFirstName}" />
+					</then>
+					<else>
+						<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}" />
+					</else>
+				</if>	
+			</else>
+		</if>
+
+		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_TIME_STAMP" />
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryContent}" />
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
+
+		<if>
+			<condition action="SOActivities#isElementPresent" locator-key1="ACTIVITIES_USER_LINK" />
+			<then>
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_REPOST" value1="Repost" />
+			</then>
+		</if>
+
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_COMMENT" value1="Comment" />
+		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
+	</command>
+
+	<command name="viewMicroblogsCommentActivityEntry">
+		<if>
+			<isset var="number" />
+			<then>
+				<var name="number" value="${number}" />
+			</then>
+			<else>
+				<var name="number" value="01" />
+			</else>
+		</if>
+
+		<execute action="SOActivities#assertElementPresent" locator-key1="NO_ACTIVITIES" />
+
+		<if>
+			<condition action="SOActivities#isElementPresent" locator-key1="ACTIVITIES_USER_LINK" />
+			<then>
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${userName}" />
+			</then>
+			<else>
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${userFirstName}" />
+			</else>
+		</if>
+
+		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_TIME_STAMP" />
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="Commented on a microblog entry." />
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_CONTENT" value1="${microblogsEntryContent}" />
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
+
+		<if>
+			<condition action="SOActivities#isElementPresent" locator-key1="ACTIVITIES_USER_LINK" />
+			<then>
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_REPOST" value1="Repost" />
+			</then>
+		</if>
+
+		<if>
+			<equals arg1="${commentCount}" arg2="1" />
+			<then>
+				<execute action="SOActivities#assertClick" locator-key1="ACTIVITIES_COMMENT" value1="1 Comment" />
+			</then>
+			<else>
+				<execute action="SOActivities#assertClick" locator-key1="ACTIVITIES_COMMENT" value1="${commentCount} Comments" />
+			</else>
+		</if>
+
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_COMMENT_USER_NAME" value1="${userName}" />
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_COMMENT_CONTENT" value1="${microblogsEntryCommentContent}" />
+
+		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
+	</command>
+
+	<command name="viewMicroblogsNotViewableByEveryoneActivityEntry">
+		<if>
+			<isset var="number" />
+			<then>
+				<var name="number" value="${number}" />
+			</then>
+			<else>
+				<var name="number" value="01" />
+			</else>
+		</if>
+
+		<execute action="SOActivities#assertElementPresent" locator-key1="NO_ACTIVITIES" />
+
+		<if>
+			<condition action="SOActivities#isElementPresent" locator-key1="ACTIVITIES_USER_LINK" />
+			<then>
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${userName}" />
+			</then>
+			<else>
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${userFirstName}" />
+			</else>
+		</if>
+
+		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_TIME_STAMP" />
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryContent}" />
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_COMMENT" value1="Comment" />
+		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
+	</command>
+
+	<command name="viewMicroblogsRepostActivityEntry">
+		<if>
+			<isset var="number" />
+			<then>
+				<var name="number" value="${number}" />
+			</then>
+			<else>
+				<var name="number" value="01" />
+			</else>
+		</if>
+
+		<execute action="SOUserBar#click" locator-key1="USER_NAME" />
+		<execute action="SOUserBar#click" locator-key1="USER_MENU_MY_ACCOUNT" value1="My Account" />
+
+		<var name="currentUser" path="CPMyAccount" locator-key="USER_NAME_HEADER" />
+	
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
+
+		<execute action="SOActivities#assertElementPresent" locator-key1="NO_ACTIVITIES" />
+
+		<if>
+			<condition action="SOActivities#isElementPresent" locator-key1="ACTIVITIES_USER_LINK" />
+			<then>
+				<if>
+					<isset var="microblogsEntryRepostAuthorMiddleName" />
+					<then>
+						<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorMiddleName} ${microblogsEntryRepostAuthorLastName}" />
+					</then>
+					<else>
+						<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorLastName}" />
+					</else>
+				</if>
+			</then>
+			<else>
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${microblogsEntryRepostAuthorFirstName}" />
+			</else>
+		</if>
+
+		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_TIME_STAMP" />
+
+		<if>
+			<isset var="microblogsEntryRepostAuthorMiddleName" />
+			<then>
+				<if>
+					<equals arg1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorMiddleName} ${microblogsEntryRepostAuthorLastName}" arg2="${currentUser}" />
+					<then>
+						<if>
+							<isset var="microblogsEntryAuthorMiddleName" />
+							<then>
+								<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}." />
+							</then>
+							<else>
+								<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}." />			
+							</else>
+						</if>
+					</then>
+					<else>
+						<if>
+							<isset var="microblogsEntryAuthorMiddleName" />
+							<then>
+								<if>
+									<equals arg1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}" arg2="${currentUser}" />
+									<then>
+										<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorMiddleName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName}." />
+									</then>
+									<else>
+										<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorMiddleName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}." />
+									</else>
+								</if>
+							</then>
+							<else>
+								<if>
+									<equals arg1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}" arg2="${currentUser}" />
+									<then>
+										<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorMiddleName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName}." />
+									</then>
+									<else>
+										<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorMiddleName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}." />
+									</else>
+								</if>
+							</else>
+						</if>
+					</else>
+				</if>
+			</then>
+			<else>
+				<if>
+					<equals arg1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorLastName}" arg2="${currentUser}" />
+					<then>
+						<if>
+							<isset var="microblogsEntryAuthorMiddleName" />
+							<then>
+								<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}." />
+							</then>
+							<else>
+								<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}." />			
+							</else>
+						</if>
+					</then>
+					<else>
+						<if>
+							<isset var="microblogsEntryAuthorMiddleName" />
+							<then>
+								<if>
+									<equals arg1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}" arg2="${currentUser}" />
+									<then>
+										<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName}." />
+									</then>
+									<else>
+										<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}." />
+									</else>
+								</if>
+							</then>
+							<else>
+								<if>
+									<equals arg1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}" arg2="${currentUser}" />
+									<then>
+										<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName}." />
+									</then>
+									<else>
+										<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}." />
+									</else>
+								</if>
+							</else>
+						</if>
+					</else>
+				</if>
+			</else>
+		</if>
+
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_CONTENT" value1="${microblogsEntryContent}" />
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
+
+		<if>
+			<condition action="SOActivities#isElementPresent" locator-key1="ACTIVITIES_USER_LINK" />
+			<then>
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_REPOST" value1="Repost" />
+			</then>
+		</if>
+
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_COMMENT" value1="Comment" />
+		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
+	</command>
+
+	<command name="viewMicroblogsRepostActivityEntryProfile">
+		<if>
+			<isset var="number" />
+			<then>
+				<var name="number" value="${number}" />
+			</then>
+			<else>
+				<var name="number" value="01" />
+			</else>
+		</if>
+
+		<execute action="SOUserBar#click" locator-key1="USER_NAME" />
+		<execute action="SOUserBar#click" locator-key1="USER_MENU_MY_ACCOUNT" value1="My Account" />
+
+		<var name="currentUser" path="CPMyAccount" locator-key="USER_NAME_HEADER" />
+
+		<if>
+			<isset var="profileScreenName" />
+			<then>
+				<execute action="SOProfile#open" locator-key1="PROFILE_URL" />
+			</then>
+			<else>
+				<execute action="SOUserBar#click" locator-key1="USER_NAME" />
+				<execute action="SOUserBar#click" locator-key1="USER_MENU_MY_PROFILE" value1="My Profile"/>
+			</else>
+		</if>
+
+		<execute action="SOActivities#assertElementPresent" locator-key1="NO_ACTIVITIES" />
+
+		<if>
+			<isset var="microblogsEntryRepostAuthorMiddleName" />
+			<then>
+				<if>
+					<equals arg1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorMiddleName} ${microblogsEntryRepostAuthorLastName}" arg2="${currentUser}" />
+					<then>
+						<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${microblogsEntryRepostAuthorFirstName}" />
+					</then>
+					<else>
+						<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorMiddleName} ${microblogsEntryRepostAuthorLastName}" />
+					</else>
+				</if>
+			</then>
+			<else>
+				<if>
+					<equals arg1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorLastName}" arg2="${currentUser}" />
+					<then>
+						<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${microblogsEntryRepostAuthorFirstName}" />
+					</then>
+					<else>
+						<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_USER" value1="${microblogsEntryRepostAuthorFirstName}${microblogsEntryRepostAuthorLastName}" />
+					</else>
+				</if>		
+			</else>
+		</if>
+
+		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_TIME_STAMP" />
+
+		<if>
+			<isset var="profileScreenName" />
+			<then>
+				<if>
+					<isset var="microblogsEntryAuthorMiddleName" />
+					<then>
+						<if>
+							<equals arg1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}" arg2="${currentUser}" />
+							<then>
+								<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="Reposted a microblog entry from ${microblogsEntryAuthorFirstName}." />
+							</then>
+							<else>
+								<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}." />	
+							</else>
+						</if>
+					</then>
+					<else>
+						<if>
+							<equals arg1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}" arg2="${currentUser}" />
+							<then>
+								<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="Reposted a microblog entry from ${microblogsEntryAuthorFirstName}." />
+							</then>
+							<else>
+								<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}." />	
+							</else>
+						</if>
+					</else>
+				</if>
+			</then>
+			<else>
+				<if>
+					<isset var="microblogsEntryRepostAuthorMiddleName" />
+					<then>
+						<if>
+							<equals arg1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorMiddleName} ${microblogsEntryRepostAuthorLastName}" arg2="${currentUser}" />
+							<then>
+								<if>
+									<isset var="microblogsEntryAuthorMiddleName" />
+									<then>
+										<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}." />
+									</then>
+									<else>
+										<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}." />			
+									</else>
+								</if>
+							</then>
+							<else>
+								<if>
+									<isset var="microblogsEntryAuthorMiddleName" />
+									<then>
+										<if>
+											<equals arg1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}" arg2="${currentUser}" />
+											<then>
+												<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorMiddleName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName}." />
+											</then>
+											<else>
+												<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorMiddleName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}." />
+											</else>
+										</if>
+									</then>
+									<else>
+										<if>
+											<equals arg1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}" arg2="${currentUser}" />
+											<then>
+												<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorMiddleName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName}." />
+											</then>
+											<else>
+												<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorMiddleName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}." />
+											</else>
+										</if>
+									</else>
+								</if>
+							</else>
+						</if>
+					</then>
+					<else>
+						<if>
+							<equals arg1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorLastName}" arg2="${currentUser}" />
+							<then>
+								<if>
+									<isset var="microblogsEntryAuthorMiddleName" />
+									<then>
+										<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}." />
+									</then>
+									<else>
+										<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}." />			
+									</else>
+								</if>
+							</then>
+							<else>
+								<if>
+									<isset var="microblogsEntryAuthorMiddleName" />
+									<then>
+										<if>
+											<equals arg1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}" arg2="${currentUser}" />
+											<then>
+												<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName}." />
+											</then>
+											<else>
+												<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorMiddleName} ${microblogsEntryAuthorLastName}." />
+											</else>
+										</if>
+									</then>
+									<else>
+										<if>
+											<equals arg1="${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}" arg2="${currentUser}" />
+											<then>
+												<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName}." />
+											</then>
+											<else>
+												<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_ACTION" value1="${microblogsEntryRepostAuthorFirstName} ${microblogsEntryRepostAuthorLastName} Reposted a microblog entry from ${microblogsEntryAuthorFirstName} ${microblogsEntryAuthorLastName}." />
+											</else>
+										</if>
+									</else>
+								</if>
+							</else>
+						</if>
+					</else>
+				</if>
+			</else>
+		</if>
+
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_CONTENT" value1="${microblogsEntryContent}" />
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
+
+		<if>
+			<equals arg1="${microblogsEntryRepostAuthor}" arg2="${currentUser}" />
+			<then>
+				<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_REPOST" value1="Repost" />
+			</then>
+		</if>
+
+		<execute action="SOActivities#assertTextEquals" locator-key1="ACTIVITIES_COMMENT" value1="Comment" />
+		<execute action="SOActivities#assertElementPresent" locator-key1="ACTIVITIES_COMMENT_FIELD" />
+	</command>
+
 	<command name="viewWikiActivityEntry">
 		<if>
 			<isset var="number" />
