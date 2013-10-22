@@ -2,11 +2,15 @@
 	<command name="clickAt">
 		<execute selenium="waitForVisible" />
 
+		<execute selenium="mouseOver" />
+
 		<execute selenium="clickAt" />
 	</command>
 
 	<command name="clickAtPause">
 		<execute selenium="waitForVisible" />
+
+		<execute selenium="mouseOver" />
 
 		<execute selenium="clickAt" />
 
@@ -16,10 +20,14 @@
 	<command name="clickAtAndWait">
 		<execute selenium="waitForVisible" />
 
+		<execute selenium="mouseOver" />
+
 		<execute selenium="clickAtAndWait" />
 	</command>
 
 	<command name="makeVisibleClickAt">
+		<execute selenium="mouseOver" />
+
 		<execute selenium="makeVisible" />
 
 		<execute selenium="clickAt" />
@@ -28,11 +36,15 @@
 	<command name="partialTextClickAt">
 		<execute function="AssertTextEquals#assertPartialText" />
 
+		<execute selenium="mouseOver" />
+
 		<execute selenium="clickAt" />
 	</command>
 
 	<command name="partialTextClickAtAndWait">
 		<execute function="AssertTextEquals#assertPartialText" />
+
+		<execute selenium="mouseOver" />
 
 		<execute selenium="clickAtAndWait" />
 	</command>
@@ -58,11 +70,15 @@
 	<command name="textClick">
 		<execute function="AssertTextEquals#assertText" />
 
+		<execute selenium="mouseOver" />
+
 		<execute selenium="click" />
 	</command>
 
 	<command name="textClickAndWait">
 		<execute function="AssertTextEquals#assertText" />
+
+		<execute selenium="mouseOver" />
 
 		<execute selenium="clickAndWait" />
 	</command>
@@ -70,11 +86,15 @@
 	<command name="textClickAt">
 		<execute function="AssertTextEquals#assertText" />
 
+		<execute selenium="mouseOver" />
+
 		<execute selenium="clickAt" />
 	</command>
 
 	<command name="textClickAtAndWait">
 		<execute function="AssertTextEquals#assertText" />
+
+		<execute selenium="mouseOver" />
 
 		<execute selenium="clickAtAndWait" />
 	</command>
@@ -90,17 +110,23 @@
 	<command name="valueClickAt">
 		<execute function="AssertTextEquals#assertValue" />
 
+		<execute selenium="mouseOver" />
+
 		<execute selenium="clickAt" />
 	</command>
 
 	<command name="valueClickAtAndWait">
 		<execute function="AssertTextEquals#assertValue" />
 
+		<execute selenium="mouseOver" />
+
 		<execute selenium="clickAtAndWait" />
 	</command>
 
 	<command name="valueClickAtAndWaitClickAtAndWait">
 		<execute function="AssertTextEquals#assertValue" />
+
+		<execute selenium="mouseOver" />
 
 		<execute selenium="clickAtAndWait" />
 
@@ -115,6 +141,8 @@
 
 	<command name="valueClickAtPause">
 		<execute function="AssertTextEquals#assertValue" />
+
+		<execute selenium="mouseOver" />
 
 		<execute selenium="clickAt" />
 

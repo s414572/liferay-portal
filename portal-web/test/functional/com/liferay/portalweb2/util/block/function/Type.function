@@ -2,6 +2,8 @@
 	<command name="clickAtSendKeys">
 		<execute selenium="waitForVisible" />
 
+		<execute selenium="mouseOver" />
+
 		<execute selenium="type" argument2="" />
 
 		<execute selenium="clickAt" />
@@ -11,6 +13,8 @@
 
 	<command name="sendKeys">
 		<execute selenium="waitForVisible" />
+
+		<execute selenium="mouseOver" />
 
 		<execute selenium="sendKeys" />
 	</command>
@@ -24,11 +28,15 @@
 	<command name="type">
 		<execute selenium="waitForVisible" />
 
+		<execute selenium="mouseOver" />
+
 		<execute selenium="type" />
 	</command>
 
 	<command name="typeFrame">
 		<execute selenium="waitForVisible" />
+
+		<execute selenium="mouseOver" />
 
 		<execute selenium="typeFrame" />
 	</command>
@@ -37,6 +45,8 @@
 		<execute selenium="waitForVisible" />
 
 		<execute selenium="waitForVisible" argument1="//a[@class='cke_button_cut cke_disabled']" />
+
+		<execute selenium="mouseOver" />
 
 		<execute selenium="typeFrame" />
 	</command>
