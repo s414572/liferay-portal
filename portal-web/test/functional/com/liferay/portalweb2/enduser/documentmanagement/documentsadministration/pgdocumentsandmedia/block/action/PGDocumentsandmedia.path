@@ -334,8 +334,18 @@
 	<td>Folder Title</td>
 </tr>
 <tr>
+	<td>ENTRIES_FOLDER_TITLE_INCREMENT</td>
+	<td>//div[@id='_20_documentContainer']//div[contains(.,'${number}')]/a/span[2]</td>
+	<td>Folder Title</td>
+</tr>
+<tr>
 	<td>ENTRIES_FOLDER</td>
 	<td>//div[@id='_20_documentContainer']/div[2]/a/span/img</td>
+	<td>Folder Entry</td>
+</tr>
+<tr>
+	<td>ENTRIES_FOLDER_INCREMENT</td>
+	<td>//div[@id='_20_documentContainer']/div[contains(.,'${number}')]/a/span/img</td>
 	<td>Folder Entry</td>
 </tr>
 <tr>
@@ -344,24 +354,14 @@
 	<td>Select Folder Entry</td>
 </tr>
 <tr>
-	<td>ENTRIES_FOLDER_ACTIONS</td>
-	<td>//div[@id='_20_documentContainer']/div[2]/span[2]/span/ul/li/strong/a</td>
-	<td>Folder Entry Actions</td>
-</tr>
-<tr>
-	<td>ENTRIES_FOLDER_TITLE_INCREMENT</td>
-	<td>//div[@id='_20_documentContainer']//div[contains(.,'${number}')]/a/span[2]</td>
-	<td>Folder Title</td>
-</tr>
-<tr>
-	<td>ENTRIES_FOLDER_INCREMENT</td>
-	<td>//div[@id='_20_documentContainer']/div[contains(.,'${number}')]/a/span/img</td>
-	<td>Folder Entry</td>
-</tr>
-<tr>
 	<td>ENTRIES_FOLDER_SELECT_INCREMENT</td>
 	<td>//div[contains(.,'${number}')]/span/pan/span/input[@id='_20_rowIdsFolderCheckbox']</td>
 	<td>Select Folder Entry</td>
+</tr>
+<tr>
+	<td>ENTRIES_FOLDER_ACTIONS</td>
+	<td>//div[@id='_20_documentContainer']/div[2]/span[2]/span/ul/li/strong/a</td>
+	<td>Folder Entry Actions</td>
 </tr>
 <tr>
 	<td>ENTRIES_FOLDER_ACTIONS_INCREMENT</td>

@@ -96,13 +96,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>BOOKMARKS_ENTRY_ACTIONS</td>
-	<td>//span[@title='Actions']/ul/li/strong/a</td>
+	<td>BOOKMARKS_ENTRY_LINK_INCREMENT</td>
+	<td>//tr[contains(.,'${number}')]/td/a</td>
 	<td></td>
 </tr>
 <tr>
-	<td>BOOKMARKS_ENTRY_LINK_INCREMENT</td>
-	<td>//tr[contains(.,'${number}')]/td/a</td>
+	<td>BOOKMARKS_ENTRY_ACTIONS</td>
+	<td>//span[@title='Actions']/ul/li/strong/a</td>
 	<td></td>
 </tr>
 <tr>

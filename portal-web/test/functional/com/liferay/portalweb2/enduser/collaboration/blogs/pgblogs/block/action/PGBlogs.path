@@ -90,6 +90,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ENTRY_TITLE_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='entry-title']/h2/a</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ENTRY_DATE_1</td>
 	<td>xpath=(//div[@class='entry-date'])[1]</td>
 	<td></td>
@@ -102,6 +107,11 @@
 <tr>
 	<td>ENTRY_DATE_3</td>
 	<td>xpath=(//div[@class='entry-date'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_DATE_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='entry-date']/span</td>
 	<td></td>
 </tr>
 <tr>
@@ -120,6 +130,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ENTRY_WORKFLOW_STATUS_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='entry-content']/h3</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ENTRY_CONTENT_1</td>
 	<td>xpath=(//div[@class='entry-body'])[1]</td>
 	<td></td>
@@ -132,6 +147,11 @@
 <tr>
 	<td>ENTRY_CONTENT_3</td>
 	<td>xpath=(//div[@class='entry-body'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_CONTENT_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='entry-body']</td>
 	<td></td>
 </tr>
 <tr>
@@ -150,6 +170,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ENTRY_EDIT_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//span[.='Edit']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ENTRY_PERMISSIONS_1</td>
 	<td>xpath=(//div[contains(@class,'edit-actions')]//span/a/span[.='Permissions'])[1]</td>
 	<td></td>
@@ -162,6 +187,11 @@
 <tr>
 	<td>ENTRY_PERMISSIONS_3</td>
 	<td>xpath=(//div[contains(@class,'edit-actions')]//span/a/span[.='Permissions'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_PERMISSIONS_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//span[.='Permissions']</td>
 	<td></td>
 </tr>
 <tr>
@@ -180,6 +210,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ENTRY_DELETE_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//span[.='Delete']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ENTRY_AUTHOR_1</td>
 	<td>xpath=(//div[@class='entry-author'])[1]</td>
 	<td></td>
@@ -192,6 +227,11 @@
 <tr>
 	<td>ENTRY_AUTHOR_3</td>
 	<td>xpath=(//div[@class='entry-author'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_AUTHOR_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='entry-author']</td>
 	<td></td>
 </tr>
 <tr>
@@ -210,6 +250,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ENTRY_COMMENTS_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//span[@class='comments']/a</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ENTRY_FLAG_1</td>
 	<td>xpath=(//div[@class='taglib-flags']/span/a/span)[1]</td>
 	<td></td>
@@ -222,6 +267,11 @@
 <tr>
 	<td>ENTRY_FLAG_3</td>
 	<td>xpath=(//div[@class='taglib-flags']/span/a/span)[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_FLAG_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='taglib-flags']/span/a/span</td>
 	<td></td>
 </tr>
 <tr>
@@ -240,6 +290,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ENTRY_TWITTER_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//li[@class='taglib-social-bookmark-twitter']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ENTRY_FACEBOOK_1</td>
 	<td>xpath=(//li[@class='taglib-social-bookmark-facebook'])[1]</td>
 	<td></td>
@@ -252,6 +307,11 @@
 <tr>
 	<td>ENTRY_FACEBOOK_3</td>
 	<td>xpath=(//li[@class='taglib-social-bookmark-facebook'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENTRY_FACEBOOK_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//li[@class='taglib-social-bookmark-facebook']</td>
 	<td></td>
 </tr>
 <tr>
@@ -270,6 +330,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ENTRY_GOOGLE_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//li[@class='taglib-social-bookmark-plusone']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ENTRY_YOUR_RATING_1</td>
 	<td>xpath=(//div[contains(@id,'ratingStar')]/div)[1]</td>
 	<td></td>
@@ -285,6 +350,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ENTRY_YOUR_RATING_INCREMENT</td>
+	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[contains(@id,'ratingStar')]/div</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ENTRY_AVERAGE_RATING_1</td>
 	<td>xpath=(//div[contains(@id,'ratingScore')]/div)[1]</td>
 	<td></td>
@@ -297,76 +367,6 @@
 <tr>
 	<td>ENTRY_AVERAGE_RATING_3</td>
 	<td>xpath=(//div[contains(@id,'ratingScore')]/div)[3]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ENTRY_TITLE_INCREMENT</td>
-	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='entry-title']/h2/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ENTRY_DATE_INCREMENT</td>
-	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='entry-date']/span</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ENTRY_WORKFLOW_STATUS_INCREMENT</td>
-	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='entry-content']/h3</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ENTRY_CONTENT_INCREMENT</td>
-	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='entry-body']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ENTRY_EDIT_INCREMENT</td>
-	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//span[.='Edit']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ENTRY_PERMISSIONS_INCREMENT</td>
-	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//span[.='Permissions']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ENTRY_DELETE_INCREMENT</td>
-	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//span[.='Delete']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ENTRY_AUTHOR_INCREMENT</td>
-	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='entry-author']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ENTRY_COMMENTS_INCREMENT</td>
-	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//span[@class='comments']/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ENTRY_FLAG_INCREMENT</td>
-	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[@class='taglib-flags']/span/a/span</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ENTRY_TWITTER_INCREMENT</td>
-	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//li[@class='taglib-social-bookmark-twitter']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ENTRY_FACEBOOK_INCREMENT</td>
-	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//li[@class='taglib-social-bookmark-facebook']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ENTRY_GOOGLE_INCREMENT</td>
-	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//li[@class='taglib-social-bookmark-plusone']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ENTRY_YOUR_RATING_INCREMENT</td>
-	<td>//div[@class='entry approved' and contains(.,'${entryTitle}${number}')]//div[contains(@id,'ratingStar')]/div</td>
 	<td></td>
 </tr>
 <tr>
