@@ -36,6 +36,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * @author Amos Fong
+ * @author Tomas Polesovsky
  */
 public class SessionAuthToken implements AuthToken {
 
