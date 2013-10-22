@@ -24,10 +24,30 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class AuthTokenUtil {
 
+	public static final String AUTH_TOKEN_ORIGIN =
+		AuthTokenUtil.class.getName() + ".AUTH_TOKEN_ORIGIN";
+
+	/**
+	 * @deprecated As of 6.2.0, replaced by {@link
+	 *             #checkCSRFToken(javax.servlet.http.HttpServletRequest,
+	 *             String)}
+	 */
 	public static void check(HttpServletRequest request)
 		throws PortalException {
 
 		getAuthToken().check(request);
+	}
+
+	public static void checkCSRFToken(HttpServletRequest request, String origin)
+		throws PrincipalException {
+
+		request.setAttribute(AUTH_TOKEN_ORIGIN, origin);
+
+		try {
+			getAuthToken().check(request);
+		} catch (PortalException e) {
+			throw new PrincipalException("Unable to check CSRF token!", e);
+		}
 	}
 
 	public static AuthToken getAuthToken() {
