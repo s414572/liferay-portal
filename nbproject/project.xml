@@ -265,6 +265,7 @@
 				<classpath mode="compile">lib/development/jms.jar</classpath>
 				<classpath mode="compile">lib/development/jndi.jar</classpath>
 				<classpath mode="compile">lib/development/jnet.jar</classpath>
+				<classpath mode="compile">lib/development/jserrorcollector.jar</classpath>
 				<classpath mode="compile">lib/development/jsf-api.jar</classpath>
 				<classpath mode="compile">lib/development/jsf-facelets.jar</classpath>
 				<classpath mode="compile">lib/development/jsf-impl.jar</classpath>
