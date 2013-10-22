@@ -5,7 +5,7 @@
 
 	<execute test-case="SODashboardAcceptance" />
 
-	<execute test-case="SOMicroblogsAcceptance" />
+	<execute test-suite="SOMicroblogsAcceptance" />
 
 	<execute test-case="SOMessagesAcceptance" />
 

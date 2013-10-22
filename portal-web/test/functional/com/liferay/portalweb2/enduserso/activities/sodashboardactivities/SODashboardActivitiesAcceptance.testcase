@@ -49,16 +49,20 @@
 			<var name="password" value="test" />
 		</execute>
 
+		<execute macro="SOMicroblogs#gotoMicroblogsContentField" />
+
 		<execute macro="SOMicroblogs#addMicroblogsEntryMention">
+			<var name="mentionUserEmailAddress" value="${userEmailAddress1}" />
+			<var name="mentionUserFirstName" value="${userFirstName1}" />
+			<var name="mentionUserListName" value="${userListName1}" />
+			<var name="mentionUserLastName" value="${userLastName1}" />
+			<var name="mentionUserMiddleName" value="${userMiddleName1}" />
+			<var name="mentionUserName" value="${userName1}" />
+			<var name="mentionUserScreenName" value="${userScreenName1}" />
 			<var name="microblogsEntryCharacterCountdown" value="${microblogsEntryCharacterCountdown1}" />
-			<var name="userEmailAddress" value="${userEmailAddress1}" />
-			<var name="userFirstName" value="${userFirstName1}" />
-			<var name="userListName" value="${userListName1}" />
-			<var name="userLastName" value="${userLastName1}" />
-			<var name="userMiddleName" value="${userMiddleName1}" />
-			<var name="userName" value="${userName1}" />
-			<var name="userScreenName" value="${userScreenName1}" />
 		</execute>
+
+		<execute macro="SOMicroblogs#gotoMicroblogsContentField" />
 
 		<execute macro="SOMicroblogs#addMicroblogsEntryHashtag">
 			<var name="microblogsEntryCharacterCountdown" value="${microblogsEntryCharacterCountdown2}" />
@@ -228,10 +232,14 @@
 			<var name="password" value="test" />
 		</execute>
 
+		<execute macro="SOMicroblogs#gotoMicroblogsContentField" />
+
 		<execute macro="SOMicroblogs#addMicroblogsEntry">
 			<var name="microblogsEntryCharacterCountdown" value="${microblogsEntryCharacterCountdown1}" />
 			<var name="microblogsEntryContent" value="${microblogsEntryContent1}" />
 		</execute>
+
+		<execute macro="SOMicroblogs#gotoMicroblogsContentField" />
 
 		<execute macro="SOMicroblogs#addMicroblogsEntryHashtag">
 			<var name="microblogsEntryCharacterCountdown" value="${microblogsEntryCharacterCountdown2}" />

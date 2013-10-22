@@ -1,0 +1,12 @@
+<definition>
+	<execute test-case-command="SOMicroblogs#AddMicroblogsEntriesTag" />
+	<execute test-case-command="SOMicroblogs#AddMicroblogsEntryMentions" />
+	<execute test-case-command="SOMicroblogs#AddMicroblogsEntryTag" />
+	<execute test-case-command="SOMicroblogs#AddMicroblogsEntryViewableByConnections" />
+	<execute test-case-command="SOMicroblogs#AddMicroblogsEntryViewableByConnectionsComment" />
+	<execute test-case-command="SOMicroblogs#AddMicroblogsEntryViewableByEveryoneCommentMention" />
+	<execute test-case-command="SOMicroblogs#AddMicroblogsEntryViewableByFollowers" />
+	<execute test-case-command="SOMicroblogs#AddMicroblogsEntryViewableByFollowersComment" />
+	<execute test-case-command="SOMicroblogs#RepostMicroblogsEntry" />
+	<execute test-case-command="SOMicroblogs#ViewMicroblogsTimeline" />
+</definition>
