@@ -14,6 +14,11 @@
 	<td>SODashboard</td>
 </tr>
 <tr>
+	<td>DASHBOARD_URL</td>
+	<td>/user/${dashboardScreenName}/so/dashboard</td>
+	<td></td>
+</tr>
+<tr>
 	<td>SUCCESS_MESSAGE</td>
 	<td>//div[@class='portlet-msg-success']</td>
 	<td></td>

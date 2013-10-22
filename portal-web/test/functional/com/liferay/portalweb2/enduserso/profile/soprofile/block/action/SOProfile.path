@@ -19,6 +19,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>PROFILE_URL</td>
+	<td>/web/${profileScreenName}/so/profile</td>
+	<td></td>
+</tr>
+<tr>
 	<td>USER_NAME</td>
 	<td>//div[@class='no-icon lfr-contact-info']/div/a</td>
 	<td></td>

@@ -88,7 +88,7 @@
 </tr>
 <tr>
 	<td>ACTIVITIES_CONTENT</td>
-	<td>//div[contains(@class,'activity-item')][${number}]//div[contains(@class,'activity-body')]//div[contains(@class,'content')]</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[contains(@class,'activity-body')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -144,6 +144,27 @@
 <tr>
 	<td>ACTIVITIES_COMMENT_FIELD</td>
 	<td>//div[contains(@class,'activity-item')][${number}]//input[contains(@placeholder,'Leave a comment')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--ACTIVITIES_COMMENT-->
+<tr>
+	<td>ACTIVITIES_COMMENT_USER_NAME</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[@class='comment-entry']//span[@class='user-name']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_COMMENT_CONTENT</td>
+	<td>//div[contains(@class,'activity-item')][${number}]//div[@class='comment-entry']//span[@class='message']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
 	<td></td>
 </tr>
 </tbody>

@@ -162,6 +162,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>NOTIFICATION_MENU_ENTRY_SUBCONTENT</td>
+	<td>//div[@class='notification-entry']/div[@class='body']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>NOTIFICATION_MENU_CONFIRM</td>
 	<td>//div/span/a[contains(text(),'Confirm')]</td>
 	<td></td>
@@ -169,6 +174,11 @@
 <tr>
 	<td>NOTIFICATION_MENU_IGNORE</td>
 	<td>//div/span/a[contains(text(),'Ignore')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NOTIFICATION_MENU_MARK_ALL_AS_READ</td>
+	<td>//a[@class='dismiss-notifications']</td>
 	<td></td>
 </tr>
 <tr>

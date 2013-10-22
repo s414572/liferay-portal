@@ -24,6 +24,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>USER_NAME_HEADER</td>
+	<td>//h1[@class='header-title']/span</td>
+	<td></td>
+</tr>
+<tr>
 	<td>DETAILS</td>
 	<td>//a[@id='_2_detailsLink']</td>
 	<td></td>

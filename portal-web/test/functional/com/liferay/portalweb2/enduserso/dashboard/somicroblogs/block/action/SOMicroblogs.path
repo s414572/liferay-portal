@@ -71,7 +71,12 @@
 <!--MICROBLOGS_ENTRY-->
 <tr>
 	<td>MICROBLOGS_ENTRY_AUTHOR</td>
-	<td>//div[@class='user-name']/span/a</td>
+	<td>//div[@class='user-name']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MICROBLOGS_ENTRY_AUTHOR_INCREMENT</td>
+	<td>//div[@class='microblogs-entry' and contains(.,'${number}')]//div[@class='user-name']/span/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -80,13 +85,28 @@
 	<td></td>
 </tr>
 <tr>
+	<td>MICROBLOGS_ENTRY_CONTENT_INCREMENT</td>
+	<td>//div[@class='microblogs-entry' and contains(.,'${number}')]//div[@class='content']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>MICROBLOGS_ENTRY_CONTENT_TAG</td>
 	<td>//div[@class='content']/span/a</td>
 	<td></td>
 </tr>
 <tr>
+	<td>MICROBLOGS_ENTRY_CONTENT_TAG_INCREMENT</td>
+	<td>//div[@class='microblogs-entry' and contains(.,'${number}')]//div[@class='content']/span/a</td>
+	<td></td>
+</tr>
+<tr>
 	<td>MICROBLOGS_ENTRY_COMMENT_LINK</td>
 	<td>//span[@class='action comment']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MICROBLOGS_ENTRY_COMMENT_LINK_INCREMENT</td>
+	<td>//div[@class='microblogs-entry' and contains(.,'${number}')]//span[@class='action comment']/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -187,8 +207,18 @@
 </tr>
 <!--TAB-->
 <tr>
-	<td>TAB_TITLE</td>
-	<td>//ul[contains(@class,'tabview-list')]/li[contains(.,'Microblogs')]</td>
+	<td>TAB_TIMELINE</td>
+	<td>//ul[contains(@class,'tabview-list')]/li[contains(.,'Timeline')]/span/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TAB_MENTIONS</td>
+	<td>//ul[contains(@class,'tabview-list')]/li[contains(.,'Mentions')]/span/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TAB_TAG_VALUE</td>
+	<td>//ul[contains(@class,'tabview-list')]/li[contains(.,'${microblogsEntryTagValue}')]/span/a</td>
 	<td></td>
 </tr>
 <tr>
