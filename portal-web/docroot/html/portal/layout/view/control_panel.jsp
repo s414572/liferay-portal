@@ -55,8 +55,6 @@ if (ppid.equals(PortletKeys.PLUGIN_INSTALLER)) {
 
 String category = PortalUtil.getControlPanelCategory(ppid, themeDisplay);
 
-List<Layout> scopeLayouts = new ArrayList<Layout>();
-
 Portlet portlet = null;
 
 boolean denyAccess = false;
