@@ -84,24 +84,12 @@ public class JSONWebServiceServlet extends JSONServlet {
 
 		String uri = request.getRequestURI();
 
+		String secureSubpath = StringPool.BLANK;
+
 		int pos = uri.indexOf("/secure/");
 
 		if (pos != -1) {
-			uri = uri.substring(0, pos) + uri.substring(pos + 7);
-
-			String queryString = request.getQueryString();
-
-			if (queryString != null) {
-				uri = uri.concat(StringPool.QUESTION).concat(queryString);
-			}
-
-			if (_log.isDebugEnabled()) {
-				_log.debug("Redirect from secure to public");
-			}
-
-			response.sendRedirect(uri);
-
-			return;
+			secureSubpath = "secure/";
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -133,7 +121,7 @@ public class JSONWebServiceServlet extends JSONServlet {
 				servletContext);
 
 			String redirectPath =
-				"/api/jsonws?contextPath=" +
+				"/api/" + secureSubpath + "jsonws?contextPath=" +
 					HttpUtil.encodeURL(servletContextPath);
 
 			response.sendRedirect(redirectPath);

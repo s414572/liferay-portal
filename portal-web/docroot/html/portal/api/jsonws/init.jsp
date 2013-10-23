@@ -28,7 +28,21 @@ page import="com.liferay.portal.kernel.util.MethodParameter" %>
 <%@ page import="java.lang.reflect.Method" %>
 
 <%
-String jsonWSPath = themeDisplay.getPathContext() + "/api/jsonws";
+String apiSubPath;
+
+String uri = (String)request.getAttribute("javax.servlet.forward.request_uri");
+if (uri == null) {
+	uri = request.getRequestURI();
+}
+
+if (uri.contains("/api/secure/jsonws")) {
+	apiSubPath = "/api/secure/jsonws";
+} else {
+	apiSubPath = "/api/jsonws";
+}
+
+
+String jsonWSPath = themeDisplay.getPathContext() + apiSubPath;
 
 String jsonWSContextPath = jsonWSPath;
 
