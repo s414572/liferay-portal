@@ -859,7 +859,9 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 
 		String className = file.getName();
 
-		className = className.substring(0, className.length() - 5);
+		int pos = className.lastIndexOf(StringPool.PERIOD);
+
+		className = className.substring(0, pos);
 
 		String packagePath = fileName;
 
