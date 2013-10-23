@@ -327,7 +327,7 @@ boolean hasLayoutUpdatePermission = LayoutPermissionUtil.contains(permissionChec
 				</liferay-util:buffer>
 
 				<c:choose>
-					<c:when test="<%= Validator.isNotNull(themeDisplay.getURLMyAccount()) %>">
+					<c:when test="<%= PortalPermissionUtil.contains(permissionChecker, ActionKeys.VIEW_CONTROL_PANEL) && Validator.isNotNull(themeDisplay.getURLMyAccount()) %>">
 
 						<%
 						String myAccountURL = themeDisplay.getURLMyAccount().toString();
