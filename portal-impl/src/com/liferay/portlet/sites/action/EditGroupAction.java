@@ -121,6 +121,8 @@ public class EditGroupAction extends PortletAction {
 
 					redirect = HttpUtil.setParameter(
 						redirect, "backURL", backURL.toString());
+
+					hideDefaultSuccessMessage(actionRequest);
 				}
 				else {
 					String oldFriendlyURL = (String)returnValue[1];
