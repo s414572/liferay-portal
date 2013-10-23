@@ -1,7 +1,0 @@
-<definition>
-	<execute test-case="SocialOfficeSmoke" />
-
-	<execute test-case="SODashboardActivitiesAcceptance" />
-
-	<execute test-case="SOSiteActivitiesAcceptance" />
-</definition>

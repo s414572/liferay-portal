@@ -1,7 +1,0 @@
-<definition>
-	<execute test-case-command="SOContactsCenter#AddContact" />
-	<execute test-case-command="SOContactsCenter#AddFollower" />
-	<execute test-case-command="SOContactsCenter#SearchConnection" />
-	<execute test-case-command="SOContactsCenter#SearchFollowing" />
-	<execute test-case-command="SOContactsCenter#SearchUser" />
-</definition>

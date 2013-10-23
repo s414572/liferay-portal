@@ -1,4 +1,0 @@
-<definition>
-	<execute test-case-command="SOMicroblogs#AddMicroblogsEntryViewableByEveryone" />
-	<execute test-case-command="SOMicroblogs#DeleteMicroblogsEntry" />
-</definition>

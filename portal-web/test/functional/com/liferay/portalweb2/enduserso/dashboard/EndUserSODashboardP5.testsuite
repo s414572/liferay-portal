@@ -1,7 +1,0 @@
-<definition>
-	<execute test-case="SocialOfficeSmoke" />
-
-	<execute test-suite="SOContactsCenterP5" />
-
-	<execute test-suite="SOMicroblogsP5" />
-</definition>
