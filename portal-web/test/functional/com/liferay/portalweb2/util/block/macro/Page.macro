@@ -2,6 +2,18 @@
 	<command name="addPG">
 		<execute macro="Page#openURL" />
 
+		<if>
+			<condition action="SOUserBar#isElementPresent" locator-key1="USER_BAR" />
+			<then>
+				<if>
+					<condition action="SOUserBar#isElementNotPresent" locator-key1="VISIBLE_DOCKBAR" />
+					<then>
+						<execute action="SOUserBar#click" locator-key1="TOGGLE_DOCKBAR" />	
+					</then>
+				</if>
+			</then>
+		</if>
+
 		<execute action="Dockbar#mouseOver" locator-key1="ADD" />
 		<execute action="Dockbar#assertClick" locator-key1="ADD_PAGE" value1="Page" />
 

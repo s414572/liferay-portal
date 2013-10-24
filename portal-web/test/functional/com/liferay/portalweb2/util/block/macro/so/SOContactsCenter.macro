@@ -78,10 +78,7 @@
 	</command>
 
 	<command name="confirmRequestToConnect">
-		<execute macro="SOUserBar#dashboardPG">
-			<var name="userName" value="${userName}" />
-		</execute>
-
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
 		<execute action="SOUserBar#assertElementPresent" locator-key1="NOTIFICATION" />
 		<execute action="SOUserBar#assertTextEquals" locator-key1="NOTIFICATION_MENU_COUNT" value1="1"/>
 		<execute action="SOUserBar#mouseOver" locator-key1="NOTIFICATION" />
@@ -97,9 +94,7 @@
 	</command>
 
 	<command name="disconnectFromConnection">
-		<execute macro="SOUserBar#dashboardPG">
-			<var name="userName" value="Joe Bloggs" />
-		</execute>
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
 
 		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
 
@@ -141,9 +136,7 @@
 	</command>
 
 	<command name="requestToConnect">
-		<execute macro="SOUserBar#dashboardPG">
-			<var name="userName" value="Joe Bloggs" />
-		</execute>
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
 
 		<execute action="SODashboard#click" locator-key1="NAVIGATION_CONTACTS_CENTER" />
 
