@@ -19,7 +19,7 @@
 	<var name="wikiPageContent" value="Wiki FrontPage Content" />
 	<var name="wikiPageContentEdit" value="Wiki FrontPage Content Edit" />
 
-	<command name="AddSOWikiFrontPage">
+	<command name="AddSOWikiFrontPage" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 			<var name="pageType" value="Open Site" />
@@ -31,7 +31,7 @@
 		</execute>
 	</command>
 
-	<command name="EditSOWikiFrontPage">
+	<command name="EditSOWikiFrontPage" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 			<var name="pageType" value="Open Site" />

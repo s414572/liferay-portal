@@ -24,7 +24,7 @@
 		</execute>
 	</set-up>
 
-	<command name="ApproveWikiPageCP">
+	<command name="ApproveWikiPageCP" priority="5">
 		<var name="wikiPageContent" value="Wiki Page Content" />
 		<var name="wikiPageTitle" value="Wiki Page Title" />
 
@@ -90,7 +90,7 @@
 		</execute>
 	</command>
 
-	<command name="RejectWikiPageCP">
+	<command name="RejectWikiPageCP" priority="5">
 		<var name="wikiPageContent" value="Wiki Page Content" />
 		<var name="wikiPageTitle" value="Wiki Page Title" />
 

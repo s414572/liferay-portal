@@ -3,7 +3,7 @@
 		<execute macro="SOUser#firstLoginPG" />
 	</set-up>
 
-	<command name="AssignSORoleAdminUser">
+	<command name="AssignSORoleAdminUser" priority="5">
 		<var name="roleName" value="Social Office" />
 		<var name="userName" value="Joe Bloggs" />
 		<var name="userScreenName" value="joebloggs" />

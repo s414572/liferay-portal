@@ -3,7 +3,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="AddUserGroup">
+	<command name="AddUserGroup" priority="5">
 		<var name="userGroupName" value="UG UserGroup Name" />
 
 		<execute macro="Page#gotoCP">
@@ -15,7 +15,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteUserGroup">
+	<command name="DeleteUserGroup" priority="5">
 		<var name="userGroupName" value="UG UserGroup Name" />
 
 		<execute macro="Page#gotoCP">
@@ -29,7 +29,7 @@
 		<execute macro="UserGroup#deleteCP" />
 	</command>
 
-	<command name="EditUserGroup">
+	<command name="EditUserGroup" priority="5">
 		<var name="userGroupName" value="UG UserGroup Name" />
 		<var name="userGroupNameEdit" value="UG UserGroup Name Edit" />
 

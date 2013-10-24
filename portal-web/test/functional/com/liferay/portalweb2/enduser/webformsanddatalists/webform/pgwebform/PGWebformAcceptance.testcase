@@ -15,7 +15,7 @@
 		</execute>
 	</set-up>
 
-	<command name="ConfigureWebform">
+	<command name="ConfigureWebform" priority="5">
 		<var name="webFormInformationTitle" value="Suggestions" />
 		<var name="webFormInformationTitleEdit" value="Feed Back" />
 		<var name="webFormInformationDescription" value="Your input is valuable to us. Please send us your suggestions." />

@@ -27,7 +27,7 @@
 		</execute>
 	</set-up>
 
-	<command name="AddBookmarksEntryTest">
+	<command name="AddBookmarksEntryTest" priority="5">
 		<execute macro="Page#openURL">
 			<var name="pageType" value="Open Site" />
 		</execute>
@@ -49,7 +49,7 @@
 		</execute>
 	</command>
 
-	<command name="EditBookmarksEntryTest">
+	<command name="EditBookmarksEntryTest" priority="5">
 		<var name="bookmarksEntryDescriptionEdit" value="Bookmarks Entry Description Edit" />
 		<var name="bookmarksEntryNameEdit" value="Bookmarks Entry Name Edit" />
 		<var name="bookmarksEntryUrlEdit" value="http://www.yahoo.com" />
@@ -85,7 +85,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteBookmarksEntryTest">
+	<command name="DeleteBookmarksEntryTest" priority="5">
 		<execute macro="Page#openURL">
 			<var name="pageType" value="Open Site" />
 		</execute>

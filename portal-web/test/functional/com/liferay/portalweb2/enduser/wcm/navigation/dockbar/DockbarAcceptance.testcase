@@ -3,7 +3,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="GotoControlPanel">
+	<command name="GotoControlPanel" priority="5">
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Blogs" />
 		</execute>

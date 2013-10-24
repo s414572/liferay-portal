@@ -24,7 +24,7 @@
 		</execute>
 	</set-up>
 
-	<command name="ApprovePageCommentPG">
+	<command name="ApprovePageCommentPG" priority="5">
 		<var name="commentBody" value="Page Comment Comment" />
 		<var name="commentUsername" value="Test Test" />
 
@@ -83,7 +83,7 @@
 		</execute>
 	</command>
 
-	<command name="RejectBlogsEntryCP">
+	<command name="RejectBlogsEntryCP" priority="5">
 		<var name="commentBody" value="Page Comment Comment" />
 		<var name="commentUsername" value="Test Test" />
 

@@ -3,7 +3,7 @@
 		<execute macro="SOUser#firstLoginPG" />
 	</set-up>
 
-	<command name="AddSOSiteOpen">
+	<command name="AddSOSiteOpen" priority="5">
 		<var name="siteName" value="Open Site Name" />
 		<var name="siteDescription" value="Open Site Description" />
 		<var name="siteType" value="Open" />
@@ -21,7 +21,7 @@
 		</execute>
 	</command>
 
-	<command name="AddSOSitePrivate">
+	<command name="AddSOSitePrivate" priority="5">
 		<var name="siteName" value="Private Site Name" />
 		<var name="siteDescription" value="Private Site Description" />
 		<var name="siteType" value="Private" />
@@ -39,7 +39,7 @@
 		</execute>
 	</command>
 
-	<command name="AddSOSitePrivateRestricted">
+	<command name="AddSOSitePrivateRestricted" priority="5">
 		<var name="siteName" value="Private Restricted Site Name" />
 		<var name="siteDescription" value="Private Restricted Site Description" />
 		<var name="siteType" value="Private Restricted" />
@@ -57,7 +57,7 @@
 		</execute>
 	</command>
 
-	<command name="AddSOSitePublicRestricted">
+	<command name="AddSOSitePublicRestricted" priority="5">
 		<var name="siteName" value="Public Restricted Site Name" />
 		<var name="siteDescription" value="Public Restricted Site Description" />
 		<var name="siteType" value="Public Restricted" />
@@ -75,7 +75,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteSOSiteOpen">
+	<command name="DeleteSOSiteOpen" priority="5">
 		<var name="siteName" value="Open Site Name" />
 		<var name="siteDescription" value="Open Site Description" />
 		<var name="siteType" value="Open" />
@@ -93,7 +93,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteSOSitePrivate">
+	<command name="DeleteSOSitePrivate" priority="5">
 		<var name="siteName" value="Private Site Name" />
 		<var name="siteDescription" value="Private Site Description" />
 		<var name="siteType" value="Private" />
@@ -111,7 +111,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteSOSitePrivateRestricted">
+	<command name="DeleteSOSitePrivateRestricted" priority="5">
 		<var name="siteName" value="Private Restricted Site Name" />
 		<var name="siteDescription" value="Private Restricted Site Description" />
 		<var name="siteType" value="Private Restricted" />
@@ -129,7 +129,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteSOSitePublicRestricted">
+	<command name="DeleteSOSitePublicRestricted" priority="5">
 		<var name="siteName" value="Public Restricted Site Name" />
 		<var name="siteDescription" value="Public Restricted Site Description" />
 		<var name="siteType" value="Public Restricted" />
@@ -147,7 +147,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewSOSiteDirectory">
+	<command name="ViewSOSiteDirectory" priority="5">
 		<var name="siteName1" value="Open Site1 Name" />
 		<var name="siteDescription1" value="Open Site1 Description" />
 		<var name="siteType1" value="Open" />

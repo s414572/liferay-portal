@@ -22,7 +22,7 @@
 	<var name="userListName" value="User01, Social01" />
 	<var name="userScreenName" value="socialoffice01" />
 
-	<command name="AddMicroblogsEntriesTag">
+	<command name="AddMicroblogsEntriesTag" priority="5">
 		<execute macro="SOMicroblogs#gotoMicroblogsContentField" />
 
 		<execute macro="SOMicroblogs#addMicroblogsEntryHashtag">
@@ -75,7 +75,7 @@
 		</execute>
 	</command>
 
-	<command name="AddMicroblogsEntryMentions">
+	<command name="AddMicroblogsEntryMentions" priority="5">
 		<execute macro="SOContactsCenter#addConnection">
 			<var name="adminEmailAddress" value="${adminEmailAddress}" />
 			<var name="senderName" value="${adminName}" />
@@ -128,7 +128,7 @@
 		</execute>
 	</command>
 
-	<command name="AddMicroblogsEntryTag">
+	<command name="AddMicroblogsEntryTag" priority="5">
 		<execute macro="SOMicroblogs#gotoMicroblogsContentField" />
 
 		<execute macro="SOMicroblogs#addMicroblogsEntryHashtag">
@@ -144,7 +144,7 @@
 		</execute>
 	</command>
 
-	<command name="AddMicroblogsEntryViewableByConnections">
+	<command name="AddMicroblogsEntryViewableByConnections" priority="5">
 		<execute macro="SOUser#addUserWithSORole">
 			<var name="adminEmailAddress" value="${adminEmailAddress}" />
 			<var name="password" value="test" />
@@ -226,7 +226,7 @@
 		</execute>
 	</command>
 
-	<command name="AddMicroblogsEntryViewableByConnectionsComment">
+	<command name="AddMicroblogsEntryViewableByConnectionsComment" priority="5">
 		<execute macro="SOContactsCenter#addConnection">
 			<var name="adminEmailAddress" value="${adminEmailAddress}" />
 			<var name="senderName" value="${adminName}" />
@@ -316,7 +316,7 @@
 		</execute>
 	</command>
 
-	<command name="AddMicroblogsEntryViewableByEveryone">
+	<command name="AddMicroblogsEntryViewableByEveryone" priority="5">
 		<execute macro="SOUser#addUserWithSORole">
 			<var name="adminEmailAddress" value="${adminEmailAddress}" />
 			<var name="password" value="test" />
@@ -352,7 +352,7 @@
 		</execute>
 	</command>
 
-	<command name="AddMicroblogsEntryViewableByEveryoneCommentMention">
+	<command name="AddMicroblogsEntryViewableByEveryoneCommentMention" priority="5">
 		<execute macro="SOContactsCenter#addConnection">
 			<var name="adminEmailAddress" value="${adminEmailAddress}" />
 			<var name="senderName" value="${adminName}" />
@@ -435,7 +435,7 @@
 		<execute action="SOMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_ENTRY_CONTENT_TAG" value1="${adminName}" />
 	</command>
 
-	<command name="AddMicroblogsEntryViewableByFollowers">
+	<command name="AddMicroblogsEntryViewableByFollowers" priority="5">
 		<execute macro="SOUser#addUserWithSORole">
 			<var name="adminEmailAddress" value="${adminEmailAddress}" />
 			<var name="password" value="test" />
@@ -497,7 +497,7 @@
 		</execute>
 	</command>
 
-	<command name="AddMicroblogsEntryViewableByFollowersComment">
+	<command name="AddMicroblogsEntryViewableByFollowersComment" priority="5">
 		<execute macro="SOContactsCenter#addFollower">
 			<var name="adminEmailAddress" value="${adminEmailAddress}" />
 			<var name="adminListName" value="${adminListName}" />
@@ -586,7 +586,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteMicroblogsEntry">
+	<command name="DeleteMicroblogsEntry" priority="5">
 		<execute macro="SOMicroblogs#gotoMicroblogsContentField" />
 
 		<execute macro="SOMicroblogs#addMicroblogsEntry">
@@ -603,7 +603,7 @@
 		<execute action="SOMicroblogs#assertElementNotPresent" locator-key1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
 	</command>
 
-	<command name="RepostMicroblogsEntry">
+	<command name="RepostMicroblogsEntry" priority="5">
 		<execute macro="SOUser#addUserWithSORole">
 			<var name="adminEmailAddress" value="${adminEmailAddress}" />
 			<var name="password" value="test" />
@@ -697,7 +697,7 @@
 		<execute action="SOMicroblogs#assertTextEquals" locator-key1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
 	</command>
 
-	<command name="ViewMicroblogsTimeline">
+	<command name="ViewMicroblogsTimeline" priority="5">
 		<execute macro="SOMicroblogs#gotoMicroblogsContentField" />
 
 		<execute macro="SOMicroblogs#addMicroblogsEntry">

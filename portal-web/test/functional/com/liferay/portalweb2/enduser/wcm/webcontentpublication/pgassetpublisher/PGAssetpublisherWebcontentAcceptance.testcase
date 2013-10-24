@@ -15,7 +15,7 @@
 		</execute>
 	</set-up>
 
-	<command name="AddWebContentViaAssetPublisher">
+	<command name="AddWebContentViaAssetPublisher" priority="5">
 		<var name="webContentContent" value="WC WebContent Content" />
 		<var name="webContentTitle" value="WC WebContent Title" />
 

@@ -19,7 +19,7 @@
 	<var name="userScreenName" value="socialoffice01" />
 	<var name="roleName" value="Social Office" />
 
-	<command name="AddContact">
+	<command name="AddContact" priority="5">
 		<execute macro="SOContactsCenter#addContact">
 			<var name="contactName" value="${contactName}" />
 			<var name="contactEmailAddress" value="${contactEmailAddress}" />
@@ -28,7 +28,7 @@
 		<execute macro="SOContactsCenter#viewContact" />
 	</command>
 
-	<command name="AddConnection">
+	<command name="AddConnection" priority="5">
 		<execute macro="SOContactsCenter#addConnection">
 			<var name="adminEmailAddress" value="${adminEmailAddress}" />
 			<var name="senderName" value="${adminName}" />
@@ -56,7 +56,7 @@
 		</execute>
 	</command>
 
-	<command name="AddFollower">
+	<command name="AddFollower" priority="5">
 		<execute macro="SOContactsCenter#addFollower">
 			<var name="adminEmailAddress" value="${adminEmailAddress}" />
 			<var name="adminListName" value="${adminListName}" />
@@ -73,7 +73,7 @@
 		<execute macro="SOContactsCenter#unfollowUser" />
 	</command>
 
-	<command name="SearchConnection">
+	<command name="SearchConnection" priority="5">
 		<execute macro="SOUser#addUserWithSORole">
 			<var name="adminEmailAddress" value="test@liferay.com" />
 			<var name="password" value="test" />
@@ -133,7 +133,7 @@
 		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${userEmailAddress}" />
 	</command>
 
-	<command name="SearchFollowing">
+	<command name="SearchFollowing" priority="5">
 		<execute macro="SOUser#addUserWithSORole">
 			<var name="adminEmailAddress" value="test@liferay.com" />
 			<var name="password" value="test" />
@@ -180,7 +180,7 @@
 		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${adminEmailAddress}" />
 	</command>
 
-	<command name="SearchUser">
+	<command name="SearchUser" priority="5">
 		<execute macro="SOUser#addUserWithSORole">
 			<var name="adminEmailAddress" value="test@liferay.com" />
 			<var name="password" value="test" />
@@ -205,7 +205,7 @@
 		<execute action="SOContactscenter#assertTextEquals" locator-key1="USER_DETAILS_EMAIL" value1="${userEmailAddress}" />
 	</command>
 
-	<command name="ViewContactsCenterUserDetails">
+	<command name="ViewContactsCenterUserDetails" priority="5">
 		<var name="adminName" value="${adminName}" />
 		<var name="adminEmailAddress" value="${adminEmailAddress}" />
 		<var name="password" value="test" />

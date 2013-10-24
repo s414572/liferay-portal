@@ -44,7 +44,7 @@
 		<execute action="PGLoginPasswordreminder#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
 	</set-up>
 
-	<command name="WelcomeThemeView">
+	<command name="WelcomeThemeView" priority="5">
 		<execute action="PGWelcomePage1#assertElementPresent" locator-key1="GO_TO_LIFERAY" />
 		<execute action="PGWelcomePage1#assertTextEquals" locator-key1="PAGE_1" value1="What We Do" />
 		<execute action="PGWelcomePage1#assertTextEquals" locator-key1="PAGE_2" value1="Who Is Using Liferay" />

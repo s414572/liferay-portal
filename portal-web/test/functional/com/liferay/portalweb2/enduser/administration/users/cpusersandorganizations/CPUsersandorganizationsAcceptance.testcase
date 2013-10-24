@@ -3,7 +3,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="AddMember">
+	<command name="AddMember" priority="5">
 		<var name="orgName" value="Organization Name" />
 		<var name="orgType" value="Regular Organization" />
 		<var name="searchToken" value="Organization" />
@@ -56,7 +56,7 @@
 		</execute>
 	</command>
 
-	<command name="AddUser">
+	<command name="AddUser" priority="5">
 		<var name="userEmailAddress" value="userea@liferay.com" />
 		<var name="userFirstName" value="userfn" />
 		<var name="userLastName" value="userln" />
@@ -85,7 +85,7 @@
 		</execute>
 	</command>
 
-	<command name="AddOrganization">
+	<command name="AddOrganization" priority="5">
 		<var name="orgName" value="Organization Name" />
 		<var name="orgType" value="Regular Organization" />
 		<var name="searchToken" value="Organization" />
@@ -110,7 +110,7 @@
 		</execute>
 	</command>
 
-	<command name="AddOrganizationTeam">
+	<command name="AddOrganizationTeam" priority="5">
 		<var name="orgName" value="Organization Name" />
 		<var name="orgType" value="Regular Organization" />
 		<var name="teamName" value="Site Team Name" />
@@ -144,7 +144,7 @@
 		</execute>
 	</command>
 
-	<command name="AddSite">
+	<command name="AddSite" priority="5">
 		<var name="orgName" value="Organization Name" />
 		<var name="orgType" value="Regular Organization" />
 		<var name="siteMember" value="Organization" />
@@ -179,7 +179,7 @@
 		</execute>
 	</command>
 
-	<command name="AddSuborganization">
+	<command name="AddSuborganization" priority="5">
 		<var name="orgName" value="Organization Name" />
 		<var name="orgType" value="Regular Organization" />
 		<var name="suborgName" value="Suborganization Name" />
@@ -218,7 +218,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteUser">
+	<command name="DeleteUser" priority="5">
 		<var name="userEmailAddress" value="userea@liferay.com" />
 		<var name="userFirstName" value="userfn" />
 		<var name="userLastName" value="userln" />
@@ -252,7 +252,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteOrganization">
+	<command name="DeleteOrganization" priority="5">
 		<var name="orgName" value="Organization Name" />
 		<var name="orgType" value="Regular Organization" />
 
@@ -274,7 +274,7 @@
 		</execute>
 	</command>
 
-	<command name="RemoveMember">
+	<command name="RemoveMember" priority="5">
 		<var name="orgName" value="Organization Name" />
 		<var name="orgType" value="Regular Organization" />
 		<var name="userEmailAddress" value="userea@liferay.com" />

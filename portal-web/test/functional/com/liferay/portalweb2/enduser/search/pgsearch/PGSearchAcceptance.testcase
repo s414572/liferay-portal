@@ -15,7 +15,7 @@
 		</execute>
 	</set-up>
 
-	<command name="SearchBlogsEntry">
+	<command name="SearchBlogsEntry" priority="5">
 		<var name="pageName" value="Blogs Page" />
 		<var name="portletName" value="Blogs" />
 		<var name="entryContent" value="Blogs Entry Content" />
@@ -50,7 +50,7 @@
 		</execute>
 	</command>
 
-	<command name="SearchMessageBoardsThread">
+	<command name="SearchMessageBoardsThread" priority="5">
 		<var name="pageName" value="Message Boards Page" />
 		<var name="portletName" value="Message Boards" />
 		<var name="threadSubject" value="MB Thread Message Subject" />
@@ -85,7 +85,7 @@
 		</execute>
 	</command>
 
-	<command name="SearchUser">
+	<command name="SearchUser" priority="5">
 		<var name="userEmailAddress" value="userea@liferay.com" />
 		<var name="userFirstName" value="userfn" />
 		<var name="userLastName" value="userln" />
@@ -112,7 +112,7 @@
 		</execute>
 	</command>
 
-	<command name="SearchWikiPage">
+	<command name="SearchWikiPage" priority="5">
 		<var name="pageName" value="Wiki Test Page" />
 		<var name="portletName" value="Wiki" />
 		<var name="wikiPageContent" value="Wiki Page Content" />

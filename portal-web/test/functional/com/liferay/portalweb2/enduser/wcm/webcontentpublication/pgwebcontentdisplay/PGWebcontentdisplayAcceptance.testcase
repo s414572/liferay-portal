@@ -15,7 +15,7 @@
 		</execute>
 	</set-up>
 
-	<command name="AddWebContent">
+	<command name="AddWebContent" priority="5">
 		<var name="webContentContent" value="WC WebContent Content" />
 		<var name="webContentTitle" value="WC WebContent Title" />
 
@@ -29,7 +29,7 @@
 		</execute>
 	</command>
 
-	<command name="EditWebContent">
+	<command name="EditWebContent" priority="5">
 		<var name="webContentContent" value="WC WebContent Content" />
 		<var name="webContentContentEdit" value="WC WebContent Content Edit" />
 		<var name="webContentTitle" value="WC WebContent Title" />

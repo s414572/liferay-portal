@@ -3,7 +3,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="AddDocument">
+	<command name="AddDocument" priority="5">
 		<var name="dmDocumentDescription" value="DM Document Description" />
 		<var name="dmDocumentFile" value="Document_1.txt" />
 		<var name="dmDocumentSize" value="0.3k" />
@@ -21,7 +21,7 @@
 		</execute>
 	</command>
 
-	<command name="AddFolder">
+	<command name="AddFolder" priority="5">
 		<var name="dmFolderName" value="DM Folder Name" />
 		<var name="dmFolderDescription" value="DM Folder Description" />
 
@@ -35,7 +35,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteDocument">
+	<command name="DeleteDocument" priority="5">
 		<var name="dmDocumentFile" value="Document_1.txt" />
 		<var name="dmDocumentSize" value="0.3k" />
 		<var name="dmDocumentTitle" value="DM Document Title" />
@@ -57,7 +57,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteFolder">
+	<command name="DeleteFolder" priority="5">
 		<var name="dmFolderName" value="DM Folder Name" />
 		<var name="dmFolderDescription" value="DM Folder Description" />
 
@@ -75,7 +75,7 @@
 		</execute>
 	</command>
 
-	<command name="EditDocument">
+	<command name="EditDocument" priority="5">
 		<var name="dmDocumentFile" value="Document_1.txt" />
 		<var name="dmDocumentSize" value="0.3k" />
 		<var name="dmDocumentTitle" value="DM Document Title" />
@@ -100,7 +100,7 @@
 		</execute>
 	</command>
 
-	<command name="EditFolder">
+	<command name="EditFolder" priority="5">
 		<var name="dmFolderName" value="DM Folder Name" />
 		<var name="dmFolderDescription" value="DM Folder Description" />
 
@@ -121,7 +121,7 @@
 		</execute>
 	</command>
 
-	<command name="MoveDocumentToFolder">
+	<command name="MoveDocumentToFolder" priority="5">
 		<var name="dmDocumentFile" value="Document_1.txt" />
 		<var name="dmDocumentSize" value="0.3k" />
 		<var name="dmDocumentTitle" value="DM Document Title" />
@@ -151,7 +151,7 @@
 		</execute>
 	</command>
 
-	<command name="MoveFolderToFolder">
+	<command name="MoveFolderToFolder" priority="5">
 		<var name="dmFolderName1" value="DM Folder1 Title" />
 		<var name="dmFolderDescription1" value="DM Folder1 Description" />
 		<var name="dmFolderName2" value="DM Folder2 Title" />

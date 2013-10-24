@@ -14,7 +14,7 @@
 	<var name="portletName" value="Calendar" />
 	<var name="userName" value="Joe Bloggs" />
 
-	<command name="AddWhatsHappeningEntryViewableByEveryone">
+	<command name="AddWhatsHappeningEntryViewableByEveryone" priority="5">
 		<var name="whatsHappeningEntryAuthorFirstName" value="Joe" />
 		<var name="whatsHappeningEntryAuthorLastName" value="Bloggs" />
 		<var name="whatsHappeningEntryAuthorScreenName" value="joebloggs" />
@@ -64,7 +64,7 @@
 		</execute>
 	</command>
 
-	<command name="AddSOAnnouncementsEntry">
+	<command name="AddSOAnnouncementsEntry" priority="5">
 		<execute macro="SOUserBar#dashboardPG">
 			<var name="userName" value="${userName}" />
 		</execute>
@@ -88,7 +88,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteSOAnnouncementsEntry">
+	<command name="DeleteSOAnnouncementsEntry" priority="5">
 		<execute macro="SOUserBar#dashboardPG">
 			<var name="userName" value="${userName}" />
 		</execute>
@@ -107,7 +107,7 @@
 		<execute macro="SOAnnouncementsEntry#deletePG" />
 	</command>
 
-	<command name="EditSOAnnouncementsEntry">
+	<command name="EditSOAnnouncementsEntry" priority="5">
 		<execute macro="SOUserBar#dashboardPG">
 			<var name="userName" value="${userName}" />
 		</execute>
@@ -142,7 +142,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewEventEventsDisplay">
+	<command name="ViewEventEventsDisplay" priority="5">
 		<execute macro="SOUserBar#dashboardPG">
 			<var name="userName" value="${userName}" />
 		</execute>

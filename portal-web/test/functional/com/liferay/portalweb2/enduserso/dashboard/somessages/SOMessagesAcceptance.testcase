@@ -50,7 +50,7 @@
 		</execute>
 	</set-up>
 
-	<command name="SendMessage">
+	<command name="SendMessage" priority="5">
 		<execute macro="SOMessages#sendMessage">
 			<var name="key_recipientName" value="${userName}" />
 			<var name="messageBody" value="Message Body" />
@@ -84,7 +84,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteMessage">
+	<command name="DeleteMessage" priority="5">
 		<execute macro="SOMessages#sendMessage">
 			<var name="key_recipientName" value="${userName}" />
 			<var name="messageBody" value="Message Body" />
@@ -102,7 +102,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteMessageBySOUser">
+	<command name="DeleteMessageBySOUser" priority="5">
 		<execute macro="SOMessages#sendMessage">
 			<var name="key_recipientName" value="${userName}" />
 			<var name="messageBody" value="Message Body" />

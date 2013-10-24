@@ -3,7 +3,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="AddBlogsEntryOrgRole">
+	<command name="AddBlogsEntryOrgRole" priority="5">
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
 		<var name="orgName" value="Organization Name" />
@@ -181,7 +181,7 @@
 		</execute>
 	</command>
 
-	<command name="AddBlogsEntryRegRole">
+	<command name="AddBlogsEntryRegRole" priority="5">
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
 		<var name="pageName" value="Blogs Page" />
@@ -306,7 +306,7 @@
 		</execute>
 	</command>
 
-	<command name="AddBlogsEntrySiteRole">
+	<command name="AddBlogsEntrySiteRole" priority="5">
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
 		<var name="pageName" value="Blogs Page" />
@@ -473,7 +473,7 @@
 		</execute>
 	</command>
 
-	<command name="AddOrganizationRole">
+	<command name="AddOrganizationRole" priority="5">
 		<var name="roleName" value="Roles Orgrole Name" />
 		<var name="roleType" value="Organization" />
 
@@ -492,7 +492,7 @@
 		</execute>
 	</command>
 
-	<command name="AddRegularRole">
+	<command name="AddRegularRole" priority="5">
 		<var name="roleName" value="Roles Regrole Name" />
 
 		<execute macro="Page#gotoCP">
@@ -510,7 +510,7 @@
 		</execute>
 	</command>
 
-	<command name="AddSiteRole">
+	<command name="AddSiteRole" priority="5">
 		<var name="roleName" value="Roles Siterole Name" />
 		<var name="roleType" value="Site" />
 
@@ -529,7 +529,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteBlogsEntryOrgRole">
+	<command name="DeleteBlogsEntryOrgRole" priority="5">
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
 		<var name="orgName" value="Organization Name" />
@@ -727,7 +727,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteBlogsEntryRegRole">
+	<command name="DeleteBlogsEntryRegRole" priority="5">
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
 		<var name="pageName" value="Blogs Page" />
@@ -869,7 +869,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteBlogsEntrySiteRole">
+	<command name="DeleteBlogsEntrySiteRole" priority="5">
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
 		<var name="pageName" value="Blogs Page" />

@@ -15,7 +15,7 @@
 		</execute>
 	</set-up>
 
-	<command name="AddBlogsEntry">
+	<command name="AddBlogsEntry" priority="5">
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
 
@@ -29,7 +29,7 @@
 		</execute>
 	</command>
 
-	<command name="AddBlogsEntryComment">
+	<command name="AddBlogsEntryComment" priority="5">
 		<var name="entryComment" value="Blogs Entry Comment" />
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
@@ -50,7 +50,7 @@
 		</execute>
 	</command>
 
-	<command name="EditBlogsEntry">
+	<command name="EditBlogsEntry" priority="5">
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryContentEdit" value="Blogs Entry ContentEdit" />
 		<var name="entryTitle" value="Blogs Entry Title" />
@@ -73,7 +73,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteBlogsEntry">
+	<command name="DeleteBlogsEntry" priority="5">
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
 

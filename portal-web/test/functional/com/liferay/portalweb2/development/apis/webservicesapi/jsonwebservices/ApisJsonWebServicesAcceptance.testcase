@@ -3,7 +3,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="ViewJsonws">
+	<command name="ViewJsonws" priority="5">
 		<execute macro="Api#apiJsonwsView" />
 
 		<execute macro="Api#apiJsonwsAddressView" />

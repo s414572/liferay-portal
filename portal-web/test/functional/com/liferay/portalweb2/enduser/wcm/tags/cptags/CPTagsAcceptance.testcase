@@ -3,7 +3,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="AddTag">
+	<command name="AddTag" priority="5">
 		<var name="tagName" value="blue" />
 
 		<execute macro="Page#gotoCP">
@@ -15,7 +15,7 @@
 		</execute>
 	</command>
 
-	<command name="AddTags">
+	<command name="AddTags" priority="5">
 		<var name="tagName1" value="blue" />
 		<var name="tagName2" value="red" />
 		<var name="tagName3" value="yellow" />
@@ -45,7 +45,7 @@
 		<execute action="CPTags#assertTextEquals" locator-key1="ENTRY_TAG_3" value1="${tagName3}" />
 	</command>
 
-	<command name="EditTag">
+	<command name="EditTag" priority="5">
 		<var name="tagName" value="blue" />
 		<var name="tagNameEdit" value="teal" />
 
@@ -62,7 +62,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteTag">
+	<command name="DeleteTag" priority="5">
 		<var name="tagName" value="blue" />
 
 		<execute macro="Page#gotoCP">

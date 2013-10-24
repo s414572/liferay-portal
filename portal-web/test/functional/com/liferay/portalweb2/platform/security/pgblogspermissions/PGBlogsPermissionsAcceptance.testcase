@@ -15,7 +15,7 @@
 		</execute>
 	</set-up>
 
-	<command name="Guest_ViewPortletBlogsPermissionsNoTest">
+	<command name="Guest_ViewPortletBlogsPermissionsNoTest" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 		</execute>

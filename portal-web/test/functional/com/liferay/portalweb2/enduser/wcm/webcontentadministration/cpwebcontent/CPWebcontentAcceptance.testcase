@@ -3,7 +3,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="AddWebContent">
+	<command name="AddWebContent" priority="5">
 		<var name="webContentContent" value="WC WebContent Content" />
 		<var name="webContentTitle" value="WC WebContent Title" />
 
@@ -17,7 +17,7 @@
 		</execute>
 	</command>
 
-	<command name="AddWebContentStructure">
+	<command name="AddWebContentStructure" priority="5">
 		<var name="structureDescription" value="WC Structure Description" />
 		<var name="structureName" value="WC Structure Name" />
 		<var name="templateDescription" value="WC Template Description" />
@@ -56,7 +56,7 @@
 		</execute>
 	</command>
 
-	<command name="AddStructure">
+	<command name="AddStructure" priority="5">
 		<var name="structureDescription" value="WC Structure Description" />
 		<var name="structureName" value="WC Structure Name" />
 
@@ -70,7 +70,7 @@
 		</execute>
 	</command>
 
-	<command name="AddTemplate">
+	<command name="AddTemplate" priority="5">
 		<var name="templateDescription" value="WC Template Description" />
 		<var name="templateName" value="WC Template Name" />
 
@@ -84,7 +84,7 @@
 		</execute>
 	</command>
 
-	<command name="AddTemplateStructure">
+	<command name="AddTemplateStructure" priority="5">
 		<var name="templateDescription" value="WC Template Description" />
 		<var name="templateName" value="WC Template Name" />
 		<var name="structureDescription" value="WC Structure Description" />

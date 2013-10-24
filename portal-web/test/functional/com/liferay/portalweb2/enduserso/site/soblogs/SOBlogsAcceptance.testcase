@@ -23,7 +23,7 @@
 	<var name="entryTitleEdit" value="Blogs Entry Title Edit" />
 	<var name="entryContentEdit" value="Blogs Entry Content Edit" />
 
-	<command name="AddSOBlogsEntry">
+	<command name="AddSOBlogsEntry" priority="5">
 		<var name="siteName" value="${siteName}" />
 		<var name="entryTitle" value="${entryTitle}" />
 		<var name="entryContent" value="${entryContent}" />
@@ -39,7 +39,7 @@
 		<execute macro="BlogsEntry#addPG" />
 
 		<execute macro="BlogsEntry#viewPG" />
-		
+
 		<execute action="PGBlogs#assertTextEquals" locator-key1="ENTRY_COMMENTS_1" value1="0 Comments" />
 		<execute action="PGBlogs#assertTextEquals" locator-key1="ENTRY_AVERAGE_RATING_1" value1="Average (0 Votes)" />
 		<execute action="PGBlogs#assertTextEquals" locator-key1="SEARCH_RESULTS" value1="Showing 1 result." />
@@ -80,7 +80,7 @@
 		<execute macro="Page#openURL" />
 	</command>
 
-	<command name="EditSOBlogsEntry">
+	<command name="EditSOBlogsEntry" priority="5">
 		<var name="siteName" value="${siteName}" />
 		<var name="entryTitle" value="${entryTitle}" />
 		<var name="entryContent" value="${entryContent}" />
@@ -98,7 +98,7 @@
 		<execute macro="BlogsEntry#editPG" />
 	</command>
 
-	<command name="DeleteSOBlogsEntry">
+	<command name="DeleteSOBlogsEntry" priority="5">
 		<var name="siteName" value="${siteName}" />
 		<var name="entryTitle" value="${entryTitle}" />
 		<var name="entryContent" value="${entryContent}" />

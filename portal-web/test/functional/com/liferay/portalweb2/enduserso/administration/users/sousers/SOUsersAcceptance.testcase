@@ -3,7 +3,7 @@
 		<execute macro="SOUser#firstLoginPG" />
 	</set-up>
 
-	<command name="AddSOUser">
+	<command name="AddSOUser" priority="5">
 		<var name="userEmailAddress" value="socialoffice01@liferay.com" />
 		<var name="userFirstName" value="Social01" />
 		<var name="userMiddleName" value="Office01" />

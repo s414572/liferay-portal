@@ -19,7 +19,7 @@
 		</execute>
 	</set-up>
 
-	<command name="AddDocument">
+	<command name="AddDocument" priority="5">
 		<var name="dmdDocumentFile" value="Document_1.txt" />
 		<var name="dmdDocumentSize" value="0.3k" />
 		<var name="dmdDocumentTitle" value="DM Document Title" />
@@ -35,7 +35,7 @@
 		</execute>
 	</command>
 
-	<command name="AddFolder">
+	<command name="AddFolder" priority="5">
 		<var name="dmdFolderName" value="DM Folder Name" />
 
 		<execute macro="Page#gotoPG">
@@ -47,7 +47,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteDocuments">
+	<command name="DeleteDocuments" priority="5">
 		<var name="dmdDocumentFile1" value="Document_1.txt" />
 		<var name="dmdDocumentSize1" value="0.3k" />
 		<var name="dmdDocumentTitle1" value="DM Document1 Title" />
@@ -107,13 +107,13 @@
 		<execute action="PGDocumentlibrarydisplay#assertTextEquals" locator-key1="INFO_MESSAGE" value1="There are no documents or media files in this folder." />
 	</command>
 
-	<command name="RemovePortlet">
+	<command name="RemovePortlet" priority="5">
 		<execute macro="Portlet#removePG">
 			<var name="pageName" value="${pageName}" />
 		</execute>
 	</command>
 
-	<command name="SearchFolderDocument">
+	<command name="SearchFolderDocument" priority="5">
 		<var name="dmdFolderName" value="DM Folder Name" />
 		<var name="dmdDocumentFile" value="Document_1.txt" />
 		<var name="dmdDocumentSize" value="0.3k" />

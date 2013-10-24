@@ -3,7 +3,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="AddCalendarEvent">
+	<command name="AddCalendarEvent" priority="5">
 		<var name="eventTitle" value="Calendar Event Title" />
 
 		<execute macro="Page#gotoCP">
@@ -15,7 +15,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteCalendarEvent">
+	<command name="DeleteCalendarEvent" priority="5">
 		<var name="eventTitle" value="Calendar Event Title" />
 
 		<execute macro="Page#gotoCP">
@@ -31,7 +31,7 @@
 		</execute>
 	</command>
 
-	<command name="EditCalendarEvent">
+	<command name="EditCalendarEvent" priority="5">
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventTitleEdit" value="Calendar Event Title Edit" />
 

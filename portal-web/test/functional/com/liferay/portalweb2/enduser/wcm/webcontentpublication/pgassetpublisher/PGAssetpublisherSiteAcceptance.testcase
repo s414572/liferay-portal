@@ -3,7 +3,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="AddPortletAssetPublisherSite">
+	<command name="AddPortletAssetPublisherSite" priority="5">
 		<var name="pageName" value="Asset Publisher Page" />
 		<var name="portletName" value="Asset Publisher" />
 		<var name="siteName" value="Site Name" />

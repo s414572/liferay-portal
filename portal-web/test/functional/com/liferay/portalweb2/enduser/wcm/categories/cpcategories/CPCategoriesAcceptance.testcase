@@ -3,7 +3,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="AddCategory">
+	<command name="AddCategory" priority="5">
 		<var name="vocabularyName" value="Vocabulary Name" />
 		<var name="categoryName" value="Category Name" />
 
@@ -20,7 +20,7 @@
 		</execute>
 	</command>
 
-	<command name="AddSubcategory">
+	<command name="AddSubcategory" priority="5">
 		<var name="vocabularyName" value="Vocabulary Name" />
 		<var name="categoryName" value="Category Name" />
 		<var name="subcategoryName" value="Subcategory Name" />
@@ -42,7 +42,7 @@
 		</execute>
 	</command>
 
-	<command name="AddVocabulary">
+	<command name="AddVocabulary" priority="5">
 		<var name="vocabularyName" value="Vocabulary Name" />
 
 		<execute macro="Page#gotoCP">
@@ -54,7 +54,7 @@
 		</execute>
 	</command>
 
-	<command name="AddVocabularyAssetTypeWikiPage">
+	<command name="AddVocabularyAssetTypeWikiPage" priority="5">
 		<var name="vocabularyName" value="Vocabulary Name" />
 
 		<execute macro="Page#gotoCP">
@@ -66,7 +66,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteCategory">
+	<command name="DeleteCategory" priority="5">
 		<var name="vocabularyName" value="Vocabulary Name" />
 		<var name="categoryName" value="Category Name" />
 
@@ -87,7 +87,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteSubcategory">
+	<command name="DeleteSubcategory" priority="5">
 		<var name="vocabularyName" value="Vocabulary Name" />
 		<var name="categoryName" value="Category Name" />
 		<var name="subcategoryName" value="Subcategory Name" />
@@ -113,7 +113,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteVocabulary">
+	<command name="DeleteVocabulary" priority="5">
 		<var name="vocabularyName" value="Vocabulary Name" />
 
 		<execute macro="Page#gotoCP">
@@ -129,7 +129,7 @@
 		</execute>
 	</command>
 
-	<command name="EditCategory">
+	<command name="EditCategory" priority="5">
 		<var name="vocabularyName" value="Vocabulary Name" />
 		<var name="categoryName" value="Category Name" />
 		<var name="categoryNameEdit" value="Category Name Edit" />
@@ -152,7 +152,7 @@
 		</execute>
 	</command>
 
-	<command name="EditSubcategory">
+	<command name="EditSubcategory" priority="5">
 		<var name="vocabularyName" value="Vocabulary Name" />
 		<var name="categoryName" value="Category Name" />
 		<var name="subcategoryName" value="Subcategory Name" />
@@ -180,7 +180,7 @@
 		</execute>
 	</command>
 
-	<command name="EditVocabulary">
+	<command name="EditVocabulary" priority="5">
 		<var name="vocabularyName" value="Vocabulary Name" />
 		<var name="vocabularyNameEdit" value="Vocabulary Name Edit" />
 

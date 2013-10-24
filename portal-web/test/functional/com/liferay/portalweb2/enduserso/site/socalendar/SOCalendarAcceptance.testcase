@@ -20,7 +20,7 @@
 		</execute>
 	</set-up>
 
-	<command name="AddCalendarEvent">
+	<command name="AddCalendarEvent" priority="5">
 		<var name="eventDescription" value="${eventDescription}" />
 		<var name="eventTitle" value="${eventTitle}" />
 
@@ -40,7 +40,7 @@
 		<execute action="SOSiteHome#click" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle}" />
 
 		<execute macro="Event#viewDetailsPG" />
- 
+
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 			<var name="pageType" value="Open Site" />
@@ -49,7 +49,7 @@
 		<execute macro="Event#viewPG" />
 	</command>
 
-	<command name="DeleteCalendarEvent">
+	<command name="DeleteCalendarEvent" priority="5">
 		<var name="eventDescription" value="${eventDescription}" />
 		<var name="eventTitle" value="${eventTitle}" />
 
@@ -68,7 +68,7 @@
 		<execute macro="Event#deletePG" />
 	</command>
 
-	<command name="EditCalendarEvent">
+	<command name="EditCalendarEvent" priority="5">
 		<var name="eventDescription" value="${eventDescription}" />
 		<var name="eventDescriptionEdit" value="${eventDescriptionEdit}" />
 		<var name="eventTitle" value="${eventTitle}" />

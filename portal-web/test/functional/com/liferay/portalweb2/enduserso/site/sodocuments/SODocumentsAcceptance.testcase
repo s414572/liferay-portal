@@ -27,7 +27,7 @@
 	<var name="dmFolderName" value="DM Folder Name" />
 	<var name="dmFolderDescription" value="DM Folder Description" />
 
-	<command name="AddDMFolderDocument">
+	<command name="AddDMFolderDocument" priority="5">
 		<var name="dmDocumentFile" value="${dmDocumentFile}" />
 		<var name="dmDocumentSize" value="${dmDocumentSize}" />
 		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
@@ -60,7 +60,7 @@
 		<execute macro="DMFolderDocument#viewPG" />
 	</command>
 
-	<command name="DeleteDMFolderDocument">
+	<command name="DeleteDMFolderDocument" priority="5">
 		<var name="dmDocumentFile" value="${dmDocumentFile}" />
 		<var name="dmDocumentSize" value="${dmDocumentSize}" />
 		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
@@ -92,7 +92,7 @@
 		<execute macro="DMFolderDocument#deletePG" />
 	</command>
 
-	<command name="EditDMFolderDocument">
+	<command name="EditDMFolderDocument" priority="5">
 		<var name="dmDocumentFile" value="${dmDocumentFile}" />
 		<var name="dmDocumentSize" value="${dmDocumentSize}" />
 		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />

@@ -5,7 +5,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="ActivateStaging">
+	<command name="ActivateStaging" priority="5">
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Site Settings" />
 		</execute>
@@ -15,7 +15,7 @@
 		</execute>
 	</command>
 
-	<command name="DeactivateStaging">
+	<command name="DeactivateStaging" priority="5">
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Site Settings" />
 		</execute>
@@ -33,7 +33,7 @@
 		</execute>
 	</command>
 
-	<command name="EnablePageVersioning">
+	<command name="EnablePageVersioning" priority="5">
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Site Settings" />
 		</execute>
@@ -44,7 +44,7 @@
 		</execute>
 	</command>
 
-	<command name="StagingPublishToLive">
+	<command name="StagingPublishToLive" priority="5">
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Site Settings" />
 		</execute>
@@ -63,7 +63,7 @@
 		</execute>
 	</command>
 
-	<command name="StagingAddPortlet">
+	<command name="StagingAddPortlet" priority="5">
 		<var name="pageName" value="Blogs Page" />
 		<var name="portletName" value="Blogs" />
 

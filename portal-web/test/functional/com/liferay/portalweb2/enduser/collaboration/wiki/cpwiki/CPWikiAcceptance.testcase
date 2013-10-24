@@ -3,7 +3,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="AddWikiNode">
+	<command name="AddWikiNode" priority="5">
 		<var name="wikiNodeDescription" value="Wiki Node Description" />
 		<var name="wikiNodeName" value="Wiki Node Name" />
 
@@ -17,7 +17,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteWikiNode">
+	<command name="DeleteWikiNode" priority="5">
 		<var name="wikiNodeDescription" value="Wiki Node Description" />
 		<var name="wikiNodeName" value="Wiki Node Name" />
 
@@ -35,7 +35,7 @@
 		</execute>
 	</command>
 
-	<command name="EditWikiNode">
+	<command name="EditWikiNode" priority="5">
 		<var name="wikiNodeDescription" value="Wiki Node Description" />
 		<var name="wikiNodeDescriptionEdit" value="Wiki Node Description Edit" />
 		<var name="wikiNodeName" value="Wiki Node Name" />

@@ -3,7 +3,7 @@
 		<execute macro="SOUser#firstLoginPG" />
 	</set-up>
 
-	<command name="Smoke">
+	<command name="Smoke" priority="5">
 		<var name="roleName" value="Social Office" />
 		<var name="userName" value="Joe Bloggs" />
 		<var name="userScreenName" value="joebloggs" />

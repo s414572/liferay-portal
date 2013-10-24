@@ -25,7 +25,7 @@
 		</execute>
 	</set-up>
 
-	<command name="ApproveWebContentPG">
+	<command name="ApproveWebContentPG" priority="5">
 		<var name="webContentContent" value="WC WebContent Content" />
 		<var name="webContentTitle" value="WC WebContent Title" />
 
@@ -84,7 +84,7 @@
 		</execute>
 	</command>
 
-	<command name="RejectWebContentPG">
+	<command name="RejectWebContentPG" priority="5">
 		<var name="webContentContent" value="WC WebContent Content" />
 		<var name="webContentTitle" value="WC WebContent Title" />
 

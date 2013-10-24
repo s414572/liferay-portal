@@ -12,7 +12,7 @@
 		</execute>
 	</set-up>
 
-	<command name="ApproveTaskByDetails">
+	<command name="ApproveTaskByDetails" priority="5">
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
 
@@ -52,7 +52,7 @@
 		</execute>
 	</command>
 
-	<command name="AssignToMeTaskByDetails">
+	<command name="AssignToMeTaskByDetails" priority="5">
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
 
@@ -86,7 +86,7 @@
 		</execute>
 	</command>
 
-	<command name="RejectTaskByDetails">
+	<command name="RejectTaskByDetails" priority="5">
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
 

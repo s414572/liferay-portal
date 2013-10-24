@@ -3,7 +3,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="AddMember">
+	<command name="AddMember" priority="5">
 		<var name="siteName" value="Site Name" />
 		<var name="userEmailAddress" value="userea@liferay.com" />
 		<var name="userFirstName" value="userfn" />
@@ -41,7 +41,7 @@
 		</execute>
 	</command>
 
-	<!--<command name="AddMembersSiteGuestUser">
+	<!--<command name="AddMembersSiteGuestUser" priority="5">
 		<var name="siteName" value="Liferay" />
 		<var name="userEmailAddress" value="userea@liferay.com" />
 		<var name="userFirstName" value="userfn" />
@@ -71,7 +71,7 @@
 		</execute>
 	</command>-->
 
-	<command name="AddTeam">
+	<command name="AddTeam" priority="5">
 		<var name="siteName" value="Site Name" />
 		<var name="teamName" value="Site Team Name" />
 		<var name="teamDescription" value="Site Team Description" />
@@ -94,7 +94,7 @@
 		</execute>
 	</command>
 
-	<command name="AssignMembersSiteTeamUser">
+	<command name="AssignMembersSiteTeamUser" priority="5">
 		<var name="siteName" value="Site Name" />
 		<var name="teamName" value="Site Team Name" />
 		<var name="teamDescription" value="Site Team Description" />
@@ -154,7 +154,7 @@
 		</execute>
 	</command>
 
-	<command name="RemoveMember">
+	<command name="RemoveMember" priority="5">
 		<var name="siteName" value="Site Name" />
 		<var name="userEmailAddress" value="userea@liferay.com" />
 		<var name="userFirstName" value="userfn" />

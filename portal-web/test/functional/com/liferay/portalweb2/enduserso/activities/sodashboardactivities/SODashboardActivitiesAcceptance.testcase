@@ -3,7 +3,7 @@
 		<execute macro="SOUser#firstLoginPG" />
 	</set-up>
 
-	<command name="ViewDashboardActivitiesDashboard">
+	<command name="ViewDashboardActivitiesDashboard" priority="5">
 		<var name="adminEmailAddress" value="test@liferay.com" />
 		<var name="adminName" value="Joe Bloggs" />
 		<var name="microblogsEntryAuthorFirstName" value="Joe" />
@@ -197,7 +197,7 @@
 		<execute action="SOActivities#assertTextEquals" locator-key1="NO_ACTIVITIES" value1="There are no activities." />
 	</command>
 
-	<command name="ViewDashboardActivitiesProfiles">
+	<command name="ViewDashboardActivitiesProfiles" priority="5">
 		<var name="adminEmailAddress" value="test@liferay.com" />
 		<var name="adminName" value="Joe Bloggs" />
 		<var name="microblogsEntryAuthorFirstName" value="Joe" />

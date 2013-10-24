@@ -35,7 +35,7 @@
 		</execute>
 	</set-up>
 
-	<command name="ConfirmMemberInviteSiteTest">
+	<command name="ConfirmMemberInviteSiteTest" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 			<var name="pageType" value="Open Site" />

@@ -9,7 +9,7 @@
 		</execute>
 	</set-up>
 
-	<command name="ViewSiteActivitiesDashboard">
+	<command name="ViewSiteActivitiesDashboard" priority="5">
 		<var name="adminEmailAddress" value="test@liferay.com" />
 		<var name="adminName" value="Joe Bloggs" />
 		<var name="bookmarksEntryDescription" value="Bookmarks Entry Description" />

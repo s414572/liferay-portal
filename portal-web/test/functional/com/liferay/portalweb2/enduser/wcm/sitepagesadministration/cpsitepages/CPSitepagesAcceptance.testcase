@@ -3,7 +3,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="AddSitePrivateChildPage">
+	<command name="AddSitePrivateChildPage" priority="5">
 		<var name="siteGuestName" value="Liferay" />
 		<var name="siteName" value="Site Name" />
 		<var name="siteChildPageName" value="Site Child Page" />
@@ -55,7 +55,7 @@
 		</execute>
 	</command>
 
-	<command name="AddSitePrivatePage">
+	<command name="AddSitePrivatePage" priority="5">
 		<var name="siteGuestName" value="Liferay" />
 		<var name="siteName" value="Site Name" />
 		<var name="sitePageName" value="Site Page" />
@@ -94,7 +94,7 @@
 		</execute>
 	</command>
 
-	<command name="AddSitePrivatePagePortlet">
+	<command name="AddSitePrivatePagePortlet" priority="5">
 		<var name="pageName" value="Blogs Page" />
 		<var name="portletName" value="Blogs" />
 		<var name="siteName" value="Site Name" />
@@ -133,7 +133,7 @@
 		</execute>
 	</command>
 
-	<command name="AddSitePublicChildPage">
+	<command name="AddSitePublicChildPage" priority="5">
 		<var name="siteGuestName" value="Liferay" />
 		<var name="siteName" value="Site Name" />
 		<var name="siteChildPageName" value="Site Child Page" />
@@ -184,7 +184,7 @@
 		</execute>
 	</command>
 
-	<command name="AddSitePublicPage">
+	<command name="AddSitePublicPage" priority="5">
 		<var name="siteGuestName" value="Liferay" />
 		<var name="siteName" value="Site Name" />
 		<var name="sitePageName" value="Site Page" />
@@ -222,7 +222,7 @@
 		</execute>
 	</command>
 
-	<command name="AddSitePublicPagePortlet">
+	<command name="AddSitePublicPagePortlet" priority="5">
 		<var name="pageName" value="Blogs Page" />
 		<var name="portletName" value="Blogs" />
 		<var name="siteName" value="Site Name" />

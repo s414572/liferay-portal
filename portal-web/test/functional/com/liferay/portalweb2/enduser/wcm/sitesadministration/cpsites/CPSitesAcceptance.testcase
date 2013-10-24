@@ -3,7 +3,7 @@
 		<execute macro="User#firstLoginPG" />
 	</set-up>
 
-	<command name="AddSite">
+	<command name="AddSite" priority="5">
 		<var name="siteName" value="Site Name" />
 
 		<execute macro="Page#gotoCP">
@@ -23,7 +23,7 @@
 		</execute>
 	</command>
 
-	<command name="CannotJoinPrivateSiteAsUser">
+	<command name="CannotJoinPrivateSiteAsUser" priority="5">
 		<var name="membershipType" value="Private" />
 		<var name="siteName" value="Site Name" />
 		<var name="userEmailAddress" value="userea@liferay.com" />
@@ -79,7 +79,7 @@
 		<execute action="PGPersonalsiteAvailablesites#assertTextEquals" locator-key1="AVAILABLE_SITES_INFO_MESSAGE" value1="No sites were found." />
 	</command>
 
-	<command name="DeleteSite">
+	<command name="DeleteSite" priority="5">
 		<var name="siteName" value="Site Name" />
 
 		<execute macro="Page#gotoCP">
@@ -99,7 +99,7 @@
 		</execute>
 	</command>
 
-	<command name="ImportLARSite">
+	<command name="ImportLARSite" priority="5">
 		<var name="file" value="Sites_Public_Pages.lar" />
 		<var name="threadSubject" value="MB Thread Message Subject" />
 		<var name="threadBody" value="MB Thread Message Body" />

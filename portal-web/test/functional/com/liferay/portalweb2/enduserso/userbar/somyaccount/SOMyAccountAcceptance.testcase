@@ -43,7 +43,7 @@
 		</execute>
 	</set-up>
 
-	<command name="AddAdditionalEmailAddress">
+	<command name="AddAdditionalEmailAddress" priority="5">
 		<var name="userAdditionalEmailAddress" value="socialoffice02@liferay.com" />
 
 		<execute macro="SOProfile#addAdditionalEmailAddressMyAccount">
@@ -59,7 +59,7 @@
 		</execute>
 	</command>
 
- 	<command name="AddAddress">
+ 	<command name="AddAddress" priority="5">
 		<var name="userAddressCity" value="Ray of Light" />
 		<var name="userAddressCountry" value="United States" />
 		<var name="userAddressPostalCode" value="91234" />
@@ -90,7 +90,7 @@
 		</execute>
 	</command>
 
-	<command name="AddIntroduction">
+	<command name="AddIntroduction" priority="5">
 		<var name="userIntroduction" value="Introduction Content" />
 
 		<execute macro="SOProfile#addCommentsMyAccount">
@@ -106,7 +106,7 @@
 		</execute>
 	</command>
 
-	<command name="AddInstantMessenger">
+	<command name="AddInstantMessenger" priority="5">
 		<var name="userInstantMessengerAIM" value="socialofficesn" />
 		<var name="userInstantMessengerICQ" value="socialofficesn" />
 		<var name="userInstantMessengerJabber" value="socialofficesn" />
@@ -137,7 +137,7 @@
 		</execute>
 	</command>
 
-	<command name="AddPhoneNumbers">
+	<command name="AddPhoneNumbers" priority="5">
 		<var name="userPhoneNumberNumber" value="123-123-1234" />
 		<var name="userPhoneNumberExtension" value="123" />
 		<var name="userPhoneNumberType" value="Business" />
@@ -159,7 +159,7 @@
 		</execute>
 	</command>
 
-	<command name="AddProjects">
+	<command name="AddProjects" priority="5">
 		<var name="userProjectTitle" value="Expertise Title" />
 		<var name="userProjectDescription" value="Expertise Description" />
 
@@ -178,7 +178,7 @@
 		</execute>
 	</command>
 
-	<command name="AddSMS">
+	<command name="AddSMS" priority="5">
 		<var name="userSMS" value="socialoffice@liferay.com" />
 
 		<execute macro="SOProfile#addSMSMyAccount">
@@ -194,7 +194,7 @@
 		</execute>
 	</command>
 
-	<command name="AddSocialNetwork">
+	<command name="AddSocialNetwork" priority="5">
 		<var name="userSocialNetworkFacebook" value="socialoffice01" />
 		<var name="userSocialNetworkMyspace" value="socialoffice01" />
 		<var name="userSocialNetworkTwitter" value="socialoffice01" />
@@ -216,7 +216,7 @@
 		</execute>
 	</command>
 
-	<command name="AddTag">
+	<command name="AddTag" priority="5">
 		<var name="userTag" value="tag1" />
 
 		<execute macro="SOProfile#addTagMyAccount">
@@ -232,7 +232,7 @@
 		</execute>
 	</command>
 
-	<command name="AddWebsite">
+	<command name="AddWebsite" priority="5">
 		<var name="userWebsiteURL" value="http://www.socialoffice01.com" />
 		<var name="userWebsiteType" value="Personal" />
 
