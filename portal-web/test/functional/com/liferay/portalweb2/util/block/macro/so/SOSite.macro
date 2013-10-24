@@ -1,0 +1,15 @@
+<definition>
+	<command name="joinSitePG">
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName}" />
+
+		<execute action="SOSiteHome#assertClick" locator-key1="SITE_JOIN_LINK" value1="Join Site" />
+		<execute action="SOSiteHome#assertElementNotPresent" locator-key1="SITE_JOIN_LINK" />
+	</command>
+
+	<command name="requestMembershipPG">
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName}" />
+
+		<execute action="SOSiteHome#assertClick" locator-key1="SITE_JOIN_LINK" value1="Request Membership" />
+		<execute action="SOSiteHome#assertTextEquals" locator-key1="SITE_MEMBERSHIP_REQUESTED" />
+	</command>
+</definition>
