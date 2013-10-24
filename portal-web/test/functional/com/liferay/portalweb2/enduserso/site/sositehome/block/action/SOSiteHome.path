@@ -20,12 +20,17 @@
 </tr>
 <tr>
 	<td>SITE_NAME</td>
-	<td>//div[@class='community-title']</td>
+	<td>//div[@class='community-title']/a/span</td>
 	<td></td>
 </tr>
 <tr>
 	<td>SITE_JOIN_LINK</td>
-	<td>//span[@class='action request']</td>
+	<td>//span[@class='action request']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SITE_MEMBERSHIP_REQUESTED</td>
+	<td>//span[@class='action requested']/a</td>
 	<td></td>
 </tr>
 <tr>
