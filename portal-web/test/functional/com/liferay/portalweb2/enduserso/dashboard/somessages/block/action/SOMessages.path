@@ -65,13 +65,28 @@
 	<td></td>
 </tr>
 <tr>
+	<td>MESSAGE_SENDER_INCREMENT</td>
+	<td>//a[@class='message-link' and contains(.,'${messageBody}${number}')]//span[@class='author-sender']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>MESSAGE_SUBJECT</td>
 	<td>//div[@class='subject']</td>
 	<td></td>
 </tr>
 <tr>
+	<td>MESSAGE_SUBJECT_INCREMENT</td>
+	<td>//a[@class='message-link' and contains(.,'${messageBody}${number}')]//div[@class='subject']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>MESSAGE_BODY</td>
 	<td>//div[@class='body']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MESSAGE_BODY_INCREMENT</td>
+	<td>//a[@class='message-link' and contains(.,'${messageBody}${number}')]//div[@class='body']</td>
 	<td></td>
 </tr>
 <tr>
@@ -82,6 +97,21 @@
 <tr>
 	<td>MESSAGE_CHECKBOX</td>
 	<td>//td[1]/span/span/span/input[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MESSAGE_CHECKBOX_INCREMENT</td>
+	<td>//tr[contains(.,'${messageBody}${number}')]/td[1]/span/span/span/input[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MESSAGE_UNREAD</td>
+	<td>//tr[contains(@class, 'unread')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MESSAGE_UNREAD_INCREMENT</td>
+	<td>xpath=(//tr[contains(@class, 'unread')])[contains(.,'${messageBody}${number}')]</td>
 	<td></td>
 </tr>
 <tr>

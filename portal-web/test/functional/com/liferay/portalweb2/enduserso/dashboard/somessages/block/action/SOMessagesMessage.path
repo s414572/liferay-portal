@@ -19,6 +19,32 @@
 	<td></td>
 </tr>
 <tr>
+	<td>DELETE_BUTTON</td>
+	<td>//input[@value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MARK_AS_UNREAD_BUTTON</td>
+	<td>//input[@value='Mark as Unread']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUCCESS_MESSAGE</td>
+	<td>//div[@class='portlet-msg-success']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>INFO_MESSAGE</td>
+	<td>//div[@class='portlet-msg-info']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--PRIVATE_MESSAGE-->
+<tr>
 	<td>PRIVATE_MESSAGE_SUBJECT</td>
 	<td>//h1[@class='header-title']/span</td>
 	<td></td>
@@ -30,22 +56,63 @@
 </tr>
 <tr>
 	<td>PRIVATE_MESSAGE_SENDER</td>
-	<td>//div[@class='message']/span/a</td>
+	<td>//div[@class='message' and contains(.,'${messageBody}')]/span/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>PRIVATE_MESSAGE_BODY</td>
-	<td>//div[@class='body']</td>
+	<td>//div[@class='message' and contains(.,'${messageBody}')]/div[@class='body']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>PRIVATE_MESSAGE_ATTACHMENT</td>
-	<td>//div[@class='image-thumbnail']/a/img</td>
+	<td>//div[@class='message' and contains(.,'${messageBody}')]//div[@class='image-thumbnail']/a/img</td>
 	<td></td>
 </tr>
 <tr>
 	<td>PRIVATE_MESSAGE_ATTACHMENT_LINK</td>
-	<td>//td[2]/a</td>
+	<td>//div[@class='message' and contains(.,'${messageBody}')]//td[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PRIVATE_MESSAGE_REPLY_BODY_FIELD</td>
+	<td>//textarea[@class='message-body']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PRIVATE_MESSAGE_REPLY_ATTACHMENT_FIELD</td>
+	<td>//input[@id='_1_WAR_privatemessagingportlet_msgFile1']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PRIVATE_MESSAGE_SEND_BUTTON</td>
+	<td>//input[@value='Send']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--PRIVATE_MESSAGE_REPLY-->
+<tr>
+	<td>PRIVATE_MESSAGE_REPLY_SENDER</td>
+	<td>//div[@class='message' and contains(.,'${messageReplyBody}')]/span/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PRIVATE_MESSAGE_REPLY_BODY</td>
+	<td>//div[@class='message' and contains(.,'${messageReplyBody}')]/div[@class='body']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PRIVATE_MESSAGE_REPLY_ATTACHMENT</td>
+	<td>//div[@class='message' and contains(.,'${messageReplyBody}')]//div[@class='image-thumbnail']/a/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PRIVATE_MESSAGE_REPLY_ATTACHMENT_LINK</td>
+	<td>//div[@class='message' and contains(.,'${messageReplyBody}')]//td[2]/a</td>
 	<td></td>
 </tr>
 </tbody>

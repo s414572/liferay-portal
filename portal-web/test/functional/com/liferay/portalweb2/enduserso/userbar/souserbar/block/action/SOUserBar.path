@@ -19,6 +19,16 @@
 	<td></td>
 </tr>
 <tr>
+	<td>USER_BAR</td>
+	<td>//div[@class='so-portlet-user-bar']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>VISIBLE_DOCKBAR</td>
+	<td>//body[contains(@class,'show-dockbar')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>DASHBOARD</td>
 	<td>//a[contains(text(),'Dashboard')]</td>
 	<td></td>
