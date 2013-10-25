@@ -271,13 +271,6 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 
 		long userId = portletDataContext.getUserId(fileEntry.getUserUuid());
 
-		Map<Long, Long> folderIds =
-			(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
-				DLFolder.class);
-
-		long folderId = MapUtil.getLong(
-			folderIds, fileEntry.getFolderId(), fileEntry.getFolderId());
-
 		long[] assetCategoryIds = null;
 		String[] assetTagNames = null;
 
@@ -325,11 +318,11 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 			return;
 		}
 
-		if ((folderId != DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) &&
-			!folderIds.containsKey(fileEntry.getFolderId())) {
+		if (fileEntry.getFolderId() !=
+				DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
 
 			String folderPath = getImportFolderPath(
-				portletDataContext, folderId);
+				portletDataContext, fileEntry.getFolderId());
 
 			Folder folder = (Folder)portletDataContext.getZipEntryAsObject(
 				folderPath);
@@ -342,10 +335,14 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 				"//folder[@path='".concat(folderPath).concat("']"));
 
 			importFolder(portletDataContext, folderPath, folderElement, folder);
-
-			folderId = MapUtil.getLong(
-				folderIds, fileEntry.getFolderId(), fileEntry.getFolderId());
 		}
+
+		Map<Long, Long> folderIds =
+			(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
+				DLFolder.class);
+
+		long folderId = MapUtil.getLong(
+			folderIds, fileEntry.getFolderId(), fileEntry.getFolderId());
 
 		importMetaData(portletDataContext, fileEntryElement, serviceContext);
 
