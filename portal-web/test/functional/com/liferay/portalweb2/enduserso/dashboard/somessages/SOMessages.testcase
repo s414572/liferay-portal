@@ -24,6 +24,8 @@
 	<var name="userScreenName2" value="socialoffice02" />
 
 	<set-up>
+		<execute macro="SOUser#firstLoginPG" />
+
 		<execute macro="SOContactsCenter#addConnection">
 			<var name="adminEmailAddress" value="${adminEmailAddress}" />
 			<var name="senderName" value="${adminName}" />
