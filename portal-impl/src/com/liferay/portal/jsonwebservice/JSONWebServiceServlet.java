@@ -82,19 +82,9 @@ public class JSONWebServiceServlet extends JSONServlet {
 			return;
 		}
 
-		String secureSubpath = StringPool.BLANK;
-
-		String uri = request.getRequestURI();
-
-		if (uri.contains("/secure/")) {
-			secureSubpath = "secure/";
-		}
-
 		if (_log.isDebugEnabled()) {
 			_log.debug("Servlet context " + request.getContextPath());
 		}
-
-		String apiPath = PortalUtil.getPathMain() + "/portal/api/jsonws";
 
 		HttpSession session = request.getSession();
 
@@ -103,6 +93,8 @@ public class JSONWebServiceServlet extends JSONServlet {
 		String contextPath = PropsValues.PORTAL_CTX;
 
 		if (servletContext.getContext(contextPath) != null) {
+			String apiPath = PortalUtil.getPathMain() + "/portal/api/jsonws";
+
 			if (!contextPath.equals(StringPool.SLASH) &&
 				apiPath.startsWith(contextPath)) {
 
@@ -115,11 +107,19 @@ public class JSONWebServiceServlet extends JSONServlet {
 			requestDispatcher.forward(request, response);
 		}
 		else {
+			String apiPath = "/api/jsonws";
+
+			String uri = request.getRequestURI();
+
+			if (uri.contains("/secure/")) {
+				apiPath += "/api/secure/jsonws";
+			}
+
 			String servletContextPath = ContextPathUtil.getContextPath(
 				servletContext);
 
 			String redirectPath =
-				"/api/" + secureSubpath + "jsonws?contextPath=" +
+				apiPath + "?contextPath=" +
 					HttpUtil.encodeURL(servletContextPath);
 
 			response.sendRedirect(redirectPath);
