@@ -82,13 +82,11 @@ public class JSONWebServiceServlet extends JSONServlet {
 			return;
 		}
 
-		String uri = request.getRequestURI();
-
 		String secureSubpath = StringPool.BLANK;
 
-		int pos = uri.indexOf("/secure/");
+		String uri = request.getRequestURI();
 
-		if (pos != -1) {
+		if (uri.contains("/secure/")) {
 			secureSubpath = "secure/";
 		}
 
