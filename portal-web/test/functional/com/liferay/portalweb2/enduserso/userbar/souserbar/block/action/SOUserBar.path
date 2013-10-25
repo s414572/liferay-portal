@@ -80,7 +80,7 @@
 </tr>
 <tr>
 	<td>USER_NAME</td>
-	<td>//li[contains(@class,'user-menu has-submenu')]/a</td>
+	<td>//li[contains(@class,'user-menu has-submenu')]/a/span[@class='full-name']</td>
 	<td></td>
 </tr>
 <tr>
