@@ -4094,7 +4094,7 @@ custom.sql.function.isnotnull=CONVERT(VARCHAR,?) IS NOT NULL</echo>
 							<socket server="${database.host}" port="5000" />
 						</waitfor>
 
-						<sleep seconds="10" />
+						<sleep seconds="5" />
 					</sequential>
 				</parallel>
 			</then>
@@ -4710,7 +4710,7 @@ custom.sql.function.isnotnull=CONVERT(VARCHAR,?) IS NOT NULL</echo>
 
 				<antcall target="run-selenium-test" />
 
-				<sleep seconds="5" />
+				<sleep seconds="10" />
 
 				<exec dir="${simple.server.bin.dir}" executable="${simple.server.stop.executable}" resolveexecutable="true">
 					<arg line="${simple.server.stop.executable.arg.line}" />
