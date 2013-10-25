@@ -43,7 +43,6 @@ else {
 	apiSubpath = "/api/jsonws";
 }
 
-
 String jsonWSPath = themeDisplay.getPathContext() + apiSubpath;
 
 String jsonWSContextPath = jsonWSPath;
