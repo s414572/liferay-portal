@@ -76,6 +76,7 @@ public class DLFileEntryMetadataLocalServiceImpl
 			ddmStructureId, fileVersionId);
 	}
 
+	@Override
 	public DLFileEntryMetadata getFileEntryMetadata(long fileEntryMetadataId)
 		throws PortalException, SystemException {
 
