@@ -61,7 +61,21 @@ public class DLFileEntryMetadataLocalServiceImpl
 		}
 	}
 
-	@Override
+	public DLFileEntryMetadata fetchFileEntryMetadata(long fileEntryMetadataId)
+		throws SystemException {
+
+		return dlFileEntryMetadataPersistence.fetchByPrimaryKey(
+			fileEntryMetadataId);
+	}
+
+	public DLFileEntryMetadata fetchFileEntryMetadata(
+			long ddmStructureId, long fileVersionId)
+		throws SystemException {
+
+		return dlFileEntryMetadataPersistence.fetchByD_F(
+			ddmStructureId, fileVersionId);
+	}
+
 	public DLFileEntryMetadata getFileEntryMetadata(long fileEntryMetadataId)
 		throws PortalException, SystemException {
 

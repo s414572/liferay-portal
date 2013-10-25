@@ -561,50 +561,18 @@ public class DLFileEntryLocalServiceImpl
 				dlFileEntryTypeLocalService.getFileEntryType(fileEntryTypeId);
 
 			ddmStructures = dlFileEntryType.getDDMStructures();
+		}
+		else {
+			long classNameId = PortalUtil.getClassNameId(
+				DLFileEntryMetadata.class);
 
-			for (DDMStructure ddmStructure : ddmStructures) {
-				try {
-					DLFileEntryMetadata dlFileEntryMetadata =
-						dlFileEntryMetadataLocalService.getFileEntryMetadata(
-							ddmStructure.getStructureId(), fromFileVersionId);
-
-					Fields fields = StorageEngineUtil.getFields(
-						dlFileEntryMetadata.getDDMStorageId());
-
-					fieldsMap.put(ddmStructure.getStructureKey(), fields);
-				}
-				catch (NoSuchFileEntryMetadataException nsfeme) {
-				}
-			}
-
-			dlFileEntryMetadataLocalService.updateFileEntryMetadata(
-				companyId, ddmStructures, fileEntryTypeId, fileEntryId,
-				toFileVersionId, fieldsMap, serviceContext);
+			ddmStructures = ddmStructureLocalService.getClassStructures(
+				companyId, classNameId);
 		}
 
-		long classNameId = PortalUtil.getClassNameId(DLFileEntry.class);
-
-		ddmStructures = ddmStructureLocalService.getClassStructures(
-			companyId, classNameId);
-
-		for (DDMStructure ddmStructure : ddmStructures) {
-			try {
-				DLFileEntryMetadata fileEntryMetadata =
-					dlFileEntryMetadataLocalService.getFileEntryMetadata(
-						ddmStructure.getStructureId(), fromFileVersionId);
-
-				Fields fields = StorageEngineUtil.getFields(
-					fileEntryMetadata.getDDMStorageId());
-
-				fieldsMap.put(ddmStructure.getStructureKey(), fields);
-			}
-			catch (NoSuchFileEntryMetadataException nsfeme) {
-			}
-		}
-
-		dlFileEntryMetadataLocalService.updateFileEntryMetadata(
-			companyId, ddmStructures, fileEntryTypeId, fileEntryId,
-			toFileVersionId, fieldsMap, serviceContext);
+		copyFileEntryMetadata(
+			companyId, fileEntryTypeId, fileEntryId, fromFileVersionId,
+			toFileVersionId, serviceContext, fieldsMap, ddmStructures);
 	}
 
 	@Override
@@ -1550,6 +1518,35 @@ public class DLFileEntryLocalServiceImpl
 			DLFileEntry.class);
 
 		indexer.delete(dlFileEntry);
+	}
+
+	protected void copyFileEntryMetadata(
+			long companyId, long fileEntryTypeId, long fileEntryId,
+			long fromFileVersionId, long toFileVersionId,
+			ServiceContext serviceContext, Map<String, Fields> fieldsMap,
+			List<DDMStructure> ddmStructures)
+		throws PortalException, SystemException {
+
+		for (DDMStructure ddmStructure : ddmStructures) {
+			DLFileEntryMetadata dlFileEntryMetadata =
+				dlFileEntryMetadataLocalService.fetchFileEntryMetadata(
+					ddmStructure.getStructureId(), fromFileVersionId);
+
+			if (dlFileEntryMetadata == null) {
+				continue;
+			}
+
+			Fields fields = StorageEngineUtil.getFields(
+				dlFileEntryMetadata.getDDMStorageId());
+
+			fieldsMap.put(ddmStructure.getStructureKey(), fields);
+		}
+
+		if (!fieldsMap.isEmpty()) {
+			dlFileEntryMetadataLocalService.updateFileEntryMetadata(
+				companyId, ddmStructures, fileEntryTypeId, fileEntryId,
+				toFileVersionId, fieldsMap, serviceContext);
+		}
 	}
 
 	protected String getNextVersion(
