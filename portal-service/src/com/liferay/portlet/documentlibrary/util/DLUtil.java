@@ -45,6 +45,7 @@ import com.liferay.portal.service.WorkflowDefinitionLinkLocalServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.PortletPreferencesFactoryUtil;
+import com.liferay.portlet.documentlibrary.model.DLFileEntryConstants;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryType;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryTypeConstants;
 import com.liferay.portlet.documentlibrary.model.DLFileShortcut;
@@ -748,6 +749,26 @@ public class DLUtil {
 			extension.equalsIgnoreCase("pptx") ||
 			extension.equalsIgnoreCase("xls") ||
 			extension.equalsIgnoreCase("xlsx")) {
+
+			return true;
+		}
+
+		return false;
+	}
+
+	public static boolean isValidVersion(String version) {
+		if (version.equals(DLFileEntryConstants.PRIVATE_WORKING_COPY_VERSION)) {
+			return true;
+		}
+
+		String[] versionParts = StringUtil.split(version, StringPool.PERIOD);
+
+		if (versionParts.length != 2) {
+			return false;
+		}
+
+		if (Validator.isNumber(versionParts[0]) &&
+			Validator.isNumber(versionParts[1])) {
 
 			return true;
 		}
