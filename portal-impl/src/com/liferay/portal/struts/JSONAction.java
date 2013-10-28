@@ -20,7 +20,6 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.ServletContextPool;
-import com.liferay.portal.kernel.util.ClassUtil;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
@@ -143,10 +142,11 @@ public abstract class JSONAction extends Action {
 			return;
 		}
 
-		if (PropsValues.JSON_SERVICE_AUTH_TOKEN_ENABLED) {
+		if (PropsValues.AUTH_TOKEN_CHECK_ENABLED &&
+			PropsValues.JSON_SERVICE_AUTH_TOKEN_ENABLED) {
+
 			if (!isAccessAllowed(request, _hostsAllowed)) {
-				AuthTokenUtil.checkCSRFToken(
-					request, ClassUtil.getClassName(this));
+				AuthTokenUtil.check(request);
 			}
 		}
 	}

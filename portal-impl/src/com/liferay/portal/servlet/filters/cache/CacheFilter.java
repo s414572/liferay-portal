@@ -373,8 +373,9 @@ public class CacheFilter extends BasePortalFilter {
 
 		if (Validator.isNotNull(pAuth)) {
 			try {
-				AuthTokenUtil.checkCSRFToken(
-					request, CacheFilter.class.getName());
+				if (PropsValues.AUTH_TOKEN_CHECK_ENABLED) {
+					AuthTokenUtil.check(request);
+				}
 			}
 			catch (PortalException pe) {
 				if (_log.isDebugEnabled()) {

@@ -178,8 +178,7 @@ public class UpdatePasswordAction extends Action {
 			ThemeDisplay themeDisplay, Ticket ticket)
 		throws Exception {
 
-		AuthTokenUtil.checkCSRFToken(
-			request, UpdatePasswordAction.class.getName());
+		AuthTokenUtil.check(request);
 
 		long userId = 0;
 
