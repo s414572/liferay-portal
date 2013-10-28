@@ -28,11 +28,6 @@ public class AuthTokenWrapper implements AuthToken {
 		_originalAuthToken = authToken;
 	}
 
-	/**
-	 * @deprecated As of 6.2.0, replaced by {@link
-	 *             #checkCSRFToken(javax.servlet.http.HttpServletRequest,
-	 *             String)}
-	 */
 	@Override
 	public void check(HttpServletRequest request) throws PortalException {
 		_authToken.check(request);
