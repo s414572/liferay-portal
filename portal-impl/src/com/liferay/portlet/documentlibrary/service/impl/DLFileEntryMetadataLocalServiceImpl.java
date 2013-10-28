@@ -61,6 +61,7 @@ public class DLFileEntryMetadataLocalServiceImpl
 		}
 	}
 
+	@Override
 	public DLFileEntryMetadata fetchFileEntryMetadata(long fileEntryMetadataId)
 		throws SystemException {
 
@@ -68,6 +69,7 @@ public class DLFileEntryMetadataLocalServiceImpl
 			fileEntryMetadataId);
 	}
 
+	@Override
 	public DLFileEntryMetadata fetchFileEntryMetadata(
 			long ddmStructureId, long fileVersionId)
 		throws SystemException {
