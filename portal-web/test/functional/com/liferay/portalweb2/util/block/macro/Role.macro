@@ -60,70 +60,70 @@
 
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="The role permissions were updated." />
 
-		<var name="row" value="1" />
+		<var name="key_row" value="1" />
 
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_SET_INCREMENT" value1="Blogs" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_INCREMENT" value1="Blogs" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_ACTION_INCREMENT" value1="Add Entry" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_DELETE_INCREMENT" value1="Delete"/>
 
-		<var name="row" value="2" />
+		<var name="key_row" value="2" />
 
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_SET_INCREMENT" value1="Blogs" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_INCREMENT" value1="Blogs" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_ACTION_INCREMENT" value1="Permissions" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_DELETE_INCREMENT" value1="Delete" />
 
-		<var name="row" value="3" />
+		<var name="key_row" value="3" />
 
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_SET_INCREMENT" value1="Blogs" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_INCREMENT" value1="Blogs" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_ACTION_INCREMENT" value1="Subscribe" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_DELETE_INCREMENT" value1="Delete" />
 
-		<var name="row" value="4" />
+		<var name="key_row" value="4" />
 
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_SET_INCREMENT" value1="Blogs" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_INCREMENT" value1="Blogs Entry" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_ACTION_INCREMENT" value1="Add Discussion" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_DELETE_INCREMENT" value1="Delete" />
 
-		<var name="row" value="5" />
+		<var name="key_row" value="5" />
 
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_SET_INCREMENT" value1="Blogs" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_INCREMENT" value1="Blogs Entry" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_ACTION_INCREMENT" value1="Delete" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_DELETE_INCREMENT" value1="Delete" />
 
-		<var name="row" value="6" />
+		<var name="key_row" value="6" />
 
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_SET_INCREMENT" value1="Blogs" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_INCREMENT" value1="Blogs Entry" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_ACTION_INCREMENT" value1="Delete Discussion" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_DELETE_INCREMENT" value1="Delete" />
 
-		<var name="row" value="7" />
+		<var name="key_row" value="7" />
 
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_SET_INCREMENT" value1="Blogs" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_INCREMENT" value1="Blogs Entry" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_ACTION_INCREMENT" value1="Permissions" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_DELETE_INCREMENT" value1="Delete" />
 
-		<var name="row" value="8" />
+		<var name="key_row" value="8" />
 
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_SET_INCREMENT" value1="Blogs" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_INCREMENT" value1="Blogs Entry" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_ACTION_INCREMENT" value1="Update" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_DELETE_INCREMENT" value1="Delete" />
 
-		<var name="row" value="9" />
+		<var name="key_row" value="9" />
 
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_SET_INCREMENT" value1="Blogs" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_INCREMENT" value1="Blogs Entry" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_ACTION_INCREMENT" value1="Update Discussion" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_DELETE_INCREMENT" value1="Delete" />
 
-		<var name="row" value="10" />
+		<var name="key_row" value="10" />
 
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_SET_INCREMENT" value1="Blogs" />
 		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_RESOURCE_INCREMENT" value1="Blogs Entry" />

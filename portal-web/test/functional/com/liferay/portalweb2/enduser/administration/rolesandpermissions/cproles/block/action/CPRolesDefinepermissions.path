@@ -46,22 +46,22 @@
 <!--PERMISSION_TABLE-->
 <tr>
 	<td>PERMISSION_TABLE_RESOURCE_SET_INCREMENT</td>
-	<td>//td[contains(@id,'col-resource-set_row-${row}')]/a</td>
+	<td>//td[contains(@id,'col-resource-set_row-${key_row}')]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>PERMISSION_TABLE_RESOURCE_INCREMENT</td>
-	<td>//td[contains(@id,'col-resource_row-${row}')]</td>
+	<td>//td[contains(@id,'col-resource_row-${key_row}')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>PERMISSION_TABLE_ACTION_INCREMENT</td>
-	<td>//td[contains(@id,'col-action_row-${row}')]</td>
+	<td>//td[contains(@id,'col-action_row-${key_row}')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>PERMISSION_TABLE_DELETE_INCREMENT</td>
-	<td>//td[contains(@id,'col-4_row-${row}')]/span/a/span</td>
+	<td>//td[contains(@id,'col-4_row-${key_row}')]/span/a/span</td>
 	<td></td>
 </tr>
 <tr>
