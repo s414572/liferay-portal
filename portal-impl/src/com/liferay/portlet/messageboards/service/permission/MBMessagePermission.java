@@ -70,7 +70,14 @@ public class MBMessagePermission {
 
 		long groupId = message.getGroupId();
 
-		if (message.isPending()) {
+		if (message.isDraft()) {
+			if (actionId.equals(ActionKeys.VIEW) &&
+				!contains(permissionChecker, message, ActionKeys.UPDATE)) {
+
+				return false;
+			}
+		}
+		else if (message.isPending()) {
 			Boolean hasPermission = WorkflowPermissionUtil.hasPermission(
 				permissionChecker, message.getGroupId(),
 				message.getWorkflowClassName(), message.getMessageId(),
