@@ -1,17 +1,17 @@
 <html>
 <head>
-<title>SOCPConfigurations</title>
+<title>SOConfigurations</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">SOCPConfigurations</td></tr>
+<tr><td rowspan="1" colspan="3">SOConfigurations</td></tr>
 </thead>
 <tbody>
 <tr>
 	<td>PAGE_NAME</td>
 	<td></td>
-	<td>SOCPConfigurations</td>
+	<td>SOConfigurations</td>
 </tr>
 <tr>
 	<td></td>
