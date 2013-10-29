@@ -1382,6 +1382,31 @@ public class JournalPortletDataHandlerImpl extends BasePortletDataHandler {
 		return PropsValues.JOURNAL_PUBLISH_TO_LIVE_BY_DEFAULT;
 	}
 
+	protected static void deleteTimestampParameters(
+		StringBuilder sb, int beginPos) {
+
+		beginPos = sb.indexOf(StringPool.CLOSE_BRACKET, beginPos);
+
+		if ((beginPos == -1) || (beginPos == (sb.length() - 1)) ||
+			(sb.charAt(beginPos + 1) != CharPool.QUESTION)) {
+
+			return;
+		}
+
+		int endPos = StringUtil.indexOfAny(
+			sb.toString(), _DL_REFERENCE_LEGACY_STOP_CHARS, beginPos + 2);
+
+		if (endPos == -1) {
+			return;
+		}
+
+		String urlParams = sb.substring(beginPos + 1, endPos);
+
+		urlParams = HttpUtil.removeParameter(urlParams, "t");
+
+		sb.replace(beginPos + 1, endPos, urlParams);
+	}
+
 	protected static String exportDLFileEntries(
 			PortletDataContext portletDataContext,
 			Element dlFileEntryTypesElement, Element dlFoldersElement,
@@ -1636,6 +1661,8 @@ public class JournalPortletDataHandlerImpl extends BasePortletDataHandler {
 				String dlReference = "[$dl-reference=" + path + "$]";
 
 				sb.replace(beginPos, endPos, dlReference);
+
+				deleteTimestampParameters(sb, beginPos);
 			}
 			catch (Exception e) {
 				if (_log.isDebugEnabled()) {
