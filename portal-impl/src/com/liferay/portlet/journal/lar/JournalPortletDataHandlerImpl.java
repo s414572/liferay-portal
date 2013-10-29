@@ -2832,6 +2832,12 @@ public class JournalPortletDataHandlerImpl extends BasePortletDataHandler {
 
 	private static final boolean _DATA_LOCALIZED = true;
 
+	private static final char[] _DL_REFERENCE_LEGACY_STOP_CHARS = {
+		CharPool.APOSTROPHE, CharPool.CLOSE_BRACKET, CharPool.CLOSE_CURLY_BRACE,
+		CharPool.CLOSE_PARENTHESIS, CharPool.GREATER_THAN, CharPool.LESS_THAN,
+		CharPool.PIPE, CharPool.QUOTE, CharPool.SPACE
+	};
+
 	private static final String _NAMESPACE = "journal";
 
 	private static final String _PRIVATE_GROUP_SERVLET_MAPPING =
