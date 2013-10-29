@@ -34,6 +34,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>TASK_ADD_DUE_DATE_LINK</td>
+	<td>//a[@id='toggleDueDate']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>TASK_TAG_FIELD</td>
 	<td>//input[@title='Add Tags']</td>
 	<td></td>
@@ -45,7 +50,7 @@
 </tr>
 <tr>
 	<td>TASK_TAG</td>
-	<td>//li[contains(.,'Tag1')]/span/span</td>
+	<td>//li[contains(.,'${tagNumber}')]/span/span</td>
 	<td></td>
 </tr>
 <tr>

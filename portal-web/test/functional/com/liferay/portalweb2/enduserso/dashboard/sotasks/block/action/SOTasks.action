@@ -15,5 +15,17 @@
 		<case locator-key1="I_HAVE_CREATED_LINK">
 			<execute function="Click#clickAtAndWait" />
 		</case>
+		<case locator-key1="TASK_PROGRESS_BAR_PERCENT_CLICK">
+			<execute function="Click#makeVisibleClickAt" />
+		</case>
+	</command>
+
+	<command name="mouseOver">
+		<case locator-key1="TASK_PROGRESS_BAR">
+			<execute function="MouseOver#makeVisible" />
+		</case>
+		<case locator-key1="TASK_PROGRESS_BAR_PERCENT_CLICK">
+			<execute function="MouseOver#makeVisible" />
+		</case>
 	</command>
 </definition>

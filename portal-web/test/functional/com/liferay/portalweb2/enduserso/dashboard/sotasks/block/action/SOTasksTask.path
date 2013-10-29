@@ -29,6 +29,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>TASK_REPORTER</td>
+	<td>//div[@class='task-data reporter']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>TASK_STATUS</td>
 	<td>//div[@class='task-data status']</td>
 	<td></td>
@@ -55,7 +60,7 @@
 </tr>
 <tr>
 	<td>TASK_TAG</td>
-	<td>//span[@class='tag']</td>
+	<td>xpath=(//span[@class='tag'])[contains(.,'${tagNumber}')]</td>
 	<td></td>
 </tr>
 <tr>

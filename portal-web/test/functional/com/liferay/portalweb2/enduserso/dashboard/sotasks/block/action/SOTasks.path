@@ -66,7 +66,7 @@
 </tr>
 <tr>
 	<td>FILTER_TAG_CHECKBOX</td>
-	<td>//span/a[contains(.,'portaltag1')]</td>
+	<td>//span[contains(@class,'asset-tag')]/a[contains(.,'${tagNumber}')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -96,8 +96,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>TASK_DESCRIPTION_NORMAL_INCREMENT</td>
+	<td>xpath=(//a[@class='tasks-title normal'])[contains(.,'${number}')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>TASK_DESCRIPTION_HIGH</td>
 	<td>//a[@class='tasks-title high']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TASK_DESCRIPTION_HIGH_INCREMENT</td>
+	<td>xpath=(//a[@class='tasks-title high'])[contains(.,'${key_number}')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -106,58 +116,33 @@
 	<td></td>
 </tr>
 <tr>
+	<td>TASK_DESCRIPTION_LOW_INCREMENT</td>
+	<td>xpath=(//a[@class='tasks-title low'])[contains(.,'${number}')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>TASK_REPORTER</td>
-	<td>//div[@class='result-data']</td>
+	<td>//div[@class='result-data']/span[contains(.,'Reporter')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>TASK_PROGRESS_BAR_20</td>
-	<td>//div[@style='width: 20%;']</td>
+	<td>TASK_ASSIGNEE</td>
+	<td>//div[@class='result-data']/span[contains(.,'Assignee')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>TASK_PROGRESS_BAR_CLICK_20</td>
-	<td>//div[3]/a[1]</td>
+	<td>TASK_PROGRESS_BAR</td>
+	<td>//div[contains(@class,'progress-picker')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>TASK_PROGRESS_BAR_40</td>
-	<td>//div[@style='width: 40%;']</td>
+	<td>TASK_PROGRESS_BAR_PERCENT_CLICK</td>
+	<td>//div[contains(@class,'progress-picker')]/div[@class='progress-selector']/a[@class='progress-${percentCompletion}']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>TASK_PROGRESS_BAR_CLICK_40</td>
-	<td>//div[3]/a[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>TASK_PROGRESS_BAR_60</td>
-	<td>//div[@style='width: 60%;']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>TASK_PROGRESS_BAR_CLICK_60</td>
-	<td>//div[3]/a[3]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>TASK_PROGRESS_BAR_80</td>
-	<td>//div[@style='width: 80%;']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>TASK_PROGRESS_BAR_CLICK_80</td>
-	<td>//div[3]/a[4]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>TASK_PROGRESS_BAR_100</td>
-	<td>//div[@style='width: 100%;']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>TASK_PROGRESS_BAR_CLICK_100</td>
-	<td>//div[3]/a[5]</td>
+	<td>TASK_PROGRESS_BAR_PERCENT_COMPLETION</td>
+	<td>//div[@class='progress' and contains(@style,'${percentCompletion}%')]</td>
 	<td></td>
 </tr>
 <tr>
