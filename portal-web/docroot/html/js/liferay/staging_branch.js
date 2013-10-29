@@ -82,8 +82,6 @@ AUI.add(
 							}
 						).render();
 
-						branchDialog.move(branchDialog.get('x'), branchDialog.get('y') + 10);
-
 						instance._branchDialog = branchDialog;
 					}
 
