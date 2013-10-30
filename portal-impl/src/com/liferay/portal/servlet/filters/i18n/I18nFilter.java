@@ -182,9 +182,7 @@ public class I18nFilter extends BasePortalFilter {
 			WebKeys.VIRTUAL_HOST_LAYOUT_SET);
 
 		if ((layoutSet != null) &&
-			(requestURI.startsWith(_PRIVATE_GROUP_SERVLET_MAPPING) ||
-			 requestURI.startsWith(_PRIVATE_USER_SERVLET_MAPPING) ||
-			 requestURI.startsWith(_PUBLIC_GROUP_SERVLET_MAPPING))) {
+			requestURI.startsWith(_PUBLIC_GROUP_SERVLET_MAPPING)) {
 
 			int x = requestURI.indexOf(StringPool.SLASH, 1);
 
