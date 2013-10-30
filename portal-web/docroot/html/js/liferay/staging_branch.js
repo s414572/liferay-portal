@@ -113,8 +113,6 @@ AUI.add(
 							}
 						).render();
 
-						mergeDialog.move(mergeDialog.get('x'), mergeDialog.get('y') + 100);
-
 						mergeDialog.bodyNode.delegate(
 							'click',
 							function(event) {
