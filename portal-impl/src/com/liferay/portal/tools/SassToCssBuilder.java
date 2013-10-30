@@ -67,7 +67,7 @@ public class SassToCssBuilder {
 	public static void main(String[] args) {
 		Map<String, String> arguments = ArgumentsUtil.parseArguments(args);
 
-		String docrootDirName = arguments.get("saas.docroot.dir");
+		String docrootDirName = arguments.get("sass.docroot.dir");
 
 		List<String> dirNames = new ArrayList<String>();
 
