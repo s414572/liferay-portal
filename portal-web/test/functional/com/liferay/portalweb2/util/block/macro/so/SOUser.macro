@@ -28,20 +28,6 @@
 			<var name="userEmailAddress" value="${userEmailAddress}" />
 			<var name="userScreenName" value="${userScreenName}" />
 		</execute>
-
-		<execute macro="SOUser#logoutPG" />
-
-		<execute macro="SOUser#loginPG">
-			<var name="userEmailAddress" value="${userEmailAddress}" />
-			<var name="password" value="test" />
-		</execute>
-
-		<execute macro="SOUser#logoutPG" />
-
-		<execute macro="SOUser#loginPG">
-			<var name="userEmailAddress" value="${adminEmailAddress}" />
-			<var name="password" value="test" />
-		</execute>
 	</command>
 
 	<command name="editPasswordCP">
