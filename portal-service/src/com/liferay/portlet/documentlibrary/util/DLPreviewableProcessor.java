@@ -96,7 +96,7 @@ public abstract class DLPreviewableProcessor implements DLProcessor {
 	}
 
 	public static void deleteFiles(
-			FileEntry fileEntry, String thumbnailType, String[] previewTypes) {
+		FileEntry fileEntry, String thumbnailType, String[] previewTypes) {
 
 		deleteFiles(
 			fileEntry.getCompanyId(), fileEntry.getGroupId(),
@@ -167,18 +167,19 @@ public abstract class DLPreviewableProcessor implements DLProcessor {
 		String thumbnailType) {
 
 		deleteFiles(
-				companyId, groupId, fileEntryId, fileVersionId, thumbnailType,
-				null);
+			companyId, groupId, fileEntryId, fileVersionId, thumbnailType,
+			null);
 	}
 
 	protected static void deleteFiles(
-			long companyId, long groupId, long fileEntryId, long fileVersionId,
-			String thumbnailType, String[] previewTypes) {
+		long companyId, long groupId, long fileEntryId, long fileVersionId,
+		String thumbnailType, String[] previewTypes) {
 
 		String[] previewTypesArray = previewTypes;
 
 		if (previewTypesArray == null) {
 			previewTypesArray = new String[1];
+
 			previewTypesArray[0] = StringPool.BLANK;
 		}
 
@@ -247,7 +248,7 @@ public abstract class DLPreviewableProcessor implements DLProcessor {
 	}
 
 	protected static String getPreviewFilePath(
-			long groupId, long fileEntryId, long fileVersionId, String type) {
+		long groupId, long fileEntryId, long fileVersionId, String type) {
 
 		StringBundler sb = null;
 
