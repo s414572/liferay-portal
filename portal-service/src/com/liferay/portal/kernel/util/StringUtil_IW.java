@@ -133,6 +133,33 @@ public class StringUtil_IW {
 		return StringUtil.highlight(s, queryTerms, highlight1, highlight2);
 	}
 
+	public int indexOfAny(java.lang.String s, char[] chars) {
+		return StringUtil.indexOfAny(s, chars);
+	}
+
+	public int indexOfAny(java.lang.String s, char[] chars, int fromIndex) {
+		return StringUtil.indexOfAny(s, chars, fromIndex);
+	}
+
+	public int indexOfAny(java.lang.String s, char[] chars, int fromIndex,
+		int toIndex) {
+		return StringUtil.indexOfAny(s, chars, fromIndex, toIndex);
+	}
+
+	public int indexOfAny(java.lang.String s, java.lang.String[] texts) {
+		return StringUtil.indexOfAny(s, texts);
+	}
+
+	public int indexOfAny(java.lang.String s, java.lang.String[] texts,
+		int fromIndex) {
+		return StringUtil.indexOfAny(s, texts, fromIndex);
+	}
+
+	public int indexOfAny(java.lang.String s, java.lang.String[] texts,
+		int fromIndex, int toIndex) {
+		return StringUtil.indexOfAny(s, texts, fromIndex, toIndex);
+	}
+
 	public java.lang.String insert(java.lang.String s, java.lang.String insert,
 		int offset) {
 		return StringUtil.insert(s, insert, offset);
@@ -515,6 +542,24 @@ public class StringUtil_IW {
 
 	public java.lang.String toHexString(java.lang.Object obj) {
 		return StringUtil.toHexString(obj);
+	}
+
+	public java.lang.String toLowerCase(java.lang.String s) {
+		return StringUtil.toLowerCase(s);
+	}
+
+	public java.lang.String toLowerCase(java.lang.String s,
+		java.util.Locale locale) {
+		return StringUtil.toLowerCase(s, locale);
+	}
+
+	public java.lang.String toUpperCase(java.lang.String s) {
+		return StringUtil.toUpperCase(s);
+	}
+
+	public java.lang.String toUpperCase(java.lang.String s,
+		java.util.Locale locale) {
+		return StringUtil.toUpperCase(s, locale);
 	}
 
 	public java.lang.String trim(java.lang.String s) {
