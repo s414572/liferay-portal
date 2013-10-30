@@ -1,0 +1,22 @@
+<definition>
+	<command name="assertClick">
+		<case locator-key1="NAVIGATION_PENDING">
+			<execute function="AssertClick#assertTextClickAtAndWait" />
+		</case>
+		<case locator-key1="NAVIGATION_APPROVED">
+			<execute function="AssertClick#assertTextClickAtAndWait" />
+		</case>
+		<case locator-key1="NAVIGATION_DENIED">
+			<execute function="AssertClick#assertTextClickAtAndWait" />
+		</case>
+		<case locator-key1="USER_TABLE_REPLY">
+			<execute function="AssertClick#assertTextClickAtAndWait" />
+		</case>
+	</command>
+
+	<command name="assertTextEquals">
+		<case locator-key1="USER_TABLE_NAME">
+			<execute function="AssertTextEquals#assertPartialText" />
+		</case>
+	</command>
+</definition>

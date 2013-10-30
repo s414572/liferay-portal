@@ -45,6 +45,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>MEMBERS_LIST_EMPTY</td>
+	<td>//div[@class='empty']</td>
+	<td></td>
+</tr>
+<tr>
 	<td></td>
 	<td></td>
 	<td></td>

@@ -3,6 +3,9 @@
 		<case locator-key1="ADD_SITE_ROLES_TO_MENULIST_USERS">
 			<execute function="AssertClick#assertTextClickAtAndWait" />
 		</case>
+		<case locator-key1="PENDING_MEMBERSHIP_REQUESTS_LINK">
+			<execute function="AssertClick#assertTextClickAtAndWait" />
+		</case>
 		<case locator-key1="USER_SEARCH_BUTTON">
 			<execute function="AssertClick#assertValueClickAtAndWait" />
 		</case>

@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>CPSitemembershipsViewmembershiprequests</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">CPSitemembershipsViewmembershiprequests</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>CPSitemembershipsViewmembershiprequests</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUCCESS_MESSAGE_1</td>
+	<td>xpath=(//div[@class='portlet-msg-success'])[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUCCESS_MESSAGE_2</td>
+	<td>xpath=(//div[@class='portlet-msg-success'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--NAVIGATION-->
+<tr>
+	<td>NAVIGATION_PENDING</td>
+	<td>//li[contains(@id,'_174_tabs')]/span/a[contains(.,'Pending')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_APPROVED</td>
+	<td>//li[contains(@id,'_174_tabs')]/span/a[contains(.,'Approved')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_DENIED</td>
+	<td>//li[contains(@id,'_174_tabs')]/span/a[contains(.,'Denied')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--USER_TABLE-->
+<tr>
+	<td>USER_TABLE_DATE</td>
+	<td>//tr[contains(@class,'results-row')]/td[contains(@id,'col-date_row')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_TABLE_NAME</td>
+	<td>//tr[contains(@class,'results-row')]/td[contains(@id,'col-user_row')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_TABLE_USER_COMMENTS</td>
+	<td>//tr[contains(@class,'results-row')]/td[contains(@id,'col-user-comments_row')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_TABLE_REPLY_DATE</td>
+	<td>//tr[contains(@class,'results-row')]/td[contains(@id,'col-reply-date_row')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_TABLE_REPLIER</td>
+	<td>//tr[contains(@class,'results-row')]/td[contains(@id,'col-replier_row')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_TABLE_REPLY_COMMENTS</td>
+	<td>//tr[contains(@class,'results-row')]/td[contains(@id,'col-reply-comments_row')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_TABLE_REPLY</td>
+	<td>//a[contains(@id,'menu_reply')]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

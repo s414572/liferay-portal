@@ -125,6 +125,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>GO_TO_SITE_EMPTY</td>
+	<td>//li[@class='empty']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>GO_TO_SITE_NAME</td>
 	<td>//li[contains(@class,'social-office-enabled')]/span[contains(.,'${siteName}')]</td>
 	<td></td>

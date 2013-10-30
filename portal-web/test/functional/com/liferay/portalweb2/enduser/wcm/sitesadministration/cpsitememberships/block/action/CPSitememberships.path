@@ -117,6 +117,17 @@
 	<td></td>
 	<td></td>
 </tr>
+<!--PENDING_MEMBERSHIP_REQUESTS-->
+<tr>
+	<td>PENDING_MEMBERSHIP_REQUESTS_LINK</td>
+	<td>//div[@class='site-membership-type']/span[3]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 <!--USER_SEARCH-->
 <tr>
 	<td>USER_SEARCH_FIELD</td>

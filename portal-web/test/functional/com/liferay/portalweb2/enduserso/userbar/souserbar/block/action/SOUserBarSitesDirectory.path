@@ -40,7 +40,7 @@
 </tr>
 <tr>
 	<td>EMPTY_INFO_MESSAGE</td>
-	<td>//div[@class='empty']</td>
+	<td>//li[@class='empty']</td>
 	<td></td>
 </tr>
 <tr>
@@ -114,8 +114,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>REQUEST_MEMBERSHIP_ICON</td>
+	<td>//a[@class='request-site']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>LEAVE_SITE_ICON</td>
 	<td>//a[@class='leave-site']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MEMBERSHIP_REQUESTED_ICON</td>
+	<td>//span[@class='action requested']</td>
 	<td></td>
 </tr>
 <tr>
