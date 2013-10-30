@@ -56,11 +56,13 @@ public class ViewAction extends WebContentAction {
 		ThemeDisplay themeDisplay = (ThemeDisplay)renderRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
-		long groupId = ParamUtil.getLong(renderRequest, "groupId");
+		long articleGroupId = ParamUtil.getLong(
+			renderRequest, "articleGroupId");
 
-		if (groupId <= 0) {
-			groupId = GetterUtil.getLong(
-				preferences.getValue("groupId", StringPool.BLANK));
+		if (articleGroupId <= 0) {
+			articleGroupId = GetterUtil.getLong(
+				preferences.getValue(
+					"groupId", String.valueOf(themeDisplay.getScopeGroupId())));
 		}
 
 		String articleId = ParamUtil.getString(renderRequest, "articleId");
@@ -82,10 +84,10 @@ public class ViewAction extends WebContentAction {
 		JournalArticle article = null;
 		JournalArticleDisplay articleDisplay = null;
 
-		if ((groupId > 0) && Validator.isNotNull(articleId)) {
+		if ((articleGroupId > 0) && Validator.isNotNull(articleId)) {
 			try {
 				article = JournalArticleLocalServiceUtil.getLatestArticle(
-					groupId, articleId, WorkflowConstants.STATUS_APPROVED);
+					articleGroupId, articleId, WorkflowConstants.STATUS_APPROVED);
 			}
 			catch (NoSuchArticleException nsae) {
 			}
@@ -93,20 +95,21 @@ public class ViewAction extends WebContentAction {
 			try {
 				if (article == null) {
 					article = JournalArticleLocalServiceUtil.getLatestArticle(
-						groupId, articleId, WorkflowConstants.STATUS_ANY);
+						articleGroupId, articleId,
+						WorkflowConstants.STATUS_ANY);
 				}
 
 				double version = article.getVersion();
 
 				articleDisplay = JournalContentUtil.getDisplay(
-					groupId, articleId, version, templateId, viewMode,
+					articleGroupId, articleId, version, templateId, viewMode,
 					languageId, themeDisplay, page, xmlRequest);
 			}
 			catch (Exception e) {
 				renderRequest.removeAttribute(WebKeys.JOURNAL_ARTICLE);
 
 				articleDisplay = JournalContentUtil.getDisplay(
-					groupId, articleId, templateId, viewMode, languageId,
+					articleGroupId, articleId, templateId, viewMode, languageId,
 					themeDisplay, page, xmlRequest);
 			}
 		}
