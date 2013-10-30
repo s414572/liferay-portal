@@ -410,7 +410,7 @@ boolean minQuantityMultiple = PrefsPropsUtil.getBoolean(company.getCompanyId(), 
 	}
 	%>
 
-	<liferay-ui:search-iterator searchContainer="<%= searchContainer %>" />
+	<liferay-ui:search-iterator paginate="<%= false %>" searchContainer="<%= searchContainer %>" />
 
 	<aui:fieldset>
 
