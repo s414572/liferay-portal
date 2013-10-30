@@ -33,6 +33,7 @@ import com.liferay.portal.kernel.util.StreamUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.SystemProperties;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.model.CompanyConstants;
 import com.liferay.portal.util.PortalUtil;
@@ -91,28 +92,40 @@ public abstract class DLPreviewableProcessor implements DLProcessor {
 	}
 
 	public static void deleteFiles(FileEntry fileEntry, String thumbnailType) {
+		deleteFiles(fileEntry, thumbnailType, null);
+	}
+
+	public static void deleteFiles(
+			FileEntry fileEntry, String thumbnailType, String[] previewTypes) {
+
 		deleteFiles(
 			fileEntry.getCompanyId(), fileEntry.getGroupId(),
-			fileEntry.getFileEntryId(), -1, thumbnailType);
+			fileEntry.getFileEntryId(), -1, thumbnailType, previewTypes);
 	}
 
 	public static void deleteFiles(
 		FileVersion fileVersion, String thumbnailType) {
 
+		deleteFiles(fileVersion, thumbnailType, null);
+	}
+
+	public static void deleteFiles(
+		FileVersion fileVersion, String thumbnailType, String[] previewTypes) {
+
 		deleteFiles(
 			fileVersion.getCompanyId(), fileVersion.getGroupId(),
 			fileVersion.getFileEntryId(), fileVersion.getFileVersionId(),
-			thumbnailType);
+			thumbnailType, previewTypes);
 	}
 
 	@Override
 	public void cleanUp(FileEntry fileEntry) {
-		deleteFiles(fileEntry, getThumbnailType());
+		deleteFiles(fileEntry, getThumbnailType(), getPreviewTypes());
 	}
 
 	@Override
 	public void cleanUp(FileVersion fileVersion) {
-		deleteFiles(fileVersion, getThumbnailType());
+		deleteFiles(fileVersion, getThumbnailType(), getPreviewTypes());
 	}
 
 	@Override
@@ -153,12 +166,31 @@ public abstract class DLPreviewableProcessor implements DLProcessor {
 		long companyId, long groupId, long fileEntryId, long fileVersionId,
 		String thumbnailType) {
 
-		try {
-			DLStoreUtil.deleteDirectory(
-				companyId, REPOSITORY_ID,
-				getPathSegment(groupId, fileEntryId, fileVersionId, true));
+		deleteFiles(
+				companyId, groupId, fileEntryId, fileVersionId, thumbnailType,
+				null);
+	}
+
+	protected static void deleteFiles(
+			long companyId, long groupId, long fileEntryId, long fileVersionId,
+			String thumbnailType, String[] previewTypes) {
+
+		String[] previewTypesArray = previewTypes;
+
+		if (previewTypesArray == null) {
+			previewTypesArray = new String[1];
+			previewTypesArray[0] = StringPool.BLANK;
 		}
-		catch (Exception e) {
+
+		for (String type : previewTypesArray) {
+			String path = getPreviewFilePath(
+				groupId, fileEntryId, fileVersionId, type);
+
+			try {
+				DLStoreUtil.deleteFile(companyId, REPOSITORY_ID, path);
+			}
+			catch (Exception e) {
+			}
 		}
 
 		try {
@@ -209,6 +241,28 @@ public abstract class DLPreviewableProcessor implements DLProcessor {
 		if (fileVersionId > 0) {
 			sb.append(StringPool.SLASH);
 			sb.append(fileVersionId);
+		}
+
+		return sb.toString();
+	}
+
+	protected static String getPreviewFilePath(
+			long groupId, long fileEntryId, long fileVersionId, String type) {
+
+		StringBundler sb = null;
+
+		if (Validator.isNotNull(type)) {
+			sb = new StringBundler(3);
+		}
+		else {
+			sb = new StringBundler(1);
+		}
+
+		sb.append(getPathSegment(groupId, fileEntryId, fileVersionId, true));
+
+		if (Validator.isNotNull(type)) {
+			sb.append(StringPool.PERIOD);
+			sb.append(type);
 		}
 
 		return sb.toString();

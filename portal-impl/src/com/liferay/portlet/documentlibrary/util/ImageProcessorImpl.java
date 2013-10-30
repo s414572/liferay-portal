@@ -60,14 +60,14 @@ public class ImageProcessorImpl
 
 	@Override
 	public void cleanUp(FileEntry fileEntry) {
-		deleteFiles(fileEntry, null);
+		deleteFiles(fileEntry, null, getPreviewTypes());
 	}
 
 	@Override
 	public void cleanUp(FileVersion fileVersion) {
 		String type = getThumbnailType(fileVersion);
 
-		deleteFiles(fileVersion, type);
+		deleteFiles(fileVersion, type, getPreviewTypes());
 	}
 
 	@Override
