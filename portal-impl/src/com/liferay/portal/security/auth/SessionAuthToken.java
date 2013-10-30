@@ -42,8 +42,8 @@ public class SessionAuthToken implements AuthToken {
 
 	@Override
 	public void check(HttpServletRequest request) throws PrincipalException {
-		String origin = GetterUtil.getString(request.getAttribute(
-			AuthTokenUtil.AUTH_TOKEN_ORIGIN));
+		String origin = GetterUtil.getString(
+			request.getAttribute(AuthTokenUtil.AUTH_TOKEN_ORIGIN));
 
 		if (Validator.isNotNull(origin)) {
 			origin = LayoutAction.class.getName();

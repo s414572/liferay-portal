@@ -45,8 +45,9 @@ public class AuthTokenUtil {
 
 		try {
 			getAuthToken().check(request);
-		} catch (PortalException e) {
-			throw new PrincipalException("Unable to check CSRF token!", e);
+		}
+		catch (PortalException pe) {
+			throw new PrincipalException("Unable to check CSRF token", pe);
 		}
 	}
 
