@@ -70,7 +70,7 @@ public class MBMessagePermission {
 
 		long groupId = message.getGroupId();
 
-		if (message.isDraft()) {
+		if (message.isDraft() || message.isScheduled()) {
 			if (actionId.equals(ActionKeys.VIEW) &&
 				!contains(permissionChecker, message, ActionKeys.UPDATE)) {
 
