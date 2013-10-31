@@ -33,7 +33,6 @@ import com.liferay.portal.kernel.util.StreamUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.SystemProperties;
-import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.model.CompanyConstants;
 import com.liferay.portal.util.PortalUtil;
@@ -175,22 +174,27 @@ public abstract class DLPreviewableProcessor implements DLProcessor {
 		long companyId, long groupId, long fileEntryId, long fileVersionId,
 		String thumbnailType, String[] previewTypes) {
 
-		String[] previewTypesArray = previewTypes;
-
-		if (previewTypesArray == null) {
-			previewTypesArray = new String[1];
-
-			previewTypesArray[0] = StringPool.BLANK;
-		}
-
-		for (String type : previewTypesArray) {
-			String path = getPreviewFilePath(
-				groupId, fileEntryId, fileVersionId, type);
-
+		if (previewTypes == null) {
 			try {
-				DLStoreUtil.deleteFile(companyId, REPOSITORY_ID, path);
+				DLStoreUtil.deleteFile(
+					companyId, REPOSITORY_ID,
+					getPathSegment(groupId, fileEntryId, fileVersionId, true));
 			}
 			catch (Exception e) {
+			}
+		}
+		else {
+			for (String previewType : previewTypes) {
+				String previewFilePath =
+					getPathSegment(groupId, fileEntryId, fileVersionId, true) +
+						StringPool.PERIOD + previewType;
+
+				try {
+					DLStoreUtil.deleteFile(
+						companyId, REPOSITORY_ID, previewFilePath);
+				}
+				catch (Exception e) {
+				}
 			}
 		}
 
@@ -242,28 +246,6 @@ public abstract class DLPreviewableProcessor implements DLProcessor {
 		if (fileVersionId > 0) {
 			sb.append(StringPool.SLASH);
 			sb.append(fileVersionId);
-		}
-
-		return sb.toString();
-	}
-
-	protected static String getPreviewFilePath(
-		long groupId, long fileEntryId, long fileVersionId, String type) {
-
-		StringBundler sb = null;
-
-		if (Validator.isNotNull(type)) {
-			sb = new StringBundler(3);
-		}
-		else {
-			sb = new StringBundler(1);
-		}
-
-		sb.append(getPathSegment(groupId, fileEntryId, fileVersionId, true));
-
-		if (Validator.isNotNull(type)) {
-			sb.append(StringPool.PERIOD);
-			sb.append(type);
 		}
 
 		return sb.toString();
