@@ -181,7 +181,7 @@ if (PropsValues.PORTLET_ADD_DEFAULT_RESOURCE_CHECK_ENABLED && themeDisplay.getPo
 					</aui:script>
 				</c:when>
 				<c:otherwise>
-					<c:if test="<%= stagingGroup.isStagedRemotely() || GroupPermissionUtil.contains(permissionChecker, liveGroup.getGroupId(), ActionKeys.PUBLISH_STAGING) %>">
+					<c:if test="<%= GroupPermissionUtil.contains(permissionChecker, liveGroup.getGroupId(), ActionKeys.PUBLISH_STAGING) %>">
 
 						<%
 						if (groupId == 0) {
