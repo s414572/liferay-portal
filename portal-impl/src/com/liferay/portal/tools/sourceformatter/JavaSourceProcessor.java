@@ -1264,7 +1264,7 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 
 			if (trimmedLine.startsWith(StringPool.EQUAL)) {
 				processErrorMessage(
-					fileName, "equal: " + fileName + " " + lineCount);
+					fileName, "line break: " + fileName + " " + lineCount);
 			}
 
 			if (line.contains("ActionForm form")) {
@@ -1724,7 +1724,7 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 
 							processErrorMessage(
 								fileName,
-								"new line: " + fileName + " " + lineCount);
+								"line break: " + fileName + " " + lineCount);
 						}
 					}
 
