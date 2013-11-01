@@ -1733,7 +1733,14 @@ AUI.add(
 							instance._appendStructureFieldOptionsBuffer(source, buffer, generateArticleContent);
 						}
 						else {
-							var content = fieldInstance.getContent(source) || '';
+							var content = null;
+
+							if (type == 'boolean') {
+								content = fieldInstance.getContent(source);
+							}
+							else {
+								content = fieldInstance.getContent(source) || '';
+							}
 
 							buffer.push('<![CDATA[' + content + ']]>');
 						}
