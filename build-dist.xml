@@ -924,7 +924,7 @@ release was successful.</echo>
 				<var name="java.security.config" value="" />
 			</then>
 			<else>
-				<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy=@app.server.geronimo.dir@/etc/server.policy" />
+				<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy==@app.server.geronimo.dir@/etc/server.policy" />
 			</else>
 		</if>
 
@@ -1226,7 +1226,7 @@ release was successful.</echo>
 						<var name="java.security.config" value="" />
 					</then>
 					<else>
-						<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy=${app.server.jboss.dir}/bin/server.policy -Djboss.home.dir=${app.server.jboss.dir}" />
+						<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy==${app.server.jboss.dir}/bin/server.policy -Djboss.home.dir=${app.server.jboss.dir}" />
 					</else>
 				</if>
 
@@ -1440,7 +1440,7 @@ release was successful.</echo>
 				<var name="java.security.config" value="" />
 			</then>
 			<else>
-				<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy=${app.server.jetty.dir}/lib/policy/server.policy -Djetty.home=${app.server.jetty.dir}" />
+				<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy==${app.server.jetty.dir}/lib/policy/server.policy -Djetty.home=${app.server.jetty.dir}" />
 			</else>
 		</if>
 
@@ -1617,6 +1617,16 @@ release was successful.</echo>
 			<replacevalue><![CDATA[javase-packages ${javase-${javase.version}}, com.sun.crypto.provider, com.sun.jmx.interceptor, com.sun.jmx.mbeanserver, org.apache.felix.framework]]></replacevalue>
 		</replace>
 
+		<if>
+			<equals arg1="${java.security.manager.option}" arg2="" />
+			<then>
+				<var name="java.security.config" value="" />
+			</then>
+			<else>
+				<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy==$JONAS_ROOT/conf/java.policy" />
+			</else>
+		</if>
+
 		<replace file="${app.server.jonas.bin.dir}/setenv">
 			<replacefilter token="@java.security.config@" value="${java.security.config}" />
 			<replacetoken><![CDATA[export JAVA_OPTS]]></replacetoken>
@@ -1691,7 +1701,7 @@ release was successful.</echo>
 				<var name="java.security.config" value="" />
 			</then>
 			<else>
-				<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy=${app.server.resin.dir}/conf/server.policy" />
+				<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy==${app.server.resin.dir}/conf/server.policy" />
 			</else>
 		</if>
 
@@ -1805,7 +1815,7 @@ release was successful.</echo>
 				<var name="java.security.config" value="" />
 			</then>
 			<else>
-				<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy==$CATALINA_BASE/conf/catalina.policy" />
+				<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy===$CATALINA_BASE/conf/catalina.policy" />
 			</else>
 		</if>
 
