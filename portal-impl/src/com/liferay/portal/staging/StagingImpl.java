@@ -19,6 +19,7 @@ import com.liferay.portal.NoSuchGroupException;
 import com.liferay.portal.NoSuchLayoutBranchException;
 import com.liferay.portal.NoSuchLayoutException;
 import com.liferay.portal.NoSuchLayoutRevisionException;
+import com.liferay.portal.PwdEncryptorException;
 import com.liferay.portal.RemoteExportException;
 import com.liferay.portal.RemoteOptionsException;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -73,6 +74,7 @@ import com.liferay.portal.security.auth.PrincipalException;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.security.permission.PermissionThreadLocal;
+import com.liferay.portal.security.pwd.PwdEncryptor;
 import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.service.LayoutBranchLocalServiceUtil;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
@@ -252,9 +254,7 @@ public class StagingImpl implements Staging {
 
 		String url = sb.toString();
 
-		HttpPrincipal httpPrincipal = new HttpPrincipal(
-			url, user.getEmailAddress(), user.getPassword(),
-			user.getPasswordEncrypted());
+		HttpPrincipal httpPrincipal = getHttpPrincipal(url, user);
 
 		// Ping remote host and verify that the group exists
 
@@ -1631,6 +1631,34 @@ public class StagingImpl implements Staging {
 		return cal;
 	}
 
+	protected HttpPrincipal getHttpPrincipal(String url, User user) {
+		String password = user.getPassword();
+		boolean digested = user.getPasswordEncrypted();
+
+		if (Validator.isNotNull(
+				PropsValues.TUNNEL_SERVLET_BASIC_AUTH_SHARED_KEY)) {
+
+			try {
+				String key =
+					user.getEmailAddress() +
+						PropsValues.TUNNEL_SERVLET_BASIC_AUTH_SHARED_KEY;
+
+				password = PwdEncryptor.encrypt(
+					PwdEncryptor.TYPE_SHA, key, null);
+
+				digested = true;
+			}
+			catch (PwdEncryptorException pee) {
+				_log.error(pee, pee);
+			}
+		}
+
+		HttpPrincipal httpPrincipal = new HttpPrincipal(
+			url, user.getEmailAddress(), password, digested);
+
+		return httpPrincipal;
+	}
+
 	protected int getInteger(
 		PortletRequest portletRequest, Group group, String param) {
 
@@ -2347,9 +2375,7 @@ public class StagingImpl implements Staging {
 			remoteAddress, remotePort, remotePathContext, secureConnection,
 			GroupConstants.DEFAULT_LIVE_GROUP_ID, false);
 
-		HttpPrincipal httpPrincipal = new HttpPrincipal(
-			url, user.getEmailAddress(), user.getPassword(),
-			user.getPasswordEncrypted());
+		HttpPrincipal httpPrincipal = getHttpPrincipal(url, user);
 
 		// Ping remote host and verify that the group exists
 
