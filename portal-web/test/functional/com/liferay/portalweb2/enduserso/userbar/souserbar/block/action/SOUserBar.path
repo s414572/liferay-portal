@@ -90,7 +90,7 @@
 </tr>
 <tr>
 	<td>EDIT_CONTROLS_NOT_FLAGGED</td>
-	<td>//body[@class='normal yui3-skin-sam controls-hidden signed-in private-page user-site user-group dockbar-ready show-dockbar'] 	</td>
+	<td>//body[contains(@class,'controls-hidden')] 	</td>
 	<td></td>
 </tr>
 <tr>

@@ -39,6 +39,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>NEXT_BUTTON</td>
+	<td>//img[@alt='Next']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>CONFIRMATION</td>
 	<td></td>
 	<td></td>
@@ -128,6 +133,62 @@
 <tr>
 	<td>EVENT_TABLE_ACTIONS_INCREMENT</td>
 	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr[contains(.,'${number}')]/td[4]/span[@title='Actions']/ul/li/strong/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--EVENTS_EVENT_TABLE-->
+<tr>
+	<td>EVENTS_EVENT_TABLE_DATE</td>
+	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr/td[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENTS_EVENT_TABLE_DATE_INCREMENT</td>
+	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr[contains(.,'${key_eventTitle}${key_number}')]/td[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENTS_EVENT_TABLE_TIME</td>
+	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr/td[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENTS_EVENT_TABLE_TIME_INCREMENT</td>
+	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr[contains(.,'${key_eventTitle}${key_number}')]/td[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENTS_EVENT_TABLE_TITLE</td>
+	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr/td[3]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENTS_EVENT_TABLE_TITLE_INCREMENT</td>
+	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr[contains(.,'${key_eventTitle}${key_number}')]/td[3]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENTS_EVENT_TABLE_TYPE</td>
+	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr/td[4]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENTS_EVENT_TABLE_TYPE_INCREMENT</td>
+	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr[contains(.,'${key_eventTitle}${key_number}')]/td[4]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENTS_EVENT_TABLE_ACTIONS</td>
+	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr/td[6]/span[@title='Actions']/ul/li/strong/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENTS_EVENT_TABLE_ACTIONS_INCREMENT</td>
+	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr[contains(.,'${key_eventTitle}${key_number}')]/td[6]/span[@title='Actions']/ul/li/strong/a</td>
 	<td></td>
 </tr>
 <tr>

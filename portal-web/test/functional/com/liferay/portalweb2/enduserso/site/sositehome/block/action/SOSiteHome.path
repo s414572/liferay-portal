@@ -192,10 +192,91 @@
 	<td></td>
 	<td></td>
 </tr>
+<!--RSS-->
+<tr>
+	<td>RSS_OPTIONS</td>
+	<td>//header[contains(.,'RSS')]//strong/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RSS_FEED_TITLE</td>
+	<td>//div[contains(.,'${feedTitle}')]/div[@class='feed-title']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RSS_FEED_PUBLISHED_DATE</td>
+	<td>//div[contains(.,'${feedTitle}')]/div[contains(@class,'feed-published-date')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RSS_FEED_DESCRIPTION</td>
+	<td>//div[contains(.,'${feedTitle}')]/div[@class='feed-description']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RSS_FEED_IMAGE</td>
+	<td>//a[contains(@title,'${feedTitle}')]/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RSS_FEED_ENTRY_TITLE_INCREMENT</td>
+	<td>xPath=(//div[contains(.,'${feedTitle}')]/div[@class='feed-entries']/div[@class='feed-entry']/span[@class='feed-entry-title'])[${feedEntryNumber}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RSS_FEED_ENTRY_EXPAND_BUTTON_INCREMENT</td>
+	<td>xPath=(//div[contains(.,'${feedTitle}')]/div[@class='feed-entries']/div[@class='feed-entry']/img)[${feedEntryNumber}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RSS_FEED_ENTRY_DATE_AND_TIME_INCREMENT</td>
+	<td>xPath=(//div[contains(.,'${feedTitle}')]/div[@class='feed-entries']/div[@class='feed-entry']/div[contains(@class,'feed-entry-content')]/div[@class='feed-date'])[${feedEntryNumber}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RSS_FEED_ENTRY_AUTHOR_INCREMENT</td>
+	<td>xPath=(//div[contains(.,'${feedTitle}')]/div[@class='feed-entries']/div[@class='feed-entry']/div[contains(@class,'feed-entry-content')]/span[@class='feed-entry-author'])[${feedEntryNumber}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RSS_FEED_ENTRY_CONTENT_INCREMENT</td>
+	<td>xPath=(//div[contains(.,'${feedTitle}')]/div[@class='feed-entries']/div[@class='feed-entry']/div[contains(@class,'feed-entry-content')])[${feedEntryNumber}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RSS_FEED_ENTRY_CONTENT_READ_MORE_INCREMENT</td>
+	<td>xPath=(//div[contains(.,'${feedTitle}')]/div[@class='feed-entries']/div[@class='feed-entry']/div[contains(@class,'feed-entry-content')]/a)[${feedEntryNumber}]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 <!--EVENTS_DISPLAY-->
+<tr>
+	<td>EVENTS_DISPLAY_OPTIONS</td>
+	<td>//strong/a[contains(@id,'eventsdisplayportlet')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENTS_DISPLAY_TODAYS_EVENTS</td>
+	<td>//div[@class='today-events']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENTS_DISPLAY_UPCOMING_EVENTS</td>
+	<td>//div[@class='upcoming-events']</td>
+	<td></td>
+</tr>
 <tr>
 	<td>EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE</td>
 	<td>//div[@class='today-events']//span[@class='event-name']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_INCREMENT</td>
+	<td>//div[@class='today-events']//div[@class='event' and contains(.,'${number}')]/span[@class='event-name']/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -204,13 +285,33 @@
 	<td></td>
 </tr>
 <tr>
+	<td>EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME_INCREMENT</td>
+	<td>//div[@class='today-events']//div[@class='event' and contains(.,'${number}')]/span[@class='event-time']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE</td>
 	<td>//div[@class='upcoming-events']//span[@class='event-name']/a</td>
 	<td></td>
 </tr>
 <tr>
+	<td>EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE_INCREMENT</td>
+	<td>//div[@class='upcoming-events']//div[@class='event' and contains(.,'${number}')]/span[@class='event-name']/a</td>
+	<td></td>
+</tr>
+<tr>
 	<td>EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME</td>
 	<td>//div[@class='upcoming-events']//span[@class='event-time']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME_INCREMENT</td>
+	<td>//div[@class='upcoming-events']//div[@class='event' and contains(.,'${number}')]/span[@class='event-time']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
 	<td></td>
 </tr>
 </tbody>

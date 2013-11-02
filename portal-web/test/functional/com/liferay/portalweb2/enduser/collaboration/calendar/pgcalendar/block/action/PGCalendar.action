@@ -12,8 +12,17 @@
 		<case locator-key1="VIEW_EVENTS">
 			<execute function="AssertClick#assertTextClickAtAndWait" />
 		</case>
+		<case locator-key1="VIEW_DAY">
+			<execute function="AssertClick#assertTextClickAtAndWait" />
+		</case>
 		<case locator-key1="VIEW_SUMMARY">
 			<execute function="AssertClick#assertTextClickAtAndWait" />
+		</case>
+	</command>
+
+	<command name="click">
+		<case locator-key1="NEXT_BUTTON">
+			<execute function="Click#clickAtAndWait" />
 		</case>
 	</command>
 </definition>

@@ -167,8 +167,23 @@
 	<td></td>
 </tr>
 <tr>
-	<td>ANNOUNCEMENTS_ENTRY_MARK_AS_READ_LINK</td>
+	<td>ANNOUNCEMENTS_ENTRY_MARK_LINK</td>
 	<td>//span[@class='action control-entry']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_ENTRY_READ_ENTRIES_DROPDOWN</td>
+	<td>//div[contains(@class,'read-entries')]/div/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_ENTRY_COLLAPSED</td>
+	<td>//div[contains(@class,'content-collapsed')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_ENTRY_EXPANDED</td>
+	<td>//div[contains(@class,'content-expande')]</td>
 	<td></td>
 </tr>
 <tr>
