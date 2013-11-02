@@ -14,7 +14,29 @@
 	</command>
 
 	<command name="addPG">
-		<execute action="PGCalendar#assertClick" locator-key1="VIEW_SUMMARY" value1="Summary" />
+		<if>
+			<isset var="daysIntoFuture" />
+			<then>
+				<var name="dayNumber" value="0" />
+
+				<execute action="PGCalendar#assertClick" locator-key1="VIEW_DAY" value1="Day" />
+
+				<while>
+					<not>
+						<equals arg1="${dayNumber}" arg2="${daysIntoFuture}" />
+					</not>
+					<then>
+						<var name="dayNumber" value="${dayNumber?increment()}" />
+
+						<execute action="PGCalendar#click" locator-key1="NEXT_BUTTON" />
+					</then>
+				</while>
+			</then>
+			<else>
+				<execute action="PGCalendar#assertClick" locator-key1="VIEW_SUMMARY" value1="Summary" />
+			</else>
+		</if>
+
 		<execute action="PGCalendar#assertClick" locator-key1="ADD_EVENT_BUTTON" value1="Add Event" />
 
 		<if>
@@ -27,6 +49,7 @@
 				<execute action="PGCalendarAddEvent#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
 
 				<execute action="PGCalendar#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
+				<execute action="PGCalendar#assertClick" locator-key1="VIEW_SUMMARY" value1="Summary" />
 				<execute action="PGCalendar#assertElementPresent" locator-key1="EVENT_TABLE_TIME_INCREMENT" />
 				<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TITLE_INCREMENT" value1="${eventTitle}${number}" />
 				<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TYPE_INCREMENT" value1="Anniversary" />
@@ -38,6 +61,7 @@
 				<execute action="PGCalendarAddEvent#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
 
 				<execute action="PGCalendar#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
+				<execute action="PGCalendar#assertClick" locator-key1="VIEW_SUMMARY" value1="Summary" />
 				<execute action="PGCalendar#assertElementPresent" locator-key1="EVENT_TABLE_TIME" />
 				<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TITLE" value1="${eventTitle}" />
 				<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TYPE" value1="Anniversary" />
@@ -124,12 +148,33 @@
 	</command>
 
 	<command name="viewDetailsPG">
-		<execute action="PGCalendarEventDetails#assertTextEquals" locator-key1="EVENT_TITLE" value1="${eventTitle}" />
+		<if>
+			<isset var="number" />
+			<then>
+				<var name="number" value="${number}" />
+				<execute action="PGCalendarEventDetails#assertTextEquals" locator-key1="EVENT_TITLE" value1="${eventTitle}${number}" />
+			</then>
+			<else>
+				<execute action="PGCalendarEventDetails#assertTextEquals" locator-key1="EVENT_TITLE" value1="${eventTitle}" />
+			</else>
+		</if>
+
 		<execute action="PGCalendarEventDetails#assertTextEquals" locator-key1="START_DATE" value1="Start Date:" />
 		<execute action="PGCalendarEventDetails#assertTextEquals" locator-key1="END_DATE" value1="End Date:" />
 		<execute action="PGCalendarEventDetails#assertTextEquals" locator-key1="DURATION" value1="Duration:" />
 		<execute action="PGCalendarEventDetails#assertTextEquals" locator-key1="TYPE" value1="Type:" />
-		<execute action="PGCalendarEventDetails#assertTextEquals" locator-key1="EVENT_DESCRIPTION" value1="${eventDescription}" />
+
+		<if>
+			<isset var="number" />
+			<then>
+				<var name="number" value="${number}" />
+				<execute action="PGCalendarEventDetails#assertTextEquals" locator-key1="EVENT_DESCRIPTION" value1="${eventDescription}${number}" />
+			</then>
+			<else>
+				<execute action="PGCalendarEventDetails#assertTextEquals" locator-key1="EVENT_DESCRIPTION" value1="${eventDescription}" />
+			</else>
+		</if>
+
 		<execute action="PGCalendarEventDetails#assertTextEquals" locator-key1="YOUR_RATING" value1="Your Rating" />
 		<execute action="PGCalendarEventDetails#assertTextEquals" locator-key1="AVERAGE" value1="Average (0 Votes)" />
 		<execute action="PGCalendarEventDetails#assertTextEquals" locator-key1="NO_COMMENTS_YET" value1="No comments yet. Be the first. Subscribe to Comments" />
