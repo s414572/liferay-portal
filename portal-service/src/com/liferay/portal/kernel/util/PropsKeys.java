@@ -2181,6 +2181,8 @@ public interface PropsKeys {
 
 	public static final String TRANSLATOR_DEFAULT_LANGUAGES = "translator.default.languages";
 
+	public static final String TUNNEL_SERVLET_BASIC_AUTH_SHARED_KEY = "tunnel.servlet.basic.auth.shared.key";
+
 	public static final String UPGRADE_DATABASE_TRANSACTIONS_DISABLED = "upgrade.database.transactions.disabled";
 
 	public static final String UPGRADE_PROCESSES = "upgrade.processes";

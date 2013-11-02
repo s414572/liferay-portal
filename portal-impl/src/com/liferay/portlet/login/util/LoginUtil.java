@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.login.util;
 
+import com.liferay.portal.PwdEncryptorException;
 import com.liferay.portal.kernel.cluster.ClusterExecutorUtil;
 import com.liferay.portal.kernel.cluster.ClusterNode;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -39,6 +40,7 @@ import com.liferay.portal.model.UserTracker;
 import com.liferay.portal.security.auth.AuthException;
 import com.liferay.portal.security.auth.AuthenticatedUserUUIDStoreUtil;
 import com.liferay.portal.security.auth.Authenticator;
+import com.liferay.portal.security.pwd.PwdEncryptor;
 import com.liferay.portal.service.CompanyLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.ServiceContextFactory;
@@ -99,6 +101,12 @@ public class LoginUtil {
 			// authenticate tunnel requests.
 
 			long companyId = company.getCompanyId();
+
+			userId = authenticateWithSharedKey(companyId, login, password);
+
+			if (userId > 0) {
+				return userId;
+			}
 
 			userId = UserLocalServiceUtil.authenticateForBasic(
 				companyId, CompanyConstants.AUTH_TYPE_EA, login, password);
@@ -518,6 +526,43 @@ public class LoginUtil {
 			body, serviceContext);
 
 		SessionMessages.add(actionRequest, "request_processed", toAddress);
+	}
+
+	protected static long authenticateWithSharedKey(
+			long companyId, String login, String password)
+		throws SystemException {
+
+		if (Validator.isNull(
+				PropsValues.TUNNEL_SERVLET_BASIC_AUTH_SHARED_KEY)) {
+
+			return 0;
+		}
+
+		try {
+			String encryptedKey =
+				PwdEncryptor.encrypt(
+					PwdEncryptor.TYPE_SHA,
+					login + PropsValues.TUNNEL_SERVLET_BASIC_AUTH_SHARED_KEY,
+					null);
+
+			if (!encryptedKey.equals(password)) {
+				return 0;
+			}
+		}
+		catch (PwdEncryptorException e) {
+			_log.error(e);
+
+			return 0;
+		}
+
+		User user = UserLocalServiceUtil.fetchUserByEmailAddress(
+			companyId, login);
+
+		if (user != null) {
+			return user.getUserId();
+		}
+
+		return 0;
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(LoginUtil.class);
