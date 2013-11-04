@@ -386,6 +386,51 @@ public class StringUtil {
 		}
 	}
 
+	public static boolean equalsIgnoreCase(String s1, String s2) {
+		if (s1 == s2) {
+			return true;
+		}
+
+		if ((s1 == null) || (s2 == null)) {
+			return false;
+		}
+
+		if (s1.length() != s2.length()) {
+			return false;
+		}
+
+		for (int i = 0; i < s1.length(); i++) {
+			char c1 = s1.charAt(i);
+
+			char c2 = s2.charAt(i);
+
+			if (c1 == c2) {
+				continue;
+			}
+
+			if ((c1 > 127) || (c2 > 127)) {
+
+				// Georgian alphabet needs to check both upper and lower case
+
+				if ((Character.toLowerCase(c1) == Character.toLowerCase(c2)) ||
+					(Character.toUpperCase(c1) == Character.toUpperCase(c2))) {
+
+					continue;
+				}
+
+				return false;
+			}
+
+			int delta = c1 - c2;
+
+			if ((delta != 32) && (delta != -32)) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
 	/**
 	 * Returns the substring of each character instance in string <code>s</code>
 	 * that is found in the character array <code>chars</code>. The substring of
