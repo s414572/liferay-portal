@@ -861,7 +861,10 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 			Element repositoryEntriesElement, Folder folder, boolean recurse)
 		throws Exception {
 
-		if (!portletDataContext.isWithinDateRange(folder.getLastPostDate())) {
+		if (!portletDataContext.isWithinDateRange(folder.getLastPostDate()) &&
+			!hasUpdatedEntriesWithinDateRange(
+				portletDataContext, folder, recurse)) {
+
 			return;
 		}
 
@@ -1341,6 +1344,55 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 		sb.append(".xml");
 
 		return sb.toString();
+	}
+
+	protected static boolean hasUpdatedEntriesWithinDateRange(
+			PortletDataContext portletDataContext, Folder folder,
+			boolean recurse)
+		throws Exception {
+
+		if (recurse) {
+			List<Folder> subfolders = FolderUtil.findByR_P(
+				folder.getRepositoryId(), folder.getFolderId());
+
+			for (Folder subfolder : subfolders) {
+				if (portletDataContext.isWithinDateRange(
+						subfolder.getLastPostDate()) ||
+					hasUpdatedEntriesWithinDateRange(
+						portletDataContext, subfolder, recurse)) {
+
+					return true;
+				}
+			}
+		}
+
+		List<FileEntry> fileEntries = FileEntryUtil.findByR_F(
+			folder.getRepositoryId(), folder.getFolderId());
+
+		for (FileEntry fileEntry : fileEntries) {
+			if (portletDataContext.isWithinDateRange(
+					fileEntry.getModifiedDate())) {
+
+				return true;
+			}
+		}
+
+		if (!portletDataContext.getBooleanParameter(_NAMESPACE, "shortcuts")) {
+			return false;
+		}
+
+		List<DLFileShortcut> fileShortcuts = DLFileShortcutUtil.findByG_F(
+			folder.getRepositoryId(), folder.getFolderId());
+
+		for (DLFileShortcut fileShortcut : fileShortcuts) {
+			if (portletDataContext.isWithinDateRange(
+					fileShortcut.getModifiedDate())) {
+
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	protected static void importFileEntryType(
