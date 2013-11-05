@@ -271,7 +271,7 @@ if (!partDayResults.isEmpty()) {
 
 			double eventBoxLength = (((eventDisplayDuration / 60) * 50) - 12);
 
-			eventBoxLength = Math.round(eventBoxLength);
+			eventBoxLength = Math.ceil(eventBoxLength);
 
 			if ((eventBoxLength + eventStartPos) > 1186) {
 				eventBoxLength -= (eventBoxLength + eventStartPos) - 1186; // = (24 * 50) - 4
