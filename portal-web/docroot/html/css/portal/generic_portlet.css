@@ -45,6 +45,8 @@
 
 .lfr-table tr td, .lfr-table tr th {
 	padding: 0 5px;
+
+	@include word-break(break-all);
 }
 
 .lfr-table tr th {
