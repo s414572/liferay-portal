@@ -1733,13 +1733,10 @@ AUI.add(
 							instance._appendStructureFieldOptionsBuffer(source, buffer, generateArticleContent);
 						}
 						else {
-							var content = null;
+							var content = fieldInstance.getContent(source);
 
-							if (type == 'boolean') {
-								content = fieldInstance.getContent(source);
-							}
-							else {
-								content = fieldInstance.getContent(source) || '';
+							if (type !== 'boolean' && !content) {
+								content = '';
 							}
 
 							buffer.push('<![CDATA[' + content + ']]>');
