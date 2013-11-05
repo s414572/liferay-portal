@@ -89,7 +89,125 @@
 	<td></td>
 	<td></td>
 </tr>
+<!--ANNOUNCEMENTS-->
+<tr>
+	<td>ANNOUNCEMENTS_OPTIONS</td>
+	<td>//header[contains(.,'Announcements')]//strong/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_CLOSE</td>
+	<td>//header[contains(.,'Announcements')]//span[contains(@class,'portlet-close-icon')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_ADD_ENTRY_BUTTON</td>
+	<td>//input[@value='Add Entry']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_MANAGE_ENTRIES_BUTTON</td>
+	<td>//input[@value='Manage Entries']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_ENTRY_ACTION</td>
+	<td>//div[@class='entry-action']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_ENTRY_AUTHOR</td>
+	<td>//div[@class='entry-action']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_ENTRY_TITLE</td>
+	<td>//div[@class='entry-body']/div[@class='title']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_ENTRY_CONTENT</td>
+	<td>//div[@class='entry-content']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_ENTRY_EDIT_LINK</td>
+	<td>//span[@class='action edit-entry']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_ENTRY_DELETE_LINK</td>
+	<td>//span[@class='action delete-entry']/span/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_ENTRY_MARK_LINK</td>
+	<td>//span[@class='action control-entry']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_ENTRY_READ_ENTRIES_DROPDOWN</td>
+	<td>//div[contains(@class,'read-entries')]/div/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_ENTRY_COLLAPSED</td>
+	<td>//div[contains(@class,'content-collapsed')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ANNOUNCEMENTS_ENTRY_EXPANDED</td>
+	<td>//div[contains(@class,'content-expande')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--WELCOME-->
+<tr>
+	<td>ACTIVITIES_OPTIONS</td>
+	<td>//header[contains(.,'Activities')]//strong/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVITIES_CLOSE</td>
+	<td>//header[contains(.,'Activities')]//span[contains(@class,'portlet-close-icon')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--WELCOME-->
+<tr>
+	<td>WELCOME_OPTIONS</td>
+	<td>//header[contains(.,'Welcome')]//strong/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>WELCOME_CLOSE</td>
+	<td>//header[contains(.,'Welcome')]//span[contains(@class,'portlet-close-icon')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 <!--BOOKMARKS-->
+<tr>
+	<td>BOOKMARKS_OPTIONS</td>
+	<td>//header[contains(.,'Bookmarks')]//strong/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BOOKMARKS_CLOSE</td>
+	<td>//header[contains(.,'Bookmarks')]//span[contains(@class,'portlet-close-icon')]/a</td>
+	<td></td>
+</tr>
 <tr>
 	<td>BOOKMARKS_ADD_ENTRY_LINK</td>
 	<td>//a[contains(.,'Add Entry')]</td>
@@ -199,6 +317,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>RSS_CLOSE</td>
+	<td>//header[contains(.,'RSS')]//span[contains(@class,'portlet-close-icon')]/a</td>
+	<td></td>
+</tr>
+<tr>
 	<td>RSS_FEED_TITLE</td>
 	<td>//div[contains(.,'${feedTitle}')]/div[@class='feed-title']</td>
 	<td></td>
@@ -253,10 +376,31 @@
 	<td></td>
 	<td></td>
 </tr>
+<!--RECENT_DOWNLOADS-->
+<tr>
+	<td>RECENT_DOWNLOADS_OPTIONS</td>
+	<td>//header[contains(.,'Recent Downloads')]//strong/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RECENT_DOWNLOADS_CLOSE</td>
+	<td>//header[contains(.,'Recent Downloads')]//span[contains(@class,'portlet-close-icon')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 <!--EVENTS_DISPLAY-->
 <tr>
 	<td>EVENTS_DISPLAY_OPTIONS</td>
-	<td>//strong/a[contains(@id,'eventsdisplayportlet')]</td>
+	<td>//header[contains(.,'Events')]//strong/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EVENTS_DISPLAY_CLOSE</td>
+	<td>//header[contains(.,'Events')]//span[contains(@class,'portlet-close-icon')]/a</td>
 	<td></td>
 </tr>
 <tr>

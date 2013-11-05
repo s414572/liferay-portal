@@ -136,7 +136,7 @@
 </tr>
 <tr>
 	<td>USER_SEARCH_BUTTON</td>
-	<td>//input[@value='Search']</td>
+	<td>//form[contains(@id,'_174_')]//input[@value='Search']</td>
 	<td></td>
 </tr>
 <tr>
@@ -147,12 +147,17 @@
 <!--USER_TABLE-->
 <tr>
 	<td>USER_TABLE_NAME_1</td>
-	<td>//div[@id='_174_usersSearchContainerSearchContainer']//tr[contains(@class,'portlet-section-body results-row')]/td[contains(@class,'col-1 col-name')]</td>
+	<td>//div[@id='_174_usersSearchContainerSearchContainer']//tr[contains(@class,'results-row')]/td[contains(@class,'col-1 col-name')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>USER_TABLE_SCREEN_NAME_1</td>
-	<td>//div[@id='_174_usersSearchContainerSearchContainer']//tr[contains(@class,'portlet-section-body results-row')]/td[contains(@class,'col-2 col-screen-name')]</td>
+	<td>//div[@id='_174_usersSearchContainerSearchContainer']//tr[contains(@class,'results-row')]/td[contains(@class,'col-2 col-screen-name')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_TABLE_SITE_ROLES_1</td>
+	<td>//div[@id='_174_usersSearchContainerSearchContainer']//tr[contains(@class,'results-row')]/td[contains(@class,'col-3 col-site-roles')]</td>
 	<td></td>
 </tr>
 <tr>
