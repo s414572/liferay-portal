@@ -468,98 +468,7 @@
 					</else>
 				</if>
 				
-				<if>
-					<isset var="number" />
-					<then>
-						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_DESCRIPTION" value1="${taskDescription}${number}" />
-					</then>
-					<else>
-						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_DESCRIPTION" value1="${taskDescription}" />
-					</else>
-				</if>
-
-				<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_ASSIGNEE" value1="Assigned to ${taskAssignee}" />
-				<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_REPORTER" value1="Created by ${taskReporter}" />
-
-				<if>
-					<isset var="percentCompletion" />
-					<then>
-						<if>
-							<equals arg1="${percentCompletion}" arg2="100" />
-							<then>
-								<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_STATUS" value1="Resolved" />
-							</then>
-							<else>
-								<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_STATUS" value1="${percentCompletion}% Complete" />
-							</else>
-						</if>
-					</then>
-					<else>
-						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_STATUS" value1="Open" />
-					</else>
-				</if>						
-
-				<if>
-					<isset var="taskPriority" />
-					<then>
-						<if>
-							<equals arg1="${taskPriority}" arg2="High" />
-							<then>
-								<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_PRIORITY_HIGH" value1="${taskPriority}" />
-							</then>
-							<elseif>
-								<equals arg1="${taskPriority}" arg2="Low" />
-								<then>
-									<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_PRIORITY_LOW" value1="${taskPriority}" />
-								</then>
-							</elseif>
-						</if>
-					</then>
-					<else>
-						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_PRIORITY_NORMAL" value1="Normal" />
-					</else>
-				</if>
-
-				<if>
-					<equals arg1="${dueDate}" arg2="true" />
-					<then>
-						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_DUE_DATE" value1="3/16/16" />						
-					</then>
-					<elseif>
-						<equals arg1="${dueDateEdit}" arg2="true" />
-						<then>
-							<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_DUE_DATE" value1="4/17/17" />
-						</then>
-					</elseif>
-					<else>
-						<execute action="SOTasksTask#assertElementNotPresent" locator-key1="TASK_DUE_DATE" />		
-					</else>
-				</if>
-
-				<if>
-					<isset var="numberOfTags" />
-					<then>
-						<var name="tagNumber" value="0" />
-
-						<while>
-							<not>
-								<equals arg1="${tagNumber}" arg2="${numberOfTags}" />
-							</not>
-							<then>
-								<var name="tagNumber" value="${tagNumber?increment()}" />
-			
-								<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_TAG" value1="tag${tagNumber}" />
-							</then>
-						</while>
-					</then>
-				</if>
-
-				<if>
-					<isset var="tagNumber" />
-					<then>
-						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_TAG" value1="tag${tagNumber}" />
-					</then>
-				</if>
+				<execute macro="SOTasks#viewTaskDetails" />
 			</then>
 			<else>
 				<execute action="SOTasks#assertTextEquals" locator-key1="INFO_MESSAGE" value1="No tasks were found." />
@@ -630,102 +539,106 @@
 					</else>
 				</if>
 				
-				<if>
-					<isset var="number" />
-					<then>
-						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_DESCRIPTION" value1="${taskDescription}${number}" />
-					</then>
-					<else>
-						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_DESCRIPTION" value1="${taskDescription}" />
-					</else>
-				</if>
-
-				<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_ASSIGNEE" value1="Assigned to ${taskAssignee}" />
-				<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_REPORTER" value1="Created by ${taskReporter}" />
-
-				<if>
-					<isset var="percentCompletion" />
-					<then>
-						<if>
-							<equals arg1="${percentCompletion}" arg2="100" />
-							<then>
-								<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_STATUS" value1="Resolved" />
-							</then>
-							<else>
-								<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_STATUS" value1="${percentCompletion}% Complete" />
-							</else>
-						</if>
-					</then>
-					<else>
-						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_STATUS" value1="Open" />
-					</else>
-				</if>
-
-				<if>
-					<isset var="taskPriority" />
-					<then>
-						<if>
-							<equals arg1="${taskPriority}" arg2="High" />
-							<then>
-								<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_PRIORITY_HIGH" value1="${taskPriority}" />
-							</then>
-							<elseif>
-								<equals arg1="${taskPriority}" arg2="Low" />
-								<then>
-									<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_PRIORITY_LOW" value1="${taskPriority}" />
-								</then>
-							</elseif>
-						</if>
-					</then>
-					<else>
-						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_PRIORITY_NORMAL" value1="Normal" />
-					</else>
-				</if>
-
-				<if>
-					<equals arg1="${dueDate}" arg2="true" />
-					<then>
-						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_DUE_DATE" value1="3/16/16" />						
-					</then>
-					<elseif>
-						<equals arg1="${dueDateEdit}" arg2="true" />
-						<then>
-							<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_DUE_DATE" value1="4/17/17" />
-						</then>
-					</elseif>
-					<else>
-						<execute action="SOTasksTask#assertElementNotPresent" locator-key1="TASK_DUE_DATE" />		
-					</else>
-				</if>
-
-				<if>
-					<isset var="numberOfTags" />
-					<then>
-						<var name="tagNumber" value="0" />
-
-						<while>
-							<not>
-								<equals arg1="${tagNumber}" arg2="${numberOfTags}" />
-							</not>
-							<then>
-								<var name="tagNumber" value="${tagNumber?increment()}" />
-			
-								<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_TAG" value1="tag${tagNumber}" />
-							</then>
-						</while>
-					</then>
-				</if>
-
-				<if>
-					<isset var="tagNumber" />
-					<then>
-						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_TAG" value1="tag${tagNumber}" />
-					</then>
-				</if>
+				<execute macro="SOTasks#viewTaskDetails" />
 			</then>
 			<else>
 				<execute action="SOTasks#assertTextEquals" locator-key1="INFO_MESSAGE" value1="No tasks were found." />
 			</else>
+		</if>
+	</command>
+
+	<command name="viewTaskDetails">
+		<if>
+			<isset var="number" />
+			<then>
+				<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_DESCRIPTION" value1="${taskDescription}${number}" />
+			</then>
+			<else>
+				<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_DESCRIPTION" value1="${taskDescription}" />
+			</else>
+		</if>
+
+		<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_ASSIGNEE" value1="Assigned to ${taskAssignee}" />
+		<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_REPORTER" value1="Created by ${taskReporter}" />
+
+		<if>
+			<isset var="percentCompletion" />
+			<then>
+				<if>
+					<equals arg1="${percentCompletion}" arg2="100" />
+					<then>
+						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_STATUS" value1="Resolved" />
+					</then>
+					<else>
+						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_STATUS" value1="${percentCompletion}% Complete" />
+					</else>
+				</if>
+			</then>
+			<else>
+				<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_STATUS" value1="Open" />
+			</else>
+		</if>						
+
+		<if>
+			<isset var="taskPriority" />
+			<then>
+				<if>
+					<equals arg1="${taskPriority}" arg2="High" />
+					<then>
+						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_PRIORITY_HIGH" value1="${taskPriority}" />
+					</then>
+					<elseif>
+						<equals arg1="${taskPriority}" arg2="Low" />
+						<then>
+							<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_PRIORITY_LOW" value1="${taskPriority}" />
+						</then>
+					</elseif>
+				</if>
+			</then>
+			<else>
+				<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_PRIORITY_NORMAL" value1="Normal" />
+			</else>
+		</if>
+
+		<if>
+			<equals arg1="${dueDate}" arg2="true" />
+			<then>
+				<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_DUE_DATE" value1="3/16/16" />						
+			</then>
+			<elseif>
+				<equals arg1="${dueDateEdit}" arg2="true" />
+				<then>
+					<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_DUE_DATE" value1="4/17/17" />
+				</then>
+			</elseif>
+			<else>
+				<execute action="SOTasksTask#assertElementNotPresent" locator-key1="TASK_DUE_DATE" />		
+			</else>
+		</if>
+
+		<if>
+			<isset var="numberOfTags" />
+			<then>
+				<var name="tagNumber" value="0" />
+
+				<while>
+					<not>
+						<equals arg1="${tagNumber}" arg2="${numberOfTags}" />
+					</not>
+					<then>
+						<var name="tagNumber" value="${tagNumber?increment()}" />
+	
+						<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_TAG" value1="tag${tagNumber}" />
+					</then>
+				</while>
+			</then>
+		</if>
+
+		<if>
+			<isset var="tagNumber" />
+			<then>
+				<execute action="SOTasksTask#assertTextEquals" locator-key1="TASK_TAG" value1="tag${tagNumber}" />
+			</then>
 		</if>
 	</command>
 

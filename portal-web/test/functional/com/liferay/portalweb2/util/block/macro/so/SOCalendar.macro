@@ -1,8 +1,10 @@
 <definition>
 	<command name="tearDownCP">
-		<execute macro="SOUserBar#gotoCP">
-			<var name="portletName" value="Calendar" />
-		</execute>
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
+		<execute action="SOUserBar#click" locator-key1="USER_NAME" />
+		<execute action="SOUserBar#click" locator-key1="USER_MENU_CONTROL_PANEL" value1="Control Panel"/>
+
+		<execute action="Home#click" locator1="//ul[@class='category-portlets']/li/a[contains(.,'Calendar')]" />
 
 		<execute action="PGCalendar#assertClick" locator-key1="VIEW_EVENTS" value1="Events" />
 

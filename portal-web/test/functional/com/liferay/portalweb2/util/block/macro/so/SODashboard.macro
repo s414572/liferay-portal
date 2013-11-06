@@ -1,5 +1,12 @@
 <definition>
 	<command name="addPage">
+		<if>
+			<condition action="SOUserBar#isElementNotPresent" locator-key1="VISIBLE_DOCKBAR" />
+			<then>
+				<execute action="SOUserBar#click" locator-key1="TOGGLE_DOCKBAR" />	
+			</then>
+		</if>
+
 		<execute action="Dockbar#mouseOver" locator-key1="ADD" />
 		<execute action="Dockbar#assertClick" locator-key1="ADD_PAGE" value1="Page" />
 
@@ -9,6 +16,13 @@
 	</command>
 
 	<command name="addPortlet">
+		<if>
+			<condition action="SOUserBar#isElementNotPresent" locator-key1="VISIBLE_DOCKBAR" />
+			<then>
+				<execute action="SOUserBar#click" locator-key1="TOGGLE_DOCKBAR" />	
+			</then>
+		</if>
+
 		<execute action="Dockbar#mouseOver" locator-key1="ADD" />
 		<execute action="Dockbar#click" locator-key1="ADD_APPLICATION" />
 		<execute action="Dockbar#type" locator-key1="ADD_APPLICATION_SEARCH_FIELD" value1="${portletName}" />
@@ -31,17 +45,36 @@
 		<execute action="SODashboard#click" locator-key1="WHATS_HAPPENING_CONTENT_INPUT_FIELD" />
 		<execute action="SODashboard#type" locator-key1="WHATS_HAPPENING_CONTENT_INPUT_FIELD" value1="${whatsHappeningEntryContent}" />
 		<execute action="SODashboard#assertTextEquals" locator-key1="WHATS_HAPPENING_CONTENT_COUNTDOWN" value1="${whatsHappeningEntryCharacterCountdown}" />
-		<execute action="SODashboard#select" locator-key1="WHATS_HAPPENING_CONTENT_VIEW_FILTER" value1="${whatsHappeningEntryViewableBy}" />
+
+		<if>
+			<equals arg1="${whatsHappeningEntryViewableBy}" arg2="Connections" />
+			<then>
+				<execute action="SODashboard#select" locator-key1="WHATS_HAPPENING_CONTENT_VIEW_FILTER" value1="Connections" />
+			</then>
+			<elseif>
+				<equals arg1="${whatsHappeningEntryViewableBy}" arg2="Followers" />
+				<then>
+					<execute action="SODashboard#select" locator-key1="WHATS_HAPPENING_CONTENT_VIEW_FILTER" value1="Followers" />
+				</then>
+			</elseif>
+			<else>
+				<execute action="SODashboard#select" locator-key1="WHATS_HAPPENING_CONTENT_VIEW_FILTER" value1="Everyone" />
+			</else>
+		</if>
+
 		<execute action="SODashboard#click" locator-key1="WHATS_HAPPENING_POST_BUTTON" />
 		<execute action="SODashboard#assertTextEquals" locator-key1="WHATS_HAPPENING_ENTRY_CONTENT" value1="${whatsHappeningEntryContent}" />
 	</command>
 
 	<command name="tearDownPG">
-		<execute macro="SOUserBar#dashboardPG">
-			<var name="userName" value="${userName}" />
-		</execute>
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
 
-		<execute action="SOUserBar#click" locator-key1="TOGGLE_DOCKBAR" />
+		<if>
+			<condition action="SOUserBar#isElementNotPresent" locator-key1="VISIBLE_DOCKBAR" />
+			<then>
+				<execute action="SOUserBar#click" locator-key1="TOGGLE_DOCKBAR" />	
+			</then>
+		</if>
 
 		<if>
 			<condition action="SOUserBar#isElementPresent" locator-key1="EDIT_CONTROLS_NOT_FLAGGED" />
@@ -63,13 +96,85 @@
 	</command>
 
 	<command name="viewTodaysEvent">
-		<execute macro="SOUserBar#dashboardPG">
-			<var name="userName" value="${userName}" />
-		</execute>
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
 
 		<execute action="SODashboard#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle}" />
 		<execute action="SODashboard#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_CREATOR" value1="${userName}" />
 		<execute action="SODashboard#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
+		<execute action="SODashboard#click" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" />
+
+		<execute macro="Event#viewDetailsPG" />
 	</command>
 
+	<command name="viewUpcomingTask">
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
+
+		<var name="currentUser" path="SODashboard" locator-key="PROFILE_NAME" />
+
+		<if>
+			<equals arg1="${taskAssignee}" arg2="${currentUser}" />
+			<then>
+				<if>
+					<equals arg1="${taskPriority}" arg2="High" />
+					<then>
+						<if>
+							<isset var="number" />
+							<then>
+								<execute action="SODashboard#assertClick" locator-key1="TASK_DESCRIPTION_HIGH_INCREMENT" value1="${taskDescription}${number}" />
+							</then>
+							<else>
+								<execute action="SODashboard#assertClick" locator-key1="TASK_DESCRIPTION_HIGH" value1="${taskDescription}" />
+							</else>
+						</if>
+					</then>
+					<elseif>
+						<equals arg1="${taskPriority}" arg2="Low" />
+						<then>
+							<if>
+								<isset var="number" />
+								<then>
+									<execute action="SODashboard#assertClick" locator-key1="TASK_DESCRIPTION_LOW_INCREMENT" value1="${taskDescription}${number}" />
+								</then>
+								<else>
+									<execute action="SODashboard#assertClick" locator-key1="TASK_DESCRIPTION_LOW" value1="${taskDescription}" />
+								</else>
+							</if>
+						</then>
+					</elseif>
+					<else>
+						<if>
+							<isset var="number" />
+							<then>
+								<execute action="SODashboard#assertClick" locator-key1="TASK_DESCRIPTION_NORMAL_INCREMENT" value1="${taskDescription}${number}" />
+							</then>
+							<else>
+								<execute action="SODashboard#assertClick" locator-key1="TASK_DESCRIPTION_NORMAL" value1="${taskDescription}" />
+							</else>
+						</if>
+					</else>
+				</if>
+
+				<execute macro="SOTasks#viewTaskDetails" />
+			</then>
+			<else>
+				<execute action="SODashboard#assertTextNotPresent" value1="${taskDescription}" />
+			</else>
+		</if>
+			
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
+
+		<execute action="SODashboard#assertClick" locator-key1="VIEW_ALL_TASKS_LINK" value1="View All Tasks" />
+
+		<execute macro="SOTasks#viewTask" />
+	</command>
+
+	<command name="viewTodaysEventSiteEvent">
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
+
+		<execute action="SODashboard#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle}" />
+		<execute action="SODashboard#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
+		<execute action="SODashboard#click" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" />
+
+		<execute macro="Event#viewDetailsPG" />
+	</command>
 </definition>

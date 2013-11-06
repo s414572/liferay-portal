@@ -85,9 +85,7 @@
 	<command name="tearDownPG">
 		<execute macro="SOUser#firstLoginPG" />
 
-		<execute macro="SOUserBar#dashboardPG">
-			<var name="userName" value="${userName}" />
-		</execute>
+		<execute action="SOUserBar#click" locator-key1="DASHBOARD" />
 
 		<while>
 			<condition action="SODashboard#isElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_DELETE_LINK" />

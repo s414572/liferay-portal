@@ -298,6 +298,16 @@
 
 	<command name="viewMicroblogsActivityEntryProfile">
 		<if>
+			<isset var="row" />
+			<then>
+				<var name="row" value="${row}" />
+			</then>
+			<else>
+				<var name="row" value="01" />
+			</else>
+		</if>
+
+		<if>
 			<isset var="number" />
 			<then>
 				<var name="number" value="${number}" />
@@ -368,6 +378,16 @@
 
 	<command name="viewMicroblogsCommentActivityEntry">
 		<if>
+			<isset var="row" />
+			<then>
+				<var name="row" value="${row}" />
+			</then>
+			<else>
+				<var name="row" value="01" />
+			</else>
+		</if>
+
+		<if>
 			<isset var="number" />
 			<then>
 				<var name="number" value="${number}" />
@@ -419,6 +439,16 @@
 
 	<command name="viewMicroblogsNotViewableByEveryoneActivityEntry">
 		<if>
+			<isset var="row" />
+			<then>
+				<var name="row" value="${row}" />
+			</then>
+			<else>
+				<var name="row" value="01" />
+			</else>
+		</if>
+
+		<if>
 			<isset var="number" />
 			<then>
 				<var name="number" value="${number}" />
@@ -448,6 +478,16 @@
 	</command>
 
 	<command name="viewMicroblogsRepostActivityEntry">
+		<if>
+			<isset var="row" />
+			<then>
+				<var name="row" value="${row}" />
+			</then>
+			<else>
+				<var name="row" value="01" />
+			</else>
+		</if>
+
 		<if>
 			<isset var="number" />
 			<then>
@@ -592,6 +632,16 @@
 	</command>
 
 	<command name="viewMicroblogsRepostActivityEntryProfile">
+		<if>
+			<isset var="row" />
+			<then>
+				<var name="row" value="${row}" />
+			</then>
+			<else>
+				<var name="row" value="01" />
+			</else>
+		</if>
+
 		<if>
 			<isset var="number" />
 			<then>
