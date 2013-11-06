@@ -1,4 +1,10 @@
 <definition>
+	<command name="assertClick">
+		<case locator-key1="VIEW_ALL_TASKS_LINK">
+			<execute function="AssertClick#assertTextClickAtAndWait" />
+		</case>
+	</command>
+
 	<command name="assertTextEquals">
 		<case locator-key1="ANNOUNCEMENTS_ENTRY_ACTION">
 			<execute function="AssertTextEquals#assertPartialText" />
@@ -9,6 +15,10 @@
 	</command>
 
 	<command name="click">
+		<case locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE">
+			<execute function="Click#clickAtAndWait" />
+		</case>
+
 		<case locator-key1="NAVIGATION_CONTACTS_CENTER">
 			<execute function="Click#textClickAtAndWait" value1="Contacts Center" />
 		</case>

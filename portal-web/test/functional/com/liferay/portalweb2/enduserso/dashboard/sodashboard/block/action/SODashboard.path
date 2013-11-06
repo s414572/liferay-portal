@@ -191,6 +191,47 @@
 	<td></td>
 	<td></td>
 </tr>
+<!--UPCOMING_TASKS-->
+<tr>
+	<td>TASK_DESCRIPTION_NORMAL</td>
+	<td>//li[@class='tasks-title normal']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TASK_DESCRIPTION_NORMAL_INCREMENT</td>
+	<td>xpath=(//li[@class='tasks-title normal']/a)[contains(.,'${number}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TASK_DESCRIPTION_HIGH</td>
+	<td>//li[@class='tasks-title high']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TASK_DESCRIPTION_HIGH_INCREMENT</td>
+	<td>xpath=(//li[@class='tasks-title high']/a)[contains(.,'${key_number}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TASK_DESCRIPTION_LOW</td>
+	<td>//li[@class='tasks-title low']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TASK_DESCRIPTION_LOW_INCREMENT</td>
+	<td>xpath=(//li[@class='tasks-title low']/a)[contains(.,'${number}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>VIEW_ALL_TASKS_LINK</td>
+	<td>//div[@class='view-all-tasks']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 <!--EVENTS_DISPLAY-->
 <tr>
 	<td>EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE</td>
