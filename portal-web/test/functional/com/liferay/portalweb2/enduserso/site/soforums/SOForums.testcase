@@ -17,20 +17,13 @@
 
 	<var name="categoryName" value="MB Category Name" />
 	<var name="threadBody" value="MB Category Thread Message Body" />
+	<var name="threadReplyBody" value="MB Category Thread Message Reply Body" />
 	<var name="threadBodyEdit" value="MB Category Thread Message Body Edit" />
 	<var name="threadSubject" value="MB Category Thread Message Subject" />
 	<var name="threadSubjectEdit" value="MB Category Thread Message Subject Edit" />
 	<var name="userName" value="Joe Bloggs" />
 
 	<command name="AddMBCategoryThread" priority="5">
-		<var name="categoryName" value="${categoryName}" />
-		<var name="key_siteName" value="${key_siteName}" />
-		<var name="pageName" value="${pageName}" />
-		<var name="pageType" value="${pageType}" />
-		<var name="siteName" value="${siteName}" />
-		<var name="threadBody" value="${threadBody}" />
-		<var name="threadSubject" value="${threadSubject}" />
-
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 			<var name="pageType" value="Open Site" />
@@ -72,14 +65,6 @@
 	</command>
 
 	<command name="DeleteMBCategoryThread" priority="5">
-		<var name="categoryName" value="${categoryName}" />
-		<var name="key_siteName" value="${key_siteName}" />
-		<var name="pageName" value="${pageName}" />
-		<var name="pageType" value="${pageType}" />
-		<var name="siteName" value="${siteName}" />
-		<var name="threadBody" value="${threadBody}" />
-		<var name="threadSubject" value="${threadSubject}" />
-
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 			<var name="pageType" value="Open Site" />
@@ -125,16 +110,6 @@
 	</command>
 
 	<command name="EditMBCategoryThread" priority="5">
-		<var name="categoryName" value="${categoryName}" />
-		<var name="key_siteName" value="${key_siteName}" />
-		<var name="pageName" value="${pageName}" />
-		<var name="pageType" value="${pageType}" />
-		<var name="siteName" value="${siteName}" />
-		<var name="threadBody" value="${threadBody}" />
-		<var name="threadBodyEdit" value="${threadBodyEdit}" />
-		<var name="threadSubject" value="${threadSubject}" />
-		<var name="threadSubjectEdit" value="${threadSubjectEdit}" />
-
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 			<var name="pageType" value="Open Site" />
@@ -173,6 +148,48 @@
 			<var name="threadBody" value="${threadBodyEdit}" />
 			<var name="threadSubject" value="${threadSubjectEdit}" />
 		</execute>
+	</command>
+
+	<command name="ReplyMBCategoryThread" priority="5">
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
+			<var name="pageType" value="Open Site" />
+		</execute>
+
+		<execute macro="MessageboardsCategory#addPG" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
+			<var name="pageType" value="Open Site" />
+		</execute>
+
+		<execute macro="MessageboardsCategory#gotoPG">
+			<var name="categoryName" value="${categoryName}" />
+		</execute>
+
+		<execute macro="MessageboardsThread#addPG" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
+			<var name="pageType" value="Open Site" />
+		</execute>
+
+		<execute macro="MessageboardsCategory#gotoPG">
+			<var name="categoryName" value="${categoryName}" />
+		</execute>
+
+		<execute macro="MessageboardsThread#replyPG">
+			<var name="threadBody" value="${threadBody}" />
+			<var name="threadReplyBody" value="${threadReplyBody}" />
+			<var name="threadSubject" value="${threadSubject}" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
+			<var name="pageType" value="Open Site" />
+		</execute>
+
+		<execute macro="SOForumsCategoryThread#viewReplyPG" />
 	</command>
 
 	<tear-down>
