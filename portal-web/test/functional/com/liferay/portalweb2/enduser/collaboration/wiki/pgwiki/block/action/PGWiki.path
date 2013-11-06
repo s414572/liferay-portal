@@ -78,6 +78,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>WIKI_PAGE_CHILD_PAGE</td>
+	<td>//div[@class='child-pages']//a[contains(.,'${key_wikiChildPageTitle}')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>WIKI_PAGE_ATTACHMENTS_LINK</td>
 	<td>//a[contains(.,'Attachment')]</td>
 	<td></td>

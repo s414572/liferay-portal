@@ -97,6 +97,7 @@
 	</command>
 
 	<command name="deletePG">
+		<var name="key_dmFolderName" value="${dmFolderName}" />
 		<execute action="PGDocumentsandmedia#assertElementPresent" locator-key1="ENTRIES_FOLDER" />
 		<execute action="PGDocumentsandmedia#assertTextEquals" locator-key1="ENTRIES_FOLDER_TITLE" value1="${dmFolderName}" />
 		<execute action="PGDocumentsandmedia#click" locator-key1="ENTRIES_FOLDER_SELECT" />
@@ -152,6 +153,7 @@
 	</command>
 
 	<command name="gotoPG">
+		<var name="key_dmFolderName" value="${dmFolderName}" />
 		<execute action="PGDocumentsandmedia#click" locator-key1="ENTRIES_FOLDER" />
 	</command>
 
@@ -248,6 +250,7 @@
 	</command>
 
 	<command name="viewPG">
+		<var name="key_dmFolderName" value="${dmFolderName}" />
 		<execute action="PGDocumentsandmedia#click" locator-key1="ENTRIES_FOLDER" />
 
 		<execute action="PGDocumentsandmediaFolder#assertTextEquals" locator-key1="BREADCRUMB_FOLDER" value1="${dmFolderName}" />

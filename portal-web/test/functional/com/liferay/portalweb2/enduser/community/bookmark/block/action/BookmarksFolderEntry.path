@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>BookmarksFolderEntry</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">BookmarksFolderEntry</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>BookmarksFolderEntry</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUCCESS_MESSAGE</td>
+	<td>//div[@class='portlet-msg-success']</td>
+	<td>Your request completed successfully. </td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>FOLDER_TITLE</td>
+	<td>//div[@class='taglib-header ']/h1/span</td>
+	<td>Folder Title</td>
+</tr>
+<tr>
+	<td>LAST_UPDATED</td>
+	<td>//div[contains(@class,'date')]</td>
+	<td>Last Updated</td>
+</tr>
+<tr>
+	<td>NUMBER_OF_SUBFOLDERS</td>
+	<td>//div[contains(@class,'subfolders')]</td>
+	<td>Number of subfolders</td>
+</tr>
+<tr>
+	<td>NUMBER_OF_ENTRIES</td>
+	<td>//div[contains(@class,'items')]</td>
+	<td>Numbers of entries</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--BOOKMARKS-->
+<tr>
+	<td>BOOKMARK_TITLE</td>
+	<td>//tbody//a[contains(.,'${key_bookmarkTitle}')]</td>
+	<td>Bookmark Title</td>
+</tr>
+<tr>
+	<td>BOOKMARK_URL</td>
+	<td>//tbody//a[contains(.,'${key_bookmarkURL}')]</td>
+	<td>Bookmark URL</td>
+</tr>
+<!--ACTIONS-->
+<tr>
+	<td>EDIT</td>
+	<td>//div[contains(@id,'menu')]/ul/li[1]/a</td>
+	<td>Edit</td>
+</tr>
+<tr>
+	<td>PERMISSIONS</td>
+	<td>//div[contains(@id,'menu')]/ul/li[2]/a</td>
+	<td>Permissions</td>
+</tr>
+<tr>
+	<td>DELETE</td>
+	<td>//div[contains(@id,'menu')]/ul/li[3]/a</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>ADD_SUBFOLDER</td>
+	<td>//div[contains(@id,'menu')]/ul/li[4]/a</td>
+	<td>Add Subfolder</td>
+</tr>
+<tr>
+	<td>ADD_BOOKMARK</td>
+	<td>//div[contains(@id,'menu')]/ul/li[5]/a</td>
+	<td>Add Bookmark</td>
+</tr>
+<tr>
+	<td>CONFIRMATION</td>
+	<td></td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

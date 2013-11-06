@@ -361,7 +361,7 @@
 </tr>
 <tr>
 	<td>ENTRIES_FOLDER</td>
-	<td>//div[@id='_20_documentContainer']/div[2]/a/span/img</td>
+	<td>//div[@data-title='${key_dmFolderName}']/a/span</td>
 	<td>Folder Entry</td>
 </tr>
 <tr>

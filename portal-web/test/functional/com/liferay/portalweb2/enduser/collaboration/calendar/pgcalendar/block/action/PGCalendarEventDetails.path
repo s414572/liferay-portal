@@ -29,8 +29,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>START_DATE_DATE</td>
+	<td>//dl[@class='property-list']/dd</td>
+	<td></td>
+</tr>
+<tr>
 	<td>END_DATE</td>
 	<td>//dl[@class='property-list']/dt[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>END_DATE_DATE</td>
+	<td>//dl[@class='property-list']/dd[2]</td>
 	<td></td>
 </tr>
 <tr>
@@ -71,6 +81,26 @@
 <tr>
 	<td>SUBSCRIBE_TO_COMMENTS_LINK</td>
 	<td>//span[@class='subscribe-link']/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EDIT</td>
+	<td>//div[contains(@id,'menu')]/ul/li[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EXPORT</td>
+	<td>//div[contains(@id,'menu')]/ul/li[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS</td>
+	<td>//div[contains(@id,'menu')]/ul/li[3]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>DELETE</td>
+	<td>//div[contains(@id,'menu')]/ul/li[4]/a</td>
 	<td></td>
 </tr>
 </tbody>

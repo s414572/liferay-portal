@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Bookmarks</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Bookmarks</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>Bookmarks</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUCCESS_MESSAGE</td>
+	<td>//div[@class='portlet-msg-success']</td>
+	<td>Your request complcated successfully.</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--TOP-->
+<tr>
+	<td>HOME</td>
+	<td>//div[@class='top-links-container']/div/ul/li/span/a/span</td>
+	<td>Home</td>
+</tr>
+<tr>
+	<td>RECENT</td>
+	<td>//div[@class='top-links-container']/div/ul/li[2]/span/a/span</td>
+	<td>Recent</td>
+</tr>
+<tr>
+	<td>MINE</td>
+	<td>//div[@class='top-links-container']/div/ul/li[3]/span/a/span</td>
+	<td>Mine</td>
+</tr>
+<tr>
+	<td>SEARCH</td>
+	<td>//input[@title='Search Bookmarks']</td>
+	<td>Search</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--FOLDERS-->
+<tr>
+	<td>FOLDER_TITLE</td>
+	<td>//tbody//a/strong[contains(.,'${key_folderName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FOLDER_DESCRIPTION</td>
+	<td>//tbody//a[contains(.,'${key_folderDescription}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--ACTIONS-->
+<tr>
+	<td>PERMISSIONS</td>
+	<td>//div[contains(@id,'menu')]/ul/li/a</td>
+	<td>Permissions</td>
+</tr>
+<tr>
+	<td>ADD_FOLDER</td>
+	<td>//div[contains(@id,'menu')]/ul/li[2]/a</td>
+	<td>Add Folder</td>
+</tr>
+<tr>
+	<td>ADD_BOOKMARK</td>
+	<td>//div[contains(@id,'menu')]/ul/li[3]/a</td>
+	<td>Add Bookmark</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

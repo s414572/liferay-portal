@@ -1,0 +1,446 @@
+<definition>
+
+	<var name="entryAuthorFirstName" value="Test" />
+	<var name="entryAuthorLastName" value="Test" />
+	<var name="pageName1" value="Blogs Test Page" />
+	<var name="entryContent1" value="Blogs Entry 1 Content" />
+	<var name="entryTitle1" value="Blogs Entry 1 Title" />
+	<var name="entryContent2" value="Blogs Entry 2 Content" />
+	<var name="entryTitle2" value="Blogs Entry 2 Title" />
+	<var name="entryContent3" value="Blogs Entry 3 Content" />
+	<var name="entryTitle3" value="Blogs Entry 3 Title" />
+	<var name="dmDocumentUploader" value="Test Test" />
+	<var name="pageName2" value="Documents and Media Test Page" />
+	<var name="pageName3" value="Message Boards Test Page" />
+	<var name="categoryName" value="MB Category Name" />
+	<var name="threadBody" value="MB Category Thread Message Body" />
+	<var name="threadSubject" value="MB Category Thread Message Subject" />
+	<var name="pageName4" value="Wiki Test Page" />
+	<var name="wikiPageContent" value="Wiki FrontPage Content" />
+	<var name="wikiChildPageTitle1" value="Wiki Front Page Child Page Title 1" />
+	<var name="wikiPageTitle" value="FrontPage" />
+	<var name="wikiChildPageTitle2" value="Wiki Front Page Child Page Title 2" />
+	<var name="wikiChildPageContent3" value="Wiki Front Page Child Page Content 3" />
+	<var name="wikiChildPageTitle3" value="Wiki Front Page Child Page Title 3" />
+	<var name="eventTitle1" value="Calendar Event Title" />
+	<var name="eventTitle2" value="Weekly Repeating Event" />
+	<var name="pageName5" value="Calendar Test Page" />
+	<var name="eventTitle3" value="Monthly Repeating Event" />
+	<var name="pageName6" value="Bookmarks Test Page" />
+	<var name="folderName" value="Test Folder" />
+	<var name="dmDocumentTitle1" value="DM Folder Image 1 Title" />
+	<var name="dmDocumentTitle2" value="DM Folder Image 2 Title" />
+	<var name="dmDocumentTitle3" value="DM Folder Image 3 Title" />
+	<var name="dmFolderName1" value="DM Folder 1 Name" />
+
+	<set-up>
+		<execute macro="User#loginPG">
+			<var name="welcome-theme" value="welcome-theme" />
+		</execute>
+	</set-up>
+
+	<command name="MarketplaceSmoke" priority="5">
+
+		<execute macro="Page#addPG">
+			<var name="pageName" value="${pageName1}" />
+		</execute>
+
+		<execute macro="Portlet#addPG">
+			<var name="pageName" value="${pageName1}" />
+			<var name="portletName" value="Blogs" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName1}" />
+		</execute>
+
+		<execute macro="BlogsEntry#addPG">
+			<var name="entryContent" value="${entryContent1}" />
+			<var name="entryTitle" value="${entryTitle1}" />
+		</execute>
+
+		<execute macro="BlogsEntry#viewPG" >
+			<var name="entryContent" value="${entryContent1}" />
+			<var name="entryTitle" value="${entryTitle1}" />
+			<var name="pageName" value="${pageName1}" />
+		</execute>
+
+		<execute macro="BlogsEntryComment#addPG">
+			<var name="entryComment" value="Blogs Entry 1 Comment" />
+			<var name="entryTitle" value="${entryTitle1}" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName1}" />
+		</execute>
+
+		<execute macro="BlogsEntry#addPG">
+			<var name="entryContent" value="${entryContent2}" />
+			<var name="entryTitle" value="${entryTitle2}" />
+		</execute>
+
+		<execute macro="BlogsEntry#viewPG" >
+			<var name="entryContent" value="${entryContent2}" />
+			<var name="entryTitle" value="${entryTitle2}" />
+			<var name="pageName" value="${pageName1}" />
+		</execute>
+
+		<execute macro="BlogsEntryComment#addPG">
+			<var name="entryComment" value="Blogs Entry 2 Comment" />
+			<var name="entryTitle" value="${entryTitle2}" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName1}" />
+		</execute>
+
+		<execute macro="BlogsEntry#addPG">
+			<var name="entryContent" value="${entryContent3}" />
+			<var name="entryTitle" value="${entryTitle3}" />
+		</execute>
+
+		<execute macro="BlogsEntry#viewPG" >
+			<var name="entryContent" value="${entryContent3}" />
+			<var name="entryTitle" value="${entryTitle3}" />
+			<var name="pageName" value="${pageName1}" />
+		</execute>
+
+		<execute macro="BlogsEntryComment#addPG">
+			<var name="entryComment" value="Blogs Entry 3 Comment" />
+			<var name="entryTitle" value="${entryTitle3}" />
+		</execute>
+
+		<execute macro="Page#addPG">
+				<var name="pageName" value="${pageName6}" />
+		</execute>
+
+		<execute macro="Portlet#addPG">
+			<var name="pageName" value="${pageName6}" />
+			<var name="portletName" value="Bookmarks" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName6}" />
+		</execute>
+
+		<execute macro="Bookmark#addFolder">
+			<var name="folderName" value="${folderName}" />
+			<var name="folderDescription" value="Test Folder Description" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName6}" />
+		</execute>>
+
+		<execute macro="Bookmark#addFolderPG">
+			<var name="folderName" value="${folderName}" />
+			<var name="bookmarkTitle" value="Test Folder Entry 1" />
+			<var name="bookmarkURL" value="http://www.liferay.com" />
+			<var name="bookmarkDescription" value="Test Folder Entry 1 Description" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName6}" />
+		</execute>
+
+		<execute macro="Bookmark#addFolderPG">
+			<var name="folderName" value="${folderName}" />
+			<var name="bookmarkTitle" value="Test Folder Entry 2" />
+			<var name="bookmarkURL" value="http://www.openqa.org" />
+			<var name="bookmarkDescription" value="Test Folder Entry 2 Description" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName6}" />
+		</execute>
+
+		<execute macro="Bookmark#addFolderPG">
+			<var name="folderName" value="${folderName}" />
+			<var name="bookmarkTitle" value="Test Folder Entry 3" />
+			<var name="bookmarkURL" value="http://www.narutofan.com" />
+			<var name="bookmarkDescription" value="Test Folder Entry 3 Description" />
+		</execute>
+
+
+		<execute macro="Page#addPG">
+				<var name="pageName" value="${pageName5}" />
+		</execute>
+
+		<execute macro="Portlet#addPG">
+			<var name="pageName" value="${pageName5}" />
+			<var name="portletName" value="Calendar" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName5}" />
+		</execute>
+
+		<var name="evenDescription1" value="Calendar Event Description" />
+
+		<execute macro="CalendarEvent#addPG">
+			<var name="eventTitle" value="${eventTitle1}" />
+			<var name="eventDescription" value="Calendar Event Description" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName5}" />
+		</execute>
+
+		<execute macro="CalendarEvent#addRepeatWeeklyPG">
+			<var name="repeat_weekly" value="repeat_weekly" />
+			<var name="eventTitle" value="${eventTitle2}" />
+			<var name="eventDescription" value="Weekly Repeating Event Description" />
+			<var name="eventStartMonth" value="January" />
+			<var name="eventStartDay" value="1" />
+			<var name="eventStartYear" value="2015" />
+			<var name="eventEndMonth" value="January" />
+			<var name="eventEndDay" value="1" />
+			<var name="eventEndYear" value="2016" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName5}" />
+		</execute>
+
+		<execute macro="CalendarEvent#addRepeatMonthlyPG">
+			<var name="eventTitle" value="${eventTitle3}" />
+			<var name="eventDescription" value="Monthly Repeating Event Description" />
+			<var name="eventStartMonth" value="January" />
+			<var name="eventStartDay" value="1" />
+			<var name="eventStartYear" value="2015" />
+			<var name="eventEndMonth" value="January" />
+			<var name="eventEndDay" value="1" />
+			<var name="eventEndYear" value="2016" />
+		</execute>
+
+		<execute macro="Page#addPG">
+				<var name="pageName" value="${pageName2}" />
+		</execute>
+
+		<execute macro="Portlet#addPG">
+			<var name="pageName" value="${pageName2}" />
+			<var name="portletName" value="Documents and Media" />
+		</execute>
+
+		<execute macro="DMDocument#addPG">
+				<var name="dmDocumentFile" value="Document_1.txt" />
+				<var name="dmDocumentSize" value="0.3k" />
+				<var name="dmDocumentTitle" value="DM Documents Title" />
+				<var name="dmDocumentDescription" value="DM Document Description" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+				<var name="pageName" value="${pageName2}" />
+		</execute>
+
+		<execute macro="DMFolder#addPG">
+				<var name="dmFolderName" value="${dmFolderName1}" />
+				<var name="dmFolderDescription" value="DM Folder 1 Description" />
+		</execute>
+
+		<execute macro="DMFolderDocument#addPG">
+				<var name="dmDocumentDescription" value="DM Folder Image 1 Description" />
+				<var name="dmDocumentFile" value="Document_1.jpg" />
+				<var name="dmDocumentTitle" value="${dmDocumentTitle1}" />
+				<var name="dmFolderName" value="${dmFolderName1}" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+				<var name="pageName" value="${pageName2}" />
+		</execute>
+
+		<execute macro="DMFolderDocument#addPG">
+				<var name="dmDocumentDescription" value="DM Folder Image 2 Description" />
+				<var name="dmDocumentFile" value="Document_2.jpg" />
+				<var name="dmDocumentTitle" value="${dmDocumentTitle2}" />
+				<var name="dmFolderName" value="${dmFolderName1}" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+				<var name="pageName" value="${pageName2}" />
+		</execute>
+
+		<execute macro="DMFolderDocument#addPG">
+				<var name="dmDocumentDescription" value="DM Folder Image 3 Description" />
+				<var name="dmDocumentFile" value="Document_3.jpg" />
+				<var name="dmDocumentTitle" value="${dmDocumentTitle3}" />
+				<var name="dmFolderName" value="${dmFolderName1}" />
+		</execute>
+
+		<execute macro="DMFolderDocument#viewPG">
+			<var name="dmDocumentTitle" value="${dmDocumentTitle1}" />
+			<var name="dmDocumentUploader" value="${dmDocumentUploader}" />
+			<var name="dmDocumentSize" value="12.9k" />
+			<var name="dmDocumentVersionNumber" value="1.0" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+				<var name="pageName" value="${pageName2}" />
+		</execute>
+
+		<execute macro="DMFolderDocument#viewPG">
+			<var name="dmDocumentTitle" value="${dmDocumentTitle2}" />
+			<var name="dmDocumentUploader" value="${dmDocumentUploader}" />
+			<var name="dmDocumentSize" value="29.9k" />
+			<var name="dmDocumentVersionNumber" value="1.0" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+				<var name="pageName" value="${pageName2}" />
+		</execute>
+
+		<execute macro="DMFolderDocument#viewPG">
+			<var name="dmDocumentTitle" value="${dmDocumentTitle3}" />
+			<var name="dmDocumentUploader" value="${dmDocumentUploader}" />
+			<var name="dmDocumentSize" value="16.1k" />
+			<var name="dmDocumentVersionNumber" value="1.0" />
+		</execute>
+
+		<execute macro="Page#addPG">
+			<var name="pageName" value="${pageName3}" />
+		</execute>
+
+		<execute macro="Portlet#addPG">
+			<var name="pageName" value="${pageName3}" />
+			<var name="portletName" value="Message Boards" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName3}" />
+		</execute>
+
+		<execute macro="MessageboardsCategory#addPG">
+			<var name="categoryName" value="${categoryName}" />
+		</execute>
+
+		<execute macro="MessageboardsCategory#viewPG">
+			<var name="categoryName" value="${categoryName}" />
+		</execute>
+
+		<execute macro="MessageboardsThread#addPG">
+			<var name="threadBody" value="${threadBody}" />
+			<var name="threadSubject" value="${threadSubject}" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName3}" />
+		</execute>
+
+		<execute action="PGMessageboards#assertClick" locator-key1="CATEGORY_TABLE_CATEGORY_1" value1="${categoryName}" />
+
+		<execute macro="MessageboardsThread#viewPG">
+			<var name="threadBody" value="${threadBody}" />
+			<var name="threadSubject" value="${threadSubject}" />
+		</execute>
+
+		<execute macro="Page#addPG">
+			<var name="pageName" value="${pageName4}" />
+		</execute>
+
+		<execute macro="Portlet#addPG">
+			<var name="pageName" value="${pageName4}" />
+			<var name="portletName" value="Wiki" />
+		</execute>
+
+		<execute macro="WikiPage#addFrontPagePG">
+			<var name="pageName" value="${pageName4}" />
+			<var name="wikiPageContent" value="${wikiPageContent}" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName4}" />
+		</execute>
+
+		<execute macro="WikiPage#addChildPagePG">
+			<var name="wikiChildPageContent" value="Wiki Front Page Child Page Content 1" />
+			<var name="wikiChildPageTitle" value="${wikiChildPageTitle1}" />
+			<var name="wikiPageContent" value="${wikiPageContent}" />
+			<var name="wikiPageTitle" value="${wikiPageTitle}" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName4}" />
+		</execute>
+
+		<execute macro="WikiPage#addChildPagePG">
+			<var name="wikiChildPageContent" value="Wiki Front Page Child Page Content 2" />
+			<var name="wikiChildPageTitle" value="${wikiChildPageTitle2}" />
+			<var name="wikiPageContent" value="${wikiPageContent}" />
+			<var name="wikiPageTitle" value="${wikiPageTitle}" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName4}" />
+		</execute>
+
+		<execute macro="WikiPage#addChildPagePG">
+			<var name="wikiChildPageContent" value="${wikiChildPageContent3}" />
+			<var name="wikiChildPageTitle" value="${wikiChildPageTitle3}" />
+			<var name="wikiPageContent" value="${wikiPageContent}" />
+			<var name="wikiPageTitle" value="${wikiPageTitle}" />
+		</execute>
+	</command>
+
+	<tear-down>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName1}"/>
+		</execute>
+
+		<execute macro="BlogsEntry#deletePG">
+			<var name="entryTitle" value="${entryTitle3}"/>
+			<var name="entryContent" value="${entryContent3}"/>
+		</execute>
+
+		<execute macro="BlogsEntry#deletePG">
+			<var name="entryTitle" value="${entryTitle2}"/>
+			<var name="entryContent" value="${entryContent2}"/>
+		</execute>
+
+		<execute macro="BlogsEntry#deletePG">
+			<var name="entryTitle" value="${entryTitle1}"/>
+			<var name="entryContent" value="${entryContent1}"/>
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName6}" />
+		</execute>
+
+		<execute macro="Bookmark#deleteFolder">
+			<var name="folderName" value="${folderName}" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName5}"/>
+		</execute>
+
+		<execute macro="CalendarEvent#deletePG">
+			<var name="eventTitle" value="${eventTitle1}" />
+		</execute>
+
+		<execute macro="CalendarEvent#deletePG">
+			<var name="eventTitle" value="${eventTitle2}" />
+		</execute>
+
+		<execute macro="CalendarEvent#deletePG">
+			<var name="eventTitle" value="${eventTitle3}" />
+		</execute>
+
+		<execute macro="DMDocument#tearDownPG">
+			<var name="pageName" value="${pageName2}" />
+		</execute>
+
+		<execute macro="MessageboardsThread#tearDownPG">
+			<var name="pageName" value="${pageName3}" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName4}"/>
+		</execute>
+
+		<execute macro="WikiPage#deleteFrontPagePG" />
+
+		<execute macro="Page#tearDownPG" />
+
+	</tear-down>
+</definition>

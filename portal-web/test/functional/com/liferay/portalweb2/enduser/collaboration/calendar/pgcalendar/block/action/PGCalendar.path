@@ -107,7 +107,7 @@
 </tr>
 <tr>
 	<td>EVENT_TABLE_TITLE</td>
-	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//tr/td[2]/a</td>
+	<td>//div[@id='_8_ocerSearchContainerSearchContainer']//td[contains(.,'${eventTitle}')]/a</td>
 	<td></td>
 </tr>
 <tr>

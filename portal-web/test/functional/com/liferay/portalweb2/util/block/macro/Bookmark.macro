@@ -1,0 +1,50 @@
+<definition>
+
+
+	<command name="addFolder">
+		<execute action="Bookmarks#assertClick" locator-key1="ADD_FOLDER" value1="Add Folder" />
+		<execute action="BookmarksFolderAddEntry#type" locator-key1="FOLDER_NAME_FIELD" value1="${folderName}" />
+		<execute action="BookmarksFolderAddEntry#type" locator-key1="FOLDER_DESCRIPTION" value1="${folderDescription}" />
+		<execute action="BookmarksFolderAddEntry#assertClick" locator-key1="FOLDER_SAVE" value1="Save" />
+
+		<var name="key_folderName" value="${folderName}" />
+		<var name="key_folderDescription" value="${folderDescription}" />
+
+		<execute action="Bookmarks#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute action="Bookmarks#assertTextEquals" locator-key1="FOLDER_TITLE" value1="${folderName}" />
+		<execute action="Bookmarks#assertTextEquals" locator-key1="FOLDER_DESCRIPTION" value1="${folderDescription}" />
+	</command>
+
+	<command name="addFolderPG">
+		<var name="key_folderName" value="${folderName}" />
+		<var name="key_bookmarkTitle" value="${bookmarkTitle}" />
+		<var name="key_bookmarkURL" value="${bookmarkURL}" />
+		<execute action="Bookmarks#assertClick" locator-key1="FOLDER_TITLE" value1="${folderName}" />
+		<execute action="BookmarksFolderEntry#assertClick" locator-key1="ADD_BOOKMARK" value1="Add Bookmark" />
+		<execute action="BookmarksAddBookmarksEntry#type" locator-key1="BOOKMARK_TITLE" value1="${bookmarkTitle}" />
+		<execute action="BookmarksAddBookmarksEntry#type" locator-key1="BOOKMARK_URL" value1="${bookmarkURL}" />
+		<execute action="BookmarksAddBookmarksEntry#type" locator-key1="BOOKMARK_DESCRIPTION" value1="${bookmarkDescription}" />
+		<execute action="BookmarksAddBookmarksEntry#assertClick" locator-key1="BOOKMARK_SAVE" value1="Save" />
+		<execute action="BookmarksFolderEntry#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
+
+		<execute action="BookmarksFolderEntry#assertTextEquals" locator-key1="BOOKMARK_TITLE" value1="${bookmarkTitle}" />
+		<execute action="BookmarksFolderEntry#assertTextEquals" locator-key1="BOOKMARK_URL" value1="${bookmarkURL}" />
+
+		<execute action="BookmarksFolderEntry#assertClick" locator-key1="BOOKMARK_TITLE" value1="${bookmarkTitle}" />
+		<execute action="BookmarksBookmarksEntry#assertTextEquals" locator-key1="BOOKMARK_TITLE" value1="${bookmarkTitle}" />
+		<execute action="BookmarksBookmarksEntry#assertTextEquals" locator-key1="BOOKMARK_URL" value1="${bookmarkURL}" />
+		<execute action="BookmarksBookmarksEntry#assertTextEquals" locator-key1="BOOKMARK_DESCRIPTION" value1="${bookmarkDescription}" />
+		<execute action="BookmarksBookmarksEntry#assertTextEquals" locator-key1="BOOKMARK_AUTHOR" value1="Created by Test Test" />
+		<execute action="BookmarksBookmarksEntry#assertTextEquals" locator-key1="BOOKMARK_VISITS" value1="0 Visits" />
+	</command>
+
+	<command name="deleteFolder" >
+		<var name="key_folderName" value="${folderName}" />
+		<execute action="Bookmarks#assertClick" locator-key1="FOLDER_TITLE" value1="${folderName}" />
+		<execute action="BookmarksFolderEntry#assertClick" locator-key1="DELETE" value1="Delete" />
+		<execute action="BookmarksFolderEntry#confirm" locator-key1="CONFIRMATION" value1="Are you sure you want to delete this?" />
+		<execute action="Bookmarks#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
+	</command>
+
+
+</definition>

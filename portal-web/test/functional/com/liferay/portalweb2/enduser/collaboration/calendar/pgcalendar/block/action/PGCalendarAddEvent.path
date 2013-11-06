@@ -111,6 +111,114 @@
 	<td></td>
 	<td></td>
 </tr>
+<!--REPEAT_WEEKLY-->
+<tr>
+	<td>REPEAT_SUNDAY</td>
+	<td>//input[@id='_8_weeklyDayPos1Checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REPEAT_MONDAY</td>
+	<td>//input[@id='_8_weeklyDayPos2Checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REPEAT_TUESDAY</td>
+	<td>//input[@id='_8_weeklyDayPos3Checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REPEAT_WEDNESDAY</td>
+	<td>//input[@id='_8_weeklyDayPos4Checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REPEAT_THURSDAY</td>
+	<td>//input[@id='_8_weeklyDayPos5Checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REPEAT_FRIDAY</td>
+	<td>//input[@id='_8_weeklyDayPos6Checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REPEAT_SATURDAY</td>
+	<td>//input[@id='_8_weeklyDayPos7Checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--REPEAT_MONTHLY-->
+<tr>
+	<td>REPEAT_DATE_RADIO</td>
+	<td>//div[contains(@id,'TypeMonthlyTable')]/span//input[@name='_8_monthlyType']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REPEAT_DATE_RADIO_DATE</td>
+	<td>//div[contains(@id,'TypeMonthlyTable')]/span//input[@id='_8_monthlyDay0']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REPEAT_DATE__RADIO_MONTH</td>
+	<td>//div[contains(@id,'TypeMonthlyTable')]/span//input[@id='_8_monthlyInterval0']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REPEAT_DAY_RADIO</td>
+	<td>//div[contains(@id,'TypeMonthlyTable')]/span[2]//input[@name='_8_monthlyType']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REPEAT_DAY_RADIO_ORDINAL</td>
+	<td>//div[contains(@id,'TypeMonthlyTable')]/span[2]//select[@id='_8_monthlyPos']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REPEAT_DAY_RADIO_DAY</td>
+	<td>//div[contains(@id,'TypeMonthlyTable')]/span[2]//select[@id='_8_monthlyDay1']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REPEAT_DAY_RADIO_MONTH</td>
+	<td>//div[contains(@id,'TypeMonthlyTable')]/span[2]//input[@id='_8_monthlyInterval1']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--END_DATE-->
+<tr>
+	<td>REPEAT_END_DATE</td>
+	<td>//div[contains(@class,'end-date')]//span[2]//input[@name='_8_endDateType']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>END_DATE_MONTH_SELECT</td>
+	<td>//div[contains(@class,'end-date')]//select[@id='_8_enddatemonth']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>END_DATE_DAY_SELECT</td>
+	<td>//div[contains(@class,'end-date')]//select[@id='_8_enddateday']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>END_DATE_YEAR_SELECT</td>
+	<td>//div[contains(@class,'end-date')]//select[@id='_8_enddateyear']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 <!--REMINDERS-->
 </tbody>
 </table>
