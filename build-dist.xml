@@ -515,7 +515,7 @@ app.server.jboss.zip.name=jboss-eap-$${app.server.jboss.version}.zip</echo>
 		<delete includeemptydirs="true" failonerror="false">
 			<fileset
 				dir="${deployer.dest.dir}"
-				includes="*-ext/**,*-hook/**,*-layouttpl/***-portlet/**,*-theme/**"
+				includes="*-ext/**,*-hook/**,*-layouttpl/**,*-portlet/**,*-theme/**"
 			/>
 		</delete>
 
@@ -933,7 +933,6 @@ release was successful.</echo>
 			tofile="${app.server.geronimo.bin.dir}/setenv.bat"
 		>
 			<filterset>
-				<filter token="app.server.geronimo.dir" value="${app.server.geronimo.dir}" />
 				<filter token="java.security.config" value="${java.security.config}" />
 			</filterset>
 		</copy>
@@ -943,7 +942,6 @@ release was successful.</echo>
 			tofile="${app.server.geronimo.bin.dir}/setenv.sh"
 		>
 			<filterset>
-				<filter token="app.server.geronimo.dir" value="${app.server.geronimo.dir}" />
 				<filter token="java.security.config" value="${java.security.config}" />
 			</filterset>
 		</copy>
@@ -1638,7 +1636,6 @@ release was successful.</echo>
 					export JAVA_OPTS
 				]]>
 			</replacevalue>
-			<replacefilter token="@java.security.manager.option@" value="${java.security.manager.option}" />
 		</replace>
 
 		<replace file="${app.server.jonas.bin.dir}/setenv.bat">
@@ -1651,7 +1648,6 @@ release was successful.</echo>
 					set "JAVA_OPTS=-Dfile.encoding=UTF8 -Djava.net.preferIPv4Stack=true @java.security.config@ -Djonas.felix.configuration.file=%JONAS_ROOT%/conf/felix-config.properties -Duser.timezone=GMT -Xmx1024m -XX:MaxPermSize=256m"
 				]]>
 			</replacevalue>
-			<replacefilter token="@java.security.manager.option@" value="${java.security.manager.option}" />
 		</replace>
 
 		<chmod perm="a+x">
