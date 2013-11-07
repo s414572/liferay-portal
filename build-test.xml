@@ -4640,7 +4640,7 @@ custom.sql.function.isnotnull=CONVERT(VARCHAR,?) IS NOT NULL</echo>
 					</exec>
 
 					<sequential>
-						<waitfor>
+						<waitfor maxwait="5" maxwaitunit="minute">
 							<http url="http://localhost:8080/web/guest" />
 						</waitfor>
 
@@ -4788,12 +4788,11 @@ custom.sql.function.isnotnull=CONVERT(VARCHAR,?) IS NOT NULL</echo>
 			</if>
 
 			<sequential>
-				<waitfor>
-					<http url="http://localhost:8080/web/guest" />
-				</waitfor>
-
-				<waitfor>
-					<available file="${liferay.home}/logs" />
+				<waitfor maxwait="5" maxwaitunit="minute">
+					<and>
+						<available file="${liferay.home}/logs" />
+						<http url="http://localhost:8080/web/guest" />
+					</and>
 				</waitfor>
 
 				<for param="log.file">
