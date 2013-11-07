@@ -16,7 +16,7 @@ package com.liferay.util;
 
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.security.SecureRandomUtil;
+import com.liferay.portal.kernel.security.SecureRandom;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -53,7 +53,7 @@ public class PwdGenerator {
 		// It is safe to use the regular Random class because each generated
 		// password only consumes one secure random long
 
-		Random random = new Random(SecureRandomUtil.nextLong());
+		Random random = new SecureRandom();
 
 		int fullKeyLength = 0;
 
