@@ -107,12 +107,15 @@ public class JSONWebServiceServlet extends JSONServlet {
 			requestDispatcher.forward(request, response);
 		}
 		else {
-			String apiPath = "/api/jsonws";
+			String apiPath = null;
 
 			String uri = request.getRequestURI();
 
 			if (uri.contains("/secure/")) {
-				apiPath += "/api/secure/jsonws";
+				apiPath = "/api/secure/jsonws";
+			}
+			else {
+				apiPath = "/api/jsonws";
 			}
 
 			String servletContextPath = ContextPathUtil.getContextPath(
