@@ -182,7 +182,8 @@ public class I18nFilter extends BasePortalFilter {
 			WebKeys.VIRTUAL_HOST_LAYOUT_SET);
 
 		if ((layoutSet != null) &&
-			requestURI.startsWith(_PUBLIC_GROUP_SERVLET_MAPPING)) {
+			requestURI.startsWith(
+				PropsValues.LAYOUT_FRIENDLY_URL_PUBLIC_SERVLET_MAPPING)) {
 
 			int x = requestURI.indexOf(StringPool.SLASH, 1);
 
@@ -266,9 +267,6 @@ public class I18nFilter extends BasePortalFilter {
 
 		response.sendRedirect(redirect);
 	}
-
-	private static final String _PUBLIC_GROUP_SERVLET_MAPPING =
-		PropsValues.LAYOUT_FRIENDLY_URL_PUBLIC_SERVLET_MAPPING;
 
 	private static Log _log = LogFactoryUtil.getLog(I18nFilter.class);
 
