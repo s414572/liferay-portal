@@ -15,5 +15,8 @@
 		<case locator-key1="PAGE_ACTIONS_EDIT">
 			<execute function="AssertClick#assertTextClickAtAndWait" />
 		</case>
+		<case locator-key1="WIKI_PAGE_ATTACHMENTS_LINK">
+			<execute function="AssertClick#assertTextClickAtAndWait" />
+		</case>
 	</command>
 </definition>

@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>PGWikiAttachments</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">PGWikiAttachments</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>PGWikiAttachments</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>INFO_MESSAGE</td>
+	<td>//div[@class='portlet-msg-info']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUCCESS_MESSAGE</td>
+	<td>//div[@class='portlet-msg-success']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ADD_ATTACHMENTS_BUTTON</td>
+	<td>//input[@value='Add Attachments']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SEARCH_RESULTS</td>
+	<td>//div[@class='search-results']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--ATTACHMENT-->
+<tr>
+	<td>ATTACHMENT_NAME</td>
+	<td>//td[contains(@id,'col-file-name_row-1')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ATTACHMENT_SIZE</td>
+	<td>//td[contains(@id,'col-size_row-1')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

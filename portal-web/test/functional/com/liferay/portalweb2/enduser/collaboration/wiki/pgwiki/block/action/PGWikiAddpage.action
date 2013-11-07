@@ -1,5 +1,8 @@
 <definition>
 	<command name="assertClick">
+		<case locator-key1="SAVE_AS_DRAFT_BUTTON">
+			<execute function="AssertClick#assertValueClickAtAndWaitCKEditor" />
+		</case>
 		<case locator-key1="PUBLISH_BUTTON">
 			<execute function="AssertClick#assertValueClickAtAndWaitCKEditor" />
 		</case>

@@ -77,6 +77,11 @@
 	<td>//div[@class='child-pages']/ul/li[1]/a</td>
 	<td></td>
 </tr>
+<tr>
+	<td>WIKI_PAGE_ATTACHMENTS_LINK</td>
+	<td>//a[contains(.,'Attachment')]</td>
+	<td></td>
+</tr>
 </tbody>
 </table>
 </body>
