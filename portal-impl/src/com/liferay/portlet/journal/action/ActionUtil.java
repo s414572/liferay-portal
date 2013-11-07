@@ -27,6 +27,7 @@ import com.liferay.portlet.journal.model.JournalArticleConstants;
 import com.liferay.portlet.journal.model.JournalFeed;
 import com.liferay.portlet.journal.model.JournalStructure;
 import com.liferay.portlet.journal.model.JournalTemplate;
+import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.portlet.journal.service.JournalArticleServiceUtil;
 import com.liferay.portlet.journal.service.JournalFeedServiceUtil;
 import com.liferay.portlet.journal.service.JournalStructureServiceUtil;
@@ -45,11 +46,11 @@ public class ActionUtil {
 	public static void getArticle(HttpServletRequest request) throws Exception {
 		String cmd = ParamUtil.getString(request, Constants.CMD);
 
+		long resourcePrimKey = ParamUtil.getLong(request, "resourcePrimKey");
 		long groupId = ParamUtil.getLong(request, "groupId");
 		long classNameId = ParamUtil.getLong(request, "classNameId");
 		long classPK = ParamUtil.getLong(request, "classPK");
 		String articleId = ParamUtil.getString(request, "articleId");
-		long resourcePrimKey = ParamUtil.getLong(request, "resourcePrimKey");
 		String structureId = ParamUtil.getString(request, "structureId");
 
 		JournalArticle article = null;
