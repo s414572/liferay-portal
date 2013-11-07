@@ -62,7 +62,6 @@ public class SortFactoryImpl implements SortFactory {
 		return getSort(clazz, Sort.STRING_TYPE, orderByCol, orderByType);
 	}
 
-
 	@Override
 	public Sort[] toArray(List<Sort> sorts) {
 		if ((sorts == null) || sorts.isEmpty()) {
