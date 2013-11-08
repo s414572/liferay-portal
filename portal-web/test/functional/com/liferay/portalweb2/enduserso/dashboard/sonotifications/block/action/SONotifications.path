@@ -19,13 +19,43 @@
 	<td></td>
 </tr>
 <tr>
+	<td>NOTIFICATIONS_ENTRY</td>
+	<td>//td[@id='_6_WAR_soportlet_userNotificationEventsSearchContainer_col-notifications_row-1']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NOTIFICATIONS_ENTRY_INCREMENT</td>
+	<td>//td[@id='_6_WAR_soportlet_userNotificationEventsSearchContainer_col-notifications_row-${row}']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>NOTIFICATIONS_CHECKBOX</td>
 	<td>//td[@id='_6_WAR_soportlet_userNotificationEventsSearchContainer_col-rowChecker_row-1']/input[@type='checkbox']</td>
 	<td></td>
 </tr>
 <tr>
+	<td>NOTIFICATIONS_CHECKBOX_ENTRY</td>
+	<td>//td[@id='_6_WAR_soportlet_userNotificationEventsSearchContainer_col-rowChecker_row-${row}']/input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>DELETE_BUTTON</td>
 	<td>//input[@value='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NOTIFICATIONS_ENTRIES_PER_PAGE_SELECT</td>
+	<td>//select[@id='_6_WAR_soportlet_userNotificationEventsSearchContainerPageIteratorBottom_itemsPerPage']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SEARCH_RESULTS</td>
+	<td>//div[@class='search-results']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NEXT_BUTTON</td>
+	<td>//a[@class='next']</td>
 	<td></td>
 </tr>
 <tr>

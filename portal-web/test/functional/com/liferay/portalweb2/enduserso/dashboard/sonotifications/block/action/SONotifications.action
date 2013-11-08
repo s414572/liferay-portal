@@ -1,4 +1,19 @@
 <definition>
+	<command name="assertClick">
+		<case locator-key1="NEXT_BUTTON">
+			<execute function="AssertClick#assertPartialTextClickAtAndWait" />
+		</case>
+	</command>
+
+	<command name="assertTextEquals">
+		<case locator-key1="NOTIFICATIONS_ENTRY">
+			<execute function="AssertTextEquals#assertPartialText" />
+		</case>
+		<case locator-key1="NOTIFICATIONS_ENTRY_INCREMENT">
+			<execute function="AssertTextEquals#assertPartialText" />
+		</case>
+	</command>
+
 	<command name="click">
 		<case locator-key1="DELETE_BUTTON">
 			<execute function="Click#clickAtAndWait" />

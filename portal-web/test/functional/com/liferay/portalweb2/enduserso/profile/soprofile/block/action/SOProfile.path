@@ -109,6 +109,22 @@
 	<td></td>
 	<td></td>
 </tr>
+<!--CONTACTS-->
+<tr>
+	<td>CONTACTS_INFO_MESSAGE</td>
+	<td>//div[contains(@id,'contactsportlet')]//div[@class='portlet-msg-info']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CONTACTS_NAME</td>
+	<td>//div[contains(@id,'contactsportlet')]//div[@class='lfr-contact-name']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 <!--ADD-->
 <tr>
 	<td>ADD_ADDRESSES</td>
