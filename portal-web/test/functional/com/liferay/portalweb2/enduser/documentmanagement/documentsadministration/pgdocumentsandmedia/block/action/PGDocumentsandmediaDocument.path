@@ -19,6 +19,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>CHECKOUT_SUCCESS_MESSAGE</td>
+	<td>//div[contains(@class,'portlet-msg-lock')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>CONFIRMATION</td>
 	<td></td>
 	<td></td>
@@ -48,6 +53,16 @@
 	<td>TOOLBAR_CHECKOUT_BUTTON</td>
 	<td>//span[@class='aui-toolbar-content']/button[.='Checkout']</td>
 	<td>Checkout</td>
+</tr>
+<tr>
+	<td>TOOLBAR_CHECKIN_BUTTON</td>
+	<td>//span[@class='aui-toolbar-content']/button[.='Checkin']</td>
+	<td>Checkin</td>
+</tr>
+<tr>
+	<td>TOOLBAR_CANCEL_CHECKOUT_BUTTON</td>
+	<td>//span[@class='aui-toolbar-content']/button[.='Cancel Checkout']</td>
+	<td>Cancel Checkout</td>
 </tr>
 <tr>
 	<td>TOOLBAR_PERMISSIONS_BUTTON</td>
@@ -140,6 +155,11 @@
 	<td>COMMENTS_REPLY</td>
 	<td>//div[@class='taglib-discussion']/form/fieldset/div/div/div/span[2]/span/input</td>
 	<td>Cancel</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
 </tr>
 <!--DOCUMENT_DETAILS-->
 <tr>

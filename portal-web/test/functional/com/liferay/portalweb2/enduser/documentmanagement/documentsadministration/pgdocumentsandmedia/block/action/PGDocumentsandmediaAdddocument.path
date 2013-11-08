@@ -54,6 +54,11 @@
 	<td>Description</td>
 </tr>
 <tr>
+	<td>SAVE_AS_DRAFT_BUTTON</td>
+	<td>//input[@value='Save as Draft']</td>
+	<td>Save as Draft</td>
+</tr>
+<tr>
 	<td>PUBLISH_BUTTON</td>
 	<td>//input[@value='Publish']</td>
 	<td>Publish</td>

@@ -29,6 +29,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>STATUS</td>
+	<td>//strong[contains(@class,'workflow-status')]</td>
+	<td>Status</td>
+</tr>
+<tr>
 	<td>BACK</td>
 	<td>//a[@id='_20_TabsBack']</td>
 	<td>Back</td>
@@ -59,9 +64,29 @@
 	<td>Document Type</td>
 </tr>
 <tr>
+	<td>MAJOR_REVISION</td>
+	<td>xpath=(//input[@name='_20_majorVersion'])[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MINOR_REVISION</td>
+	<td>xpath=(//input[@name='_20_majorVersion'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CHANGE_LOG</td>
+	<td>//input[@id='_20_changeLog']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>PUBLISH_BUTTON</td>
 	<td>//input[@value='Publish']</td>
 	<td>Save</td>
+</tr>
+<tr>
+	<td>SAVE_AS_DRAFT_BUTTON</td>
+	<td>//input[@value='Save as Draft']</td>
+	<td>Save as Draft</td>
 </tr>
 <tr>
 	<td>SAVE_AND_CHECKIN_BUTTON</td>

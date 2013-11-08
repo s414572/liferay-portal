@@ -292,6 +292,17 @@
 	<td></td>
 	<td></td>
 </tr>
+<!--PORTLET_INFO-->
+<tr>
+	<td>PORTLET_INFO_MESSAGE</td>
+	<td>//div[@class='portlet-msg-info']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 <!--ENTRIES-->
 <tr>
 	<td>ENTRIES_SUBSCRIBE</td>
@@ -309,8 +320,18 @@
 	<td>Document Entry</td>
 </tr>
 <tr>
+	<td>ENTRIES_DOCUMENT_LOCKED_ICON</td>
+	<td>//div[@data-title='${key_dmDocumentTitle}']//img[@class='locked-icon']</td>
+	<td>Locked Icon</td>
+</tr>
+<tr>
 	<td>ENTRIES_DOCUMENT_TITLE</td>
 	<td>//div[@data-title='${key_dmDocumentTitle}']//span[@class='entry-title']</td>
+	<td>Document Title</td>
+</tr>
+<tr>
+	<td>ENTRIES_DOCUMENT_DESCRIPTION</td>
+	<td>//div[@data-title='${key_dmDocumentTitle}']//span[@class='document-description']</td>
 	<td>Document Title</td>
 </tr>
 <tr>
@@ -367,6 +388,51 @@
 	<td>ENTRIES_FOLDER_ACTIONS_INCREMENT</td>
 	<td>//div[@id='_20_documentContainer']/div[contains(.,'${number}')]/span[2]/span/ul/li/strong/a</td>
 	<td>Folder Entry Actions</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>LIST_ENTRIES_DOCUMENT_CHECKBOX</td>
+	<td>//tr[@data-title='${key_dmDocumentTitle}']//input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LIST_ENTRIES_DOCUMENT_ICON</td>
+	<td>//tr[@data-title='${key_dmDocumentTitle}']//img[@class='icon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LIST_ENTRIES_DOCUMENT_TITLE</td>
+	<td>//tr[@data-title='${key_dmDocumentTitle}']//span[@class='taglib-text']</td>
+	<td>${key_dmDocumentTitle}</td>
+</tr>
+<tr>
+	<td>LIST_ENTRIES_DOCUMENT_WORKFLOW</td>
+	<td>//tr[@data-title='${key_dmDocumentTitle}']//span[contains(@class,'workflow-status')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LIST_ENTRIES_DOCUMENT_LOCKED_ICON</td>
+	<td>//tr[@data-title='${key_dmDocumentTitle}']//img[@title='Lock']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LIST_ENTRIES_DOCUMENT_SIZE</td>
+	<td>//tr[@data-title='${key_dmDocumentTitle}']//td[@headers='_20_ocerSearchContainer_col-size']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LIST_ENTRIES_DOCUMENT_DOWNLOARD</td>
+	<td>//tr[@data-title='${key_dmDocumentTitle}']//td[@headers='_20_ocerSearchContainer_col-downloads']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LIST_ENTRIES_DOCUMENT_ACTION</td>
+	<td>//tr[@data-title='${key_dmDocumentTitle}']//a[@id='_20_ocerSearchContainer_1_menuButton']</td>
+	<td></td>
 </tr>
 <tr>
 	<td></td>
