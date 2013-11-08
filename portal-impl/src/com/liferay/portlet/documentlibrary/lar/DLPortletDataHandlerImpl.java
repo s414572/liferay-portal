@@ -327,6 +327,14 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 			Folder folder = (Folder)portletDataContext.getZipEntryAsObject(
 				folderPath);
 
+			if (folder == null) {
+				folderPath = getSourceCompanyGroupImportFolderPath(
+					portletDataContext, fileEntry.getFolderId());
+
+				folder = (Folder)portletDataContext.getZipEntryAsObject(
+					folderPath);
+			}
+
 			Document document = fileEntryElement.getDocument();
 
 			Element rootElement = document.getRootElement();
@@ -1301,6 +1309,23 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 
 		return sb.toString();
 	}
+
+	protected static String getSourceCompanyGroupImportFolderPath(
+			PortletDataContext portletDataContext, long folderId) {
+
+			StringBundler sb = new StringBundler(4);
+
+			sb.append(
+				PortletDataContext.ROOT_PATH_GROUPS +
+				portletDataContext.getSourceCompanyGroupId() +
+				PortletDataContext.ROOT_PATH_PORTLETS +
+				PortletKeys.DOCUMENT_LIBRARY);
+			sb.append("/folders/");
+			sb.append(folderId);
+			sb.append(".xml");
+
+			return sb.toString();
+		}
 
 	protected static String getImportFolderPath(
 		PortletDataContext portletDataContext, long folderId) {
