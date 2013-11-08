@@ -53,8 +53,6 @@ import jodd.io.findfile.RegExpFindFile;
 
 import org.apache.commons.lang.time.StopWatch;
 
-import org.objectweb.asm.ClassReader;
-
 /**
  * @author Igor Spasic
  */
@@ -131,7 +129,7 @@ public class JSONWebServiceConfigurator extends ClassFinder {
 
 			classPaths.add(classPathFile);
 
-			FindFile findFile = new RegExpFindFile(
+			FindFile findFile = new RegExpFindFile().include(
 				".*-(hook|portlet|web)-service.*\\.jar");
 
 			findFile.searchPath(libDir);
@@ -191,14 +189,11 @@ public class JSONWebServiceConfigurator extends ClassFinder {
 			if (!entryData.isArchive()) {
 				StreamUtil.cleanUp(inputStream);
 
-				ClassReader classReader = new ClassReader(
-					entryData.openInputStream());
-
 				JSONWebServiceClassVisitor jsonWebServiceClassVisitor =
-					new JSONWebServiceClassVisitor();
+					new JSONWebServiceClassVisitor(entryData.openInputStream());
 
 				try {
-					classReader.accept(jsonWebServiceClassVisitor, 0);
+					jsonWebServiceClassVisitor.accept();
 				}
 				catch (Exception e) {
 					return;

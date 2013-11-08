@@ -17,12 +17,30 @@ package com.liferay.portal.jsonwebservice;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.StringUtil;
 
-import jodd.asm.EmptyClassVisitor;
+import org.objectweb.asm.AnnotationVisitor;
+import org.objectweb.asm.Attribute;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassVisitor;
+import org.objectweb.asm.FieldVisitor;
+import org.objectweb.asm.MethodVisitor;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * @author Igor Spasic
  */
-public class JSONWebServiceClassVisitor extends EmptyClassVisitor {
+public class JSONWebServiceClassVisitor implements ClassVisitor {
+
+	public JSONWebServiceClassVisitor(InputStream inputStream)
+		throws IOException {
+
+		_classReader = new ClassReader(inputStream);
+	}
+
+	public void accept() throws Exception {
+		_classReader.accept(this, 0);
+	}
 
 	public String getClassName() {
 		return _className;
@@ -36,6 +54,51 @@ public class JSONWebServiceClassVisitor extends EmptyClassVisitor {
 		_className = StringUtil.replace(name, CharPool.SLASH, CharPool.PERIOD);
 	}
 
+	@Override
+	public AnnotationVisitor visitAnnotation(
+		String description, boolean visible) {
+
+		return null;
+	}
+
+	@Override
+	public void visitAttribute(Attribute attribute) {
+	}
+
+	@Override
+	public void visitEnd() {
+	}
+
+	@Override
+	public FieldVisitor visitField(
+		int access, String name, String description, String signature,
+		Object value) {
+
+		return null;
+	}
+
+	@Override
+	public void visitInnerClass(
+		String name, String outerName, String innerName, int access) {
+	}
+
+	@Override
+	public MethodVisitor visitMethod(
+		int access, String name, String description, String signature,
+		String[] exceptions) {
+
+		return null;
+	}
+
+	@Override
+	public void visitOuterClass(String owner, String name, String desc) {
+	}
+
+	@Override
+	public void visitSource(String source, String debug) {
+	}
+
 	private String _className;
+	private ClassReader _classReader;
 
 }
