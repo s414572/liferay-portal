@@ -28,6 +28,14 @@
 	<var name="userName" value="Joe Bloggs" />
 
 	<command name="AddMBCategoryThread" priority="5">
+		<var name="categoryName" value="${categoryName}" />
+		<var name="key_siteName" value="${key_siteName}" />
+		<var name="pageName" value="${pageName}" />
+		<var name="pageType" value="${pageType}" />
+		<var name="siteName" value="${siteName}" />
+		<var name="threadBody" value="${threadBody}" />
+		<var name="threadSubject" value="${threadSubject}" />
+
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 			<var name="pageType" value="Open Site" />
@@ -69,6 +77,15 @@
 	</command>
 
 	<command name="DeleteMBCategoryThread" priority="5">
+		<var name="categoryName" value="${categoryName}" />
+		<var name="key_categoryName" value="${categoryName}" />
+		<var name="key_siteName" value="${key_siteName}" />
+		<var name="pageName" value="${pageName}" />
+		<var name="pageType" value="${pageType}" />
+		<var name="siteName" value="${siteName}" />
+		<var name="threadBody" value="${threadBody}" />
+		<var name="threadSubject" value="${threadSubject}" />
+
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 			<var name="pageType" value="Open Site" />
@@ -103,17 +120,27 @@
 			<var name="pageType" value="Open Site" />
 		</execute>
 
-		<execute action="PGMessageboards#assertTextEquals" locator-key1="CATEGORY_TABLE_CATEGORY_1" value1="${categoryName}" />
-		<execute action="PGMessageboards#assertTextEquals" locator-key1="CATEGORY_TABLE_CATEGORIES_1" value1="0" />
-		<execute action="PGMessageboards#assertTextEquals" locator-key1="CATEGORY_TABLE_THREADS_1" value1="0" />
-		<execute action="PGMessageboards#assertTextEquals" locator-key1="CATEGORY_TABLE_POSTS_1" value1="0" />
-		<execute action="PGMessageboards#assertClick" locator-key1="CATEGORY_TABLE_CATEGORY_1" value1="${categoryName}" />
+		<execute action="PGMessageboards#assertTextEquals" locator-key1="CATEGORY_TABLE_CATEGORY" value1="${categoryName}" />
+		<execute action="PGMessageboards#assertTextEquals" locator-key1="CATEGORY_TABLE_CATEGORIES" value1="0" />
+		<execute action="PGMessageboards#assertTextEquals" locator-key1="CATEGORY_TABLE_THREADS" value1="0" />
+		<execute action="PGMessageboards#assertTextEquals" locator-key1="CATEGORY_TABLE_POSTS" value1="0" />
+		<execute action="PGMessageboards#assertClick" locator-key1="CATEGORY_TABLE_CATEGORY" value1="${categoryName}" />
 
 		<execute action="PGMessageboards#assertTextEquals" locator-key1="INFO_MESSAGE" value1="There are no threads in this category." />
 		<execute action="PGMessageboards#assertTextNotPresent" value1="${threadSubject}" />
 	</command>
 
 	<command name="EditMBCategoryThread" priority="5">
+		<var name="categoryName" value="${categoryName}" />
+		<var name="key_siteName" value="${key_siteName}" />
+		<var name="pageName" value="${pageName}" />
+		<var name="pageType" value="${pageType}" />
+		<var name="siteName" value="${siteName}" />
+		<var name="threadBody" value="${threadBody}" />
+		<var name="threadBodyEdit" value="${threadBodyEdit}" />
+		<var name="threadSubject" value="${threadSubject}" />
+		<var name="threadSubjectEdit" value="${threadSubjectEdit}" />
+
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 			<var name="pageType" value="Open Site" />

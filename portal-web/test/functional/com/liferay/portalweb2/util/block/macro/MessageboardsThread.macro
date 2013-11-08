@@ -1,6 +1,17 @@
 <definition>
 	<var name="userName" value="Test Test" />
 
+	<command name="addInCategoryPG">
+		<var name="key_categoryName" value="${categoryName}" />
+
+		<execute action="PGMessageboards#assertClick" locator-key1="CATEGORY_TABLE_CATEGORY" value1="${categoryName}" />
+
+		<execute macro="MessageboardsThread#addPG">
+			<var name="threadBody" value="${threadBody}" />
+			<var name="threadSubject" value="${threadSubject}" />
+		</execute>
+	</command>
+
 	<command name="addPG">
 		<execute action="PGMessageboards#assertClick" locator-key1="POST_NEW_THREAD_BUTTON" value1="Post New Thread" />
 
@@ -121,6 +132,17 @@
 				<execute action="PGMessageboardsMyposts#confirm" locator-key1="CONFIRMATION" value1="Are you sure you want to delete this?" />
 			</then>
 		</while>
+	</command>
+
+	<command name="viewInCategoryPG">
+		<var name="key_categoryName" value="${categoryName}" />
+
+		<execute action="PGMessageboards#assertClick" locator-key1="CATEGORY_TABLE_CATEGORY" value1="${categoryName}" />
+
+		<execute macro="MessageboardsThread#viewPG">
+			<var name="threadBody" value="${threadBody}" />
+			<var name="threadSubject" value="${threadSubject}" />
+		</execute>
 	</command>
 
 	<command name="viewPG">

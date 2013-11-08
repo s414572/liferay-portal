@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>PGBookmarksBookmark</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">PGBookmarksBookmark</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>PGBookmarksBookmark</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAME</td>
+	<td>//div[@class='taglib-header ']/h1/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>URL</td>
+	<td>//div[@class='lfr-asset-url']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>DESCRIPTION</td>
+	<td>//div[@class='lfr-asset-description']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>AUTHOR</td>
+	<td>//div[@class='lfr-asset-metadata']/div[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CREATED_DATE</td>
+	<td>//div[@class='lfr-asset-metadata']/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>VISITS</td>
+	<td>//div[@class='lfr-asset-metadata']/div[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--HOME_MENU-->
+<tr>
+	<td>HOME_MENU_EDIT</td>
+	<td>//div[contains(@id,'menu')]/ul/li/a[contains(.,'Edit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>HOME_MENU_PERMISSIONS</td>
+	<td>//div[contains(@id,'menu')]/ul/li/a[contains(.,'Permissions')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>HOME_MENU_DELETE</td>
+	<td>//div[contains(@id,'menu')]/ul/li/a[contains(.,'Delete')]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

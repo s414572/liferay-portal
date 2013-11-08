@@ -1,0 +1,184 @@
+<html>
+<head>
+<title>PGBookmarksFolder</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">PGBookmarksFolder</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>PGBookmarksFolder</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUCCESS_MESSAGE</td>
+	<td>//div[@class='portlet-msg-success']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FOLDER_TITLE</td>
+	<td>//div[@class='taglib-header ']/h1/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FOLDER_DESCRIPTION</td>
+	<td>//div[@class='lfr-asset-description']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LAST_UPDATED</td>
+	<td>//div[contains(@class,'date')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NUMBER_OF_SUBFOLDERS</td>
+	<td>//div[contains(@class,'subfolders')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NUMBER_OF_ENTRIES</td>
+	<td>//div[contains(@class,'items')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CONFIRMATION</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--HOME_MENU-->
+<tr>
+	<td>HOME_MENU_EDIT</td>
+	<td>//div[contains(@id,'menu')]/ul/li/a[contains(.,'Edit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>HOME_MENU_PERMISSIONS</td>
+	<td>//div[contains(@id,'menu')]/ul/li/a[contains(.,'Permissions')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>HOME_MENU_DELETE</td>
+	<td>//div[contains(@id,'menu')]/ul/li/a[contains(.,'Delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>HOME_MENU_ADD_SUBFOLDER</td>
+	<td>//div[contains(@id,'menu')]/ul/li/a[contains(.,'Add Subfolder')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>HOME_MENU_ADD_BOOKMARK</td>
+	<td>//div[contains(@id,'menu')]/ul/li/a[contains(.,'Add Bookmark')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--SUBFOLDERS_TABLE-->
+<tr>
+	<td>SUBFOLDERS_TABLE_SUBFOLDER_NAME</td>
+	<td>//div[@id='_28_bookmarksFoldersSearchContainer']//tr[contains(.,'${key_subfolderName}')]/td[1]/a/strong</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUBFOLDERS_TABLE_SUBFOLDER_DESCRIPTION</td>
+	<td>//div[@id='_28_bookmarksFoldersSearchContainer']//tr[contains(.,'${key_subfolderName}')]/td[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUBFOLDERS_TABLE_SUBFOLDER_ACTIONS_BUTTON</td>
+	<td>//div[@id='_28_bookmarksFoldersSearchContainer']//tr[contains(.,'${key_folderName}')]/td[4]/span[@title='Actions']/ul/li/strong/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--SUBFOLDER_MENULIST-->
+<tr>
+	<td>SUBFOLDER_MENULIST_EDIT</td>
+	<td>//a[@role='menuitem' and contains(.,'Edit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUBFOLDER_MENULIST_PERMISSIONS</td>
+	<td>//a[@role='menuitem' and contains(.,'Permissions')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUBFOLDER_MENULIST_DELETE</td>
+	<td>//a[@role='menuitem' and contains(.,'Delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUBFOLDER_MENULIST_ADD_SUBFOLDER</td>
+	<td>//a[@role='menuitem' and contains(.,'Add Subfolder')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUBFOLDER_MENULIST_ADD_BOOKMARK</td>
+	<td>//a[@role='menuitem' and contains(.,'Add Bookmark')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--BOOKMARKS_TABLE-->
+<tr>
+	<td>BOOKMARKS_TABLE_NAME</td>
+	<td>//div[@id='bookmarksEntriesListingPanel']//tr[contains(.,'${key_bookmarkName}')]/td[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BOOKMARKS_TABLE_URL</td>
+	<td>//div[@id='bookmarksEntriesListingPanel']//tr[contains(.,'${key_bookmarkName}')]/td[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BOOKMARKS_TABLE_ACTIONS_BUTTON</td>
+	<td>//div[@id='bookmarksEntriesListingPanel']//tr[contains(.,'${key_bookmarkName}')]/td[5]/span[@title='Actions']/ul/li/strong/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--BOOKMARK_MENULIST-->
+<tr>
+	<td>BOOKMARK_MENULIST_EDIT</td>
+	<td>//a[@role='menuitem' and contains(.,'Edit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BOOKMARK_MENULIST_PERMISSIONS</td>
+	<td>//a[@role='menuitem' and contains(.,'Permissions')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BOOKMARK_MENULIST_DELETE</td>
+	<td>//a[@role='menuitem' and contains(.,'Delete')]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

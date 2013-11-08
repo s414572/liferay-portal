@@ -14,6 +14,8 @@
 	</command>
 
 	<command name="addPG">
+		<var name="key_eventTitle" value="${eventTitle}" />
+
 		<if>
 			<isset var="daysIntoFuture" />
 			<then>
@@ -70,6 +72,59 @@
 		</if>
 	</command>
 
+	<command name="addRepeatMonthlyPG">
+		<var name="key_eventTitle" value="${eventTitle}" />
+
+		<execute action="PGCalendar#assertClick" locator-key1="ADD_EVENT_BUTTON" value1="Add Event" />
+
+		<execute action="PGCalendarAddEvent#select" locator-key1="START_DATE_MONTH_SELECT" value1="${eventStartMonth}" />
+		<execute action="PGCalendarAddEvent#select" locator-key1="START_DATE_DAY_SELECT" value1="${eventStartDay}" />
+		<execute action="PGCalendarAddEvent#select" locator-key1="START_DATE_YEAR_SELECT" value1="${eventStartYear}" />
+		<execute action="PGCalendarAddEvent#type" locator-key1="TITLE_FIELD" value1="${eventTitle}" />
+		<execute action="PGCalendarAddEvent#type" locator-key1="DESCRIPTION_FIELD" value1="${eventDescription}" />
+		<execute action="PGCalendarAddEvent#select" locator-key1="TYPE_SELECT" value1="${eventType}" />
+		<execute action="PGCalendarAddEvent#check" locator-key1="REPEAT_MONTHLY_CHECKBOX" value1="Monthly" />
+		<execute action="PGCalendarAddEvent#check" locator-key1="REPEAT_END_DATE" value1="End By" />
+		<execute action="PGCalendarAddEvent#select" locator-key1="END_DATE_MONTH_SELECT" value1="${eventEndMonth}" />
+		<execute action="PGCalendarAddEvent#select" locator-key1="END_DATE_DAY_SELECT" value1="${eventEndDay}" />
+		<execute action="PGCalendarAddEvent#select" locator-key1="END_DATE_YEAR_SELECT" value1="${eventEndYear}" />
+		<execute action="PGCalendarAddEvent#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+
+		<execute action="PGCalendar#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute action="PGCalendar#assertClick" locator-key1="VIEW_EVENTS" value1="Events" />
+		<execute action="PGCalendar#assertElementPresent" locator-key1="EVENT_TABLE_TIME" />
+		<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TITLE" value1="${eventTitle}" />
+		<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TYPE" value1="${eventType}" />
+		<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_ACTIONS" value1="Actions" />
+	</command>
+
+	<command name="addRepeatWeeklyPG">
+		<var name="key_eventTitle" value="${eventTitle}" />
+
+		<execute action="PGCalendar#assertClick" locator-key1="ADD_EVENT_BUTTON" value1="Add Event" />
+
+		<execute action="PGCalendarAddEvent#select" locator-key1="START_DATE_MONTH_SELECT" value1="${eventStartMonth}" />
+		<execute action="PGCalendarAddEvent#select" locator-key1="START_DATE_DAY_SELECT" value1="${eventStartDay}" />
+		<execute action="PGCalendarAddEvent#select" locator-key1="START_DATE_YEAR_SELECT" value1="${eventStartYear}" />
+		<execute action="PGCalendarAddEvent#type" locator-key1="TITLE_FIELD" value1="${eventTitle}" />
+		<execute action="PGCalendarAddEvent#type" locator-key1="DESCRIPTION_FIELD" value1="${eventDescription}" />
+		<execute action="PGCalendarAddEvent#select" locator-key1="TYPE_SELECT" value1="${eventType}" />
+		<execute action="PGCalendarAddEvent#check" locator-key1="REPEAT_WEEKLY_CHECKBOX" value1="Repeat Weekly Checkbox" />
+		<execute action="PGCalendarAddEvent#check" locator-key1="REPEAT_SUNDAY" value1="Sunday" />
+		<execute action="PGCalendarAddEvent#check" locator-key1="REPEAT_END_DATE" value1="End By" />
+		<execute action="PGCalendarAddEvent#select" locator-key1="END_DATE_MONTH_SELECT" value1="${eventEndMonth}" />
+		<execute action="PGCalendarAddEvent#select" locator-key1="END_DATE_DAY_SELECT" value1="${eventEndDay}" />
+		<execute action="PGCalendarAddEvent#select" locator-key1="END_DATE_YEAR_SELECT" value1="${eventEndYear}" />
+		<execute action="PGCalendarAddEvent#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+
+		<execute action="PGCalendar#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute action="PGCalendar#assertClick" locator-key1="VIEW_EVENTS" value1="Events" />
+		<execute action="PGCalendar#assertElementPresent" locator-key1="EVENT_TABLE_TIME" />
+		<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TITLE" value1="${eventTitle}" />
+		<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TYPE" value1="${eventType}" />
+		<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_ACTIONS" value1="Actions" />
+	</command>
+
 	<command name="deleteCP">
 		<execute action="CPCalendar#assertClick" locator-key1="VIEW_SUMMARY" value1="Summary" />
 		<execute action="CPCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TITLE" value1="${eventTitle}" />
@@ -80,6 +135,8 @@
 	</command>
 
 	<command name="deletePG">
+		<var name="key_eventTitle" value="${eventTitle}" />
+
 		<execute action="PGCalendar#assertClick" locator-key1="VIEW_SUMMARY" value1="Summary" />
 		<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TITLE" value1="${eventTitle}" />
 		<execute action="PGCalendar#assertClick" locator-key1="EVENT_TABLE_ACTIONS"  value1="Actions" />
@@ -105,6 +162,8 @@
 	</command>
 
 	<command name="editPG">
+		<var name="key_eventTitle" value="${eventTitle}" />
+
 		<execute action="PGCalendar#assertClick" locator-key1="VIEW_SUMMARY" value1="Summary" />
 		<execute action="PGCalendar#assertTextEquals" locator-key1="EVENT_TABLE_TITLE" value1="${eventTitle}" />
 		<execute action="PGCalendar#assertClick" locator-key1="EVENT_TABLE_ACTIONS"  value1="Actions" />
@@ -142,6 +201,8 @@
 	</command>
 
 	<command name="viewPG">
+		<var name="key_eventTitle" value="${eventTitle}" />
+
 		<execute action="PGCalendar#assertClick" locator-key1="EVENT_TABLE_TITLE" value1="${eventTitle}" />
 
 		<execute macro="Event#viewDetailsPG" />

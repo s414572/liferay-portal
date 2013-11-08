@@ -1,0 +1,180 @@
+<html>
+<head>
+<title>PGBookmarks</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">PGBookmarks</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>PGBookmarks</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUCCESS_MESSAGE</td>
+	<td>//div[@class='portlet-msg-success']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SEARCH_FIELD</td>
+	<td>//input[@title='Search Bookmarks']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SEARCH_BUTTON</td>
+	<td>//input[@value='Search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CONFIRMATION</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--NAVIGATION-->
+<tr>
+	<td>NAVIGATION_HOME</td>
+	<td>//ul[@class='top-links-navigation']/li/span/a/span[contains(.,'Home')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_RECENT</td>
+	<td>//ul[@class='top-links-navigation']/li/span/a/span[contains(.,'Recent')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_MINE</td>
+	<td>//ul[@class='top-links-navigation']/li/span/a/span[contains(.,'Mine')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--HOME_MENU-->
+<tr>
+	<td>HOME_MENU_PERMISSIONS</td>
+	<td>//div[contains(@id,'menu')]/ul/li/a[contains(.,'Permissions')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>HOME_MENU_ADD_FOLDER</td>
+	<td>//div[contains(@id,'menu')]/ul/li/a[contains(.,'Add Folder')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>HOME_MENU_ADD_BOOKMARK</td>
+	<td>//div[contains(@id,'menu')]/ul/li/a[contains(.,'Add Bookmark')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--FOLDERS_TABLE-->
+<tr>
+	<td>FOLDERS_TABLE_FOLDER_NAME</td>
+	<td>//div[@id='_28_bookmarksFoldersSearchContainer']//tr[contains(.,'${key_folderName}')]/td[1]/a/strong</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FOLDERS_TABLE_FOLDER_DESCRIPTION</td>
+	<td>//div[@id='_28_bookmarksFoldersSearchContainer']//tr[contains(.,'${key_folderName}')]/td[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FOLDERS_TABLE_FOLDER_ACTIONS_BUTTON</td>
+	<td>//div[@id='_28_bookmarksFoldersSearchContainer']//tr[contains(.,'${key_folderName}')]/td[4]/span[@title='Actions']/ul/li/strong/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--FOLDER_MENULIST-->
+<tr>
+	<td>FOLDER_MENULIST_EDIT</td>
+	<td>//a[@role='menuitem' and contains(.,'Edit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FOLDER_MENULIST_PERMISSIONS</td>
+	<td>//a[@role='menuitem' and contains(.,'Permissions')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FOLDER_MENULIST_DELETE</td>
+	<td>//a[@role='menuitem' and contains(.,'Delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FOLDER_MENULIST_ADD_SUBFOLDER</td>
+	<td>//a[@role='menuitem' and contains(.,'Add Subfolder')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FOLDER_MENULIST_ADD_BOOKMARK</td>
+	<td>//a[@role='menuitem' and contains(.,'Add Bookmark')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--BOOKMARKS_TABLE-->
+<tr>
+	<td>BOOKMARKS_TABLE_NAME</td>
+	<td>//div[@id='bookmarksEntriesListingPanel']//tr[contains(.,'${key_bookmarkName}')]/td[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BOOKMARKS_TABLE_URL</td>
+	<td>//div[@id='bookmarksEntriesListingPanel']//tr[contains(.,'${key_bookmarkName}')]/td[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BOOKMARKS_TABLE_ACTIONS_BUTTON</td>
+	<td>//div[@id='bookmarksEntriesListingPanel']//tr[contains(.,'${key_bookmarkName}')]/td[5]/span[@title='Actions']/ul/li/strong/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--BOOKMARK_MENULIST-->
+<tr>
+	<td>BOOKMARK_MENULIST_EDIT</td>
+	<td>//a[@role='menuitem' and contains(.,'Edit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BOOKMARK_MENULIST_PERMISSIONS</td>
+	<td>//a[@role='menuitem' and contains(.,'Permissions')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BOOKMARK_MENULIST_DELETE</td>
+	<td>//a[@role='menuitem' and contains(.,'Delete')]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

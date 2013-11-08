@@ -37,7 +37,7 @@
 	</command>
 
 	<command name="gotoCP">
-		<execute action="Home#open" locator-key1="GUEST_URL" />
+		<execute macro="Page#openURL" />
 
 		<execute action="Dockbar#mouseOver" locator-key1="GO_TO" />
 		<execute action="Dockbar#assertClick" locator-key1="GO_TO_CONTROL_PANEL" value1="Control Panel" />

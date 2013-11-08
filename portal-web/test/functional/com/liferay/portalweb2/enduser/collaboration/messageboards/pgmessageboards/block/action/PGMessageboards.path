@@ -86,8 +86,8 @@
 </tr>
 <!--CATEGORY_TABLE-->
 <tr>
-	<td>CATEGORY_TABLE_CATEGORY_1</td>
-	<td>xpath=(//div[contains(@id,'mbCategoriesSearchContainer')]//tr/td[1]/a)[1]</td>
+	<td>CATEGORY_TABLE_CATEGORY</td>
+	<td>//div[contains(@id,'mbCategoriesSearchContainer')]//tr[contains(.,'${key_categoryName}')]/td[1]/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -96,8 +96,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>CATEGORY_TABLE_CATEGORIES_1</td>
-	<td>xpath=(//div[contains(@id,'mbCategoriesSearchContainer')]//tr/td[2]/a)[1]</td>
+	<td>CATEGORY_TABLE_CATEGORIES</td>
+	<td>//div[contains(@id,'mbCategoriesSearchContainer')]//tr[contains(.,'${key_categoryName}')]/td[2]/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -106,8 +106,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>CATEGORY_TABLE_THREADS_1</td>
-	<td>xpath=(//div[contains(@id,'mbCategoriesSearchContainer')]//tr/td[3]/a)[1]</td>
+	<td>CATEGORY_TABLE_THREADS</td>
+	<td>//div[contains(@id,'mbCategoriesSearchContainer')]//tr[contains(.,'${key_categoryName}')]/td[3]/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -116,8 +116,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>CATEGORY_TABLE_POSTS_1</td>
-	<td>xpath=(//div[contains(@id,'mbCategoriesSearchContainer')]//tr/td[4]/a)[1]</td>
+	<td>CATEGORY_TABLE_POSTS</td>
+	<td>//div[contains(@id,'mbCategoriesSearchContainer')]//tr[contains(.,'${key_categoryName}')]/td[4]/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -126,8 +126,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>CATEGORY_TABLE_ACTIONS_1</td>
-	<td>xpath=(//div[contains(@id,'mbCategoriesSearchContainer')]//tr/td[5]/span/ul/li/strong/a)[1]</td>
+	<td>CATEGORY_TABLE_ACTIONS</td>
+	<td>//div[contains(@id,'mbCategoriesSearchContainer')]//tr[contains(.,'${key_categoryName}')]//span[@title='Actions']/ul/li/strong/a</td>
 	<td></td>
 </tr>
 <tr>

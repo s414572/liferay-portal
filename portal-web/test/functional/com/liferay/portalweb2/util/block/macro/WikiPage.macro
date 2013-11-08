@@ -1,6 +1,7 @@
 <definition>
 	<command name="addChildPagePG">
 		<var name="key_wikiChildPageTitle" value="${wikiChildPageTitle}" />
+
 		<execute action="PGWiki#assertClick" locator-key1="NAVIGATION_ALL_PAGES" value1="All Pages" />
 
 		<execute action="PGWikiAllpages#assertClick" locator1="link=${wikiPageTitle}" value1="${wikiPageTitle}" />

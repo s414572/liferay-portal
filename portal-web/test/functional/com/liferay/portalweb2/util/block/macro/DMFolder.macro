@@ -76,7 +76,6 @@
 	<command name="deleteCP">
 		<execute action="CPDocumentsandmedia#assertElementPresent" locator-key1="DOCUMENT_CONTAINER_FOLDER1" />
 		<execute action="CPDocumentsandmedia#assertTextEquals" locator-key1="DOCUMENT_CONTAINER_FOLDER1_TITLE" value1="${dmFolderName}"/>
-
 		<execute action="CPDocumentsandmedia#mouseOver" locator-key1="DOCUMENT_CONTAINER_FOLDER1" />
 		<execute action="CPDocumentsandmedia#click" locator-key1="DOCUMENT_CONTAINER_FOLDER1_CHECKBOX" />
 		<execute action="CPDocumentsandmedia#assertElementPresent" locator-key1="ACTIONS" />
@@ -98,6 +97,7 @@
 
 	<command name="deletePG">
 		<var name="key_dmFolderName" value="${dmFolderName}" />
+
 		<execute action="PGDocumentsandmedia#assertElementPresent" locator-key1="ENTRIES_FOLDER" />
 		<execute action="PGDocumentsandmedia#assertTextEquals" locator-key1="ENTRIES_FOLDER_TITLE" value1="${dmFolderName}" />
 		<execute action="PGDocumentsandmedia#click" locator-key1="ENTRIES_FOLDER_SELECT" />
@@ -111,7 +111,6 @@
 	<command name="editCP">
 		<execute action="CPDocumentsandmedia#assertElementPresent" locator-key1="DOCUMENT_CONTAINER_FOLDER1" />
 		<execute action="CPDocumentsandmedia#assertTextEquals" locator-key1="DOCUMENT_CONTAINER_FOLDER1_TITLE" value1="${dmFolderName}" />
-
 		<execute action="CPDocumentsandmedia#mouseOver" locator-key1="DOCUMENT_CONTAINER_FOLDER1" />
 		<execute action="CPDocumentsandmedia#assertElementPresent" locator-key1="DOCUMENT_CONTAINER_FOLDER1_DROPDOWN" />
 		<execute action="CPDocumentsandmedia#click" locator-key1="DOCUMENT_CONTAINER_FOLDER1_DROPDOWN" />
@@ -154,13 +153,13 @@
 
 	<command name="gotoPG">
 		<var name="key_dmFolderName" value="${dmFolderName}" />
+
 		<execute action="PGDocumentsandmedia#click" locator-key1="ENTRIES_FOLDER" />
 	</command>
 
 	<command name="moveToFolderCP">
 		<execute action="CPDocumentsandmedia#assertElementPresent" locator-key1="DOCUMENT_CONTAINER_FOLDER1" />
 		<execute action="CPDocumentsandmedia#assertElementPresent" locator-key1="DOCUMENT_CONTAINER_FOLDER2" />
-
 		<execute action="CPDocumentsandmedia#click" locator-key1="DOCUMENT_CONTAINER_FOLDER1_DROPDOWN" />
 		<execute action="CPDocumentsandmedia#assertElementPresent" locator-key1="FOLDER_MENULIST_MOVE" />
 		<execute action="CPDocumentsandmedia#assertClick" locator-key1="FOLDER_MENULIST_MOVE" value1="Move" />
@@ -169,7 +168,6 @@
 		<execute action="CPDocumentsandmediaMovefolder#selectWindow" locator-key1="FOLDER_WINDOW_ID" />
 		<execute action="CPDocumentsandmediaMovefolder#assertClick" locator-key1="FOLDER_WINDOW_FOLDER2_CHOOSE_BUTTON" value1="Choose" />
 		<execute action="CPDocumentsandmediaMovefolder#selectWindow" locator1="null" />
-
 		<execute action="CPDocumentsandmediaMovefolder#assertTextEquals" locator-key1="PARENT_FOLDER" value1="${dmFolderName2}" />
 		<execute action="CPDocumentsandmediaMovefolder#assertClick" locator-key1="MOVE_BUTTON" value1="Move" />
 
@@ -251,6 +249,7 @@
 
 	<command name="viewPG">
 		<var name="key_dmFolderName" value="${dmFolderName}" />
+
 		<execute action="PGDocumentsandmedia#click" locator-key1="ENTRIES_FOLDER" />
 
 		<execute action="PGDocumentsandmediaFolder#assertTextEquals" locator-key1="BREADCRUMB_FOLDER" value1="${dmFolderName}" />

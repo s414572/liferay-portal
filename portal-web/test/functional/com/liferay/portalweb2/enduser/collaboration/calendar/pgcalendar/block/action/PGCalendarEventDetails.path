@@ -84,22 +84,28 @@
 	<td></td>
 </tr>
 <tr>
-	<td>EDIT</td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--EVENT_MENULIST-->
+<tr>
+	<td>EVENT_MENULIST_EDIT</td>
 	<td>//div[contains(@id,'menu')]/ul/li[1]/a</td>
 	<td></td>
 </tr>
 <tr>
-	<td>EXPORT</td>
+	<td>EVENT_MENULIST_EXPORT</td>
 	<td>//div[contains(@id,'menu')]/ul/li[2]/a</td>
 	<td></td>
 </tr>
 <tr>
-	<td>PERMISSIONS</td>
+	<td>EVENT_MENULIST_PERMISSIONS</td>
 	<td>//div[contains(@id,'menu')]/ul/li[3]/a</td>
 	<td></td>
 </tr>
 <tr>
-	<td>DELETE</td>
+	<td>EVENT_MENULIST_DELETE</td>
 	<td>//div[contains(@id,'menu')]/ul/li[4]/a</td>
 	<td></td>
 </tr>
