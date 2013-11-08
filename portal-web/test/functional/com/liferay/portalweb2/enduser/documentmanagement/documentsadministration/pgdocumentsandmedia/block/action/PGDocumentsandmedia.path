@@ -394,6 +394,7 @@
 	<td></td>
 	<td></td>
 </tr>
+<!--LIST_ENTRIES-->
 <tr>
 	<td>LIST_ENTRIES_DOCUMENT_CHECKBOX</td>
 	<td>//tr[@data-title='${key_dmDocumentTitle}']//input[@type='checkbox']</td>

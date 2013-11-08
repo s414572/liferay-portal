@@ -34,7 +34,7 @@
 	<var name="dmFolderName" value="DM Folder Name" />
 	<var name="dmFolderDescription" value="DM Folder Description" />
 
-<!-- 	<command name="AddDocument" priority="5">
+ 	<command name="AddDocument" priority="5">
 		<var name="dmDocumentFile" value="${dmDocumentFile}" />
 		<var name="dmDocumentSize" value="${dmDocumentSize}" />
 		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
@@ -117,6 +117,7 @@
 		<execute macro="SONavigation#gotoSiteDocuments">
 			<var name="pageType" value="Open Site" />
 		</execute>
+
 		<execute macro="DMFolderDocument#addPG" />
 
 		<execute macro="SONavigation#gotoSiteDocuments">
@@ -299,6 +300,7 @@
 		<execute macro="SONavigation#gotoSiteDocuments">
 			<var name="pageType" value="Open Site" />
 		</execute>
+
 		<execute macro="DMFolderDocument#addPG" />
 
 		<execute macro="SONavigation#gotoSiteDocuments">
@@ -507,7 +509,7 @@
 			<var name="pageType" value="Open Site" />
 		</execute>
 
-		<execute macro="DMFolderDocument#PublishDraftDMFolderDocument" />
+		<execute macro="DMFolderDocument#publishDraftDMFolderDocument" />
 
 		<execute macro="SONavigation#gotoSiteDocuments">
 			<var name="pageType" value="Open Site" />
@@ -520,7 +522,7 @@
 		</execute>
 	</command>
 
-	<command name="SaveandcheckinMinorDMFolderDocument" priority="5">
+	<command name="SaveAndCheckinMinorDMFolderDocument" priority="5">
 		<var name="dmDocumentFile" value="${dmDocumentFile}" />
 
 		<var name="dmDocumentSize" value="${dmDocumentSize}" />
@@ -583,7 +585,7 @@
 		</execute>
 	</command>
 
-	<command name="SaveandcheckinMajorDMFolderDocument" priority="5">
+	<command name="SaveAndCheckinMajorDMFolderDocument" priority="5">
 		<var name="dmDocumentFile" value="${dmDocumentFile}" />
 
 		<var name="dmDocumentSize" value="${dmDocumentSize}" />
@@ -609,6 +611,7 @@
 		<execute macro="SONavigation#gotoSiteDocuments">
 			<var name="pageType" value="Open Site" />
 		</execute>
+
 		<execute macro="DMFolderDocument#addPG" />
 
 		<execute macro="SONavigation#gotoSiteDocuments">
@@ -668,6 +671,7 @@
 		<execute macro="SONavigation#gotoSiteDocuments">
 			<var name="pageType" value="Open Site" />
 		</execute>
+
 		<execute macro="DMFolderDocument#saveAsDraftPG" />
 
 		<execute macro="SONavigation#gotoSiteDocuments">
@@ -714,17 +718,18 @@
 			<var name="pageType" value="Open Site" />
 		</execute>
 
-		<execute macro="DMFolderDocument#SaveAsDraftEditDMFolderDocument" />
+		<execute macro="DMFolderDocument#saveAsDraftEditDMFolderDocument" />
 
 		<execute macro="SONavigation#gotoSiteDocuments">
 			<var name="pageType" value="Open Site" />
 		</execute>
+
 		<execute action="PGDocumentsandmedia#click" locator-key1="ENTRIES_FOLDER" />
 
 		<execute macro="DMFolderDocument#viewSaveAsDraftEditDMFolderDocumentPG">
 			<var name="versionNumber" value="${dmDocumentVersionNumberEdit}" />
 		</execute>
-	</command>  -->
+	</command>
 
 	<command name="ViewCheckoutDMFolderDocumentSOUser" priority="5">
 		<var name="dmDocumentFile" value="${dmDocumentFile}" />
@@ -835,9 +840,7 @@
 			<var name="pageType" value="Open Site" />
 		</execute>
 
-
 		<execute macro="DMFolderDocument#saveAsDraftPG" />
-
 
 		<execute macro="SOUser#logoutPG" />
 
@@ -859,7 +862,6 @@
 		</execute>
 
 		<execute action="PGDocumentsandmedia#click" locator-key1="ENTRIES_FOLDER" />
-
 		<execute action="PGDocumentsandmedia#assertTextEquals" locator-key1="PORTLET_INFO_MESSAGE" value1="There are no documents or media files in this folder." />
 	</command>
 
@@ -911,7 +913,7 @@
 			<var name="pageType" value="Open Site" />
 		</execute>
 
-		<execute macro="DMFolderDocument#SaveAsDraftEditDMFolderDocument" />
+		<execute macro="DMFolderDocument#saveAsDraftEditDMFolderDocument" />
 
 		<execute macro="SOUser#logoutPG" />
 

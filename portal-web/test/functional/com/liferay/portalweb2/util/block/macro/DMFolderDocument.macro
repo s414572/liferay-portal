@@ -23,7 +23,7 @@
 
 				<execute action="PGDocumentsandmediaAdddocument#uploadCommonFile" locator-key1="FILE_FIELD" value1="${dmDocumentFile}" />
 				<execute action="PGDocumentsandmediaAdddocument#type" locator-key1="TITLE_FIELD" value1="${dmDocumentTitle}" />
-		<!-- 		<execute action="PGDocumentsandmediaAdddocument#type" locator-key1="DESCRIPTION_FIELD" value1="${dmDocumentDescription}" /> -->
+		 		<execute action="PGDocumentsandmediaAdddocument#type" locator-key1="DESCRIPTION_FIELD" value1="${dmDocumentDescription}" />
 				<execute action="PGDocumentsandmediaAdddocument#assertClick" locator-key1="PUBLISH_BUTTON" value1="Publish" />
 			</else>
 		</if>
@@ -108,7 +108,6 @@
 
 		<execute action="PGDocumentsandmediaDocument#assertTextEquals" locator-key1="DOCUMENT_DETAILS_VERSION" value1="Version PWC" />
 		<execute action="PGDocumentsandmediaDocument#assertClick" locator-key1="TOOLBAR_CANCEL_CHECKOUT_BUTTON" value1="Cancel Checkout" />
-
 		<execute action="PGDocumentsandmediaDocument#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -172,7 +171,6 @@
 		</if>
 
 		<execute action="PGDocumentsandmediaDocument#assertClick" locator-key1="TOOLBAR_CHECKOUT_BUTTON" value1="Checkout" />
-
 		<execute action="PGDocumentsandmediaDocument#assertTextEquals" locator-key1="CHECKOUT_SUCCESS_MESSAGE" value1="You now have a lock on this document. No one else can edit this document until you unlock it. This lock will automatically expire in 1 day." />
 	</command>
 
@@ -239,12 +237,12 @@
 			</then>
 		</if>
 
+		<execute action="PGDocumentsandmediaEditdocument#type" locator-key1="TITLE_FIELD" value1="${dmDocumentTitleEdit}"  />
+		<execute action="PGDocumentsandmediaEditdocument#type" locator-key1="DESCRIPTION_FIELD" value1="${dmDocumentDescriptionEdit}" />
+
 		<if>
 			<condition action="PGDocumentsandmediaEditdocument#isElementPresent" locator-key1="MAJOR_REVISION" />
 			<then>
-				<execute action="PGDocumentsandmediaEditdocument#type" locator-key1="TITLE_FIELD" value1="${dmDocumentTitleEdit}"  />
-				<execute action="PGDocumentsandmediaEditdocument#type" locator-key1="DESCRIPTION_FIELD" value1="${dmDocumentDescriptionEdit}" />
-
 				<if>
 					<equals arg1="${revision}" arg2="Major" />
 					<then>
@@ -265,13 +263,12 @@
 				<execute action="PGDocumentsandmediaEditdocument#assertClick" locator-key1="SAVE_AND_CHECKIN_BUTTON" value1="Save and Checkin" />
 			</then>
 			<else>
-				<execute action="PGDocumentsandmediaEditdocument#type" locator-key1="TITLE_FIELD" value1="${dmDocumentTitleEdit}"  />
-				<execute action="PGDocumentsandmediaEditdocument#type" locator-key1="DESCRIPTION_FIELD" value1="${dmDocumentDescriptionEdit}" />
-				<execute action="PGDocumentsandmediaEditdocument#assertClick" locator-key1="PUBLISH_BUTTON" value1="Publish" />
+				<execute action="PGDocumentsandmediaEditdocument#assertClick" locator-key1="PUBLISH_BUTTON" value1="Publish" />	
 			</else>
 		</if>
 
 		<execute action="PGDocumentsandmediaDocument#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
+
 		<if>
 			<condition action="PGDocumentsandmediaDocument#isElementPresent" locator-key1="DOCUMENT_INFO_TITLE" />
 			<then>
@@ -316,7 +313,7 @@
 		<execute action="PGDocumentsandmedia#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
-	<command name="PublishDraftDMFolderDocument">
+	<command name="publishDraftDMFolderDocument">
 		<execute action="PGDocumentsandmedia#click" locator-key1="ENTRIES_FOLDER" />
 
 		<var name="key_dmDocumentTitle" value="${dmDocumentTitle}" />
@@ -336,6 +333,7 @@
 		<execute action="PGDocumentsandmediaDocument#assertClick" locator-key1="TOOLBAR_EDIT_BUTTON" value1="Edit" />
 
 		<execute action="PGDocumentsandmediaEditdocument#assertClick" locator-key1="PUBLISH_BUTTON" value1="Publish" />
+
 		<execute action="PGDocumentsandmediaDocument#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -371,7 +369,7 @@
 		<execute action="PGDocumentsandmediaFolder#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
-	<command name="SaveAsDraftEditDMFolderDocument">
+	<command name="saveAsDraftEditDMFolderDocument">
 		<execute action="PGDocumentsandmedia#click" locator-key1="ENTRIES_FOLDER" />
 
 		<var name="key_dmDocumentTitle" value="${dmDocumentTitle}" />
@@ -398,12 +396,12 @@
 			</then>
 		</if>
 
+		<execute action="PGDocumentsandmediaEditdocument#type" locator-key1="TITLE_FIELD" value1="${dmDocumentTitleEdit}"  />
+		<execute action="PGDocumentsandmediaEditdocument#type" locator-key1="DESCRIPTION_FIELD" value1="${dmDocumentDescriptionEdit}" />
+
 		<if>
 			<condition action="PGDocumentsandmediaEditdocument#isElementPresent" locator-key1="MAJOR_REVISION" />
 			<then>
-				<execute action="PGDocumentsandmediaEditdocument#type" locator-key1="TITLE_FIELD" value1="${dmDocumentTitleEdit}"  />
-				<execute action="PGDocumentsandmediaEditdocument#type" locator-key1="DESCRIPTION_FIELD" value1="${dmDocumentDescriptionEdit}" />
-
 				<if>
 					<equals arg1="${revision}" arg2="Major" />
 					<then>
@@ -421,13 +419,10 @@
 					</then>
 				</if>
 			</then>
-			<else>
-				<execute action="PGDocumentsandmediaEditdocument#type" locator-key1="TITLE_FIELD" value1="${dmDocumentTitleEdit}"  />
-				<execute action="PGDocumentsandmediaEditdocument#type" locator-key1="DESCRIPTION_FIELD" value1="${dmDocumentDescriptionEdit}" />
-			</else>
 		</if>
 
 		<execute action="PGDocumentsandmediaEditdocument#assertClick" locator-key1="SAVE_AS_DRAFT_BUTTON" value1="Save as Draft" />
+
 		<execute action="PGDocumentsandmediaDocument#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 		<execute action="PGDocumentsandmediaEditdocument#assertTextEquals" locator-key1="STATUS" value1="Draft" />
