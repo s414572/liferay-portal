@@ -39,7 +39,7 @@ import jodd.bean.BeanUtil;
 
 import jodd.servlet.ServletUtil;
 
-import jodd.util.KeyValue;
+import jodd.util.NameValue;
 
 /**
  * @author Igor Spasic
@@ -363,7 +363,7 @@ public class JSONWebServiceInvokerAction implements JSONWebServiceAction {
 
 				Flag flag = new Flag();
 
-				flag.setKey(key.substring(1));
+				flag.setName(key.substring(1));
 				flag.setValue(value);
 
 				flags.add(flag);
@@ -454,7 +454,7 @@ public class JSONWebServiceInvokerAction implements JSONWebServiceAction {
 				Object propertyValue = BeanUtil.getDeclaredProperty(
 					object, value.substring(name.length()));
 
-				parameterMap.put(flag.getKey(), propertyValue);
+				parameterMap.put(flag.getName(), propertyValue);
 			}
 		}
 	}
@@ -463,7 +463,7 @@ public class JSONWebServiceInvokerAction implements JSONWebServiceAction {
 	private HttpServletRequest _request;
 	private List<Statement> _statements = new ArrayList<Statement>();
 
-	private class Flag extends KeyValue<String, String> {
+	private class Flag extends NameValue<String, String> {
 	}
 
 	private class Statement {
