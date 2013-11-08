@@ -2,8 +2,6 @@
 	<command name="selectFrame">
 		<execute selenium="waitForVisible" />
 
-		<execute selenium="mouseOver" />
-
 		<execute selenium="selectFrame" />
 	</command>
 

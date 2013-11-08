@@ -2,8 +2,6 @@
 	<command name="paste">
 		<execute selenium="waitForVisible" />
 
-		<execute selenium="mouseOver" />
-
 		<execute selenium="paste" />
 	</command>
 </definition>
