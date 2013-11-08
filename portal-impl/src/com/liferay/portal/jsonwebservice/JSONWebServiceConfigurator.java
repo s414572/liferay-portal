@@ -62,7 +62,7 @@ public class JSONWebServiceConfigurator extends ClassFinder {
 
 	public JSONWebServiceConfigurator(String servletContextPath) {
 		setIncludedJars(
-			"**/*_wl_cls_gen.jar", "**/*-hook-service*.jar",
+			"**/_wl_cls_gen.jar", "**/*-hook-service*.jar",
 			"**/*-portlet-service*.jar", "**/*-web-service*.jar",
 			"**/portal-impl.jar", "**/portal-service.jar");
 
