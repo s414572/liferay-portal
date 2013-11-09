@@ -44,6 +44,7 @@
 		</execute>
 
 		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+
 		<execute macro="DMDocument#addPG" />
 
 		<execute macro="SOUserBar#dashboardPG">
@@ -124,6 +125,7 @@
 		</execute>
 
 		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+
 		<execute macro="DMFolderDocument#addPG" />
 
 		<execute macro="SOUserBar#dashboardPG">
@@ -165,6 +167,7 @@
 		</execute>
 
 		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+
 		<execute macro="DMFolderDocument#addPG" />
 
 		<execute macro="SOUserBar#dashboardPG">
@@ -215,7 +218,6 @@
 
 		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
 
-
 		<execute macro="DMFolder#addPG" />
 
 		<execute macro="SOUserBar#dashboardPG">
@@ -232,7 +234,6 @@
 
 		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
 
-
 		<execute macro="DMFolderDocument#checkoutPG" />
 
 		<execute macro="SOUserBar#dashboardPG">
@@ -240,7 +241,6 @@
 		</execute>
 
 		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
-
 
 		<execute macro="DMFolderDocument#checkinPG">
 			<var name="revision" value="Major" />
@@ -251,7 +251,6 @@
 		</execute>
 
 		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
-
 
 		<execute action="PGDocumentsandmedia#click" locator-key1="ENTRIES_FOLDER" />
 
@@ -287,6 +286,7 @@
 		</execute>
 
 		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+
 		<execute macro="DMFolderDocument#addPG" />
 
 		<execute macro="SOUserBar#dashboardPG">
@@ -556,13 +556,9 @@
 
 	<command name="SaveandcheckinMinorDMFolderDocument" priority="5">
 		<var name="dmDocumentFile" value="${dmDocumentFile}" />
-
 		<var name="dmDocumentSize" value="${dmDocumentSize}" />
-
 		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-
 		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-
 		<var name="dmDocumentUploader" value="${dmDocumentUploader}" />
 		<var name="dmFolderName" value="${dmFolderName}" />
 		<var name="dmFolderDescription" value="${dmFolderDescription}" />
@@ -584,6 +580,7 @@
 		</execute>
 
 		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+
 		<execute macro="DMFolderDocument#addPG" />
 
 		<execute macro="SOUserBar#dashboardPG">
@@ -628,13 +625,9 @@
 
 	<command name="SaveandcheckinMajorDMFolderDocument" priority="5">
 		<var name="dmDocumentFile" value="${dmDocumentFile}" />
-
 		<var name="dmDocumentSize" value="${dmDocumentSize}" />
-
 		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-
 		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-
 		<var name="dmDocumentUploader" value="${dmDocumentUploader}" />
 		<var name="dmFolderName" value="${dmFolderName}" />
 		<var name="dmFolderDescription" value="${dmFolderDescription}" />
@@ -786,12 +779,14 @@
 		</execute>
 
 		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
+
 		<execute action="PGDocumentsandmedia#click" locator-key1="ENTRIES_FOLDER" />
 
 		<execute macro="DMFolderDocument#viewSaveAsDraftEditDMFolderDocumentPG">
 			<var name="versionNumber" value="${dmDocumentVersionNumberEdit}" />
 		</execute>
 	</command>
+
 	<tear-down>
 		<execute macro="SODocuments#tearDownPG" />
 	</tear-down>
