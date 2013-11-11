@@ -1,4 +1,7 @@
 <definition>
+	<property name="hook.plugins.includes" value="kaleo-upgrade-hook" />
+	<property name="web.plugins.includes" value="kaleo-web" />
+
 	<var name="workflowAssetType" value="Web Content" />
 
 	<set-up>

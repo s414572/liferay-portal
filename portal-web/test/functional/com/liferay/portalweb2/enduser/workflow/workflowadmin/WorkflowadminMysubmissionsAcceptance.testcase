@@ -1,4 +1,7 @@
 <definition>
+	<property name="hook.plugins.includes" value="kaleo-upgrade-hook" />
+	<property name="web.plugins.includes" value="kaleo-web" />
+
 	<set-up>
 		<execute macro="User#firstLoginPG" />
 

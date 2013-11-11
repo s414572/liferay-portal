@@ -1,4 +1,8 @@
 <definition>
+	<property name="setup.wizard.enabled" value="true" />
+	<property name="theme.plugins.includes" value="welcome-theme" />
+	<property name="web.plugins.includes" value="resources-importer-web" />
+
 	<set-up>
 		<var name="administratorEmail" value="test@liferay.com" />
 		<var name="administratorFirstName" value="Test" />
