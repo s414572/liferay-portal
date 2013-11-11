@@ -59,6 +59,13 @@
 		</if>
 
 		<execute action="PGDocumentsandmedia#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
+
+		<var name="key_dmDocumentTitle" value="${dmDocumentTitle}" />
+
+		<execute action="PGDocumentsandmedia#assertElementPresent" locator-key1="ENTRIES_DOCUMENT" />
+		<execute action="PGDocumentsandmedia#assertTextEquals" locator-key1="ENTRIES_DOCUMENT_TITLE" value1="${dmDocumentTitle}" />
+		<execute action="PGDocumentsandmedia#click" locator-key1="ENTRIES_DOCUMENT_ACTIONS" />
+		<execute action="PGDocumentsandmedia#assertTextEquals" locator-key1="DOCUMENT_MENULIST_DOWNLOAD" value1="Download (${dmDocumentSize})" />
 	</command>
 
 	<command name="addPGviaDMD">
