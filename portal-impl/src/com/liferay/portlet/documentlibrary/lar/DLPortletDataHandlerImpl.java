@@ -775,19 +775,19 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 
 		List<DDMStructure> ddmStructures = dlFileEntryType.getDDMStructures();
 
-		String[] ddmStructureUuids = new String[ddmStructures.size()];
+		long[] ddmStructureIds = new long[ddmStructures.size()];
 
 		for (int i = 0; i < ddmStructures.size(); i++) {
 			DDMStructure ddmStructure = ddmStructures.get(i);
 
-			ddmStructureUuids[i] = ddmStructure.getUuid();
+			ddmStructureIds[i] = ddmStructure.getStructureId();
 
 			DDMPortletDataHandlerImpl.exportStructure(
 				portletDataContext, fileEntryTypeElement, ddmStructure);
 		}
 
 		fileEntryTypeElement.addAttribute(
-			"structureUuids", StringUtil.merge(ddmStructureUuids));
+			"structureIds", StringUtil.merge(ddmStructureIds));
 
 		portletDataContext.addClassedModel(
 			fileEntryTypeElement, path, dlFileEntryType, _NAMESPACE);
@@ -1427,15 +1427,12 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 			(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
 				DDMStructure.class);
 
-		List<DDMStructure> ddmStructures = dlFileEntryType.getDDMStructures();
+		long[] ddmStructureIdsArray = StringUtil.split(
+			fileEntryTypeElement.attributeValue("structureIds"), 0L);
 
-		long[] ddmStructureIdsArray = new long[ddmStructures.size()];
-
-		for (int i = 0; i < ddmStructures.size(); i++) {
-			DDMStructure ddmStructure = ddmStructures.get(i);
-
+		for (int i = 0; i < ddmStructureIdsArray.length; i++) {
 			ddmStructureIdsArray[i] = MapUtil.getLong(
-				ddmStructureIds, ddmStructure.getStructureId());
+				ddmStructureIds, ddmStructureIdsArray[i]);
 		}
 
 		ServiceContext serviceContext = portletDataContext.createServiceContext(
