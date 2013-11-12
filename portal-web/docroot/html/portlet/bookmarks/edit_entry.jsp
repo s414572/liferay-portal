@@ -149,12 +149,7 @@ long folderId = BeanParamUtil.getLong(entry, request, "folderId");
 
 <aui:script>
 	function <portlet:namespace />getSuggestionsContent() {
-		var content = '';
-
-		content += document.<portlet:namespace />fm.<portlet:namespace />name.value + ' ';
-		content += document.<portlet:namespace />fm.<portlet:namespace />description.value + ' ';
-
-		return content;
+		return document.<portlet:namespace />fm.<portlet:namespace />name.value + ' ' + document.<portlet:namespace />fm.<portlet:namespace />description.value;
 	}
 
 	function <portlet:namespace />saveEntry() {
