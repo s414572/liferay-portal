@@ -373,8 +373,8 @@
 			}
 
 			return result;
-		},		
-		
+		},
+
 		getColumnId: function(str) {
 			var columnId = str.replace(/layout-column_/, '');
 
