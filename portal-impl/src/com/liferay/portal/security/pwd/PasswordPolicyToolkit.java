@@ -17,7 +17,7 @@ package com.liferay.portal.security.pwd;
 import com.liferay.portal.UserPasswordException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.security.SecureRandomUtil;
+import com.liferay.portal.kernel.security.SecureRandom;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.model.PasswordPolicy;
@@ -221,8 +221,7 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 					_completeCharset, _PASSWORDS_DEFAULT_POLICY_MIN_LENGTH));
 		}
 
-		return PwdGenerator.shuffle(
-			new Random(SecureRandomUtil.nextLong()), sb.toString());
+		return PwdGenerator.shuffle(new SecureRandom(), sb.toString());
 	}
 
 	protected String generateStatic(PasswordPolicy passwordPolicy) {
@@ -230,7 +229,7 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 	}
 
 	protected String getRandomString(int count, char[] chars) {
-		Random random = new Random(SecureRandomUtil.nextInt());
+		Random random = new SecureRandom();
 
 		StringBundler sb = new StringBundler(count);
 
