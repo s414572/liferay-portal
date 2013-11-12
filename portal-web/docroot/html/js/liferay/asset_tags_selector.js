@@ -54,7 +54,7 @@ AUI.add(
 
 		var TPL_MESSAGE = '<div class="lfr-tag-message">{0}</div>';
 
-		var TPL_URL_SUGGESTIONS = 'http://search.yahooapis.com/ContentAnalysisService/V1/termExtraction?appid=YahooDemo&output=json&context={context}';
+		var TPL_SUGGESTIONS_QUERY = 'select * from search.termextract where context="{context}"';
 
 		var TPL_TAGS_CONTAINER = '<div class="' + CSS_TAGS_LIST + '"></div>';
 
@@ -267,23 +267,6 @@ AUI.add(
 						}
 
 						return instance._popup;
-					},
-
-					_getProxyData: function(context) {
-						var instance = this;
-
-						var suggestionsURL = Lang.sub(
-							TPL_URL_SUGGESTIONS,
-							{
-								context: encodeURIComponent(context)
-							}
-						);
-
-						var proxyData = {
-							url: suggestionsURL
-						};
-
-						return proxyData;
 					},
 
 					_getEntries: function(callback) {
@@ -568,71 +551,33 @@ AUI.add(
 							context = String(context);
 						}
 
-						var length = context.length;
-
-						var urlSizeLimit = 4096;
-
-						var end = urlSizeLimit;
-						var lastSpaceIndex = 0;
-						var start = 0;
-
-						var suggestionsIO = A.io.request(
-							themeDisplay.getPathMain() + '/portal/rest_proxy',
+						var query = Lang.sub(
+							TPL_SUGGESTIONS_QUERY,
 							{
-								autoLoad: false,
-								dataType: 'json',
-								on: {
-									success: function(event, id, obj) {
-										var results = this.get('responseData');
+								context: context
+							}
+						);
 
-										if (results && results.ResultSet && results.ResultSet.Result) {
-											data = data.concat(results.ResultSet.Result);
-										}
+						A.YQL(
+							query,
+							function(response) {
+								var results = response.query.results;
 
-										queue.run();
+								if (results) {
+									var resultData = results.Result;
+
+									for (var i = 0; i < resultData.length; i++) {
+										data.push(
+											{
+												name: resultData[i]
+											}
+										);
 									}
 								}
+
+								instance._updateSelectList(AArray.unique(data));
 							}
 						);
-
-						var queue = new A.AsyncQueue(
-							{
-								fn: function() {
-									queue.pause();
-
-									var phrase = context.substr(start, end);
-
-									lastSpaceIndex = urlSizeLimit;
-
-									if (end < length) {
-										lastSpaceIndex = phrase.lastIndexOf(' ');
-
-										phrase = phrase.substr(0, lastSpaceIndex);
-
-										end = start + lastSpaceIndex;
-									}
-
-									start += lastSpaceIndex;
-									end = start + urlSizeLimit;
-
-									suggestionsIO.set('data', instance._getProxyData(phrase));
-
-									suggestionsIO.start();
-								},
-								until: function() {
-									return length <= start;
-								}
-							}
-						);
-
-						queue.after(
-							'complete',
-							function(event) {
-								instance._updateSelectList(AArray.unique(data), instance._suggestionsIterator);
-							}
-						);
-
-						queue.run();
 					},
 
 					_suggestionsIterator: function(item, index, collection) {
@@ -713,6 +658,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['array-extras', 'async-queue', 'aui-autocomplete', 'aui-dialog', 'aui-io-request', 'aui-live-search', 'aui-textboxlist', 'aui-form-textfield', 'datasource-cache', 'liferay-service-datasource']
+		requires: ['array-extras', 'async-queue', 'aui-autocomplete', 'aui-dialog', 'aui-io-request', 'aui-live-search', 'aui-textboxlist', 'aui-form-textfield', 'datasource-cache', 'liferay-service-datasource', 'yql']
 	}
 );
