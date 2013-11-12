@@ -487,6 +487,15 @@ else if (dlFileEntryType != null) {
 		folderWindow.focus();
 	}
 
+	function <portlet:namespace />getSuggestionsContent() {
+		var content = '';
+
+		content += document.<portlet:namespace />fm.<portlet:namespace />title.value + ' ';
+		content += document.<portlet:namespace />fm.<portlet:namespace />description.value + ' ';
+
+		return content;
+	}
+
 	function <portlet:namespace />saveFileEntry(draft) {
 		<%= HtmlUtil.escape(uploadProgressId) %>.startProgress();
 
