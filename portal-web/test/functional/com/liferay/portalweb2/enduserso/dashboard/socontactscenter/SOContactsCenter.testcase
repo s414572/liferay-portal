@@ -1,4 +1,8 @@
 <definition>
+	<property name="hook.plugins.includes" value="deploy-listener-hook,portal-compat-hook,so-activities-hook,so-hook" />
+	<property name="portlet.plugins.includes" value="chat-portlet,contacts-portlet,events-display-portlet,microblogs-portlet,private-messaging-portlet,so-announcements-portlet,so-configurations-portlet,so-portlet,tasks-portlet,wysiwyg-portlet" />
+	<property name="theme.plugins.includes" value="so-theme" />
+
 	<set-up>
 		<execute macro="SOUser#firstLoginPG" />
 	</set-up>
@@ -636,7 +640,7 @@
 
 		<var name="row" value="2" />
 
-		<execute action="SONotifications#assertTextEquals" locator-key1="NOTIFICATIONS_ENTRY_INCREMENT" value1="${userName3} would like to add you as a connection." />	
+		<execute action="SONotifications#assertTextEquals" locator-key1="NOTIFICATIONS_ENTRY_INCREMENT" value1="${userName3} would like to add you as a connection." />
 
 		<var name="row" value="3" />
 
@@ -644,7 +648,7 @@
 
 		<var name="row" value="4" />
 
-		<execute action="SONotifications#assertTextEquals" locator-key1="NOTIFICATIONS_ENTRY_INCREMENT" value1="${userName2} would like to add you as a connection." />	
+		<execute action="SONotifications#assertTextEquals" locator-key1="NOTIFICATIONS_ENTRY_INCREMENT" value1="${userName2} would like to add you as a connection." />
 
 		<var name="row" value="5" />
 
@@ -652,17 +656,17 @@
 
 		<var name="row" value="6" />
 
-		<execute action="SONotifications#assertTextEquals" locator-key1="NOTIFICATIONS_ENTRY_INCREMENT" value1="${userName} would like to add you as a connection." />	
-		<execute action="SONotifications#select" locator-key1="NOTIFICATIONS_ENTRIES_PER_PAGE_SELECT" value1="5" />	
+		<execute action="SONotifications#assertTextEquals" locator-key1="NOTIFICATIONS_ENTRY_INCREMENT" value1="${userName} would like to add you as a connection." />
+		<execute action="SONotifications#select" locator-key1="NOTIFICATIONS_ENTRIES_PER_PAGE_SELECT" value1="5" />
 		<execute action="SONotifications#assertTextEquals" locator-key1="SEARCH_RESULTS" value1="Showing 1 - 5 of 6 results." />
-	
+
 		<var name="row" value="1" />
 
 		<execute action="SONotifications#assertTextEquals" locator-key1="NOTIFICATIONS_ENTRY_INCREMENT" value1="${userName3} sent you a message." />
 
 		<var name="row" value="2" />
 
-		<execute action="SONotifications#assertTextEquals" locator-key1="NOTIFICATIONS_ENTRY_INCREMENT" value1="${userName3} would like to add you as a connection." />	
+		<execute action="SONotifications#assertTextEquals" locator-key1="NOTIFICATIONS_ENTRY_INCREMENT" value1="${userName3} would like to add you as a connection." />
 
 		<var name="row" value="3" />
 
@@ -670,7 +674,7 @@
 
 		<var name="row" value="4" />
 
-		<execute action="SONotifications#assertTextEquals" locator-key1="NOTIFICATIONS_ENTRY_INCREMENT" value1="${userName2} would like to add you as a connection." />	
+		<execute action="SONotifications#assertTextEquals" locator-key1="NOTIFICATIONS_ENTRY_INCREMENT" value1="${userName2} would like to add you as a connection." />
 
 		<var name="row" value="5" />
 
@@ -678,7 +682,7 @@
 
 		<var name="row" value="6" />
 
-		<execute action="SONotifications#assertElementNotPresent" locator-key1="NOTIFICATIONS_ENTRY_INCREMENT" />	
+		<execute action="SONotifications#assertElementNotPresent" locator-key1="NOTIFICATIONS_ENTRY_INCREMENT" />
 		<execute action="SONotifications#click" locator-key1="NEXT_BUTTON" value1="Next" />
 		<execute action="SONotifications#assertTextEquals" locator-key1="SEARCH_RESULTS" value1="Showing 6 - 6 of 6 results." />
 
@@ -688,7 +692,7 @@
 
 		<var name="row" value="2" />
 
-		<execute action="SONotifications#assertElementNotPresent" locator-key1="NOTIFICATIONS_ENTRY_INCREMENT" />	
+		<execute action="SONotifications#assertElementNotPresent" locator-key1="NOTIFICATIONS_ENTRY_INCREMENT" />
 	</command>
 
 	<tear-down>

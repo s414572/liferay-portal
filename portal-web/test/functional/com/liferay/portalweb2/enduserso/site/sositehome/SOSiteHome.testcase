@@ -1,4 +1,8 @@
 <definition>
+	<property name="hook.plugins.includes" value="deploy-listener-hook,portal-compat-hook,so-activities-hook,so-hook" />
+	<property name="portlet.plugins.includes" value="chat-portlet,contacts-portlet,events-display-portlet,microblogs-portlet,private-messaging-portlet,so-announcements-portlet,so-configurations-portlet,so-portlet,tasks-portlet,wysiwyg-portlet" />
+	<property name="theme.plugins.includes" value="so-theme" />
+
 	<var name="adminName" value="Joe Bloggs" />
 	<var name="adminEmailAddress" value="test@liferay.com" />
 	<var name="entryContent" value="Announcements Entry Content" />
@@ -703,7 +707,7 @@
 		<execute macro="Page#openURL">
 			<var name="pageType" value="Open Site" />
 		</execute>
-		
+
 		<execute action="SOSiteHome#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle}" />
 		<execute action="SOSiteHome#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
 		<execute action="SOSiteHome#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" />
@@ -914,7 +918,7 @@
 		<execute macro="Event#addPG">
 			<var name="daysIntoFuture" value="3" />
 			<var name="number" value="03" />
-		</execute>		
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />

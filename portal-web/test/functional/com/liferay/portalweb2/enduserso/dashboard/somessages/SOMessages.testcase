@@ -1,4 +1,8 @@
 <definition>
+	<property name="hook.plugins.includes" value="deploy-listener-hook,portal-compat-hook,so-activities-hook,so-hook" />
+	<property name="portlet.plugins.includes" value="chat-portlet,contacts-portlet,events-display-portlet,microblogs-portlet,private-messaging-portlet,so-announcements-portlet,so-configurations-portlet,so-portlet,tasks-portlet,wysiwyg-portlet" />
+	<property name="theme.plugins.includes" value="so-theme" />
+
 	<var name="adminName" value="Joe Bloggs" />
 	<var name="adminEmailAddress" value="test@liferay.com" />
 	<var name="attachmentFile" value="Document_1.jpg" />
@@ -513,7 +517,7 @@
 			<var name="messageBody" value="${messageBody}" />
 			<var name="messageSubject" value="${messageSubject}" />
 		</execute>
-	
+
 		<execute action="SOMessages#assertElementPresent" locator-key1="MESSAGE_UNREAD" />
 	</command>
 
