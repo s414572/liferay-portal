@@ -70,9 +70,8 @@ public class BookmarksEntryAssetRendererFactory
 
 	@Override
 	public PortletURL getURLAdd(
-			LiferayPortletRequest liferayPortletRequest,
-			LiferayPortletResponse liferayPortletResponse)
-		throws PortalException, SystemException {
+		LiferayPortletRequest liferayPortletRequest,
+		LiferayPortletResponse liferayPortletResponse) {
 
 		HttpServletRequest request =
 			liferayPortletRequest.getHttpServletRequest();
