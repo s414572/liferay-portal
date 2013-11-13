@@ -328,7 +328,7 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 				folderPath);
 
 			if (folder == null) {
-				folderPath = getSourceCompanyGroupImportFolderPath(
+				folderPath = getImportCompanyFolderPath(
 					portletDataContext, fileEntry.getFolderId());
 
 				folder = (Folder)portletDataContext.getZipEntryAsObject(
@@ -1310,6 +1310,22 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 		return sb.toString();
 	}
 
+	protected static String getImportCompanyFolderPath(
+		PortletDataContext portletDataContext, long folderId) {
+
+		StringBundler sb = new StringBundler(7);
+
+		sb.append(PortletDataContext.ROOT_PATH_GROUPS);
+		sb.append(portletDataContext.getSourceCompanyGroupId());
+		sb.append(PortletDataContext.ROOT_PATH_PORTLETS);
+		sb.append(PortletKeys.DOCUMENT_LIBRARY);
+		sb.append("/folders/");
+		sb.append(folderId);
+		sb.append(".xml");
+
+		return sb.toString();
+	}
+
 	protected static String getImportFolderPath(
 		PortletDataContext portletDataContext, long folderId) {
 
@@ -1349,22 +1365,6 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 			portletDataContext.getPortletPath(PortletKeys.DOCUMENT_LIBRARY));
 		sb.append("/repositories/");
 		sb.append(repository.getRepositoryId());
-		sb.append(".xml");
-
-		return sb.toString();
-	}
-
-	protected static String getSourceCompanyGroupImportFolderPath(
-		PortletDataContext portletDataContext, long folderId) {
-
-		StringBundler sb = new StringBundler(7);
-
-		sb.append(PortletDataContext.ROOT_PATH_GROUPS);
-		sb.append(portletDataContext.getSourceCompanyGroupId());
-		sb.append(PortletDataContext.ROOT_PATH_PORTLETS);
-		sb.append(PortletKeys.DOCUMENT_LIBRARY);
-		sb.append("/folders/");
-		sb.append(folderId);
 		sb.append(".xml");
 
 		return sb.toString();
