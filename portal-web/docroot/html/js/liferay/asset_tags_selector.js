@@ -575,7 +575,7 @@ AUI.add(
 									}
 								}
 
-								instance._updateSelectList(AArray.unique(data));
+								instance._updateSelectList(AArray.unique(data), instance._suggestionsIterator);
 							}
 						);
 					},
@@ -583,11 +583,11 @@ AUI.add(
 					_suggestionsIterator: function(item, index, collection) {
 						var instance = this;
 
-						var checked = instance.entries.indexOfKey(item) > -1 ? TPL_CHECKED : '';
+						var checked = instance.entries.indexOfKey(item.name) > -1 ? TPL_CHECKED : '';
 
 						var tag = {
 							checked: checked,
-							name: item
+							name: item.name
 						};
 
 						instance._formatEntry(tag);
