@@ -1355,21 +1355,20 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 	}
 
 	protected static String getSourceCompanyGroupImportFolderPath(
-			PortletDataContext portletDataContext, long folderId) {
+		PortletDataContext portletDataContext, long folderId) {
 
-			StringBundler sb = new StringBundler(4);
+		StringBundler sb = new StringBundler(7);
 
-			sb.append(
-				PortletDataContext.ROOT_PATH_GROUPS +
-				portletDataContext.getSourceCompanyGroupId() +
-				PortletDataContext.ROOT_PATH_PORTLETS +
-				PortletKeys.DOCUMENT_LIBRARY);
-			sb.append("/folders/");
-			sb.append(folderId);
-			sb.append(".xml");
+		sb.append(PortletDataContext.ROOT_PATH_GROUPS);
+		sb.append(portletDataContext.getSourceCompanyGroupId());
+		sb.append(PortletDataContext.ROOT_PATH_PORTLETS);
+		sb.append(PortletKeys.DOCUMENT_LIBRARY);
+		sb.append("/folders/");
+		sb.append(folderId);
+		sb.append(".xml");
 
-			return sb.toString();
-		}
+		return sb.toString();
+	}
 
 	protected static boolean hasUpdatedEntriesWithinDateRange(
 			PortletDataContext portletDataContext, Folder folder,
