@@ -1598,7 +1598,7 @@ public class PropsValues {
 
 	public static final boolean TRANSLATIONS_DISABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.TRANSLATIONS_DISABLED));
 
-	public static final String TUNNEL_SERVLET_BASIC_AUTH_SHARED_KEY = GetterUtil.getString(PropsUtil.get(PropsKeys.TUNNEL_SERVLET_BASIC_AUTH_SHARED_KEY));
+	public static final String TUNNEL_SERVLET_BASIC_AUTH_SHARED_SECRET = GetterUtil.getString(PropsUtil.get(PropsKeys.TUNNEL_SERVLET_BASIC_AUTH_SHARED_SECRET));
 
 	public static final boolean UPGRADE_DATABASE_TRANSACTIONS_DISABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.UPGRADE_DATABASE_TRANSACTIONS_DISABLED));
 

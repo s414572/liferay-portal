@@ -1636,12 +1636,12 @@ public class StagingImpl implements Staging {
 		boolean digested = user.getPasswordEncrypted();
 
 		if (Validator.isNotNull(
-				PropsValues.TUNNEL_SERVLET_BASIC_AUTH_SHARED_KEY)) {
+				PropsValues.TUNNEL_SERVLET_BASIC_AUTH_SHARED_SECRET)) {
 
 			try {
 				String key =
 					user.getEmailAddress() +
-						PropsValues.TUNNEL_SERVLET_BASIC_AUTH_SHARED_KEY;
+						PropsValues.TUNNEL_SERVLET_BASIC_AUTH_SHARED_SECRET;
 
 				password = PwdEncryptor.encrypt(
 					PwdEncryptor.TYPE_SHA, key, null);

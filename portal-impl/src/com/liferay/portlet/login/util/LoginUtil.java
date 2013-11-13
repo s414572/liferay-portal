@@ -533,7 +533,7 @@ public class LoginUtil {
 		throws SystemException {
 
 		if (Validator.isNull(
-				PropsValues.TUNNEL_SERVLET_BASIC_AUTH_SHARED_KEY)) {
+				PropsValues.TUNNEL_SERVLET_BASIC_AUTH_SHARED_SECRET)) {
 
 			return 0;
 		}
@@ -542,7 +542,7 @@ public class LoginUtil {
 			String encryptedKey =
 				PwdEncryptor.encrypt(
 					PwdEncryptor.TYPE_SHA,
-					login + PropsValues.TUNNEL_SERVLET_BASIC_AUTH_SHARED_KEY,
+					login + PropsValues.TUNNEL_SERVLET_BASIC_AUTH_SHARED_SECRET,
 					null);
 
 			if (!encryptedKey.equals(password)) {
