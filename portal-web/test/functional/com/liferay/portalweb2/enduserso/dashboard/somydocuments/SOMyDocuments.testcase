@@ -539,7 +539,7 @@
 
 		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
 
-		<execute macro="DMFolderDocument#PublishDraftDMFolderDocument" />
+		<execute macro="DMFolderDocument#publishDraftDMFolderDocument" />
 
 		<execute macro="SOUserBar#dashboardPG">
 			<var name="userName" value="Joe Bloggs" />
@@ -772,7 +772,7 @@
 
 		<execute action="SODashboard#click" locator-key1="NAVIGATION_MY_DOCUMENTS" value1="My Documents" />
 
-		<execute macro="DMFolderDocument#SaveAsDraftEditDMFolderDocument" />
+		<execute macro="DMFolderDocument#saveAsDraftEditDMFolderDocument" />
 
 		<execute macro="SOUserBar#dashboardPG">
 			<var name="userName" value="Joe Bloggs" />
