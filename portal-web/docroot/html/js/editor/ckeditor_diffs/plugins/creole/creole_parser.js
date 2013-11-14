@@ -278,14 +278,14 @@ Parse.Simple.Creole = function(options) {
         namedLink: { regex: '\\[\\[(' + rx.link + ')\\|(' + rx.linkText + ')\\]\\]',
             build: function(node, r, options) {
                 var link = document.createElement('a');
+                
+                var linkName = options && options.linkFormat
+                    ? formatLink(r[1].replace(/~(.)/g, '$1'), options.linkFormat)
+                    : r[1].replace(/~(.)/g, '$1');
 
-                var linkname = options && options.linkFormat
-	                ? formatLink(r[1].replace(/~(.)/g, '$1'), options.linkFormat)
-	                : r[1].replace(/~(.)/g, '$1');
-
-                link.href = linkname;
-                link.setAttribute('data-cke-saved-href', linkname);
-
+				link.href = linkName;
+				link.setAttribute('data-cke-saved-href', linkName);
+				
                 this.apply(link, r[2], options);
                 
                 node.appendChild(link);

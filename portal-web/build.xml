@@ -288,9 +288,9 @@
 
 				// Fix links for named link
 
-				creoleParserContent = creoleParserContent.replace("link.href = options && options.linkFormat", "var linkname = options && options.linkFormat");
+				creoleParserContent = creoleParserContent.replace("link.href = options && options.linkFormat", "var linkName = options && options.linkFormat");
 
-				creoleParserContent = creoleParserContent.replace(": r[1].replace(/~(.)/g, '$1');", ": r[1].replace(/~(.)/g, '$1');\n\n\t\t\t\tlink.href = linkname;\n\t\t\t\tlink.setAttribute('data-cke-saved-href', linkname);\n\t\t\t\t");
+				creoleParserContent = creoleParserContent.replace(": r[1].replace(/~(.)/g, '$1');", ": r[1].replace(/~(.)/g, '$1');\n\n\t\t\t\tlink.href = linkName;\n\t\t\t\tlink.setAttribute('data-cke-saved-href', linkName);\n\t\t\t\t");
 
 				// Fix image
 
