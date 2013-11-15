@@ -73,7 +73,6 @@ import com.liferay.portal.service.permission.PortletPermissionUtil;
 import com.liferay.portal.service.persistence.LayoutRevisionUtil;
 import com.liferay.portal.theme.ThemeLoader;
 import com.liferay.portal.theme.ThemeLoaderFactory;
-import com.liferay.portal.util.PortletKeys;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portlet.asset.model.AssetCategory;
@@ -382,11 +381,6 @@ public class LayoutExporter {
 
 		cssElement.addCDATA(layoutSet.getCss());
 
-		Portlet layoutConfigurationPortlet =
-			PortletLocalServiceUtil.getPortletById(
-				portletDataContext.getCompanyId(),
-				PortletKeys.LAYOUT_CONFIGURATION);
-
 		Map<String, Object[]> portletIds =
 			new LinkedHashMap<String, Object[]>();
 
@@ -445,9 +439,9 @@ public class LayoutExporter {
 
 		for (Layout layout : layouts) {
 			exportLayout(
-				portletDataContext, layoutConfigurationPortlet, layoutCache,
-				portlets, layoutIds, portletIds, exportPermissions,
-				exportUserPermissions, layout, layoutsElement);
+				portletDataContext, layoutCache, portlets, layoutIds,
+				portletIds, exportPermissions, exportUserPermissions, layout,
+				layoutsElement);
 		}
 
 		if (PropsValues.PERMISSIONS_USER_CHECK_ALGORITHM < 5) {
@@ -677,8 +671,7 @@ public class LayoutExporter {
 	}
 
 	protected void exportLayout(
-			PortletDataContext portletDataContext,
-			Portlet layoutConfigurationPortlet, LayoutCache layoutCache,
+			PortletDataContext portletDataContext, LayoutCache layoutCache,
 			List<Portlet> portlets, long[] layoutIds,
 			Map<String, Object[]> portletIds, boolean exportPermissions,
 			boolean exportUserPermissions, Layout layout,
@@ -802,10 +795,6 @@ public class LayoutExporter {
 			}
 		}
 
-		_portletExporter.exportPortletData(
-			portletDataContext, layoutConfigurationPortlet, layout, null,
-			layoutElement);
-
 		// Layout permissions
 
 		if (exportPermissions) {
@@ -834,9 +823,8 @@ public class LayoutExporter {
 						layout.isPrivateLayout(), linkToLayoutId);
 
 					exportLayout(
-						portletDataContext, layoutConfigurationPortlet,
-						layoutCache, portlets, layoutIds, portletIds,
-						exportPermissions, exportUserPermissions,
+						portletDataContext, layoutCache, portlets, layoutIds,
+						portletIds, exportPermissions, exportUserPermissions,
 						linkedToLayout, layoutsElement);
 				}
 				catch (NoSuchLayoutException nsle) {
