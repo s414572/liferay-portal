@@ -18,6 +18,8 @@ import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
 import com.liferay.portal.kernel.portlet.LiferayPortletConfig;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
+import com.liferay.portal.kernel.staging.LayoutStagingUtil;
+import com.liferay.portal.kernel.staging.StagingUtil;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
@@ -26,11 +28,15 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Layout;
+import com.liferay.portal.model.LayoutRevision;
+import com.liferay.portal.model.LayoutSetBranch;
 import com.liferay.portal.model.LayoutTypePortletConstants;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
+import com.liferay.portal.service.LayoutRevisionLocalServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.WebKeys;
+import com.liferay.portlet.PortletPreferencesImpl;
 import com.liferay.portlet.asset.AssetRendererFactoryRegistryUtil;
 import com.liferay.portlet.asset.AssetTagException;
 import com.liferay.portlet.asset.model.AssetRendererFactory;
@@ -41,6 +47,8 @@ import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletConfig;
 import javax.portlet.PortletPreferences;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Brian Wing Shun Chan
@@ -352,6 +360,31 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
 		layout = LayoutLocalServiceUtil.updateLayout(
 			layout.getGroupId(), layout.isPrivateLayout(), layout.getLayoutId(),
 			layout.getTypeSettings());
+
+		if (LayoutStagingUtil.isBranchingLayout(layout)) {
+			HttpServletRequest request = PortalUtil.getHttpServletRequest(
+				actionRequest);
+
+			LayoutSetBranch layoutSetBranch =
+				LayoutStagingUtil.getLayoutSetBranch(layout.getLayoutSet());
+
+			long layoutSetBranchId = layoutSetBranch.getLayoutSetBranchId();
+
+			long layoutRevisionId = StagingUtil.getRecentLayoutRevisionId(
+				request, layoutSetBranchId, layout.getPlid());
+
+			LayoutRevision layoutRevision =
+				LayoutRevisionLocalServiceUtil.getLayoutRevision(
+					layoutRevisionId);
+
+			PortletPreferencesImpl portletPreferences =
+				(PortletPreferencesImpl)actionRequest.getPreferences();
+
+			if (layoutRevision != null) {
+				portletPreferences.setPlid(
+					layoutRevision.getLayoutRevisionId());
+			}
+		}
 	}
 
 	protected void updateDisplaySettings(ActionRequest actionRequest)
