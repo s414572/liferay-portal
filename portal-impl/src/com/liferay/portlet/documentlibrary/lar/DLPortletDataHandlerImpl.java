@@ -534,7 +534,7 @@ public class DLPortletDataHandlerImpl extends BasePortletDataHandler {
 
 		Map<String, String> fileEntryTitles =
 			(Map<String, String>)portletDataContext.getNewPrimaryKeysMap(
-				DLFileEntry.class.getName() + ".title");
+				DLFileEntry.class + ".title");
 
 		fileEntryTitles.put(fileEntry.getTitle(), importedFileEntry.getTitle());
 

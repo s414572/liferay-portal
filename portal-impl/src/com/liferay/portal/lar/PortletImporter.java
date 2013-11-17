@@ -1299,7 +1299,7 @@ public class PortletImporter {
 
 		Map<String, String> assetCategoryUuids =
 			(Map<String, String>)portletDataContext.getNewPrimaryKeysMap(
-				AssetCategory.class.getName() + ".uuid");
+				AssetCategory.class + ".uuid");
 
 		for (Element assetCategoryElement : assetCategoryElements) {
 			String path = assetCategoryElement.attributeValue("path");
