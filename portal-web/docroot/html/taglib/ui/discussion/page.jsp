@@ -740,6 +740,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 
 				var form = A.one('#<%= namespace %><%= HtmlUtil.escapeJS(formName) %>');
 
+				var body = form.one('#<%= namespace %><%= randomNamespace%>editReplyBody' + i).val();
 				var messageId = form.one('#<%= namespace %>messageId' + i).val();
 
 				if (pending) {
