@@ -391,17 +391,16 @@ public class LayoutExporter {
 
 		long plid = LayoutConstants.DEFAULT_PLID;
 
-		if (!layouts.isEmpty()) {
-			Layout firstLayout = layouts.get(0);
-
-			plid = firstLayout.getPlid();
-		}
-
 		if ((layoutIds != null) && (layoutIds.length > 0)) {
 			Layout layout = LayoutLocalServiceUtil.getLayout(
 				groupId, privateLayout, layoutIds[0]);
 
 			plid = layout.getPlid();
+		}
+		else if (!layouts.isEmpty()) {
+			Layout firstLayout = layouts.get(0);
+
+			plid = firstLayout.getPlid();
 		}
 
 		if (group.isStagingGroup()) {

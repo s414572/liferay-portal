@@ -14,8 +14,6 @@
 
 package com.liferay.portal.kernel.lar;
 
-import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.Layout;
 
 import java.util.List;
@@ -25,13 +23,10 @@ import java.util.List;
  */
 public interface ExportImportHelper {
 
-	public long[] collectAllParentLayoutIds(
+	public long[] getLayoutIds(List<Layout> layouts);
+
+	public long[] getParentLayoutIds(
 			long groupId, boolean privateLayout, long[] layoutIds)
 		throws Exception;
-
-	public List<Layout> collectParentLayouts(Layout layout)
-		throws PortalException, SystemException;
-
-	public long[] getLayoutIds(List<Layout> layouts);
 
 }

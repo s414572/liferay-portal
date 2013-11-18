@@ -30,63 +30,6 @@ import java.util.List;
 public class ExportImportHelperImpl implements ExportImportHelper {
 
 	@Override
-	public long[] collectAllParentLayoutIds(
-			long groupId, boolean privateLayout, long[] layoutIds)
-		throws Exception {
-
-		long[] allLayoutIds = new long[0];
-
-		if (layoutIds == null) {
-			return allLayoutIds;
-		}
-
-		for (int i = 0; i < layoutIds.length; i++) {
-			Layout layout =
-				LayoutLocalServiceUtil.getLayout(
-					groupId, privateLayout, layoutIds[i]);
-
-			List<Layout> parentLayouts = collectParentLayouts(layout);
-
-			long[] parentLayoutIds = getLayoutIds(parentLayouts);
-
-			for (int j = 0; j < parentLayoutIds.length; j++) {
-				long parentLayoutId = parentLayoutIds[j];
-
-				if (!ArrayUtil.contains(allLayoutIds, parentLayoutId)) {
-					allLayoutIds = ArrayUtil.append(
-						allLayoutIds, parentLayoutId);
-				}
-			}
-		}
-
-		return allLayoutIds;
-	}
-
-	@Override
-	public List<Layout> collectParentLayouts(Layout layout)
-		throws PortalException, SystemException {
-
-		List<Layout> parentLayouts = new ArrayList<Layout>();
-
-		long parentLayoutId = layout.getParentLayoutId();
-
-		Layout parentLayout = null;
-
-		while (parentLayoutId > 0) {
-			parentLayout =
-				LayoutLocalServiceUtil.getLayout(
-					layout.getGroupId(), layout.isPrivateLayout(),
-					parentLayoutId);
-
-			parentLayouts.add(parentLayout);
-
-			parentLayoutId = parentLayout.getParentLayoutId();
-		}
-
-		return parentLayouts;
-	}
-
-	@Override
 	public long[] getLayoutIds(List<Layout> layouts) {
 		long[] layoutIds = new long[layouts.size()];
 
@@ -97,6 +40,54 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 		}
 
 		return layoutIds;
+	}
+
+	@Override
+	public long[] getParentLayoutIds(
+			long groupId, boolean privateLayout, long[] layoutIds)
+		throws Exception {
+
+		long[] parentLayoutIds = new long[0];
+
+		if (layoutIds == null) {
+			return parentLayoutIds;
+		}
+
+		for (int i = 0; i < layoutIds.length; i++) {
+			Layout layout = LayoutLocalServiceUtil.getLayout(
+				groupId, privateLayout, layoutIds[i]);
+
+			List<Layout> parentLayouts = getParentLayouts(layout);
+
+			long[] curParentLayoutIds = getLayoutIds(parentLayouts);
+
+			for (long parentLayoutId : curParentLayoutIds) {
+				if (!ArrayUtil.contains(parentLayoutIds, parentLayoutId)) {
+					parentLayoutIds = ArrayUtil.append(
+						parentLayoutIds, parentLayoutId);
+				}
+			}
+		}
+
+		return parentLayoutIds;
+	}
+
+	protected List<Layout> getParentLayouts(Layout layout)
+		throws PortalException, SystemException {
+
+		List<Layout> parentLayouts = new ArrayList<Layout>();
+
+		Layout parentLayout = layout;
+
+		while (parentLayout.getParentLayoutId() > 0) {
+			parentLayout = LayoutLocalServiceUtil.getLayout(
+				layout.getGroupId(), layout.isPrivateLayout(),
+				parentLayout.getParentLayoutId());
+
+			parentLayouts.add(parentLayout);
+		}
+
+		return parentLayouts;
 	}
 
 }

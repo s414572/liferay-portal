@@ -173,7 +173,7 @@ public class ExportLayoutsAction extends PortletAction {
 
 			layoutIds = ArrayUtil.append(
 				layoutIds,
-				ExportImportHelperUtil.collectAllParentLayoutIds(
+				ExportImportHelperUtil.getParentLayoutIds(
 					groupId, privateLayout, layoutIds));
 
 			file = LayoutServiceUtil.exportLayoutsAsFile(

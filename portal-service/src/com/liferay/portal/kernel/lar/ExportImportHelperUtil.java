@@ -14,8 +14,6 @@
 
 package com.liferay.portal.kernel.lar;
 
-import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.model.Layout;
 
@@ -26,26 +24,20 @@ import java.util.List;
  */
 public class ExportImportHelperUtil {
 
-	public static long[] collectAllParentLayoutIds(
-			long groupId, boolean privateLayout, long[] layoutIds)
-		throws Exception {
-
-		return getExportImportHelper().collectAllParentLayoutIds(
-			groupId, privateLayout, layoutIds);
-	}
-
 	public static ExportImportHelper getExportImportHelper() {
 		return _exportImportHelper;
 	}
 
-	public List<Layout> collectParentLayouts(Layout layout)
-		throws PortalException, SystemException {
-
-		return getExportImportHelper().collectParentLayouts(layout);
+	public static long[] getLayoutIds(List<Layout> layouts) {
+		return getExportImportHelper().getLayoutIds(layouts);
 	}
 
-	public long[] getLayoutIds(List<Layout> layouts) {
-		return getExportImportHelper().getLayoutIds(layouts);
+	public static long[] getParentLayoutIds(
+			long groupId, boolean privateLayout, long[] layoutIds)
+		throws Exception {
+
+		return getExportImportHelper().getParentLayoutIds(
+			groupId, privateLayout, layoutIds);
 	}
 
 	public void setExportImportHelper(ExportImportHelper exportImportHelper) {
