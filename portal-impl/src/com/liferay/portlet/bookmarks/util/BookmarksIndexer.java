@@ -31,6 +31,8 @@ import com.liferay.portal.kernel.search.SearchEngineUtil;
 import com.liferay.portal.kernel.search.Summary;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.model.Group;
+import com.liferay.portal.security.permission.ActionKeys;
+import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.service.persistence.GroupActionableDynamicQuery;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portlet.bookmarks.model.BookmarksEntry;
@@ -38,6 +40,7 @@ import com.liferay.portlet.bookmarks.model.BookmarksFolder;
 import com.liferay.portlet.bookmarks.model.BookmarksFolderConstants;
 import com.liferay.portlet.bookmarks.service.BookmarksEntryLocalServiceUtil;
 import com.liferay.portlet.bookmarks.service.BookmarksFolderServiceUtil;
+import com.liferay.portlet.bookmarks.service.permission.BookmarksEntryPermission;
 import com.liferay.portlet.bookmarks.service.persistence.BookmarksEntryActionableDynamicQuery;
 import com.liferay.portlet.bookmarks.service.persistence.BookmarksFolderActionableDynamicQuery;
 
@@ -66,6 +69,21 @@ public class BookmarksIndexer extends BaseIndexer {
 	@Override
 	public String getPortletId() {
 		return PORTLET_ID;
+	}
+
+	@Override
+	public boolean hasPermission(
+			PermissionChecker permissionChecker, long entryClassPK,
+			String actionId)
+		throws Exception {
+
+		return BookmarksEntryPermission.contains(
+			permissionChecker, entryClassPK, ActionKeys.VIEW);
+	}
+
+	@Override
+	public boolean isFilterSearch() {
+		return _FILTER_SEARCH;
 	}
 
 	@Override
@@ -258,6 +276,8 @@ public class BookmarksIndexer extends BaseIndexer {
 
 		actionableDynamicQuery.performActions();
 	}
+
+	private static final boolean _FILTER_SEARCH = true;
 
 	private static final boolean _PERMISSION_AWARE = true;
 
