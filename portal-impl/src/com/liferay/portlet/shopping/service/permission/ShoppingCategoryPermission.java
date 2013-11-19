@@ -105,7 +105,8 @@ public class ShoppingCategoryPermission {
 				}
 			}
 
-			return true;
+			return ShoppingPermission.contains(
+				permissionChecker, category.getGroupId(), actionId);
 		}
 
 		while (categoryId !=

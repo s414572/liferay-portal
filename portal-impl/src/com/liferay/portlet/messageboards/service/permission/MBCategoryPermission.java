@@ -121,7 +121,8 @@ public class MBCategoryPermission {
 				categoryId = category.getParentCategoryId();
 			}
 
-			return true;
+			return MBPermission.contains(
+				permissionChecker, category.getGroupId(), actionId);
 		}
 
 		return _hasPermission(permissionChecker, category, actionId);

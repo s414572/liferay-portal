@@ -99,10 +99,17 @@ public class MBMessagePermission {
 
 			long categoryId = message.getCategoryId();
 
-			if ((categoryId !=
-					MBCategoryConstants.DEFAULT_PARENT_CATEGORY_ID) &&
-				(categoryId != MBCategoryConstants.DISCUSSION_CATEGORY_ID)) {
+			if ((categoryId ==
+					MBCategoryConstants.DEFAULT_PARENT_CATEGORY_ID) ||
+				(categoryId == MBCategoryConstants.DISCUSSION_CATEGORY_ID)) {
 
+				if (!MBPermission.contains(
+						permissionChecker, message.getGroupId(), actionId)) {
+
+					return false;
+				}
+			}
+			else {
 				MBCategory category = MBCategoryLocalServiceUtil.getCategory(
 					categoryId);
 
