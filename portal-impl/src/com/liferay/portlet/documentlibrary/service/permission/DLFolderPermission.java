@@ -94,7 +94,8 @@ public class DLFolderPermission {
 				dlFolderId = dlFolder.getParentFolderId();
 			}
 
-			return true;
+			return DLPermission.contains(
+				permissionChecker, dlFolder.getGroupId(), actionId);
 		}
 
 		return _hasPermission(permissionChecker, dlFolder, actionId);
