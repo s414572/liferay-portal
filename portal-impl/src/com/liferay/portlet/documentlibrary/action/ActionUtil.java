@@ -195,7 +195,7 @@ public class ActionUtil {
 
 		Folder folder = null;
 
-		if ((folderId > 0)) {
+		if (folderId > 0) {
 			folder = DLAppServiceUtil.getFolder(folderId);
 		}
 		else {
