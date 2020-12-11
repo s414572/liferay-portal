@@ -89,6 +89,8 @@ definition {
 				locator1 = "Button#SELECT",
 				value1 = "Select Site");
 
+			Pause(locator1 = "1000");
+
 			SelectFrame.selectFrameNoLoading(locator1 = "IFrame#MODAL_IFRAME");
 
 			Click(

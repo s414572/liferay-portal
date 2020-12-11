@@ -53,6 +53,10 @@ definition {
 			channelType = "Site",
 			siteName = "Guest");
 
+		Refresh();
+
+		Button.clickSave();
+
 		AssertElementPresent(locator1 = "Message#SUCCESS");
 
 		CommerceNavigator.gotoPortlet(
