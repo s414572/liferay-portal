@@ -739,6 +739,23 @@ definition {
 			value1 = "${entryContent}");
 	}
 
+	macro viewAbstractDisplayViaAP {
+		var key_entryAbstractDescription = "${entryAbstractDescription}";
+		var key_entryTitle = "${entryTitle}";
+
+		AssertTextEquals(
+			locator1 = "BlogsEntry#TITLE",
+			value1 = "${entryTitle}");
+
+		AssertTextEquals.assertPartialText(
+			locator1 = "BlogsEntry#CONTENT_ABSTRACT_AP",
+			value1 = "${entryAbstractDescription}");
+
+		AssertTextNotEquals(
+			locator1 = "BlogsEntry#CONTENT_GENERIC",
+			value1 = "${entryContent}");
+	}
+
 	macro viewAsRelatedAssetPG {
 		AssertTextEquals(
 			key_entryTitle = "${entryTitle}",
