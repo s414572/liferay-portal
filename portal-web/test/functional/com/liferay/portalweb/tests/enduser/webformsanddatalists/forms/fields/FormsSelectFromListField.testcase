@@ -498,7 +498,9 @@ definition {
 			actionRowNumber = "1",
 			actionTarget = "Countries of the World");
 
-		FormRules.selectAutofillOutput(dataProviderOutput = "Select from List");
+		FormRules.selectAutofillFromDataProvider(
+			dataProviderOption = "Single Selection",
+			dataProviderParameterName = "Select from List");
 
 		FormRules.save();
 
