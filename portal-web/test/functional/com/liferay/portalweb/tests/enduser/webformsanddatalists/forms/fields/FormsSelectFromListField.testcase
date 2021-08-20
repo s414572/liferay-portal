@@ -428,6 +428,7 @@ definition {
 	@priority = "5"
 	test CanCreateListUsingAutofill {
 		property forms.functional = "true";
+		property portal.acceptance = "stevensun";
 		property test.name.skip.portal.instance = "FormsSelectFromListField#CanCreateListUsingAutofill";
 
 		FormsAdminNavigator.enableLocalNetworkDataProvider();

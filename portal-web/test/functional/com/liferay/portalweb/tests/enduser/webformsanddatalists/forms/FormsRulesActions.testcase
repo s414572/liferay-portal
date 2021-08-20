@@ -1066,7 +1066,7 @@ definition {
 	@description = "LPS-102616 Configure data providers in both input and output fields in autofill rule"
 	@priority = "5"
 	test CanUtilizeDataProvidersInAutofillRule {
-		property portal.acceptance = "true";
+		property portal.acceptance = "stevensun";
 		property portal.upstream = "true";
 		property test.name.skip.portal.instance = "FormsRulesActions#CanUtilizeDataProvidersInAutofillRule";
 
@@ -1170,7 +1170,7 @@ definition {
 	@description = "LPS-70446 - Verify that a Rule with 'Autofill' action can be created with Data Providers"
 	@priority = "5"
 	test CanUtilizeDataProvidersToCreateAnAutofillRule {
-		property portal.acceptance = "true";
+		property portal.acceptance = "stevensun";
 		property portal.upstream = "true";
 		property test.name.skip.portal.instance = "FormsRulesActions#CanUtilizeDataProvidersToCreateAnAutofillRule";
 

@@ -39,6 +39,7 @@ definition {
 	@priority = "5"
 	test AutofillRuleCanBePreviewed {
 		property forms.functional = "true";
+		property portal.acceptance = "stevensun";
 		property test.name.skip.portal.instance = "FormsPreview#AutofillRuleCanBePreviewed";
 
 		FormsAdminNavigator.enableLocalNetworkDataProvider();
