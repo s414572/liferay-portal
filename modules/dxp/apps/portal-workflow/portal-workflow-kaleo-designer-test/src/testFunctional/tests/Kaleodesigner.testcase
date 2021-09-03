@@ -1242,6 +1242,29 @@ definition {
 		Workflow.saveDefinition();
 	}
 
+	@description = "This is a use case for LPS-124984."
+	@priority = "5"
+	test UpdateWorkflowAndCreateBlog {
+		property test.name.skip.portal.instance = "UpdateWorkflowAndCreateBlog";
+
+		ApplicationsMenu.gotoPortlet(
+			category = "Workflow",
+			panel = "Applications",
+			portlet = "Process Builder");
+
+		Navigator.gotoNavItem(navItem = "Configuration");
+
+		Workflow.configureWorkflow(
+			workflowDefinition = "Single Approver",
+			workflowResourceValue = "Blogs Entry");
+
+		Alert.viewSuccessMessage();
+
+		Blogs.addEntry(
+			entryContent = "test",
+			entryTitle = "test");
+	}
+
 	@priority = "4"
 	test ViewAndPublishWorkflowDefinitionDraft {
 		property test.name.skip.portal.instance = "Kaleodesigner#ViewAndPublishWorkflowDefinitionDraft";
@@ -1379,29 +1402,6 @@ definition {
 		KaleoFormsAdmin.viewPublishedWorkflowDefinitions();
 
 		KaleoFormsAdmin.viewNoUnpublishedWorkflowDefinitions();
-	}
-
-	@description = "This is a use case for LPS-124984."
-	@priority = "5"
-	test UpdateWorkflowAndCreateBlog{
-		property test.name.skip.portal.instance = "UpdateWorkflowAndCreateBlog";
-
-		ApplicationsMenu.gotoPortlet(
-			category = "Workflow",
-			panel = "Applications",
-			portlet = "Process Builder");
-	
-		Navigator.gotoNavItem(navItem = "Configuration");
-
-		Workflow.configureWorkflow(
-			workflowDefinition = "Single Approver",
-			workflowResourceValue = "Blogs Entry");
-
-		Alert.viewSuccessMessage();
-	
-		Blogs.addEntry(
-			entryContent = "test",
-			entryTitle = "test");
 	}
 
 }
