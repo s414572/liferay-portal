@@ -1,0 +1,95 @@
+@component-name = "portal-wcm"
+definition {
+
+	property portal.release = "true";
+	property portal.upstream = "true";
+	property testray.main.component.name = "Web Content Administration";
+
+	setUp {
+		TestCase.setUpPortalInstance();
+
+		User.firstLoginPG();
+
+		JSONGroup.addGroup(groupName = "Test Site Name");
+	}
+
+	tearDown {
+		var testPortalInstance = PropsUtil.get("test.portal.instance");
+
+		if ("${testPortalInstance}" == "true") {
+			PortalInstances.tearDownCP();
+		}
+		else {
+			JSONGroup.deleteGroupByName(groupName = "Test Site Name");
+		}
+	}
+
+	@description = "Change Web Content Language"
+	test ViewChangeWebContentLanguage {
+		task ("Check Changeable Default Language setting") {
+			ApplicationsMenuHelper.openApplicationsMenu();
+
+			ApplicationsMenu.gotoPortlet(
+				category = "Configuration",
+				panel = "Control Panel",
+				portlet = "System Settings");
+
+			SystemSettings.gotoConfiguration(
+				configurationCategory = "Web Content",
+				configurationName = "Administration",
+				configurationScope = "System Scope");
+
+			FormFields.enableCheckbox(
+				fieldName = "Changeable Default Language",
+				key_fieldName = "Changeable Default Language");
+
+			Button.clickUpdate();
+		}
+
+		task ("Go To Test Site And Create a Web Content") {
+			ApplicationsMenu.gotoSite(key_site = "Test Site Name");
+
+			ProductMenu.gotoPortlet(
+				category = "Content & Data",
+				portlet = "Web Content");
+
+			JSONWebcontent.addWebContent(
+				content = "WC WebContent Content",
+				groupName = "Test Site Name",
+				title = "WC WebContent Title");
+		}
+
+		task ("Set And View Web Content with two translations") {
+			WebContentNavigator.openWebContentAdmin(siteURLKey = "test-site-name");
+
+			WebContent.viewTitle(webContentTitle = "WC WebContent Title");
+
+			WebContentNavigator.gotoEditCP(webContentTitle = "WC WebContent Title");
+
+			PortletEntry.changeLocale(locale = "es-ES");
+
+			Click(locator1 = "TextInput#TITLE");
+
+			PortletEntry.inputTitle(title = "WC WebContent Title Edit");
+
+			CKEditor.addContentInWebContent(
+				content = "WC WebContent Content Edit",
+				fieldLabel = "content");
+
+			PortletEntry.publish();
+
+			WebContentNavigator.gotoEditCP(webContentTitle = "WC WebContent Title");
+
+			Click(locator1 = "Button#CHANGE");
+
+			Click(
+				key_dropdownItem = "es_ES",
+				locator1 = "ACUtils#DROPDOWN_ITEM");
+
+			WebContent.viewCP(
+				webContentContent = "WC WebContent Content Edit",
+				webContentTitle = "WC WebContent Title Edit");
+		}
+	}
+
+}
