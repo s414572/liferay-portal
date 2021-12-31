@@ -65,6 +65,17 @@
 	<td></td>
 	<td></td>
 </tr>
+<!--CURRENT_AND_PREVIOUS-->
+<tr>
+	<td>CURRENT_AND_PREVIOUS_NAME</td>
+	<td>//div/strong[contains(@class,'process-title')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 <!--DATE-->
 <tr>
 	<td>DATE_SCHEDULE_RADIO</td>
